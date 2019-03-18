@@ -248,12 +248,140 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/18/question/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kehui Yao">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kehui's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2019/03/18/question/" itemprop="url">
+                  Data science interview questions
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-18T00:13:28-05:00">
+                2019-03-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="Programming"><a href="#Programming" class="headerlink" title="Programming"></a>Programming</h3><h4 id="1-Write-a-function-to-calculate-all-possible-assignment-vectors-of-2n-users-where-n-users-are-assigned-to-group-0-control-and-n-users-are-assigned-to-group-1-treatment"><a href="#1-Write-a-function-to-calculate-all-possible-assignment-vectors-of-2n-users-where-n-users-are-assigned-to-group-0-control-and-n-users-are-assigned-to-group-1-treatment" class="headerlink" title="1. Write a function to calculate all possible assignment vectors of 2n users, where n users are assigned to group 0 (control), and n users are assigned to group 1 (treatment)."></a>1. Write a function to calculate all possible assignment vectors of 2n users, where n users are assigned to group 0 (control), and n users are assigned to group 1 (treatment).</h4><h4 id="Solution"><a href="#Solution" class="headerlink" title="Solution:"></a>Solution:</h4><p>We First look at how to print all possible combinations of r elements in a given array of size n.</p>
+<p>Given an array of size n, generate and print all possible combinations of r elements in array. For example, if input array is {1, 2, 3, 4} and r is 2, then output should be {1, 2}, {1, 3}, {1, 4}, {2, 3}, {2, 4} and {3, 4}.<br>Following are two methods to do this.</p>
+<p>Method: define a helper function, the input is the data we’d like to get our element from, and A is a list containing the elements which are already used.<br>When len(data)+len(A)&lt;n, we cannot take any sample from the list. Otherwise, we can write recursive function to generate every possible result.</p>
+<blockquote>
+<p>python code:</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">permute</span><span class="params">(data,n)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">helper</span><span class="params">(data,A)</span>:</span></span><br><span class="line">        res=[]</span><br><span class="line">        <span class="keyword">if</span> len(data)+len(A)&lt;n:</span><br><span class="line">            <span class="keyword">return</span> []</span><br><span class="line">        <span class="keyword">if</span> len(A)==n:</span><br><span class="line">            <span class="keyword">return</span> [A]</span><br><span class="line">        <span class="keyword">if</span> len(data)==<span class="number">1</span>:</span><br><span class="line">            <span class="keyword">return</span> [A+[data[<span class="number">0</span>]]]</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(data)):</span><br><span class="line"></span><br><span class="line">            temp=helper(data[(i+<span class="number">1</span>):],A+[data[i]])</span><br><span class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> temp:</span><br><span class="line">                res.append(j)</span><br><span class="line">        <span class="keyword">return</span> res</span><br><span class="line">    <span class="keyword">return</span> helper(data,[])</span><br><span class="line">permute([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>],<span class="number">2</span>)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>output:</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[[1, 2], [1, 3], [1, 4], [2, 3], [2, 4], [3, 4]]</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/16/test/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Kehui Yao">
       <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -271,7 +399,7 @@
               
                 
                 <a class="post-title-link" href="/2019/03/16/test/" itemprop="url">
-                  test
+                  字节跳动春招算法四道编程题
                 </a>
               
             
@@ -287,7 +415,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-16T15:20:03-05:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-16T22:25:12-05:00">
                 2019-03-16
               </time>
             
@@ -325,7 +453,15 @@
       
         
           
-            
+            <h4 id="1"><a href="#1" class="headerlink" title="1."></a>1.</h4><blockquote>
+<p>Problem description</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">总共有1024元，买一件价格为N元的商品，N为1到1024间的整数。</span><br><span class="line"></span><br><span class="line">找零都以硬币形式给出，可能值为1元，4元，16元，64元。问最少找零硬币数。</span><br></pre></td></tr></table></figure>
+<h4 id="2"><a href="#2" class="headerlink" title="2."></a>2.</h4><blockquote>
+<p>Problem description</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">给定一字符串，对其做如下修改</span><br></pre></td></tr></table></figure>
+
           
         
       
@@ -388,7 +524,7 @@
 
       <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image" src="/images/avatar.gif" alt="Kehui Yao">
+          <img class="site-author-image" itemprop="image" src="/uploads/avatar.jpg" alt="Kehui Yao">
           <p class="site-author-name" itemprop="name">Kehui Yao</p>
            
               <p class="site-description motion-element" itemprop="description"></p>
@@ -399,7 +535,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-count">2</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -499,6 +635,8 @@
   
 
 
+  
+
 
 
   
@@ -518,6 +656,9 @@
 
   
   <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
 
 
   
