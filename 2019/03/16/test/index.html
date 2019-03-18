@@ -94,7 +94,7 @@
 <meta property="og:site_name" content="Kehui&#39;s Blog">
 <meta property="og:description" content="1.Problem description:总共有1024元，买一件价格为N元的商品，N为1到1024间的整数。找零都以硬币形式给出，可能值为1元，4元，16元，64元。问最少找零硬币数。 Soution:典型的递归问题。  python code:  123456789101112def how_many_coins(x):    if x==0:        return 0    if x">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-03-18T22:43:51.278Z">
+<meta property="og:updated_time" content="2019-03-18T22:47:19.438Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="字节跳动春招算法四道编程题">
 <meta name="twitter:description" content="1.Problem description:总共有1024元，买一件价格为N元的商品，N为1到1024间的整数。找零都以硬币形式给出，可能值为1元，4元，16元，64元。问最少找零硬币数。 Soution:典型的递归问题。  python code:  123456789101112def how_many_coins(x):    if x==0:        return 0    if x">
@@ -332,6 +332,7 @@
 <p>output:</p>
 </blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
 <h3 id="2"><a href="#2" class="headerlink" title="2."></a>2.</h3><h4 id="Problem-description-1"><a href="#Problem-description-1" class="headerlink" title="Problem description:"></a>Problem description:</h4><p>给定一字符串，对其做如下修改: 若出现AABB, 修改为AAB；若出现连续三个或以上的A，比如AAA，修改为AA；算法从前向后匹配，譬如碰到AABBCC，就改为AABCC。</p>
 <h4 id="Solution"><a href="#Solution" class="headerlink" title="Solution:"></a>Solution:</h4><p>对一个字符串从前往后搜索，并维护一个至多有两个元素的字典。算法复杂度为O(n)。</p>
 <blockquote>
