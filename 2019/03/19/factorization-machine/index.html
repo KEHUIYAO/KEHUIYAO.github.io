@@ -87,21 +87,17 @@
 
 
 
-<meta name="description" content="principle:        projects:Building a Movie Recommendation ServicePart 1. Matrix factorization algorithm implement by handload necessary packages123456import pandas as pdimport numpy as npimport sys,">
+<meta name="description" content="principle: the original paper   great explanation  美团技术团队深入理解FM及实践   projects:Building a Movie Recommendation ServicePart 1. Matrix factorization algorithm implement by handload necessary packages1234">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Factorization machine principle and projects">
 <meta property="og:url" content="http://yoursite.com/2019/03/19/factorization-machine/index.html">
 <meta property="og:site_name" content="Kehui&#39;s Blog">
-<meta property="og:description" content="principle:        projects:Building a Movie Recommendation ServicePart 1. Matrix factorization algorithm implement by handload necessary packages123456import pandas as pdimport numpy as npimport sys,">
+<meta property="og:description" content="principle: the original paper   great explanation  美团技术团队深入理解FM及实践   projects:Building a Movie Recommendation ServicePart 1. Matrix factorization algorithm implement by handload necessary packages1234">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://www.csie.ntu.edu.tw/~b97053/paper/Rendle2010FM.pdf">
-<meta property="og:image" content="https://www.analyticsvidhya.com/blog/2018/01/factorization-machines/">
-<meta property="og:image" content="https://tech.meituan.com/2016/03/03/deep-understanding-of-ffm-principles-and-practices.html">
-<meta property="og:updated_time" content="2019-03-20T06:04:53.744Z">
+<meta property="og:updated_time" content="2019-03-20T06:09:29.421Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Factorization machine principle and projects">
-<meta name="twitter:description" content="principle:        projects:Building a Movie Recommendation ServicePart 1. Matrix factorization algorithm implement by handload necessary packages123456import pandas as pdimport numpy as npimport sys,">
-<meta name="twitter:image" content="https://www.csie.ntu.edu.tw/~b97053/paper/Rendle2010FM.pdf">
+<meta name="twitter:description" content="principle: the original paper   great explanation  美团技术团队深入理解FM及实践   projects:Building a Movie Recommendation ServicePart 1. Matrix factorization algorithm implement by handload necessary packages1234">
 
 
 
@@ -327,11 +323,11 @@
 
       
         <h1 id="principle"><a href="#principle" class="headerlink" title="principle:"></a>principle:</h1><ul>
-<li><p><img src="https://www.csie.ntu.edu.tw/~b97053/paper/Rendle2010FM.pdf" alt="the original paper"></p>
+<li><p><a href="https://www.csie.ntu.edu.tw/~b97053/paper/Rendle2010FM.pdf" target="_blank" rel="noopener">the original paper</a></p>
 </li>
-<li><p><img src="https://www.analyticsvidhya.com/blog/2018/01/factorization-machines/" alt=" great explanation"></p>
+<li><p><a href="https://www.analyticsvidhya.com/blog/2018/01/factorization-machines/" target="_blank" rel="noopener"> great explanation</a></p>
 </li>
-<li><p><img src="https://tech.meituan.com/2016/03/03/deep-understanding-of-ffm-principles-and-practices.html" alt="美团技术团队深入理解FM及实践"></p>
+<li><p><a href="https://tech.meituan.com/2016/03/03/deep-understanding-of-ffm-principles-and-practices.html" target="_blank" rel="noopener">美团技术团队深入理解FM及实践</a></p>
 </li>
 </ul>
 <h1 id="projects"><a href="#projects" class="headerlink" title="projects:"></a>projects:</h1><h2 id="Building-a-Movie-Recommendation-Service"><a href="#Building-a-Movie-Recommendation-Service" class="headerlink" title="Building a Movie Recommendation Service"></a>Building a Movie Recommendation Service</h2><h3 id="Part-1-Matrix-factorization-algorithm-implement-by-hand"><a href="#Part-1-Matrix-factorization-algorithm-implement-by-hand" class="headerlink" title="Part 1. Matrix factorization algorithm implement by hand"></a>Part 1. Matrix factorization algorithm implement by hand</h3><h4 id="load-necessary-packages"><a href="#load-necessary-packages" class="headerlink" title="load necessary packages"></a>load necessary packages</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> sys, numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">from</span> numpy <span class="keyword">import</span> genfromtxt</span><br><span class="line"><span class="keyword">import</span> codecs</span><br><span class="line"><span class="keyword">from</span> numpy <span class="keyword">import</span> linalg <span class="keyword">as</span> LA</span><br></pre></td></tr></table></figure>
