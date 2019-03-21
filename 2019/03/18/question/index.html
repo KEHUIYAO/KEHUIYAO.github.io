@@ -94,7 +94,7 @@
 <meta property="og:site_name" content="Kehui&#39;s Blog">
 <meta property="og:description" content="Programming1. Write a function to calculate all possible assignment vectors of 2n users, where n users are assigned to group 0 (control), and n users are assigned to group 1 (treatment).Solution:We Fi">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-03-18T22:50:55.000Z">
+<meta property="og:updated_time" content="2019-03-21T23:45:29.414Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Data science interview questions">
 <meta name="twitter:description" content="Programming1. Write a function to calculate all possible assignment vectors of 2n users, where n users are assigned to group 0 (control), and n users are assigned to group 1 (treatment).Solution:We Fi">
@@ -334,7 +334,20 @@
 </blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[[1, 2], [1, 3], [1, 4], [2, 3], [2, 4], [3, 4]]</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
-
+<h4 id="2-实现二叉树的层次遍历及按层输出的两种方法-（大数据开发岗面试题"><a href="#2-实现二叉树的层次遍历及按层输出的两种方法-（大数据开发岗面试题" class="headerlink" title="2. 实现二叉树的层次遍历及按层输出的两种方法 （大数据开发岗面试题)"></a>2. 实现二叉树的层次遍历及按层输出的两种方法 （大数据开发岗面试题)</h4><h4 id="Solution-1"><a href="#Solution-1" class="headerlink" title="Solution:"></a>Solution:</h4><p>二叉树的层次遍历即从上往下、从左至右依次打印树的节点。<br>其思路就是将二叉树的节点加入队列，出队的同时将其非空左右孩子依次入队，出队到队列为空即完成遍历。</p>
+<blockquote>
+<p>python code:</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Node</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,val,left=None,right=None)</span>:</span></span><br><span class="line">        self.val=val</span><br><span class="line">        self.left=left</span><br><span class="line">        self.right=right</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">printNode</span><span class="params">(root)</span>:</span></span><br><span class="line">    output=[]</span><br><span class="line">    queue=[root]</span><br><span class="line">    current=[]</span><br><span class="line">    <span class="keyword">while</span> queue <span class="keyword">and</span> root:</span><br><span class="line">        nextQueue=[]</span><br><span class="line">        current=[]</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> queue:</span><br><span class="line">            current.append(i.val)</span><br><span class="line">            <span class="keyword">if</span> i.left:</span><br><span class="line">                nextQueue.append(i.left)</span><br><span class="line">            <span class="keyword">if</span> i.right:</span><br><span class="line">                nextQueue.append(i.right)         </span><br><span class="line">        queue=nextQueue</span><br><span class="line">        output.append(current)</span><br><span class="line">    <span class="keyword">return</span> output</span><br><span class="line"></span><br><span class="line">a=Node(<span class="number">1</span>,Node(<span class="number">2</span>),Node(<span class="number">3</span>))</span><br><span class="line">print(a)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>output:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h4 id="3-一亿条数据找出前1000条最大的数据"><a href="#3-一亿条数据找出前1000条最大的数据" class="headerlink" title="3. 一亿条数据找出前1000条最大的数据"></a>3. 一亿条数据找出前1000条最大的数据</h4><h4 id="Solution-2"><a href="#Solution-2" class="headerlink" title="Solution:"></a>Solution:</h4><ul>
+<li>选择排序法：维护一个1000个元素的数组，然后依次向后搜索，如果后面出现的元素比这1000个元素的最小值要大，则替换之，搜索过一遍之后得到的就是top 1000。</li>
+<li>分治法：类似于mapreduce的想法。将1亿个数据分成100份，每份100万个数据，找到每份数据中最大的1000个，最后在剩下的100*1000个数据里面找出最大的1000个。</li>
+<li>最小堆：先拿10000个数建堆，然后一次添加剩余元素，如果大于堆顶的数（10000中最小的），将这个数替换堆顶，并调整结构使之仍然是一个最小堆，这样，遍历完后，堆中的10000个数就是所需的最大的10000个。建堆时间复杂度是O（mlogm），算法的时间复杂度为O（nmlogm）（n为10亿，m为10000）。</li>
+</ul>
+<h4 id="4"><a href="#4" class="headerlink" title="4."></a>4.</h4>
       
     </div>
 
@@ -523,7 +536,24 @@
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
 
 
 

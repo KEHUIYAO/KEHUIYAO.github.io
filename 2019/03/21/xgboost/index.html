@@ -87,20 +87,20 @@
 
 
 
-<meta name="description" content="Boosting introduction这篇文章介绍部分转自 Materials for an online-course - “Practical XGBoost in Python”。  What is the idea of boosting Why use tree as a weak classifier What are some common boosting implementa">
+<meta name="description" content="Boosting introduction这篇文章部分内容转自 Materials for an online-course - “Practical XGBoost in Python”。  What is the idea of boosting Why use tree as a weak classifier What are some common boosting implementa">
 <meta property="og:type" content="article">
 <meta property="og:title" content="xgboost principle and practice">
 <meta property="og:url" content="http://yoursite.com/2019/03/21/xgboost/index.html">
 <meta property="og:site_name" content="Kehui&#39;s Blog">
-<meta property="og:description" content="Boosting introduction这篇文章介绍部分转自 Materials for an online-course - “Practical XGBoost in Python”。  What is the idea of boosting Why use tree as a weak classifier What are some common boosting implementa">
+<meta property="og:description" content="Boosting introduction这篇文章部分内容转自 Materials for an online-course - “Practical XGBoost in Python”。  What is the idea of boosting Why use tree as a weak classifier What are some common boosting implementa">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://yoursite.com/2019/03/21/image/output_15_0.png">
 <meta property="og:image" content="http://yoursite.com/2019/03/21/image/output_21_0.png">
 <meta property="og:image" content="http://yoursite.com/2019/03/21/image/output_29_0.png">
-<meta property="og:updated_time" content="2019-03-21T16:12:46.457Z">
+<meta property="og:updated_time" content="2019-03-21T23:45:23.323Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="xgboost principle and practice">
-<meta name="twitter:description" content="Boosting introduction这篇文章介绍部分转自 Materials for an online-course - “Practical XGBoost in Python”。  What is the idea of boosting Why use tree as a weak classifier What are some common boosting implementa">
+<meta name="twitter:description" content="Boosting introduction这篇文章部分内容转自 Materials for an online-course - “Practical XGBoost in Python”。  What is the idea of boosting Why use tree as a weak classifier What are some common boosting implementa">
 <meta name="twitter:image" content="http://yoursite.com/2019/03/21/image/output_15_0.png">
 
 
@@ -326,7 +326,7 @@
       
 
       
-        <h1 id="Boosting-introduction"><a href="#Boosting-introduction" class="headerlink" title="Boosting introduction"></a>Boosting introduction</h1><p>这篇文章介绍部分转自 Materials for an online-course - “Practical XGBoost in Python”。</p>
+        <h2 id="Boosting-introduction"><a href="#Boosting-introduction" class="headerlink" title="Boosting introduction"></a>Boosting introduction</h2><p>这篇文章部分内容转自 Materials for an online-course - “Practical XGBoost in Python”。</p>
 <ul>
 <li><a href="#idea-of-boosting">What is the idea of boosting</a></li>
 <li><a href="#weak-classifier">Why use tree as a weak classifier</a></li>
@@ -406,7 +406,7 @@
 <p>$$<br>\Omega(f) = \gamma T + \frac{1}{2} \lambda \sum_{j=1}^{T}w_j^2<br>$$</p>
 <p>First part ($\gamma T$) is responsible for controlling the overall number of created leaves, and the second term ($\frac{1}{2} \lambda \sum_{j=1}^{T}w_j^2$) watches over the their’s scores.</p>
 <p>To optimize the objective a gradient descent is used, this leads to a problem of finding an optimal structure of the successive tree. More mathematics about the algorithm is not included in the scope of this course, but pretty decent informations can be found on the package <a href="http://xgboost.readthedocs.io/" target="_blank" rel="noopener">docs page</a> and in <a href="http://www.slideshare.net/ShangxuanZhang/xgboost" target="_blank" rel="noopener">this</a> presentation.</p>
-<h1 id="Boosting-practice"><a href="#Boosting-practice" class="headerlink" title="Boosting practice"></a>Boosting practice</h1><p><strong>This chapter includes</strong>:</p>
+<h2 id="Boosting-practice"><a href="#Boosting-practice" class="headerlink" title="Boosting practice"></a>Boosting practice</h2><p><strong>This chapter includes</strong>:</p>
 <ul>
 <li><a href="#data-preparation">Data preparation</a></li>
 <li><a href="#sdt">Using single decision tree</a></li>
@@ -507,7 +507,115 @@ Predicted probabilities:
 </code></pre><p>The difference is that GBC uses <code>DecisionTreeRegressor</code> classifier as the estimator with <em>mean-square error</em> as criterion. This results of slightly different output of the tree - now the leaf contains a predicted value (while the first splitting point remains the same).</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">gbc_t1 = gbc.estimators_[<span class="number">2</span>][<span class="number">0</span>]</span><br><span class="line">gbc_t1_viz_file = <span class="string">'../images/gbc-t1.dot'</span></span><br><span class="line">gbc_t1_png_file = <span class="string">'../images/gbc-t1.png'</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># create visualization</span></span><br><span class="line">export_graphviz(gbc_t1, out_file=gbc_t1_viz_file)</span><br><span class="line"></span><br><span class="line"><span class="comment"># convert to PNG</span></span><br><span class="line">command = [<span class="string">"dot"</span>, <span class="string">"-Tpng"</span>, gbc_t1_viz_file, <span class="string">"-o"</span>, gbc_t1_png_file]</span><br><span class="line">subprocess.check_call(command)</span><br><span class="line"></span><br><span class="line"><span class="comment"># display image</span></span><br><span class="line">Image(filename=gbc_t1_png_file)</span><br></pre></td></tr></table></figure>
 <p><img src="../image/output_29_0.png" alt="png"></p>
+<h3 id="XGBoost"><a href="#XGBoost" class="headerlink" title="XGBoost"></a>XGBoost</h3><h4 id="Using-standard-interface"><a href="#Using-standard-interface" class="headerlink" title="Using standard interface"></a>Using standard interface</h4><p>The following notebooks presents the basic usage of native XGBoost Python interface.</p>
+<p><strong>Flight-plan</strong>:</p>
+<ul>
+<li><a href="#libs">load libraries</a> and <a href="#data">prepare data</a>,</li>
+<li><a href="#params">specify parameters</a>,</li>
+<li><a href="#train">train classifier</a>,</li>
+<li><a href="#predict">make predictions</a></li>
+</ul>
+<h4 id="Loading-libraries"><a href="#Loading-libraries" class="headerlink" title="Loading libraries"></a>Loading libraries<a name="libs"></a></h4><p>Begin with loading all required libraries in one place:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> xgboost <span class="keyword">as</span> xgb</span><br></pre></td></tr></table></figure>
+<h4 id="Loading-data"><a href="#Loading-data" class="headerlink" title="Loading data"></a>Loading data<a name="data"></a></h4><p>We are going to use bundled <a href="https://archive.ics.uci.edu/ml/datasets/Mushroom" target="_blank" rel="noopener">Agaricus</a> dataset which can be downloaded <a href="https://github.com/dmlc/xgboost/tree/master/demo/data" target="_blank" rel="noopener">here</a>.</p>
+<blockquote>
+<p>This data set records biological attributes of different mushroom species, and the target is to predict whether it is poisonous</p>
+</blockquote>
+<blockquote>
+<p>This data set includes descriptions of hypothetical samples corresponding to 23 species of gilled mushrooms in the Agaricus and Lepiota Family. Each species is identified as definitely edible, definitely poisonous, or of unknown edibility and not recommended. This latter class was combined with the poisonous one. The Guide clearly states that there is no simple rule for determining the edibility of a mushroom;</p>
+</blockquote>
+<p>It consist of 8124 instances, characterized by 22 attributes (both numeric and categorical). The target class is either 0 or 1 which means binary classification problem.</p>
+<blockquote>
+<p><strong>Important</strong>: XGBoost handles only numeric variables.</p>
+</blockquote>
+<p>Lucily all the data have alreay been pre-process for us. Categorical variables have been encoded, and all instances divided into train and test datasets. You will know how to do this on your own in later lectures.</p>
+<p>Data needs to be stored in <code>DMatrix</code> object which is designed to handle sparse datasets. It can be populated in couple ways:</p>
+<ul>
+<li>using libsvm format txt file,</li>
+<li>using Numpy 2D array (most popular),</li>
+<li>using XGBoost binary buffer file</li>
+</ul>
+<p>In this case we’ll use first option.</p>
+<blockquote>
+<p>Libsvm files stores only non-zero elements in format</p>
+<p><code>&lt;label&gt; &lt;feature_a&gt;:&lt;value_a&gt; &lt;feature_c&gt;:&lt;value_c&gt; ... &lt;feature_z&gt;:&lt;value_z&gt;</code></p>
+<p>Any missing features indicate that it’s corresponding value is 0.</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dtrain = xgb.DMatrix(<span class="string">'../data/agaricus.txt.train'</span>)</span><br><span class="line">dtest = xgb.DMatrix(<span class="string">'../data/agaricus.txt.test'</span>)</span><br></pre></td></tr></table></figure>
+<p>Let’s examine what was loaded:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">"Train dataset contains &#123;0&#125; rows and &#123;1&#125; columns"</span>.format(dtrain.num_row(), dtrain.num_col()))</span><br><span class="line">print(<span class="string">"Test dataset contains &#123;0&#125; rows and &#123;1&#125; columns"</span>.format(dtest.num_row(), dtest.num_col()))</span><br></pre></td></tr></table></figure>
+<pre><code>Train dataset contains 6513 rows and 127 columns
+Test dataset contains 1611 rows and 127 columns
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">"Train possible labels: "</span>)</span><br><span class="line">print(np.unique(dtrain.get_label()))</span><br><span class="line"></span><br><span class="line">print(<span class="string">"\nTest possible labels: "</span>)</span><br><span class="line">print(np.unique(dtest.get_label()))</span><br></pre></td></tr></table></figure>
+<pre><code>Train possible labels:
+[ 0.  1.]
 
+Test possible labels:
+[ 0.  1.]
+</code></pre><h4 id="Specify-training-parameters"><a href="#Specify-training-parameters" class="headerlink" title="Specify training parameters"></a>Specify training parameters<a name="params"></a></h4><p>Let’s make the following assuptions and adjust algorithm parameters to it:</p>
+<ul>
+<li>we are dealing with binary classification problem (<code>&#39;objective&#39;:&#39;binary:logistic&#39;</code>),</li>
+<li>we want shallow single trees with no more than 2 levels (<code>&#39;max_depth&#39;:2</code>),</li>
+<li>we don’t any oupout (<code>&#39;silent&#39;:1</code>),</li>
+<li>we want algorithm to learn fast and aggressively (<code>&#39;eta&#39;:1</code>),</li>
+<li>we want to iterate only 5 rounds</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">params = &#123;</span><br><span class="line">    <span class="string">'objective'</span>:<span class="string">'binary:logistic'</span>,</span><br><span class="line">    <span class="string">'max_depth'</span>:<span class="number">2</span>,</span><br><span class="line">    <span class="string">'silent'</span>:<span class="number">1</span>,</span><br><span class="line">    <span class="string">'eta'</span>:<span class="number">1</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">num_rounds = <span class="number">5</span></span><br></pre></td></tr></table></figure>
+<h4 id="Training-classifier"><a href="#Training-classifier" class="headerlink" title="Training classifier"></a>Training classifier<a name="train"></a></h4><p>To train the classifier we simply pass to it a training dataset, parameters list and information about number of iterations.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bst = xgb.train(params, dtrain, num_rounds)</span><br></pre></td></tr></table></figure>
+<p>We can also observe performance on test dataset using <code>watchlist</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">watchlist  = [(dtest,<span class="string">'test'</span>), (dtrain,<span class="string">'train'</span>)] <span class="comment"># native interface only</span></span><br><span class="line">bst = xgb.train(params, dtrain, num_rounds, watchlist)</span><br></pre></td></tr></table></figure>
+<pre><code>[0]    test-error:0.042831    train-error:0.046522
+[1]    test-error:0.021726    train-error:0.022263
+[2]    test-error:0.006207    train-error:0.007063
+[3]    test-error:0.018001    train-error:0.0152
+[4]    test-error:0.006207    train-error:0.007063
+</code></pre><h3 id="Make-predictions"><a href="#Make-predictions" class="headerlink" title="Make predictions"></a>Make predictions<a name="predict"></a></h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">preds_prob = bst.predict(dtest)</span><br><span class="line">preds_prob</span><br></pre></td></tr></table></figure>
+<pre><code>array([ 0.08073306,  0.92217326,  0.08073306, ...,  0.98059034,
+        0.01182149,  0.98059034], dtype=float32)
+</code></pre><p>Calculate simple accuracy metric to verify the results. Of course validation should be performed accordingly to the dataset, but in this case accuracy is sufficient.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">labels = dtest.get_label()</span><br><span class="line">preds = preds_prob &gt; <span class="number">0.5</span> <span class="comment"># threshold</span></span><br><span class="line">correct = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(len(preds)):</span><br><span class="line">    <span class="keyword">if</span> (labels[i] == preds[i]):</span><br><span class="line">        correct += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">print(<span class="string">'Predicted correctly: &#123;0&#125;/&#123;1&#125;'</span>.format(correct, len(preds)))</span><br><span class="line">print(<span class="string">'Error: &#123;0:.4f&#125;'</span>.format(<span class="number">1</span>-correct/len(preds)))</span><br></pre></td></tr></table></figure>
+<pre><code>Predicted correctly: 1601/1611
+Error: 0.0062
+</code></pre><h3 id="Using-Scikit-learn-Interface"><a href="#Using-Scikit-learn-Interface" class="headerlink" title="Using Scikit-learn Interface"></a>Using Scikit-learn Interface</h3><p>The following notebook presents the alternative approach for using XGBoost algorithm.</p>
+<p><strong>What’s included</strong>:</p>
+<ul>
+<li><a href="#libs">load libraries</a> and <a href="#data">prepare data</a>,</li>
+<li><a href="#params">specify parameters</a>,</li>
+<li><a href="#train">train classifier</a>,</li>
+<li><a href="#predict">make predictions</a></li>
+</ul>
+<h4 id="Loading-libraries-1"><a href="#Loading-libraries-1" class="headerlink" title="Loading libraries"></a>Loading libraries<a name="libs"></a></h4><p>Begin with loading all required libraries.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> sklearn.datasets <span class="keyword">import</span> load_svmlight_files</span><br><span class="line"><span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> accuracy_score</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> xgboost.sklearn <span class="keyword">import</span> XGBClassifier</span><br></pre></td></tr></table></figure>
+<h4 id="Loading-data-1"><a href="#Loading-data-1" class="headerlink" title="Loading data"></a>Loading data<a name="data"></a></h4><p>We are going to use the same dataset as in previous lecture. The scikit-learn package provides a convenient function <code>load_svmlight</code> capable of reading many libsvm files at once and storing them as Scipy’s sparse matrices.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">X_train, y_train, X_test, y_test = load_svmlight_files((<span class="string">'../data/agaricus.txt.train'</span>, <span class="string">'../data/agaricus.txt.test'</span>))</span><br></pre></td></tr></table></figure>
+<p>Examine what was loaded</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">"Train dataset contains &#123;0&#125; rows and &#123;1&#125; columns"</span>.format(X_train.shape[<span class="number">0</span>], X_train.shape[<span class="number">1</span>]))</span><br><span class="line">print(<span class="string">"Test dataset contains &#123;0&#125; rows and &#123;1&#125; columns"</span>.format(X_test.shape[<span class="number">0</span>], X_test.shape[<span class="number">1</span>]))</span><br></pre></td></tr></table></figure>
+<pre><code>Train dataset contains 6513 rows and 126 columns
+Test dataset contains 1611 rows and 126 columns
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">"Train possible labels: "</span>)</span><br><span class="line">print(np.unique(y_train))</span><br><span class="line"></span><br><span class="line">print(<span class="string">"\nTest possible labels: "</span>)</span><br><span class="line">print(np.unique(y_test))</span><br></pre></td></tr></table></figure>
+<pre><code>Train possible labels:
+[ 0.  1.]
+
+Test possible labels:
+[ 0.  1.]
+</code></pre><h4 id="Specify-training-parameters-1"><a href="#Specify-training-parameters-1" class="headerlink" title="Specify training parameters"></a>Specify training parameters<a name="params"></a></h4><p>All the parameters are set like in the previous example</p>
+<ul>
+<li>we are dealing with binary classification problem (<code>&#39;objective&#39;:&#39;binary:logistic&#39;</code>),</li>
+<li>we want shallow single trees with no more than 2 levels (<code>&#39;max_depth&#39;:2</code>),</li>
+<li>we don’t any oupout (<code>&#39;silent&#39;:1</code>),</li>
+<li>we want algorithm to learn fast and aggressively (<code>&#39;learning_rate&#39;:1</code>), (in naive named <code>eta</code>)</li>
+<li>we want to iterate only 5 rounds (<code>n_estimators</code>)</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">params = &#123;</span><br><span class="line">    <span class="string">'objective'</span>: <span class="string">'binary:logistic'</span>,</span><br><span class="line">    <span class="string">'max_depth'</span>: <span class="number">2</span>,</span><br><span class="line">    <span class="string">'learning_rate'</span>: <span class="number">1.0</span>,</span><br><span class="line">    <span class="string">'silent'</span>: <span class="number">1.0</span>,</span><br><span class="line">    <span class="string">'n_estimators'</span>: <span class="number">5</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Training-classifier-1"><a href="#Training-classifier-1" class="headerlink" title="Training classifier"></a>Training classifier<a name="train"></a></h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bst = XGBClassifier(**params).fit(X_train, y_train)</span><br></pre></td></tr></table></figure>
+<h4 id="Make-predictions-1"><a href="#Make-predictions-1" class="headerlink" title="Make predictions"></a>Make predictions<a name="predict"></a></h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">preds = bst.predict(X_test)</span><br><span class="line">preds</span><br></pre></td></tr></table></figure>
+<pre><code>array([ 0.,  1.,  0., ...,  1.,  0.,  1.])
+</code></pre><p>Calculate obtained error</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">correct = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(len(preds)):</span><br><span class="line">    <span class="keyword">if</span> (y_test[i] == preds[i]):</span><br><span class="line">        correct += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">acc = accuracy_score(y_test, preds)</span><br><span class="line"></span><br><span class="line">print(<span class="string">'Predicted correctly: &#123;0&#125;/&#123;1&#125;'</span>.format(correct, len(preds)))</span><br><span class="line">print(<span class="string">'Error: &#123;0:.4f&#125;'</span>.format(<span class="number">1</span>-acc))</span><br></pre></td></tr></table></figure>
+<pre><code>Predicted correctly: 1601/1611
+Error: 0.0062
+</code></pre>
       
     </div>
 
@@ -692,7 +800,24 @@ Predicted probabilities:
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
 
 
 
