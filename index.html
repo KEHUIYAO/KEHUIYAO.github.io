@@ -324,8 +324,7 @@
 
       
         
-          
-            <h1 id="Boosting-introduction"><a href="#Boosting-introduction" class="headerlink" title="Boosting introduction"></a>Boosting introduction</h1><p>这篇文章介绍部分转自 Materials for an online-course - “Practical XGBoost in Python”。</p>
+          <h1 id="Boosting-introduction"><a href="#Boosting-introduction" class="headerlink" title="Boosting introduction"></a>Boosting introduction</h1><p>这篇文章介绍部分转自 Materials for an online-course - “Practical XGBoost in Python”。</p>
 <ul>
 <li><a href="#idea-of-boosting">What is the idea of boosting</a></li>
 <li><a href="#weak-classifier">Why use tree as a weak classifier</a></li>
@@ -334,78 +333,13 @@
 <li><a href="https://homes.cs.washington.edu/~tqchen/pdf/BoostedTree.pdf" target="_blank" rel="noopener">Tianqi chen’s slide</a></li>
 <li><a href="https://arxiv.org/pdf/1603.02754.pdf" target="_blank" rel="noopener">xgboost original paper</a></li>
 </ul>
-<h3 id="Idea-of-boosting"><a href="#Idea-of-boosting" class="headerlink" title="Idea of boosting "></a>Idea of boosting <a name="idea-of-boosting"></a></h3><p>Let’s start with intuitive definition of the concept:</p>
-<blockquote>
-<p><strong>Boosting</strong> (<em>Freud and Shapire, 1996</em>) - algorithm allowing to fit <strong>many</strong> weak classifiers to <strong>reweighted</strong> versions of the training data. Classify final examples by majority voting.</p>
-</blockquote>
-<p>When using boosting techinque all instance in dataset are assigned a score that tells <em>how difficult to classify</em> they are. In each following iteration the algorithm pays more attention (assign bigger weights) to instances that were wrongly classified previously.</p>
-<p>In the first iteration all instance weights are equal.</p>
-<p>Ensemble parameters are optimized in <strong>stagewise way</strong> which means that we are calculating optimal parameters for the next classifier holding fixed what was already calculated. This might sound like a limitation but turns out it’s a very resonable way of regularizing the model.</p>
-<h3 id="Weak-classifier-why-tree"><a href="#Weak-classifier-why-tree" class="headerlink" title="Weak classifier - why tree? "></a>Weak classifier - why tree? <a name="weak-classifier"></a></h3><p>First what is a weak classifier?</p>
-<blockquote>
-<p><strong>Weak classifier</strong> - an algorithm <strong>slightly better</strong> than random guessing.</p>
-</blockquote>
-<p>Every algorithm can be used as a base for boosting techinique, but trees have some nice properties that makes them more suitable candidates.</p>
-<h4 id="Pro’s"><a href="#Pro’s" class="headerlink" title="Pro’s"></a>Pro’s</h4><ul>
-<li>computational scalability,</li>
-<li>handling missing values,</li>
-<li>robust to outliers,</li>
-<li>does not require feature scalling,</li>
-<li>can deal with irrelevant inputs,</li>
-<li>interpretable (if small),</li>
-<li>can handle mixed predictors (quantitive and qualitative)</li>
-</ul>
-<h4 id="Con’s"><a href="#Con’s" class="headerlink" title="Con’s"></a>Con’s</h4><ul>
-<li>can’t extract linear combination of features</li>
-<li>small predictive power (high variance)</li>
-</ul>
-<p>Boosting techinque can try to reduce the variance by <strong>averaging</strong> many <strong>different</strong> trees (where each one is solving the same problem)</p>
-<h3 id="Common-Algorithms-warning-MATH-INCLUDED"><a href="#Common-Algorithms-warning-MATH-INCLUDED" class="headerlink" title="Common Algorithms (warning MATH INCLUDED) "></a>Common Algorithms (warning MATH INCLUDED) <a name="common-algorithms"></a></h3><p>In every machine learning model the training objective is a sum of a loss function $L$ and regularization $\Omega$:</p>
-<p>$$<br>obj = L + \Omega<br>$$</p>
-<p>The loss function controls the predictive power of an algorithm and regularization term controls it’s simplicity.</p>
-<h4 id="AdaBoost-Adaptive-Boosting"><a href="#AdaBoost-Adaptive-Boosting" class="headerlink" title="AdaBoost (Adaptive Boosting)"></a>AdaBoost (Adaptive Boosting)</h4><p>The implementation of boosting technique using decision tress (it’s a <em>meta-estimator</em> which means you can fit any classifier in). The intuitive recipie is presented below:</p>
-<p><strong>Algorithm</strong>:</p>
-<p>Assume that the number of training samples is denoted by $N$, and the number of iterations (created trees) is $M$. Notice that possible class outputs are $Y={-1,1}$</p>
-<ol>
-<li>Initialize the observation weights $w_i=\frac{1}{N}$ where $i = 1,2, \dots, N$</li>
-<li>For $m=1$ to $M$:<ul>
-<li>fit a classifier $G_m(x)$ to the training data using weights $w_i$,</li>
-<li>compute $err_m = \frac{\sum_{i=1}^{N} w_i I (y_i \neq G_m(x))}{\sum_{i=1}^{N}w_i}$,</li>
-<li>compute $\alpha_m = \log ((1-err_m)/err_m)$,</li>
-<li>set $w_i \leftarrow w_i \cdot \exp [\alpha_m \cdot I (y_i \neq G_m(x)]$, where $i = 1,2, \dots, N$</li>
-</ul>
-</li>
-<li>Output $G_m(x) = sign [\sum_{m=1}^{M} \alpha_m G_m(x)]$</li>
-</ol>
-<h4 id="Generalized-Boosted-Models"><a href="#Generalized-Boosted-Models" class="headerlink" title="Generalized Boosted Models"></a>Generalized Boosted Models</h4><p>We can take advantage of the fact that the loss function can be represented with a form suitable for optimalization (due to the stage-wise additivity). This creates a class of general boosting algorithms named simply <strong>generalized boosted model (GBM)</strong>.</p>
-<p>An example of a GBM is <strong>Gradient Boosted Tree</strong> which uses decision tree as an estimator. It can work with different loss functions (regression, classification, risk modeling etc.), evaluate it’s  gradient and approximates it with a simple tree (stage-wisely, that minimizes the overall error).</p>
-<p>AdaBoost is a special case of Gradient Boosted Tree that uses exponential loss function. You can learn more about GBM in this <a href="https://www.youtube.com/watch?v=wPqtzj5VZus&amp;feature=youtu.be" target="_blank" rel="noopener">video</a>.</p>
-<h3 id="How-XGBoost-helps"><a href="#How-XGBoost-helps" class="headerlink" title="How XGBoost helps "></a>How XGBoost helps <a name="how-xgboost-helps"></a></h3><p>The problem with most tree packages is that they don’t take regularization issues very seriously - they allow to grow many very similar trees that can be also sometimes quite bushy.</p>
-<p>GBT tries to approach this problem by adding some regularization parameters. We can:</p>
-<ul>
-<li>control tree structure (maximum depth, minimum samples per leaf),</li>
-<li>control learning rate (shrinkage),</li>
-<li>reduce variance by introducing randomness (stochastic gradient boosting - using random subsamples of instances and features)</li>
-</ul>
-<p>But it could be improved even further. Enter XGBoost.</p>
-<blockquote>
-<p><strong>XGBoost</strong> (<em>extreme gradient boosting</em>) is a <strong>more regularized</strong> version of Gradient Boosted Trees.</p>
-</blockquote>
-<p>It was develop by Tianqi Chen in C++ but also enables interfaces for Python, R, Julia. Used for supervised learning problem gave win to <a href="https://github.com/dmlc/xgboost/tree/master/demo#machine-learning-challenge-winning-solutions" target="_blank" rel="noopener">many Kaggle competitions</a>.</p>
-<p>The main advantages:</p>
-<ul>
-<li>good bias-variance (simple-predictive) trade-off “out of the box”,</li>
-<li>great computation speed,</li>
-<li>package is evolving (author is willing to accept many PR from community)</li>
-</ul>
-<p>XGBoost’s objective function is a sum of a specific loss function evaluated over all predictions and a sum of regularization term for all predictors ($K$ trees). In the formula $f_k$ means a prediction coming from k-th tree.</p>
-<p>$$<br>obj(\theta) = \sum_{i}^{n} l(y_i - \hat{y_i}) +  \sum_{k=1}^{K} \Omega (f_k)<br>$$</p>
-<p>Loss function depends on the task being performed (classification, regression, etc.) and a regularization term is described by the following equation:</p>
-<p>$$<br>\Omega(f) = \gamma T + \frac{1}{2} \lambda \sum_{j=1}^{T}w_j^2<br>$$</p>
-<p>First part ($\gamma T$) is responsible for controlling the overall number of created leaves, and the second term ($\frac{1}{2} \lambda \sum_{j=1}^{T}w_j^2$) watches over the their’s scores.</p>
-<p>To optimize the objective a gradient descent is used, this leads to a problem of finding an optimal structure of the successive tree. More mathematics about the algorithm is not included in the scope of this course, but pretty decent informations can be found on the package <a href="http://xgboost.readthedocs.io/" target="_blank" rel="noopener">docs page</a> and in <a href="http://www.slideshare.net/ShangxuanZhang/xgboost" target="_blank" rel="noopener">this</a> presentation.</p>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/03/21/xgboost/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
