@@ -102,7 +102,7 @@
 <meta property="og:image" content="http://yoursite.com/2019/03/21/xgboost-tuning-parameters/output_13_0.png">
 <meta property="og:image" content="http://yoursite.com/2019/03/21/xgboost-tuning-parameters/output_17_0.png">
 <meta property="og:image" content="http://yoursite.com/2019/03/21/images/practical_xgboost_in_python_notebook_header.png">
-<meta property="og:updated_time" content="2019-03-22T04:28:00.000Z">
+<meta property="og:updated_time" content="2019-03-22T04:32:27.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="xgboost_tuning_parameters">
 <meta name="twitter:description" content="Spotting Most Important FeaturesThe following notebook presents how to distinguish the relative importance of features in the dataset.Using this knowledge will help you to figure out what is driving t">
@@ -345,6 +345,7 @@
   &quot;`IPython.html.widgets` has moved to `ipywidgets`.&quot;, ShimWarning)
 </code></pre><h3 id="Load-data"><a href="#Load-data" class="headerlink" title="Load data"></a>Load data<a name="data"></a></h3><p>Load agaricus dataset from file</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dtrain = xgb.DMatrix(<span class="string">'../data/agaricus.txt.train'</span>)</span><br><span class="line">dtest = xgb.DMatrix(<span class="string">'../data/agaricus.txt.test'</span>)</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
 <h3 id="Train-the-model"><a href="#Train-the-model" class="headerlink" title="Train the model"></a>Train the model<a name="model"></a></h3><p>Specify training parameters - we are going to use 5 stump decision trees with average learning rate.</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># specify training parameters</span></span><br><span class="line">params = &#123;</span><br><span class="line">    <span class="string">'objective'</span>:<span class="string">'binary:logistic'</span>,</span><br><span class="line">    <span class="string">'max_depth'</span>:<span class="number">1</span>,</span><br><span class="line">    <span class="string">'silent'</span>:<span class="number">1</span>,</span><br><span class="line">    <span class="string">'eta'</span>:<span class="number">0.5</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">num_rounds = <span class="number">5</span></span><br></pre></td></tr></table></figure>
 <p>Train the model. In the same time specify <code>watchlist</code> to observe it’s performance on the test set.</p>
