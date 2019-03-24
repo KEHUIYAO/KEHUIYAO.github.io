@@ -87,17 +87,17 @@
 
 
 
-<meta name="description" content="## Description:Write a function to calculate all possible assignment vectors of 2n users, where n users are assigned to group 0 (control), and n users are assigned to group 1 (treatment). Solution:We">
+<meta name="description" content="P1Description:Write a function to calculate all possible assignment vectors of 2n users, where n users are assigned to group 0 (control), and n users are assigned to group 1 (treatment). Solution:We F">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Data science interview questions">
 <meta property="og:url" content="http://yoursite.com/2019/03/18/question/index.html">
 <meta property="og:site_name" content="Kehui&#39;s Blog">
-<meta property="og:description" content="## Description:Write a function to calculate all possible assignment vectors of 2n users, where n users are assigned to group 0 (control), and n users are assigned to group 1 (treatment). Solution:We">
+<meta property="og:description" content="P1Description:Write a function to calculate all possible assignment vectors of 2n users, where n users are assigned to group 0 (control), and n users are assigned to group 1 (treatment). Solution:We F">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-03-24T05:38:51.000Z">
+<meta property="og:updated_time" content="2019-03-24T06:05:28.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Data science interview questions">
-<meta name="twitter:description" content="## Description:Write a function to calculate all possible assignment vectors of 2n users, where n users are assigned to group 0 (control), and n users are assigned to group 1 (treatment). Solution:We">
+<meta name="twitter:description" content="P1Description:Write a function to calculate all possible assignment vectors of 2n users, where n users are assigned to group 0 (control), and n users are assigned to group 1 (treatment). Solution:We F">
 
 
 
@@ -322,8 +322,7 @@
       
 
       
-        <p>##</p>
-<h3 id="Description"><a href="#Description" class="headerlink" title="Description:"></a>Description:</h3><p>Write a function to calculate all possible assignment vectors of 2n users, where n users are assigned to group 0 (control), and n users are assigned to group 1 (treatment).</p>
+        <h2 id="P1"><a href="#P1" class="headerlink" title="P1"></a>P1</h2><h3 id="Description"><a href="#Description" class="headerlink" title="Description:"></a>Description:</h3><p>Write a function to calculate all possible assignment vectors of 2n users, where n users are assigned to group 0 (control), and n users are assigned to group 1 (treatment).</p>
 <h3 id="Solution"><a href="#Solution" class="headerlink" title="Solution:"></a>Solution:</h3><p>We First look at how to print all possible combinations of r elements in a given array of size n.</p>
 <p>Given an array of size n, generate and print all possible combinations of r elements in array. For example, if input array is {1, 2, 3, 4} and r is 2, then output should be {1, 2}, {1, 3}, {1, 4}, {2, 3}, {2, 4} and {3, 4}.<br>Following are two methods to do this.</p>
 <p>Method: define a helper function, the input is the data we’d like to get our element from, and A is a list containing the elements which are already used.<br>When len(data)+len(A)&lt;n, we cannot take any sample from the list. Otherwise, we can write recursive function to generate every possible result.</p>
@@ -336,8 +335,7 @@
 </blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[[1, 2], [1, 3], [1, 4], [2, 3], [2, 4], [3, 4]]</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
-<p>##</p>
-<h3 id="Description-1"><a href="#Description-1" class="headerlink" title="Description:"></a>Description:</h3><p>实现二叉树的层次遍历及按层输出的两种方法 （大数据开发岗面试题)</p>
+<h2 id="P2"><a href="#P2" class="headerlink" title="P2"></a>P2</h2><h3 id="Description-1"><a href="#Description-1" class="headerlink" title="Description:"></a>Description:</h3><p>实现二叉树的层次遍历及按层输出的两种方法 （大数据开发岗面试题)</p>
 <h3 id="Solution-1"><a href="#Solution-1" class="headerlink" title="Solution:"></a>Solution:</h3><p>二叉树的层次遍历即从上往下、从左至右依次打印树的节点。<br>其思路就是将二叉树的节点加入队列，出队的同时将其非空左右孩子依次入队，出队到队列为空即完成遍历。</p>
 <blockquote>
 <p>python code:</p>
@@ -346,8 +344,7 @@
 <blockquote>
 <p>output:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1</span><br></pre></td></tr></table></figure></p>
 </blockquote>
-<p>##</p>
-<h3 id="Description-2"><a href="#Description-2" class="headerlink" title="Description:"></a>Description:</h3><p>一亿条数据找出前1000条最大的数据</p>
+<h2 id="P3"><a href="#P3" class="headerlink" title="P3"></a>P3</h2><h3 id="Description-2"><a href="#Description-2" class="headerlink" title="Description:"></a>Description:</h3><p>一亿条数据找出前1000条最大的数据</p>
 <h3 id="Solution-2"><a href="#Solution-2" class="headerlink" title="Solution:"></a>Solution:</h3><ul>
 <li>选择排序法：维护一个1000个元素的数组，然后依次向后搜索，如果后面出现的元素比这1000个元素的最小值要大，则替换之，搜索过一遍之后得到的就是top 1000。</li>
 <li>分治法：类似于mapreduce的想法。将1亿个数据分成100份，每份100万个数据，找到每份数据中最大的1000个，最后在剩下的100*1000个数据里面找出最大的1000个。</li>
@@ -504,7 +501,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Description"><span class="nav-number">1.</span> <span class="nav-text">Description:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Solution"><span class="nav-number">2.</span> <span class="nav-text">Solution:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Description-1"><span class="nav-number">3.</span> <span class="nav-text">Description:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Solution-1"><span class="nav-number">4.</span> <span class="nav-text">Solution:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Description-2"><span class="nav-number">5.</span> <span class="nav-text">Description:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Solution-2"><span class="nav-number">6.</span> <span class="nav-text">Solution:</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#P1"><span class="nav-number">1.</span> <span class="nav-text">P1</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Description"><span class="nav-number">1.1.</span> <span class="nav-text">Description:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Solution"><span class="nav-number">1.2.</span> <span class="nav-text">Solution:</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#P2"><span class="nav-number">2.</span> <span class="nav-text">P2</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Description-1"><span class="nav-number">2.1.</span> <span class="nav-text">Description:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Solution-1"><span class="nav-number">2.2.</span> <span class="nav-text">Solution:</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#P3"><span class="nav-number">3.</span> <span class="nav-text">P3</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Description-2"><span class="nav-number">3.1.</span> <span class="nav-text">Description:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Solution-2"><span class="nav-number">3.2.</span> <span class="nav-text">Solution:</span></a></li></ol></li></ol></div>
             
 
           </div>
