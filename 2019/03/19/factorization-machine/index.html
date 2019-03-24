@@ -87,17 +87,17 @@
 
 
 
-<meta name="description" content="principle: the original paper   great explanation  美团技术团队深入理解FM及实践   projects:Building a Movie Recommendation ServicePart 1. Matrix factorization algorithm implement by handload necessary packages1234">
+<meta name="description" content="principle: the original paper   great explanation  美团技术团队深入理解FM及实践   projects:Building a Movie Recommendation ServiceMatrix factorization algorithm implement by handload necessary packages123456import">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Factorization machine principle and projects">
 <meta property="og:url" content="http://yoursite.com/2019/03/19/factorization-machine/index.html">
 <meta property="og:site_name" content="Kehui&#39;s Blog">
-<meta property="og:description" content="principle: the original paper   great explanation  美团技术团队深入理解FM及实践   projects:Building a Movie Recommendation ServicePart 1. Matrix factorization algorithm implement by handload necessary packages1234">
+<meta property="og:description" content="principle: the original paper   great explanation  美团技术团队深入理解FM及实践   projects:Building a Movie Recommendation ServiceMatrix factorization algorithm implement by handload necessary packages123456import">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-03-20T16:20:30.000Z">
+<meta property="og:updated_time" content="2019-03-24T05:40:30.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Factorization machine principle and projects">
-<meta name="twitter:description" content="principle: the original paper   great explanation  美团技术团队深入理解FM及实践   projects:Building a Movie Recommendation ServicePart 1. Matrix factorization algorithm implement by handload necessary packages1234">
+<meta name="twitter:description" content="principle: the original paper   great explanation  美团技术团队深入理解FM及实践   projects:Building a Movie Recommendation ServiceMatrix factorization algorithm implement by handload necessary packages123456import">
 
 
 
@@ -106,7 +106,7 @@
   var CONFIG = {
     root: '/',
     scheme: 'Pisces',
-    sidebar: {"position":"left","display":"remove","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    sidebar: {"position":"left","display":"always","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
     fancybox: true,
     motion: true,
     duoshuo: {
@@ -330,7 +330,7 @@
 <li><p><a href="https://tech.meituan.com/2016/03/03/deep-understanding-of-ffm-principles-and-practices.html" target="_blank" rel="noopener">美团技术团队深入理解FM及实践</a></p>
 </li>
 </ul>
-<h1 id="projects"><a href="#projects" class="headerlink" title="projects:"></a>projects:</h1><h2 id="Building-a-Movie-Recommendation-Service"><a href="#Building-a-Movie-Recommendation-Service" class="headerlink" title="Building a Movie Recommendation Service"></a>Building a Movie Recommendation Service</h2><h3 id="Part-1-Matrix-factorization-algorithm-implement-by-hand"><a href="#Part-1-Matrix-factorization-algorithm-implement-by-hand" class="headerlink" title="Part 1. Matrix factorization algorithm implement by hand"></a>Part 1. Matrix factorization algorithm implement by hand</h3><h4 id="load-necessary-packages"><a href="#load-necessary-packages" class="headerlink" title="load necessary packages"></a>load necessary packages</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> sys, numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">from</span> numpy <span class="keyword">import</span> genfromtxt</span><br><span class="line"><span class="keyword">import</span> codecs</span><br><span class="line"><span class="keyword">from</span> numpy <span class="keyword">import</span> linalg <span class="keyword">as</span> LA</span><br></pre></td></tr></table></figure>
+<h1 id="projects"><a href="#projects" class="headerlink" title="projects:"></a>projects:</h1><h2 id="Building-a-Movie-Recommendation-Service"><a href="#Building-a-Movie-Recommendation-Service" class="headerlink" title="Building a Movie Recommendation Service"></a>Building a Movie Recommendation Service</h2><h3 id="Matrix-factorization-algorithm-implement-by-hand"><a href="#Matrix-factorization-algorithm-implement-by-hand" class="headerlink" title="Matrix factorization algorithm implement by hand"></a>Matrix factorization algorithm implement by hand</h3><h4 id="load-necessary-packages"><a href="#load-necessary-packages" class="headerlink" title="load necessary packages"></a>load necessary packages</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> sys, numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">from</span> numpy <span class="keyword">import</span> genfromtxt</span><br><span class="line"><span class="keyword">import</span> codecs</span><br><span class="line"><span class="keyword">from</span> numpy <span class="keyword">import</span> linalg <span class="keyword">as</span> LA</span><br></pre></td></tr></table></figure>
 <h4 id="load-movie-data-and-rating-data"><a href="#load-movie-data-and-rating-data" class="headerlink" title="load movie data and rating data"></a>load movie data and rating data</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">movies=pd.read_csv(<span class="string">"movies.csv"</span>)</span><br><span class="line">ratings=pd.read_csv(<span class="string">"ratings.csv"</span>)</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
 <p>Movie ids are not continuous, build movie dicitionary with line no as numpy movie id ,its actual movie id as the key.</p>
@@ -343,7 +343,7 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    <span class="comment">#MatrixFactorization.py &lt;rating file&gt;  &lt;no of hidden features&gt;  &lt;movie mapping file&gt;</span></span><br><span class="line">    <span class="keyword">if</span> len(sys.argv) == <span class="number">4</span>:</span><br><span class="line">        ratings_file =  sys.argv[<span class="number">1</span>]</span><br><span class="line">        no_of_features = int(sys.argv[<span class="number">2</span>])</span><br><span class="line">        movies_mapping_file = sys.argv[<span class="number">3</span>]</span><br><span class="line"></span><br><span class="line">        <span class="comment">#build a dictionary of movie id mapping with counter of no of movies</span></span><br><span class="line">        movies_dict = build_movies_dict(movies_mapping_file)</span><br><span class="line">        <span class="comment">#read data and return a numpy array</span></span><br><span class="line">        numpy_arr = read_data(ratings_file,movies_dict)</span><br><span class="line">        <span class="comment">#main function</span></span><br><span class="line">        main(numpy_arr,no_of_features)</span><br></pre></td></tr></table></figure>
 <h4 id="recommend-movies-for-users-who-have-rated-some-of-the-movies"><a href="#recommend-movies-for-users-who-have-rated-some-of-the-movies" class="headerlink" title="recommend movies for users who have rated some of the movies"></a>recommend movies for users who have rated some of the movies</h4><p>recommend 50 tops movies for each user based on his/her unrated movies. Implemented this seperately from building model as once the model is built, we can use it many times.</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">dict_with_user_unrated_movies</span><span class="params">(rating_file,movie_mapping_id)</span>:</span></span><br><span class="line">    <span class="comment">#no of users</span></span><br><span class="line">    users = <span class="number">718</span></span><br><span class="line">    <span class="comment">#users = 5</span></span><br><span class="line">    <span class="comment">#no of movie ids</span></span><br><span class="line">    <span class="comment">#movies = 4</span></span><br><span class="line">    movies = <span class="number">8927</span></span><br><span class="line">    dict_with_unrated_movies_users =&#123;&#125;</span><br><span class="line">    X = np.zeros(shape=(users,movies))</span><br><span class="line">    i = <span class="number">0</span></span><br><span class="line">    <span class="keyword">with</span> open(rating_file,<span class="string">'r'</span>) <span class="keyword">as</span> f:</span><br><span class="line">        <span class="keyword">for</span> line <span class="keyword">in</span> f:</span><br><span class="line">            <span class="keyword">if</span> i == <span class="number">0</span>:</span><br><span class="line">                i = i +<span class="number">1</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                user,movie,rating,timestamp = line.split(<span class="string">','</span>)</span><br><span class="line">                id = movie_mapping_id[int(movie)]</span><br><span class="line">                <span class="comment">#print "user movie rating",user, movie, rating, i</span></span><br><span class="line">                X[int(user)<span class="number">-1</span>,id] = float(rating)</span><br><span class="line">                i = i+<span class="number">1</span></span><br><span class="line">    <span class="comment">#print X</span></span><br><span class="line">    <span class="keyword">for</span> row <span class="keyword">in</span> xrange(X.shape[<span class="number">0</span>]):</span><br><span class="line">        unrated_movi_ids = np.nonzero(X[row] == <span class="number">0</span>)</span><br><span class="line">        <span class="comment">#print "user",row+1, "has unrated movies", list(unrated_movi_ids[0])</span></span><br><span class="line">        unrated_movi_ids = list(unrated_movi_ids[<span class="number">0</span>])</span><br><span class="line">        unrated_movi_ids = map(<span class="keyword">lambda</span> x: x+<span class="number">1</span>,unrated_movi_ids)</span><br><span class="line">        dict_with_unrated_movies_users[row+<span class="number">1</span>] = unrated_movi_ids</span><br><span class="line">    <span class="comment">#print "dict with unrated movies",dict_with_unrated_movies_users</span></span><br><span class="line">    <span class="keyword">return</span> dict_with_unrated_movies_users</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#recommend top 25 movies for user specified</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">top_25_recommended_movies</span><span class="params">(pred_rating_file,users,unrated_movies_per_user,movies_mapping_names,movie_mapping_id)</span>:</span></span><br><span class="line">    <span class="comment">#dicitonary with numpy movie id as key and actual movie id as value</span></span><br><span class="line">    reverse_movie_id_mapping = &#123;&#125;</span><br><span class="line">    <span class="keyword">for</span> key,val <span class="keyword">in</span> movie_mapping_id.items():</span><br><span class="line">        reverse_movie_id_mapping[val] = key</span><br><span class="line">    <span class="comment">#for each user, predict top 25 movies</span></span><br><span class="line">    <span class="keyword">for</span> user <span class="keyword">in</span> users:</span><br><span class="line">        dict_pred_unrated_movies = &#123;&#125;</span><br><span class="line">        unrated_movies = unrated_movies_per_user[int(user)]</span><br><span class="line">        <span class="keyword">for</span> unrated_movie <span class="keyword">in</span> unrated_movies:</span><br><span class="line">            dict_pred_unrated_movies[int(unrated_movie)] = pred_rating_file[int(user)<span class="number">-1</span>][int(unrated_movie)<span class="number">-1</span>]</span><br><span class="line">        <span class="comment">#recommend top k movies</span></span><br><span class="line">        SortedMovies = sorted(dict_pred_unrated_movies.iteritems(), key=operator.itemgetter(<span class="number">1</span>), reverse=<span class="literal">True</span>)</span><br><span class="line">        <span class="keyword">print</span> (<span class="string">"Top 25 movies recommendation for the user"</span>, user)</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">25</span>):</span><br><span class="line">            movie_id, rating = SortedMovies[i]</span><br><span class="line">            actual_movie_id = reverse_movie_id_mapping[movie_id]</span><br><span class="line">            <span class="comment">#recommend movies only if the predicted rating is greater than 3.5</span></span><br><span class="line">            <span class="keyword">if</span> rating &gt;= <span class="number">3.5</span> :</span><br><span class="line">                <span class="keyword">print</span> (<span class="string">"&#123;&#125; "</span>.format(movie))</span><br><span class="line">            <span class="comment">#print ("&#123;&#125; with Movie rating value &#123;&#125;".format(movies_mapping_names[actual_movie_id],rating))</span></span><br><span class="line">        <span class="keyword">print</span> (<span class="string">"\n"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#main method</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">recommend_movies_for_users</span><span class="params">(orig_rating_file,pred_rating_file,movies_file,users)</span>:</span></span><br><span class="line">    <span class="comment">#method to get the mapping between movie names, actual movie id and numpy movie id</span></span><br><span class="line">    movies_mapping_names,movie_mapping_id = dict_with_movie_and_id(movies_file)</span><br><span class="line">    <span class="comment">#build predicted numpy movie id from the saved predicted matrix of user and movie ratings</span></span><br><span class="line">    predicted_rating_numpy_array = build_predicted_numpy_array(pred_rating_file)</span><br><span class="line">    <span class="comment">#dictionary of unrated movies for each user</span></span><br><span class="line">    dict_with_unrated_movies_users = dict_with_user_unrated_movies(orig_rating_file,movie_mapping_id)</span><br><span class="line">    <span class="comment">#method which actually recommends top 25 unrated movies based on their the predicted score</span></span><br><span class="line">    top_25_recommended_movies(predicted_rating_numpy_array,users,dict_with_unrated_movies_users,movies_mapping_names,movie_mapping_id)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    <span class="keyword">if</span> len(sys.argv) == <span class="number">5</span>:</span><br><span class="line">        <span class="comment">#read the rating file for the missing</span></span><br><span class="line">        orig_rating_file = sys.argv[<span class="number">1</span>]</span><br><span class="line">        pred_rating_file = sys.argv[<span class="number">2</span>]</span><br><span class="line">        movies_file = sys.argv[<span class="number">3</span>]</span><br><span class="line">        list_of_users = sys.argv[<span class="number">4</span>]</span><br><span class="line">        <span class="keyword">with</span> open (list_of_users,<span class="string">'r'</span>) <span class="keyword">as</span> f:</span><br><span class="line">          users = f.readline().split(<span class="string">','</span>)</span><br><span class="line">        recommend_movies_for_users(orig_rating_file,pred_rating_file,movies_file,users)</span><br></pre></td></tr></table></figure>
-<h3 id="Part-2-Using-Apache-Spark-to-faciliate-computing"><a href="#Part-2-Using-Apache-Spark-to-faciliate-computing" class="headerlink" title="Part 2. Using Apache Spark to faciliate computing"></a>Part 2. Using Apache Spark to faciliate computing</h3><h4 id="load-data-and-convert-it-to-RDD"><a href="#load-data-and-convert-it-to-RDD" class="headerlink" title="load data and convert it to RDD"></a>load data and convert it to RDD</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">movies = sc.textFile(<span class="string">"/FileStore/tables/movies.csv"</span>)</span><br><span class="line">ratings= sc.textFile(<span class="string">"/FileStore/tables/ratings.csv"</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="Using-Apache-Spark-to-faciliate-computing"><a href="#Using-Apache-Spark-to-faciliate-computing" class="headerlink" title="Using Apache Spark to faciliate computing"></a>Using Apache Spark to faciliate computing</h3><h4 id="load-data-and-convert-it-to-RDD"><a href="#load-data-and-convert-it-to-RDD" class="headerlink" title="load data and convert it to RDD"></a>load data and convert it to RDD</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">movies = sc.textFile(<span class="string">"/FileStore/tables/movies.csv"</span>)</span><br><span class="line">ratings= sc.textFile(<span class="string">"/FileStore/tables/ratings.csv"</span>)</span><br></pre></td></tr></table></figure>
 <h4 id="data-cleaning"><a href="#data-cleaning" class="headerlink" title="data cleaning"></a>data cleaning</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ratings=ratings.map(<span class="keyword">lambda</span> x:x.split(<span class="string">","</span>))</span><br><span class="line">movies=movies.filter(<span class="keyword">lambda</span> x:<span class="string">'movieId'</span> <span class="keyword">not</span> <span class="keyword">in</span> x).map(<span class="keyword">lambda</span> x:x.split(<span class="string">','</span>)).map(<span class="keyword">lambda</span> x:(x[<span class="number">0</span>],(x[<span class="number">1</span>],x[<span class="number">2</span>])))</span><br></pre></td></tr></table></figure>
 <h4 id="have-a-glimpse-at-ratings-data"><a href="#have-a-glimpse-at-ratings-data" class="headerlink" title="have a glimpse at ratings data"></a>have a glimpse at ratings data</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ratings.take(<span class="number">2</span>)</span><br></pre></td></tr></table></figure>
 <p><style scoped><br>  .ansiout {<br>    display: block;<br>    unicode-bidi: embed;<br>    white-space: pre-wrap;<br>    word-wrap: break-word;<br>    word-break: break-all;<br>    font-family: “Source Code Pro”, “Menlo”, monospace;;<br>    font-size: 13px;<br>    color: #555;<br>    margin-left: 4px;<br>    line-height: 19px;<br>  }<br></style></p>
@@ -414,8 +414,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/03/21/xgboost/" rel="prev" title="xgboost principle and practice">
-                xgboost principle and practice <i class="fa fa-chevron-right"></i>
+              <a href="/2019/03/21/Boosting/" rel="prev" title="Boosting algorithm principle and practice">
+                Boosting algorithm principle and practice <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -446,6 +446,99 @@
 
 
         </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/uploads/avatar.jpg" alt="Kehui Yao">
+          <p class="site-author-name" itemprop="name">Kehui Yao</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#principle"><span class="nav-number">1.</span> <span class="nav-text">principle:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#projects"><span class="nav-number">2.</span> <span class="nav-text">projects:</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Building-a-Movie-Recommendation-Service"><span class="nav-number">2.1.</span> <span class="nav-text">Building a Movie Recommendation Service</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Matrix-factorization-algorithm-implement-by-hand"><span class="nav-number">2.1.1.</span> <span class="nav-text">Matrix factorization algorithm implement by hand</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#load-necessary-packages"><span class="nav-number">2.1.1.1.</span> <span class="nav-text">load necessary packages</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#load-movie-data-and-rating-data"><span class="nav-number">2.1.1.2.</span> <span class="nav-text">load movie data and rating data</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#matrix-factorization-implementation"><span class="nav-number">2.1.1.3.</span> <span class="nav-text">matrix factorization implementation</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#main-function"><span class="nav-number">2.1.1.4.</span> <span class="nav-text">main function</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#recommend-movies-for-users-who-have-rated-some-of-the-movies"><span class="nav-number">2.1.1.5.</span> <span class="nav-text">recommend movies for users who have rated some of the movies</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Using-Apache-Spark-to-faciliate-computing"><span class="nav-number">2.1.2.</span> <span class="nav-text">Using Apache Spark to faciliate computing</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#load-data-and-convert-it-to-RDD"><span class="nav-number">2.1.2.1.</span> <span class="nav-text">load data and convert it to RDD</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#data-cleaning"><span class="nav-number">2.1.2.2.</span> <span class="nav-text">data cleaning</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#have-a-glimpse-at-ratings-data"><span class="nav-number">2.1.2.3.</span> <span class="nav-text">have a glimpse at ratings data</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#remove-the-header-line"><span class="nav-number">2.1.2.4.</span> <span class="nav-text">remove the header line</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#split-the-data-into-training-set-validation-set-and-test-set"><span class="nav-number">2.1.2.5.</span> <span class="nav-text">split the data into training set, validation set and test set</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#use-alternate-least-squares-algorithm-to-calcualte-the-coefficients-of-the-factorization-machines"><span class="nav-number">2.1.2.6.</span> <span class="nav-text">use alternate least squares algorithm to calcualte the coefficients of the factorization machines</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#what-the-prediction-looks-like"><span class="nav-number">2.1.2.7.</span> <span class="nav-text">what the prediction looks like</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#test-model-performance-on-test-data-set"><span class="nav-number">2.1.2.8.</span> <span class="nav-text">test model performance on test data set</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#recommend-movies-for-a-specified-user-here-user-with-id-2"><span class="nav-number">2.1.2.9.</span> <span class="nav-text">recommend movies for a specified user, here, user with id=2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#join-movie-information"><span class="nav-number">2.1.2.10.</span> <span class="nav-text">join movie information</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#reformat-the-data-to-fit-the-model-take-the-highest-25-movies-predicted-ratings"><span class="nav-number">2.1.2.11.</span> <span class="nav-text">reformat the data to fit the model, take the highest 25 movies predicted ratings</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
         
       </div>
     </main>

@@ -1,0 +1,783 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0">
+
+
+
+
+
+
+<meta name="description" content="XGBoostUsing standard interfaceThe following notebooks presents the basic usage of native XGBoost Python interface. Flight-plan:  load libraries and prepare data, specify parameters, train classifier,">
+<meta property="og:type" content="article">
+<meta property="og:title" content="xgboost_introduction">
+<meta property="og:url" content="http://yoursite.com/2019/03/23/xgboost-introduction/index.html">
+<meta property="og:site_name" content="Kehui&#39;s Blog">
+<meta property="og:description" content="XGBoostUsing standard interfaceThe following notebooks presents the basic usage of native XGBoost Python interface. Flight-plan:  load libraries and prepare data, specify parameters, train classifier,">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-03-24T05:38:57.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="xgboost_introduction">
+<meta name="twitter:description" content="XGBoostUsing standard interfaceThe following notebooks presents the basic usage of native XGBoost Python interface. Flight-plan:  load libraries and prepare data, specify parameters, train classifier,">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"always","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/03/23/xgboost-introduction/">
+
+
+
+
+
+  <title> xgboost_introduction | Kehui's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Kehui's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Do statistics, learn some computer science.</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/23/xgboost-introduction/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kehui Yao">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kehui's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                xgboost_introduction
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-23T22:32:13-05:00">
+                2019-03-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="XGBoost"><a href="#XGBoost" class="headerlink" title="XGBoost"></a>XGBoost</h2><h3 id="Using-standard-interface"><a href="#Using-standard-interface" class="headerlink" title="Using standard interface"></a>Using standard interface</h3><p>The following notebooks presents the basic usage of native XGBoost Python interface.</p>
+<p><strong>Flight-plan</strong>:</p>
+<ul>
+<li><a href="#libs">load libraries</a> and <a href="#data">prepare data</a>,</li>
+<li><a href="#params">specify parameters</a>,</li>
+<li><a href="#train">train classifier</a>,</li>
+<li><a href="#predict">make predictions</a></li>
+</ul>
+<h3 id="Loading-libraries"><a href="#Loading-libraries" class="headerlink" title="Loading libraries"></a>Loading libraries<a name="libs"></a></h3><p>Begin with loading all required libraries in one place:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> xgboost <span class="keyword">as</span> xgb</span><br></pre></td></tr></table></figure>
+<h3 id="Loading-data"><a href="#Loading-data" class="headerlink" title="Loading data"></a>Loading data<a name="data"></a></h3><p>We are going to use bundled <a href="https://archive.ics.uci.edu/ml/datasets/Mushroom" target="_blank" rel="noopener">Agaricus</a> dataset which can be downloaded <a href="https://github.com/dmlc/xgboost/tree/master/demo/data" target="_blank" rel="noopener">here</a>.</p>
+<blockquote>
+<p>This data set records biological attributes of different mushroom species, and the target is to predict whether it is poisonous</p>
+</blockquote>
+<blockquote>
+<p>This data set includes descriptions of hypothetical samples corresponding to 23 species of gilled mushrooms in the Agaricus and Lepiota Family. Each species is identified as definitely edible, definitely poisonous, or of unknown edibility and not recommended. This latter class was combined with the poisonous one. The Guide clearly states that there is no simple rule for determining the edibility of a mushroom;</p>
+</blockquote>
+<p>It consist of 8124 instances, characterized by 22 attributes (both numeric and categorical). The target class is either 0 or 1 which means binary classification problem.</p>
+<blockquote>
+<p><strong>Important</strong>: XGBoost handles only numeric variables.</p>
+</blockquote>
+<p>Luckily all the data have alreay been pre-process for us. Categorical variables have been encoded, and all instances divided into train and test datasets. You will know how to do this on your own in later lectures.</p>
+<p>Data needs to be stored in <code>DMatrix</code> object which is designed to handle sparse datasets. It can be populated in couple ways:</p>
+<ul>
+<li>using libsvm format txt file,</li>
+<li>using Numpy 2D array (most popular),</li>
+<li>using XGBoost binary buffer file</li>
+</ul>
+<p>In this case we’ll use first option.</p>
+<blockquote>
+<p>Libsvm files stores only non-zero elements in format</p>
+<p><code>&lt;label&gt; &lt;feature_a&gt;:&lt;value_a&gt; &lt;feature_c&gt;:&lt;value_c&gt; ... &lt;feature_z&gt;:&lt;value_z&gt;</code></p>
+<p>Any missing features indicate that it’s corresponding value is 0.</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dtrain = xgb.DMatrix(<span class="string">'../data/agaricus.txt.train'</span>)</span><br><span class="line">dtest = xgb.DMatrix(<span class="string">'../data/agaricus.txt.test'</span>)</span><br></pre></td></tr></table></figure>
+<p>Let’s examine what was loaded:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">"Train dataset contains &#123;0&#125; rows and &#123;1&#125; columns"</span>.format(dtrain.num_row(), dtrain.num_col()))</span><br><span class="line">print(<span class="string">"Test dataset contains &#123;0&#125; rows and &#123;1&#125; columns"</span>.format(dtest.num_row(), dtest.num_col()))</span><br></pre></td></tr></table></figure>
+<pre><code>Train dataset contains 6513 rows and 127 columns
+Test dataset contains 1611 rows and 127 columns
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">"Train possible labels: "</span>)</span><br><span class="line">print(np.unique(dtrain.get_label()))</span><br><span class="line"></span><br><span class="line">print(<span class="string">"\nTest possible labels: "</span>)</span><br><span class="line">print(np.unique(dtest.get_label()))</span><br></pre></td></tr></table></figure>
+<pre><code>Train possible labels:
+[ 0.  1.]
+
+Test possible labels:
+[ 0.  1.]
+</code></pre><h3 id="Specify-training-parameters"><a href="#Specify-training-parameters" class="headerlink" title="Specify training parameters"></a>Specify training parameters<a name="params"></a></h3><p>Let’s make the following assuptions and adjust algorithm parameters to it:</p>
+<ul>
+<li>we are dealing with binary classification problem (<code>&#39;objective&#39;:&#39;binary:logistic&#39;</code>),</li>
+<li>we want shallow single trees with no more than 2 levels (<code>&#39;max_depth&#39;:2</code>),</li>
+<li>we don’t any oupout (<code>&#39;silent&#39;:1</code>),</li>
+<li>we want algorithm to learn fast and aggressively (<code>&#39;eta&#39;:1</code>),</li>
+<li>we want to iterate only 5 rounds</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">params = &#123;</span><br><span class="line">    <span class="string">'objective'</span>:<span class="string">'binary:logistic'</span>,</span><br><span class="line">    <span class="string">'max_depth'</span>:<span class="number">2</span>,</span><br><span class="line">    <span class="string">'silent'</span>:<span class="number">1</span>,</span><br><span class="line">    <span class="string">'eta'</span>:<span class="number">1</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">num_rounds = <span class="number">5</span></span><br></pre></td></tr></table></figure>
+<h3 id="Training-classifier"><a href="#Training-classifier" class="headerlink" title="Training classifier"></a>Training classifier<a name="train"></a></h3><p>To train the classifier we simply pass to it a training dataset, parameters list and information about number of iterations.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bst = xgb.train(params, dtrain, num_rounds)</span><br></pre></td></tr></table></figure>
+<p>We can also observe performance on test dataset using <code>watchlist</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">watchlist  = [(dtest,<span class="string">'test'</span>), (dtrain,<span class="string">'train'</span>)] <span class="comment"># native interface only</span></span><br><span class="line">bst = xgb.train(params, dtrain, num_rounds, watchlist)</span><br></pre></td></tr></table></figure>
+<pre><code>[0]    test-error:0.042831    train-error:0.046522
+[1]    test-error:0.021726    train-error:0.022263
+[2]    test-error:0.006207    train-error:0.007063
+[3]    test-error:0.018001    train-error:0.0152
+[4]    test-error:0.006207    train-error:0.007063
+</code></pre><h3 id="Make-predictions"><a href="#Make-predictions" class="headerlink" title="Make predictions"></a>Make predictions<a name="predict"></a></h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">preds_prob = bst.predict(dtest)</span><br><span class="line">preds_prob</span><br></pre></td></tr></table></figure>
+<pre><code>array([ 0.08073306,  0.92217326,  0.08073306, ...,  0.98059034,
+        0.01182149,  0.98059034], dtype=float32)
+</code></pre><p>Calculate simple accuracy metric to verify the results. Of course validation should be performed accordingly to the dataset, but in this case accuracy is sufficient.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">labels = dtest.get_label()</span><br><span class="line">preds = preds_prob &gt; <span class="number">0.5</span> <span class="comment"># threshold</span></span><br><span class="line">correct = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(len(preds)):</span><br><span class="line">    <span class="keyword">if</span> (labels[i] == preds[i]):</span><br><span class="line">        correct += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">print(<span class="string">'Predicted correctly: &#123;0&#125;/&#123;1&#125;'</span>.format(correct, len(preds)))</span><br><span class="line">print(<span class="string">'Error: &#123;0:.4f&#125;'</span>.format(<span class="number">1</span>-correct/len(preds)))</span><br></pre></td></tr></table></figure>
+<pre><code>Predicted correctly: 1601/1611
+Error: 0.0062
+</code></pre><h2 id="Using-Scikit-learn-Interface"><a href="#Using-Scikit-learn-Interface" class="headerlink" title="Using Scikit-learn Interface"></a>Using Scikit-learn Interface</h2><p>The following notebook presents the alternative approach for using XGBoost algorithm.</p>
+<p><strong>What’s included</strong>:</p>
+<ul>
+<li><a href="#libs">load libraries</a> and <a href="#data">prepare data</a>,</li>
+<li><a href="#params">specify parameters</a>,</li>
+<li><a href="#train">train classifier</a>,</li>
+<li><a href="#predict">make predictions</a></li>
+</ul>
+<h3 id="Loading-libraries-1"><a href="#Loading-libraries-1" class="headerlink" title="Loading libraries"></a>Loading libraries<a name="libs"></a></h3><p>Begin with loading all required libraries.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> sklearn.datasets <span class="keyword">import</span> load_svmlight_files</span><br><span class="line"><span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> accuracy_score</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> xgboost.sklearn <span class="keyword">import</span> XGBClassifier</span><br></pre></td></tr></table></figure>
+<h3 id="Loading-data-1"><a href="#Loading-data-1" class="headerlink" title="Loading data"></a>Loading data<a name="data"></a></h3><p>We are going to use the same dataset as in previous lecture. The scikit-learn package provides a convenient function <code>load_svmlight</code> capable of reading many libsvm files at once and storing them as Scipy’s sparse matrices.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">X_train, y_train, X_test, y_test = load_svmlight_files((<span class="string">'../data/agaricus.txt.train'</span>, <span class="string">'../data/agaricus.txt.test'</span>))</span><br></pre></td></tr></table></figure>
+<p>Examine what was loaded</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">"Train dataset contains &#123;0&#125; rows and &#123;1&#125; columns"</span>.format(X_train.shape[<span class="number">0</span>], X_train.shape[<span class="number">1</span>]))</span><br><span class="line">print(<span class="string">"Test dataset contains &#123;0&#125; rows and &#123;1&#125; columns"</span>.format(X_test.shape[<span class="number">0</span>], X_test.shape[<span class="number">1</span>]))</span><br></pre></td></tr></table></figure>
+<pre><code>Train dataset contains 6513 rows and 126 columns
+Test dataset contains 1611 rows and 126 columns
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">"Train possible labels: "</span>)</span><br><span class="line">print(np.unique(y_train))</span><br><span class="line"></span><br><span class="line">print(<span class="string">"\nTest possible labels: "</span>)</span><br><span class="line">print(np.unique(y_test))</span><br></pre></td></tr></table></figure>
+<pre><code>Train possible labels:
+[ 0.  1.]
+
+Test possible labels:
+[ 0.  1.]
+</code></pre><h3 id="Specify-training-parameters-1"><a href="#Specify-training-parameters-1" class="headerlink" title="Specify training parameters"></a>Specify training parameters<a name="params"></a></h3><p>All the parameters are set like in the previous example</p>
+<ul>
+<li>we are dealing with binary classification problem (<code>&#39;objective&#39;:&#39;binary:logistic&#39;</code>),</li>
+<li>we want shallow single trees with no more than 2 levels (<code>&#39;max_depth&#39;:2</code>),</li>
+<li>we don’t any oupout (<code>&#39;silent&#39;:1</code>),</li>
+<li>we want algorithm to learn fast and aggressively (<code>&#39;learning_rate&#39;:1</code>), (in naive named <code>eta</code>)</li>
+<li>we want to iterate only 5 rounds (<code>n_estimators</code>)</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">params = &#123;</span><br><span class="line">    <span class="string">'objective'</span>: <span class="string">'binary:logistic'</span>,</span><br><span class="line">    <span class="string">'max_depth'</span>: <span class="number">2</span>,</span><br><span class="line">    <span class="string">'learning_rate'</span>: <span class="number">1.0</span>,</span><br><span class="line">    <span class="string">'silent'</span>: <span class="number">1.0</span>,</span><br><span class="line">    <span class="string">'n_estimators'</span>: <span class="number">5</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Training-classifier-1"><a href="#Training-classifier-1" class="headerlink" title="Training classifier"></a>Training classifier<a name="train"></a></h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bst = XGBClassifier(**params).fit(X_train, y_train)</span><br></pre></td></tr></table></figure>
+<h3 id="Make-predictions-1"><a href="#Make-predictions-1" class="headerlink" title="Make predictions"></a>Make predictions<a name="predict"></a></h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">preds = bst.predict(X_test)</span><br><span class="line">preds</span><br></pre></td></tr></table></figure>
+<pre><code>array([ 0.,  1.,  0., ...,  1.,  0.,  1.])
+</code></pre><p>Calculate obtained error</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">correct = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(len(preds)):</span><br><span class="line">    <span class="keyword">if</span> (y_test[i] == preds[i]):</span><br><span class="line">        correct += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">acc = accuracy_score(y_test, preds)</span><br><span class="line"></span><br><span class="line">print(<span class="string">'Predicted correctly: &#123;0&#125;/&#123;1&#125;'</span>.format(correct, len(preds)))</span><br><span class="line">print(<span class="string">'Error: &#123;0:.4f&#125;'</span>.format(<span class="number">1</span>-acc))</span><br></pre></td></tr></table></figure>
+<pre><code>Predicted correctly: 1601/1611
+Error: 0.0062
+</code></pre>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/03/23/xgboost-variable-selection/" rel="next" title="xgboost_variable_selection">
+                <i class="fa fa-chevron-left"></i> xgboost_variable_selection
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/uploads/avatar.jpg" alt="Kehui Yao">
+          <p class="site-author-name" itemprop="name">Kehui Yao</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#XGBoost"><span class="nav-number">1.</span> <span class="nav-text">XGBoost</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Using-standard-interface"><span class="nav-number">1.1.</span> <span class="nav-text">Using standard interface</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Loading-libraries"><span class="nav-number">1.2.</span> <span class="nav-text">Loading libraries</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Loading-data"><span class="nav-number">1.3.</span> <span class="nav-text">Loading data</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Specify-training-parameters"><span class="nav-number">1.4.</span> <span class="nav-text">Specify training parameters</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Training-classifier"><span class="nav-number">1.5.</span> <span class="nav-text">Training classifier</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Make-predictions"><span class="nav-number">1.6.</span> <span class="nav-text">Make predictions</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Using-Scikit-learn-Interface"><span class="nav-number">2.</span> <span class="nav-text">Using Scikit-learn Interface</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Loading-libraries-1"><span class="nav-number">2.1.</span> <span class="nav-text">Loading libraries</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Loading-data-1"><span class="nav-number">2.2.</span> <span class="nav-text">Loading data</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Specify-training-parameters-1"><span class="nav-number">2.3.</span> <span class="nav-text">Specify training parameters</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Training-classifier-1"><span class="nav-number">2.4.</span> <span class="nav-text">Training classifier</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Make-predictions-1"><span class="nav-number">2.5.</span> <span class="nav-text">Make predictions</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Kehui Yao</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+  
+
+
+  
+
+</body>
+</html>

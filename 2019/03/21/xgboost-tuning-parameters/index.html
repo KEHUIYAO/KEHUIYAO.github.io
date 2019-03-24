@@ -87,26 +87,23 @@
 
 
 
-<meta name="description" content="Spotting Most Important FeaturesThe following notebook presents how to distinguish the relative importance of features in the dataset.Using this knowledge will help you to figure out what is driving t">
+<meta name="description" content="Bias/variance trade-offThe following notebook presents visual explanation about how to deal with bias/variance trade-off, which is common machine learning problem. What you will learn:  what is bias a">
 <meta property="og:type" content="article">
-<meta property="og:title" content="xgboost_tuning_parameters">
+<meta property="og:title" content="xgboost bias variance trade-off and hyper-parameters tuning">
 <meta property="og:url" content="http://yoursite.com/2019/03/21/xgboost-tuning-parameters/index.html">
 <meta property="og:site_name" content="Kehui&#39;s Blog">
-<meta property="og:description" content="Spotting Most Important FeaturesThe following notebook presents how to distinguish the relative importance of features in the dataset.Using this knowledge will help you to figure out what is driving t">
+<meta property="og:description" content="Bias/variance trade-offThe following notebook presents visual explanation about how to deal with bias/variance trade-off, which is common machine learning problem. What you will learn:  what is bias a">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://yoursite.com/2019/03/21/xgboost-tuning-parameters/output_18_1.png">
-<meta property="og:image" content="http://yoursite.com/2019/03/21/xgboost-tuning-parameters/output_20_1.png">
-<meta property="og:image" content="http://yoursite.com/2019/03/21/xgboost-tuning-parameters/output_24_1.png">
 <meta property="og:image" content="http://yoursite.com/2019/03/21/image/bias-variance.png">
 <meta property="og:image" content="http://yoursite.com/2019/03/21/image/underfitting_overfitting.png">
 <meta property="og:image" content="http://yoursite.com/2019/03/21/xgboost-tuning-parameters/output_13_0.png">
 <meta property="og:image" content="http://yoursite.com/2019/03/21/xgboost-tuning-parameters/output_17_0.png">
 <meta property="og:image" content="http://yoursite.com/2019/03/21/image/practical_xgboost_in_python_notebook_header.png">
-<meta property="og:updated_time" content="2019-03-23T16:55:09.915Z">
+<meta property="og:updated_time" content="2019-03-24T05:34:25.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="xgboost_tuning_parameters">
-<meta name="twitter:description" content="Spotting Most Important FeaturesThe following notebook presents how to distinguish the relative importance of features in the dataset.Using this knowledge will help you to figure out what is driving t">
-<meta name="twitter:image" content="http://yoursite.com/2019/03/21/xgboost-tuning-parameters/output_18_1.png">
+<meta name="twitter:title" content="xgboost bias variance trade-off and hyper-parameters tuning">
+<meta name="twitter:description" content="Bias/variance trade-offThe following notebook presents visual explanation about how to deal with bias/variance trade-off, which is common machine learning problem. What you will learn:  what is bias a">
+<meta name="twitter:image" content="http://yoursite.com/2019/03/21/image/bias-variance.png">
 
 
 
@@ -115,7 +112,7 @@
   var CONFIG = {
     root: '/',
     scheme: 'Pisces',
-    sidebar: {"position":"left","display":"remove","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    sidebar: {"position":"left","display":"always","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
     fancybox: true,
     motion: true,
     duoshuo: {
@@ -140,7 +137,7 @@
 
 
 
-  <title> xgboost_tuning_parameters | Kehui's Blog </title>
+  <title> xgboost bias variance trade-off and hyper-parameters tuning | Kehui's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="default">
@@ -280,7 +277,7 @@
             
             
               
-                xgboost_tuning_parameters
+                xgboost bias variance trade-off and hyper-parameters tuning
               
             
           </h1>
@@ -331,100 +328,7 @@
       
 
       
-        <h1 id="Spotting-Most-Important-Features"><a href="#Spotting-Most-Important-Features" class="headerlink" title="Spotting Most Important Features"></a>Spotting Most Important Features</h1><p>The following notebook presents how to distinguish the relative importance of features in the dataset.<br>Using this knowledge will help you to figure out what is driving the splits most for the trees and where we may be able to make some improvements in feature engineering if possible.</p>
-<p><strong>What we’ll be doing</strong>:</p>
-<ul>
-<li><a href="#libs">loading libraries</a> and <a href="#data">data</a>,</li>
-<li><a href="#model">training a model</a>,</li>
-<li><a href="#tree">knowing how a tree is represented</a>,</li>
-<li><a href="#plot">plotting feature importance</a></li>
-</ul>
-<h3 id="Load-libraries"><a href="#Load-libraries" class="headerlink" title="Load libraries"></a>Load libraries<a name="libs"></a></h3><p>The purpose of this step is to train simple model.<br>Let’s begin with loading all libraries in one place.</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">%matplotlib inline</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> xgboost <span class="keyword">as</span> xgb</span><br><span class="line"><span class="keyword">import</span> seaborn <span class="keyword">as</span> sns</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line">sns.set(font_scale = <span class="number">1.5</span>)</span><br></pre></td></tr></table></figure>
-<pre><code>/opt/conda/lib/python3.5/site-packages/IPython/html.py:14: ShimWarning: The `IPython.html` package has been deprecated. You should import from `notebook` instead. `IPython.html.widgets` has moved to `ipywidgets`.
-  &quot;`IPython.html.widgets` has moved to `ipywidgets`.&quot;, ShimWarning)
-</code></pre><h3 id="Load-data"><a href="#Load-data" class="headerlink" title="Load data"></a>Load data<a name="data"></a></h3><p>Load agaricus dataset from file</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dtrain = xgb.DMatrix(<span class="string">'../data/agaricus.txt.train'</span>)</span><br><span class="line">dtest = xgb.DMatrix(<span class="string">'../data/agaricus.txt.test'</span>)</span><br></pre></td></tr></table></figure>
-<a id="more"></a>
-<h3 id="Train-the-model"><a href="#Train-the-model" class="headerlink" title="Train the model"></a>Train the model<a name="model"></a></h3><p>Specify training parameters - we are going to use 5 stump decision trees with average learning rate.</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># specify training parameters</span></span><br><span class="line">params = &#123;</span><br><span class="line">    <span class="string">'objective'</span>:<span class="string">'binary:logistic'</span>,</span><br><span class="line">    <span class="string">'max_depth'</span>:<span class="number">1</span>,</span><br><span class="line">    <span class="string">'silent'</span>:<span class="number">1</span>,</span><br><span class="line">    <span class="string">'eta'</span>:<span class="number">0.5</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">num_rounds = <span class="number">5</span></span><br></pre></td></tr></table></figure>
-<p>Train the model. In the same time specify <code>watchlist</code> to observe it’s performance on the test set.</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># see how does it perform</span></span><br><span class="line">watchlist  = [(dtest,<span class="string">'test'</span>), (dtrain,<span class="string">'train'</span>)] <span class="comment"># native interface only</span></span><br><span class="line">bst = xgb.train(params, dtrain, num_rounds, watchlist)</span><br></pre></td></tr></table></figure>
-<pre><code>[0]    test-error:0.11049    train-error:0.113926
-[1]    test-error:0.11049    train-error:0.113926
-[2]    test-error:0.03352    train-error:0.030401
-[3]    test-error:0.027312    train-error:0.021495
-[4]    test-error:0.031037    train-error:0.025487
-</code></pre><h3 id="Representation-of-a-tree"><a href="#Representation-of-a-tree" class="headerlink" title="Representation of a tree"></a>Representation of a tree<a name="tree"></a></h3><p>Before moving on it’s good to understand the intuition about how trees are grown.</p>
-<blockquote>
-<p><em>While building a tree is divided recursively several times (in this example only once) - this operation is called <strong>split</strong>. To perform a split the algorithm must figure out which is the best (one) feature to use</em>.</p>
-</blockquote>
-<blockquote>
-<p><em>After that, at the bottom of the we get groups of observations packed in the <strong>leaves</strong>.</em></p>
-</blockquote>
-<blockquote>
-<p><em>In the final model, these leafs are supposed to be <strong>as pure as possible</strong> for each tree, meaning in our case that each leaf should be made of one label class.</em></p>
-</blockquote>
-<blockquote>
-<p><em>Not all splits are equally important. Basically the first split of a tree will have more impact on the purity that, for instance, the deepest split. Intuitively, we understand that the first split makes most of the work, and the following splits focus on smaller parts of the dataset which have been missclassified by the first tree.</em></p>
-</blockquote>
-<blockquote>
-<p><em>In the same way, in Boosting we try to optimize the missclassification at each round (it is called the loss). So the first tree will do the big work and the following trees will focus on the remaining, on the parts not correctly learned by the previous trees.</em></p>
-</blockquote>
-<blockquote>
-<p><em>The improvement brought by each split can be measured, it is the gain.</em></p>
-</blockquote>
-<blockquote>
-<p>~ Quoted from the Kaggle Tianqi Chen’s Kaggle <a href="https://www.kaggle.com/tqchen/otto-group-product-classification-challenge/understanding-xgboost-model-on-otto-data" target="_blank" rel="noopener">notebook</a>.</p>
-</blockquote>
-<p>Let’s investigate how trees look like on our case:</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">trees_dump = bst.get_dump(fmap=<span class="string">'../data/featmap.txt'</span>, with_stats=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> tree <span class="keyword">in</span> trees_dump:</span><br><span class="line">    print(tree)</span><br></pre></td></tr></table></figure>
-<pre><code>0:[odor=pungent] yes=2,no=1,gain=4000.53,cover=1628.25
-    1:leaf=0.647758,cover=924.5
-    2:leaf=-0.93331,cover=703.75
-
-0:[odor=musty] yes=2,no=1,gain=1377.22,cover=1404.2
-    1:leaf=-0.339609,cover=1008.21
-    2:leaf=0.75969,cover=395.989
-
-0:[gill-size=narrow] yes=2,no=1,gain=1210.77,cover=1232.64
-    1:leaf=0.673358,cover=430.293
-    2:leaf=-0.365203,cover=802.35
-
-0:[stalk-surface-above-ring=smooth] yes=2,no=1,gain=791.959,cover=1111.84
-    1:leaf=-0.277529,cover=765.906
-    2:leaf=0.632881,cover=345.937
-
-0:[odor=pungent] yes=2,no=1,gain=493.704,cover=981.683
-    1:leaf=0.275961,cover=638.373
-    2:leaf=-0.46668,cover=343.31
-</code></pre><p>For each split we are getting the following details:</p>
-<ul>
-<li>which feature was used to make split,</li>
-<li>possible choices to make (branches)</li>
-<li><strong>gain</strong> which is the actual improvement in accuracy brough by that feature. The idea is that before adding a new split on a feature X to the branch there was some wrongly classified elements, after adding the split on this feature, there are two new branches, and each of these branch is more accurate (one branch saying if your observation is on this branch then it should be classified as 1, and the other branch saying the exact opposite),</li>
-<li><strong>cover</strong> measuring the relative quantity of observations concerned by that feature</li>
-</ul>
-<h3 id="Plotting"><a href="#Plotting" class="headerlink" title="Plotting"></a>Plotting<a name="plot"></a></h3><p>Hopefully there are better ways to figure out which features really matter. We can use built-in function <code>plot_importance</code> that will create a plot presenting most important features due to some criterias. We will analyze the impact of each feature for all splits and all trees and visualize results.</p>
-<p>See which feature provided the most gain:</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xgb.plot_importance(bst, importance_type=<span class="string">'gain'</span>, xlabel=<span class="string">'Gain'</span>)</span><br></pre></td></tr></table></figure>
-<pre><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7f388d603f28&gt;
-</code></pre><p><img src="output_18_1.png" alt="png"></p>
-<p>We can simplify it a little bit by introducing a <em>F-score</em> metric.</p>
-<blockquote>
-<p><strong>F-score</strong> - sums up how many times a split was performed on each feature.</p>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xgb.plot_importance(bst)</span><br></pre></td></tr></table></figure>
-<pre><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7f388d59a438&gt;
-</code></pre><p><img src="output_20_1.png" alt="png"></p>
-<p>In case you want to visualize it another way, a created model enables convinient way of accessing the F-score.</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">importances = bst.get_fscore()</span><br><span class="line">importances</span><br></pre></td></tr></table></figure>
-<pre><code>{&apos;f27&apos;: 1, &apos;f29&apos;: 2, &apos;f39&apos;: 1, &apos;f64&apos;: 1}
-</code></pre><p>Now you can manipulate data in your own way</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># create df</span></span><br><span class="line">importance_df = pd.DataFrame(&#123;</span><br><span class="line">        <span class="string">'Splits'</span>: list(importances.values()),</span><br><span class="line">        <span class="string">'Feature'</span>: list(importances.keys())</span><br><span class="line">    &#125;)</span><br><span class="line">importance_df.sort_values(by=<span class="string">'Splits'</span>, inplace=<span class="literal">True</span>)</span><br><span class="line">importance_df.plot(kind=<span class="string">'barh'</span>, x=<span class="string">'Feature'</span>, figsize=(<span class="number">8</span>,<span class="number">6</span>), color=<span class="string">'orange'</span>)</span><br></pre></td></tr></table></figure>
-<pre><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7f388d4d4048&gt;
-</code></pre><p><img src="output_24_1.png" alt="png"></p>
-<h1 id="Bias-variance-trade-off"><a href="#Bias-variance-trade-off" class="headerlink" title="Bias/variance trade-off"></a>Bias/variance trade-off</h1><p>The following notebook presents visual explanation about how to deal with bias/variance trade-off, which is common machine learning problem.</p>
+        <h2 id="Bias-variance-trade-off"><a href="#Bias-variance-trade-off" class="headerlink" title="Bias/variance trade-off"></a>Bias/variance trade-off</h2><p>The following notebook presents visual explanation about how to deal with bias/variance trade-off, which is common machine learning problem.</p>
 <p><strong>What you will learn</strong>:</p>
 <ul>
 <li><a href="#biasvariance">what is bias and variance in terms of ML problem</a>,</li>
@@ -472,7 +376,7 @@
 <li>we can see that the model is quite stable keeping variance fixed when increasing it’s complexity</li>
 </ul>
 <p>We can assume that the trade-off for our model will be met at <code>n_estimators = 50</code>. The variance is still to big.</p>
-<h3 id="What-we-can-do"><a href="#What-we-can-do" class="headerlink" title="What we can do?"></a>What we can do?<a name="deal"></a></h3><h4 id="Dealing-with-high-variance"><a href="#Dealing-with-high-variance" class="headerlink" title="Dealing with high variance"></a>Dealing with high variance</h4><p>If model is too complex try:</p>
+<h3 id="What-we-can-do"><a href="#What-we-can-do" class="headerlink" title="What we can do?"></a>What we can do?<a name="deal"></a></h3><h3 id="Dealing-with-high-variance"><a href="#Dealing-with-high-variance" class="headerlink" title="Dealing with high variance"></a>Dealing with high variance</h3><p>If model is too complex try:</p>
 <ul>
 <li>using less features (ie. feature selection),</li>
 <li>using more training samples (ie. artificially generated),</li>
@@ -486,7 +390,7 @@
 <li>add more randomness using <code>subsample</code>, <code>colsample_bytree</code> parameters,</li>
 <li>increase <code>lambda</code> and <code>alpha</code> regularization parameters</li>
 </ul>
-<h4 id="Dealing-with-high-bias"><a href="#Dealing-with-high-bias" class="headerlink" title="Dealing with high bias"></a>Dealing with high bias</h4><p>If model is too simple:</p>
+<h3 id="Dealing-with-high-bias"><a href="#Dealing-with-high-bias" class="headerlink" title="Dealing with high bias"></a>Dealing with high bias</h3><p>If model is too simple:</p>
 <ul>
 <li>add more features (ie. better feature engineering),</li>
 <li>more sophisticated model</li>
@@ -506,7 +410,7 @@
 <pre><code>Best cross-validation result (0.92) obtained for 133 trees
 </code></pre><p>We have obtained slightly less variance and decreased bias.</p>
 <p><img style="width:100%" src="../image/practical_xgboost_in_python_notebook_header.png"></p>
-<h1 id="Hyper-parameter-tuning"><a href="#Hyper-parameter-tuning" class="headerlink" title="Hyper-parameter tuning"></a>Hyper-parameter tuning</h1><p>As you know there are plenty of tunable parameters. Each one results in different output. The question is which combination results in best output.</p>
+<h2 id="Hyper-parameter-tuning"><a href="#Hyper-parameter-tuning" class="headerlink" title="Hyper-parameter tuning"></a>Hyper-parameter tuning</h2><p>As you know there are plenty of tunable parameters. Each one results in different output. The question is which combination results in best output.</p>
 <p>The following notebook will show you how to use Scikit-learn modules for figuring out the best parameters for your  models.</p>
 <p><strong>What’s included:</strong></p>
 <ul>
@@ -662,8 +566,8 @@ Parameters:
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/03/21/xgboost/" rel="next" title="xgboost principle and practice">
-                <i class="fa fa-chevron-left"></i> xgboost principle and practice
+              <a href="/2019/03/21/Boosting/" rel="next" title="Boosting algorithm principle and practice">
+                <i class="fa fa-chevron-left"></i> Boosting algorithm principle and practice
               </a>
             
           </div>
@@ -671,6 +575,10 @@ Parameters:
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/03/23/xgboost-variable-selection/" rel="prev" title="xgboost_variable_selection">
+                xgboost_variable_selection <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -700,6 +608,99 @@ Parameters:
 
 
         </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/uploads/avatar.jpg" alt="Kehui Yao">
+          <p class="site-author-name" itemprop="name">Kehui Yao</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Bias-variance-trade-off"><span class="nav-number">1.</span> <span class="nav-text">Bias/variance trade-off</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Bias-and-variance"><span class="nav-number">1.1.</span> <span class="nav-text">Bias and variance</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Underfitting-and-overfitting"><span class="nav-number">1.2.</span> <span class="nav-text">Underfitting and overfitting</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#How-to-detect-it"><span class="nav-number">1.3.</span> <span class="nav-text">How to detect it</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#What-we-can-do"><span class="nav-number">1.4.</span> <span class="nav-text">What we can do?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Dealing-with-high-variance"><span class="nav-number">1.5.</span> <span class="nav-text">Dealing with high variance</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Dealing-with-high-bias"><span class="nav-number">1.6.</span> <span class="nav-text">Dealing with high bias</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hyper-parameter-tuning"><span class="nav-number">2.</span> <span class="nav-text">Hyper-parameter tuning</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Prepare-data"><span class="nav-number">2.1.</span> <span class="nav-text">Prepare data</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Grid-Search"><span class="nav-number">2.2.</span> <span class="nav-text">Grid-Search</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Randomized-Grid-Search"><span class="nav-number">2.3.</span> <span class="nav-text">Randomized Grid-Search</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
         
       </div>
     </main>

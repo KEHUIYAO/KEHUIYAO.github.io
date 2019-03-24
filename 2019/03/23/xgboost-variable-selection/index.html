@@ -1,0 +1,773 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0">
+
+
+
+
+
+
+<meta name="description" content="Spotting Most Important FeaturesThe following notebook presents how to distinguish the relative importance of features in the dataset.Using this knowledge will help you to figure out what is driving t">
+<meta property="og:type" content="article">
+<meta property="og:title" content="xgboost_variable_selection">
+<meta property="og:url" content="http://yoursite.com/2019/03/23/xgboost-variable-selection/index.html">
+<meta property="og:site_name" content="Kehui&#39;s Blog">
+<meta property="og:description" content="Spotting Most Important FeaturesThe following notebook presents how to distinguish the relative importance of features in the dataset.Using this knowledge will help you to figure out what is driving t">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://yoursite.com/2019/03/23/xgboost-variable-selection/output_18_1.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/23/xgboost-variable-selection/output_20_1.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/23/xgboost-variable-selection/output_24_1.png">
+<meta property="og:updated_time" content="2019-03-24T05:26:56.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="xgboost_variable_selection">
+<meta name="twitter:description" content="Spotting Most Important FeaturesThe following notebook presents how to distinguish the relative importance of features in the dataset.Using this knowledge will help you to figure out what is driving t">
+<meta name="twitter:image" content="http://yoursite.com/2019/03/23/xgboost-variable-selection/output_18_1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"always","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/03/23/xgboost-variable-selection/">
+
+
+
+
+
+  <title> xgboost_variable_selection | Kehui's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Kehui's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Do statistics, learn some computer science.</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/23/xgboost-variable-selection/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kehui Yao">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kehui's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                xgboost_variable_selection
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-23T22:23:58-05:00">
+                2019-03-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="Spotting-Most-Important-Features"><a href="#Spotting-Most-Important-Features" class="headerlink" title="Spotting Most Important Features"></a>Spotting Most Important Features</h2><p>The following notebook presents how to distinguish the relative importance of features in the dataset.<br>Using this knowledge will help you to figure out what is driving the splits most for the trees and where we may be able to make some improvements in feature engineering if possible.</p>
+<p><strong>What we’ll be doing</strong>:</p>
+<ul>
+<li><a href="#libs">loading libraries</a> and <a href="#data">data</a>,</li>
+<li><a href="#model">training a model</a>,</li>
+<li><a href="#tree">knowing how a tree is represented</a>,</li>
+<li><a href="#plot">plotting feature importance</a></li>
+</ul>
+<h3 id="Load-libraries"><a href="#Load-libraries" class="headerlink" title="Load libraries"></a>Load libraries<a name="libs"></a></h3><p>The purpose of this step is to train simple model.<br>Let’s begin with loading all libraries in one place.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">%matplotlib inline</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> xgboost <span class="keyword">as</span> xgb</span><br><span class="line"><span class="keyword">import</span> seaborn <span class="keyword">as</span> sns</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line">sns.set(font_scale = <span class="number">1.5</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>/opt/conda/lib/python3.5/site-packages/IPython/html.py:14: ShimWarning: The `IPython.html` package has been deprecated. You should import from `notebook` instead. `IPython.html.widgets` has moved to `ipywidgets`.
+  &quot;`IPython.html.widgets` has moved to `ipywidgets`.&quot;, ShimWarning)
+</code></pre><h3 id="Load-data"><a href="#Load-data" class="headerlink" title="Load data"></a>Load data<a name="data"></a></h3><p>Load agaricus dataset from file</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dtrain = xgb.DMatrix(<span class="string">'../data/agaricus.txt.train'</span>)</span><br><span class="line">dtest = xgb.DMatrix(<span class="string">'../data/agaricus.txt.test'</span>)</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h3 id="Train-the-model"><a href="#Train-the-model" class="headerlink" title="Train the model"></a>Train the model<a name="model"></a></h3><p>Specify training parameters - we are going to use 5 stump decision trees with average learning rate.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># specify training parameters</span></span><br><span class="line">params = &#123;</span><br><span class="line">    <span class="string">'objective'</span>:<span class="string">'binary:logistic'</span>,</span><br><span class="line">    <span class="string">'max_depth'</span>:<span class="number">1</span>,</span><br><span class="line">    <span class="string">'silent'</span>:<span class="number">1</span>,</span><br><span class="line">    <span class="string">'eta'</span>:<span class="number">0.5</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">num_rounds = <span class="number">5</span></span><br></pre></td></tr></table></figure>
+<p>Train the model. In the same time specify <code>watchlist</code> to observe it’s performance on the test set.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># see how does it perform</span></span><br><span class="line">watchlist  = [(dtest,<span class="string">'test'</span>), (dtrain,<span class="string">'train'</span>)] <span class="comment"># native interface only</span></span><br><span class="line">bst = xgb.train(params, dtrain, num_rounds, watchlist)</span><br></pre></td></tr></table></figure>
+<pre><code>[0]    test-error:0.11049    train-error:0.113926
+[1]    test-error:0.11049    train-error:0.113926
+[2]    test-error:0.03352    train-error:0.030401
+[3]    test-error:0.027312    train-error:0.021495
+[4]    test-error:0.031037    train-error:0.025487
+</code></pre><h3 id="Representation-of-a-tree"><a href="#Representation-of-a-tree" class="headerlink" title="Representation of a tree"></a>Representation of a tree<a name="tree"></a></h3><p>Before moving on it’s good to understand the intuition about how trees are grown.</p>
+<blockquote>
+<p><em>While building a tree is divided recursively several times (in this example only once) - this operation is called <strong>split</strong>. To perform a split the algorithm must figure out which is the best (one) feature to use</em>.</p>
+</blockquote>
+<blockquote>
+<p><em>After that, at the bottom of the we get groups of observations packed in the <strong>leaves</strong>.</em></p>
+</blockquote>
+<blockquote>
+<p><em>In the final model, these leafs are supposed to be <strong>as pure as possible</strong> for each tree, meaning in our case that each leaf should be made of one label class.</em></p>
+</blockquote>
+<blockquote>
+<p><em>Not all splits are equally important. Basically the first split of a tree will have more impact on the purity that, for instance, the deepest split. Intuitively, we understand that the first split makes most of the work, and the following splits focus on smaller parts of the dataset which have been missclassified by the first tree.</em></p>
+</blockquote>
+<blockquote>
+<p><em>In the same way, in Boosting we try to optimize the missclassification at each round (it is called the loss). So the first tree will do the big work and the following trees will focus on the remaining, on the parts not correctly learned by the previous trees.</em></p>
+</blockquote>
+<blockquote>
+<p><em>The improvement brought by each split can be measured, it is the gain.</em></p>
+</blockquote>
+<blockquote>
+<p>~ Quoted from the Kaggle Tianqi Chen’s Kaggle <a href="https://www.kaggle.com/tqchen/otto-group-product-classification-challenge/understanding-xgboost-model-on-otto-data" target="_blank" rel="noopener">notebook</a>.</p>
+</blockquote>
+<p>Let’s investigate how trees look like on our case:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">trees_dump = bst.get_dump(fmap=<span class="string">'../data/featmap.txt'</span>, with_stats=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> tree <span class="keyword">in</span> trees_dump:</span><br><span class="line">    print(tree)</span><br></pre></td></tr></table></figure>
+<pre><code>0:[odor=pungent] yes=2,no=1,gain=4000.53,cover=1628.25
+    1:leaf=0.647758,cover=924.5
+    2:leaf=-0.93331,cover=703.75
+
+0:[odor=musty] yes=2,no=1,gain=1377.22,cover=1404.2
+    1:leaf=-0.339609,cover=1008.21
+    2:leaf=0.75969,cover=395.989
+
+0:[gill-size=narrow] yes=2,no=1,gain=1210.77,cover=1232.64
+    1:leaf=0.673358,cover=430.293
+    2:leaf=-0.365203,cover=802.35
+
+0:[stalk-surface-above-ring=smooth] yes=2,no=1,gain=791.959,cover=1111.84
+    1:leaf=-0.277529,cover=765.906
+    2:leaf=0.632881,cover=345.937
+
+0:[odor=pungent] yes=2,no=1,gain=493.704,cover=981.683
+    1:leaf=0.275961,cover=638.373
+    2:leaf=-0.46668,cover=343.31
+</code></pre><p>For each split we are getting the following details:</p>
+<ul>
+<li>which feature was used to make split,</li>
+<li>possible choices to make (branches)</li>
+<li><strong>gain</strong> which is the actual improvement in accuracy brough by that feature. The idea is that before adding a new split on a feature X to the branch there was some wrongly classified elements, after adding the split on this feature, there are two new branches, and each of these branch is more accurate (one branch saying if your observation is on this branch then it should be classified as 1, and the other branch saying the exact opposite),</li>
+<li><strong>cover</strong> measuring the relative quantity of observations concerned by that feature</li>
+</ul>
+<h3 id="Plotting"><a href="#Plotting" class="headerlink" title="Plotting"></a>Plotting<a name="plot"></a></h3><p>Hopefully there are better ways to figure out which features really matter. We can use built-in function <code>plot_importance</code> that will create a plot presenting most important features due to some criterias. We will analyze the impact of each feature for all splits and all trees and visualize results.</p>
+<p>See which feature provided the most gain:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xgb.plot_importance(bst, importance_type=<span class="string">'gain'</span>, xlabel=<span class="string">'Gain'</span>)</span><br></pre></td></tr></table></figure>
+<p><img src="output_18_1.png" alt="png"></p>
+<p>We can simplify it a little bit by introducing a <em>F-score</em> metric.</p>
+<blockquote>
+<p><strong>F-score</strong> - sums up how many times a split was performed on each feature.</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xgb.plot_importance(bst)</span><br></pre></td></tr></table></figure>
+<p><img src="output_20_1.png" alt="png"></p>
+<p>In case you want to visualize it another way, a created model enables convinient way of accessing the F-score.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">importances = bst.get_fscore()</span><br><span class="line">importances</span><br></pre></td></tr></table></figure>
+<pre><code>{&apos;f27&apos;: 1, &apos;f29&apos;: 2, &apos;f39&apos;: 1, &apos;f64&apos;: 1}
+</code></pre><p>Now you can manipulate data in your own way</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># create df</span></span><br><span class="line">importance_df = pd.DataFrame(&#123;</span><br><span class="line">        <span class="string">'Splits'</span>: list(importances.values()),</span><br><span class="line">        <span class="string">'Feature'</span>: list(importances.keys())</span><br><span class="line">    &#125;)</span><br><span class="line">importance_df.sort_values(by=<span class="string">'Splits'</span>, inplace=<span class="literal">True</span>)</span><br><span class="line">importance_df.plot(kind=<span class="string">'barh'</span>, x=<span class="string">'Feature'</span>, figsize=(<span class="number">8</span>,<span class="number">6</span>), color=<span class="string">'orange'</span>)</span><br></pre></td></tr></table></figure>
+<p><img src="output_24_1.png" alt="png"></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/03/21/xgboost-tuning-parameters/" rel="next" title="xgboost bias variance trade-off and hyper-parameters tuning">
+                <i class="fa fa-chevron-left"></i> xgboost bias variance trade-off and hyper-parameters tuning
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/03/23/xgboost-introduction/" rel="prev" title="xgboost_introduction">
+                xgboost_introduction <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/uploads/avatar.jpg" alt="Kehui Yao">
+          <p class="site-author-name" itemprop="name">Kehui Yao</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Spotting-Most-Important-Features"><span class="nav-number">1.</span> <span class="nav-text">Spotting Most Important Features</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Load-libraries"><span class="nav-number">1.1.</span> <span class="nav-text">Load libraries</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Load-data"><span class="nav-number">1.2.</span> <span class="nav-text">Load data</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Train-the-model"><span class="nav-number">1.3.</span> <span class="nav-text">Train the model</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Representation-of-a-tree"><span class="nav-number">1.4.</span> <span class="nav-text">Representation of a tree</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Plotting"><span class="nav-number">1.5.</span> <span class="nav-text">Plotting</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Kehui Yao</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+  
+
+
+  
+
+</body>
+</html>
