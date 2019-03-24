@@ -89,7 +89,7 @@
 
 <meta name="description" content="Spotting Most Important FeaturesThe following notebook presents how to distinguish the relative importance of features in the dataset.Using this knowledge will help you to figure out what is driving t">
 <meta property="og:type" content="article">
-<meta property="og:title" content="xgboost_variable_selection">
+<meta property="og:title" content="Xgboost variable selection">
 <meta property="og:url" content="http://yoursite.com/2019/03/23/xgboost-variable-selection/index.html">
 <meta property="og:site_name" content="Kehui&#39;s Blog">
 <meta property="og:description" content="Spotting Most Important FeaturesThe following notebook presents how to distinguish the relative importance of features in the dataset.Using this knowledge will help you to figure out what is driving t">
@@ -97,9 +97,9 @@
 <meta property="og:image" content="http://yoursite.com/2019/03/23/xgboost-variable-selection/output_18_1.png">
 <meta property="og:image" content="http://yoursite.com/2019/03/23/xgboost-variable-selection/output_20_1.png">
 <meta property="og:image" content="http://yoursite.com/2019/03/23/xgboost-variable-selection/output_24_1.png">
-<meta property="og:updated_time" content="2019-03-24T05:26:56.000Z">
+<meta property="og:updated_time" content="2019-03-24T05:47:39.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="xgboost_variable_selection">
+<meta name="twitter:title" content="Xgboost variable selection">
 <meta name="twitter:description" content="Spotting Most Important FeaturesThe following notebook presents how to distinguish the relative importance of features in the dataset.Using this knowledge will help you to figure out what is driving t">
 <meta name="twitter:image" content="http://yoursite.com/2019/03/23/xgboost-variable-selection/output_18_1.png">
 
@@ -135,7 +135,7 @@
 
 
 
-  <title> xgboost_variable_selection | Kehui's Blog </title>
+  <title> Xgboost variable selection | Kehui's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="default">
@@ -275,7 +275,7 @@
             
             
               
-                xgboost_variable_selection
+                Xgboost variable selection
               
             
           </h1>
@@ -334,13 +334,14 @@
 <li><a href="#tree">knowing how a tree is represented</a>,</li>
 <li><a href="#plot">plotting feature importance</a></li>
 </ul>
+<a id="more"></a>
 <h3 id="Load-libraries"><a href="#Load-libraries" class="headerlink" title="Load libraries"></a>Load libraries<a name="libs"></a></h3><p>The purpose of this step is to train simple model.<br>Let’s begin with loading all libraries in one place.</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">%matplotlib inline</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> xgboost <span class="keyword">as</span> xgb</span><br><span class="line"><span class="keyword">import</span> seaborn <span class="keyword">as</span> sns</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line">sns.set(font_scale = <span class="number">1.5</span>)</span><br></pre></td></tr></table></figure>
 <pre><code>/opt/conda/lib/python3.5/site-packages/IPython/html.py:14: ShimWarning: The `IPython.html` package has been deprecated. You should import from `notebook` instead. `IPython.html.widgets` has moved to `ipywidgets`.
   &quot;`IPython.html.widgets` has moved to `ipywidgets`.&quot;, ShimWarning)
 </code></pre><h3 id="Load-data"><a href="#Load-data" class="headerlink" title="Load data"></a>Load data<a name="data"></a></h3><p>Load agaricus dataset from file</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dtrain = xgb.DMatrix(<span class="string">'../data/agaricus.txt.train'</span>)</span><br><span class="line">dtest = xgb.DMatrix(<span class="string">'../data/agaricus.txt.test'</span>)</span><br></pre></td></tr></table></figure>
-<a id="more"></a>
+<!--more-->
 <h3 id="Train-the-model"><a href="#Train-the-model" class="headerlink" title="Train the model"></a>Train the model<a name="model"></a></h3><p>Specify training parameters - we are going to use 5 stump decision trees with average learning rate.</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># specify training parameters</span></span><br><span class="line">params = &#123;</span><br><span class="line">    <span class="string">'objective'</span>:<span class="string">'binary:logistic'</span>,</span><br><span class="line">    <span class="string">'max_depth'</span>:<span class="number">1</span>,</span><br><span class="line">    <span class="string">'silent'</span>:<span class="number">1</span>,</span><br><span class="line">    <span class="string">'eta'</span>:<span class="number">0.5</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">num_rounds = <span class="number">5</span></span><br></pre></td></tr></table></figure>
 <p>Train the model. In the same time specify <code>watchlist</code> to observe it’s performance on the test set.</p>
@@ -446,8 +447,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/03/21/xgboost-tuning-parameters/" rel="next" title="xgboost bias variance trade-off and hyper-parameters tuning">
-                <i class="fa fa-chevron-left"></i> xgboost bias variance trade-off and hyper-parameters tuning
+              <a href="/2019/03/21/xgboost-tuning-parameters/" rel="next" title="Xgboost bias variance trade-off and hyper-parameters tuning">
+                <i class="fa fa-chevron-left"></i> Xgboost bias variance trade-off and hyper-parameters tuning
               </a>
             
           </div>
@@ -456,8 +457,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/03/23/xgboost-introduction/" rel="prev" title="xgboost_introduction">
-                xgboost_introduction <i class="fa fa-chevron-right"></i>
+              <a href="/2019/03/23/xgboost-introduction/" rel="prev" title="Xgboost introduction">
+                Xgboost introduction <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
