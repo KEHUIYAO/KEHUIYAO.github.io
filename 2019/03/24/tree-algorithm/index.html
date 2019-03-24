@@ -1,0 +1,736 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0">
+
+
+
+
+
+
+<meta name="description" content="二叉树逐层打印12345678910111213141516171819202122class Node:    def __init__(self,val,left=None,right=None):        self.val=val        self.left=left        self.right=rightdef printNode(root):    output=[]">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Tree problem in Leetcode">
+<meta property="og:url" content="http://yoursite.com/2019/03/24/tree-algorithm/index.html">
+<meta property="og:site_name" content="Kehui&#39;s Blog">
+<meta property="og:description" content="二叉树逐层打印12345678910111213141516171819202122class Node:    def __init__(self,val,left=None,right=None):        self.val=val        self.left=left        self.right=rightdef printNode(root):    output=[]">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-03-24T05:59:09.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Tree problem in Leetcode">
+<meta name="twitter:description" content="二叉树逐层打印12345678910111213141516171819202122class Node:    def __init__(self,val,left=None,right=None):        self.val=val        self.left=left        self.right=rightdef printNode(root):    output=[]">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"always","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/03/24/tree-algorithm/">
+
+
+
+
+
+  <title> Tree problem in Leetcode | Kehui's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Kehui's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Do statistics, learn some computer science.</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/24/tree-algorithm/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kehui Yao">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kehui's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Tree problem in Leetcode
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-24T00:53:10-05:00">
+                2019-03-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="二叉树逐层打印"><a href="#二叉树逐层打印" class="headerlink" title="二叉树逐层打印"></a>二叉树逐层打印</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Node</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,val,left=None,right=None)</span>:</span></span><br><span class="line">        self.val=val</span><br><span class="line">        self.left=left</span><br><span class="line">        self.right=right</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">printNode</span><span class="params">(root)</span>:</span></span><br><span class="line">    output=[]</span><br><span class="line">    queue=[root]</span><br><span class="line">    current=[]</span><br><span class="line">    <span class="keyword">while</span> queue <span class="keyword">and</span> root:</span><br><span class="line">        nextQueue=[]</span><br><span class="line">        current=[]</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> queue:</span><br><span class="line">            current.append(i.val)</span><br><span class="line">            <span class="keyword">if</span> i.left:</span><br><span class="line">                nextQueue.append(i.left)</span><br><span class="line">            <span class="keyword">if</span> i.right:</span><br><span class="line">                nextQueue.append(i.right)         </span><br><span class="line">        queue=nextQueue</span><br><span class="line">        output.append(current)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> output</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">a=Node(<span class="number">1</span>,Node(<span class="number">2</span>),Node(<span class="number">3</span>))</span><br><span class="line">a.left</span><br><span class="line">a.right</span><br><span class="line">a.val</span><br></pre></td></tr></table></figure>
+<pre><code>1
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">printNode(a)</span><br></pre></td></tr></table></figure>
+<pre><code>[[1], [2, 3]]
+</code></pre><h2 id="二叉树前序遍历（非递归）"><a href="#二叉树前序遍历（非递归）" class="headerlink" title="二叉树前序遍历（非递归）"></a>二叉树前序遍历（非递归）</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">print_node</span><span class="params">(root)</span>:</span></span><br><span class="line">    stack=[root]</span><br><span class="line">    <span class="keyword">while</span> stack <span class="keyword">and</span> root:       </span><br><span class="line">        <span class="keyword">while</span> root:</span><br><span class="line">            print(root.val)</span><br><span class="line">            <span class="keyword">if</span> root.left:</span><br><span class="line">                stack.append(root.left)</span><br><span class="line">            root=root.left</span><br><span class="line">        <span class="keyword">while</span> stack:</span><br><span class="line">            a=stack.pop()</span><br><span class="line">            <span class="keyword">if</span> a.right:</span><br><span class="line">                root=a.right</span><br><span class="line">                stack.append(root)</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">a=Node(<span class="number">1</span>,Node(<span class="number">2</span>,Node(<span class="number">4</span>),Node(<span class="number">5</span>)),Node(<span class="number">3</span>,Node(<span class="number">6</span>),Node(<span class="number">7</span>)))</span><br><span class="line">print_node(a)</span><br></pre></td></tr></table></figure>
+<pre><code>1
+2
+4
+5
+3
+6
+7
+</code></pre><h2 id="二叉树中序遍历-（非递归）"><a href="#二叉树中序遍历-（非递归）" class="headerlink" title="二叉树中序遍历 （非递归）"></a>二叉树中序遍历 （非递归）</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">print_node</span><span class="params">(root)</span>:</span></span><br><span class="line">    stack=[root]</span><br><span class="line">    <span class="keyword">while</span> stack <span class="keyword">and</span> root:</span><br><span class="line">        <span class="keyword">while</span> root:</span><br><span class="line">            <span class="keyword">if</span> root.left:</span><br><span class="line">                stack.append(root.left)</span><br><span class="line">            root=root.left</span><br><span class="line">        <span class="keyword">while</span> stack:</span><br><span class="line">            a=stack.pop()</span><br><span class="line">            print(a.val)</span><br><span class="line">            <span class="keyword">if</span> a.right:</span><br><span class="line">                root=a.right</span><br><span class="line">                stack.append(root)</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line">a=Node(<span class="number">1</span>,Node(<span class="number">2</span>,Node(<span class="number">4</span>),Node(<span class="number">5</span>)),Node(<span class="number">3</span>,Node(<span class="number">6</span>),Node(<span class="number">7</span>)))</span><br><span class="line"></span><br><span class="line">print_node(a)</span><br></pre></td></tr></table></figure>
+<pre><code>4
+2
+5
+1
+6
+3
+7
+</code></pre><h2 id="二叉树后序遍历-（非递归）"><a href="#二叉树后序遍历-（非递归）" class="headerlink" title="二叉树后序遍历 （非递归）"></a>二叉树后序遍历 （非递归）</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">print_node</span><span class="params">(root)</span>:</span></span><br><span class="line">    stack = [root]</span><br><span class="line">    <span class="keyword">while</span> stack <span class="keyword">and</span> root:</span><br><span class="line">        <span class="keyword">while</span> root:</span><br><span class="line">            <span class="keyword">if</span> root <span class="keyword">and</span> root <span class="keyword">not</span> <span class="keyword">in</span> stack:</span><br><span class="line">                stack.append(root)</span><br><span class="line">            root = root.left</span><br><span class="line">        root = stack[<span class="number">-1</span>]</span><br><span class="line">        <span class="keyword">while</span> <span class="keyword">not</span> root.right <span class="keyword">and</span> stack:</span><br><span class="line">            print(stack.pop().val)</span><br><span class="line">            <span class="keyword">if</span> stack:</span><br><span class="line">                root = stack[<span class="number">-1</span>]</span><br><span class="line">        <span class="keyword">if</span> stack:</span><br><span class="line">            root =root.right</span><br><span class="line">            stack[<span class="number">-1</span>].right = <span class="literal">None</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Node</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,val,left=None,right=None)</span>:</span></span><br><span class="line">        self.val=val</span><br><span class="line">        self.left=left</span><br><span class="line">        self.right=right</span><br><span class="line">a=Node(<span class="number">1</span>,Node(<span class="number">2</span>,Node(<span class="number">4</span>),Node(<span class="number">5</span>)),Node(<span class="number">3</span>,Node(<span class="number">6</span>),Node(<span class="number">7</span>)))</span><br><span class="line"></span><br><span class="line">print_node(a)</span><br></pre></td></tr></table></figure>
+<pre><code>4
+5
+2
+6
+7
+3
+1
+</code></pre><h2 id="110-balance-binary-tree"><a href="#110-balance-binary-tree" class="headerlink" title="110. balance binary tree"></a>110. balance binary tree</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">check</span><span class="params">(root)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> root:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">    left=check(root.left)</span><br><span class="line">    right=check(root.right)</span><br><span class="line">    <span class="keyword">if</span> left==<span class="number">-1</span> <span class="keyword">or</span> right==<span class="number">-1</span> <span class="keyword">or</span> abs(left-right)&gt;<span class="number">1</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> max(left,right)+<span class="number">1</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">(root)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> check(root)!=<span class="number">-1</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">a=Node(<span class="number">1</span>,Node(<span class="number">2</span>,Node(<span class="number">3</span>,Node(<span class="number">4</span>))),Node(<span class="number">3</span>))</span><br><span class="line">main(a)</span><br></pre></td></tr></table></figure>
+<pre><code>False
+</code></pre><h2 id="100-same-tree"><a href="#100-same-tree" class="headerlink" title="100. same tree"></a>100. same tree</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">same_tree</span><span class="params">(p,q)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> p <span class="keyword">and</span> <span class="keyword">not</span> q:</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">    <span class="keyword">if</span> p.val==q.val <span class="keyword">and</span> same_tree(p.left,q.left) <span class="keyword">and</span> same_tree(p.right,q.right):</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">a=Node(<span class="number">1</span>,Node(<span class="number">2</span>,Node(<span class="number">3</span>,Node(<span class="number">4</span>))),Node(<span class="number">3</span>))</span><br><span class="line">b=Node(<span class="number">1</span>,Node(<span class="number">2</span>,Node(<span class="number">3</span>,Node(<span class="number">4</span>))),Node(<span class="number">4</span>))</span><br><span class="line">print(same_tree(a,b))</span><br><span class="line">b=Node(<span class="number">1</span>,Node(<span class="number">2</span>,Node(<span class="number">3</span>,Node(<span class="number">4</span>))),Node(<span class="number">3</span>))</span><br><span class="line">print(same_tree(a,b))</span><br></pre></td></tr></table></figure>
+<pre><code>False
+True
+</code></pre><h2 id="101-symmetric-tree"><a href="#101-symmetric-tree" class="headerlink" title="101. symmetric tree"></a>101. symmetric tree</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">symmetric_tree</span><span class="params">(root)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">check_symmetric</span><span class="params">(p,q)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> p <span class="keyword">and</span> <span class="keyword">not</span> q:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> p <span class="keyword">or</span> <span class="keyword">not</span> q:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">        <span class="keyword">if</span> p.val==q.val <span class="keyword">and</span> check_symmetric(p.left,q.right) <span class="keyword">and</span> check_symmetric(p.right,q.left):</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">    <span class="keyword">if</span> root:</span><br><span class="line">        <span class="keyword">return</span> check_symmetric(root.left,root.right)</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line"></span><br><span class="line">a=Node(<span class="number">1</span>,Node(<span class="number">2</span>,Node(<span class="number">3</span>),Node(<span class="number">4</span>)),Node(<span class="number">2</span>,Node(<span class="number">4</span>),Node(<span class="number">3</span>)))</span><br><span class="line">print(symmetric_tree(a))</span><br><span class="line">a=Node(<span class="number">1</span>,Node(<span class="number">2</span>,Node(<span class="number">3</span>),Node(<span class="number">4</span>)),Node(<span class="number">2</span>,Node(<span class="number">4</span>),Node(<span class="number">4</span>)))</span><br><span class="line">print(symmetric_tree(a))</span><br></pre></td></tr></table></figure>
+<pre><code>True
+False
+</code></pre><h2 id="116-Populating-Next-Right-Pointers-in-Each-Node"><a href="#116-Populating-Next-Right-Pointers-in-Each-Node" class="headerlink" title="116. Populating Next Right Pointers in Each Node"></a>116. Populating Next Right Pointers in Each Node</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">populate_next_right_pointer</span><span class="params">(root)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> root:</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    <span class="keyword">if</span> root.left:</span><br><span class="line">        root.left.next=root.right</span><br><span class="line">    <span class="keyword">if</span> root.right:</span><br><span class="line">        <span class="keyword">if</span> root.next:</span><br><span class="line">            root.right.next=root.next.left</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            root.right.next=<span class="literal">None</span></span><br><span class="line">    populate_next_right_pointer(root.left)</span><br><span class="line">    populate_next_right_pointer(root.right)</span><br><span class="line">    <span class="keyword">return</span> root</span><br></pre></td></tr></table></figure>
+<h2 id="102-Binary-Tree-Level-Order-Traversal"><a href="#102-Binary-Tree-Level-Order-Traversal" class="headerlink" title="102. Binary Tree Level Order Traversal"></a>102. Binary Tree Level Order Traversal</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">binary_tree_level_order_traversal</span><span class="params">(root)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> root:</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line">    stack=[root]</span><br><span class="line">    res=[]</span><br><span class="line">    <span class="keyword">while</span> stack:</span><br><span class="line">        newStack=[]</span><br><span class="line">        tmp=[]</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> stack:</span><br><span class="line">            tmp.append(i.val)</span><br><span class="line">            <span class="keyword">if</span> i.left:</span><br><span class="line">                newStack.append(i.left)</span><br><span class="line">            <span class="keyword">if</span> i.right:</span><br><span class="line">                newStack.append(i.right)</span><br><span class="line">        stack=newStack</span><br><span class="line">        res.append(tmp)</span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line">a=Node(<span class="number">1</span>,Node(<span class="number">2</span>,Node(<span class="number">3</span>),Node(<span class="number">4</span>)),Node(<span class="number">2</span>,Node(<span class="number">4</span>),Node(<span class="number">3</span>)))</span><br><span class="line">print(binary_tree_level_order_traversal(a))</span><br></pre></td></tr></table></figure>
+<pre><code>[[1], [2, 2], [3, 4, 4, 3]]
+</code></pre><h2 id="107-Binary-Tree-Level-Order-Traversal-II"><a href="#107-Binary-Tree-Level-Order-Traversal-II" class="headerlink" title="107. Binary Tree Level Order Traversal II"></a>107. Binary Tree Level Order Traversal II</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">binary_tree_level_order_traversal</span><span class="params">(root)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> root:</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line">    stack=[root]</span><br><span class="line">    res=[]</span><br><span class="line">    <span class="keyword">while</span> stack:</span><br><span class="line">        newStack=[]</span><br><span class="line">        tmp=[]</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> stack:</span><br><span class="line">            tmp.append(i.val)</span><br><span class="line">            <span class="keyword">if</span> i.left:</span><br><span class="line">                newStack.append(i.left)</span><br><span class="line">            <span class="keyword">if</span> i.right:</span><br><span class="line">                newStack.append(i.right)</span><br><span class="line">        stack=newStack</span><br><span class="line">        res.append(tmp)</span><br><span class="line">    <span class="keyword">return</span> res[::<span class="number">-1</span>]</span><br><span class="line">a=Node(<span class="number">1</span>,Node(<span class="number">2</span>,Node(<span class="number">3</span>),Node(<span class="number">4</span>)),Node(<span class="number">2</span>,Node(<span class="number">4</span>),Node(<span class="number">3</span>)))</span><br><span class="line">print(binary_tree_level_order_traversal(a))</span><br></pre></td></tr></table></figure>
+<pre><code>[[3, 4, 4, 3], [2, 2], [1]]
+</code></pre><h2 id="103-Binary-Tree-Zigzag-Level-Order-Traversal"><a href="#103-Binary-Tree-Zigzag-Level-Order-Traversal" class="headerlink" title="103. Binary Tree Zigzag Level Order Traversal"></a>103. Binary Tree Zigzag Level Order Traversal</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">binary_tree_level_order_traversal</span><span class="params">(root)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> root:</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line">    stack=[root]</span><br><span class="line">    res=[]</span><br><span class="line">    <span class="keyword">while</span> stack:</span><br><span class="line">        newStack=[]</span><br><span class="line">        tmp=[]</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> stack:</span><br><span class="line">            tmp.append(i.val)</span><br><span class="line">            <span class="keyword">if</span> i.left:</span><br><span class="line">                newStack.append(i.left)</span><br><span class="line">            <span class="keyword">if</span> i.right:</span><br><span class="line">                newStack.append(i.right)</span><br><span class="line">        stack=newStack</span><br><span class="line">        res.append(tmp)</span><br><span class="line">    newRes=[]</span><br><span class="line">    flag=<span class="literal">True</span></span><br><span class="line">    <span class="keyword">while</span> res:</span><br><span class="line">        <span class="keyword">if</span> flag:</span><br><span class="line">            newRes.append(res.pop(<span class="number">0</span>))</span><br><span class="line">            flag=<span class="literal">False</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            newRes.append(res.pop(<span class="number">0</span>)[::<span class="number">-1</span>])</span><br><span class="line">            flag=<span class="literal">True</span></span><br><span class="line">    <span class="keyword">return</span> newRes</span><br><span class="line">a=Node(<span class="number">3</span>,Node(<span class="number">9</span>),Node(<span class="number">20</span>,Node(<span class="number">15</span>),Node(<span class="number">7</span>)))</span><br><span class="line">print(binary_tree_level_order_traversal(a))</span><br></pre></td></tr></table></figure>
+<pre><code>[[3], [20, 9], [15, 7]]
+</code></pre><h2 id="637-Average-of-Levels-in-Binary-Tree"><a href="#637-Average-of-Levels-in-Binary-Tree" class="headerlink" title="637. Average of Levels in Binary Tree"></a>637. Average of Levels in Binary Tree</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">binary_tree_level_order_traversal</span><span class="params">(root)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> root:</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line">    stack=[root]</span><br><span class="line">    res=[]</span><br><span class="line">    <span class="keyword">while</span> stack:</span><br><span class="line">        newStack=[]</span><br><span class="line">        tmp=[]</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> stack:</span><br><span class="line">            tmp.append(i.val)</span><br><span class="line">            <span class="keyword">if</span> i.left:</span><br><span class="line">                newStack.append(i.left)</span><br><span class="line">            <span class="keyword">if</span> i.right:</span><br><span class="line">                newStack.append(i.right)</span><br><span class="line">        stack=newStack</span><br><span class="line">        res.append(tmp)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> [sum(x)/len(x) <span class="keyword">for</span> x <span class="keyword">in</span> res]</span><br><span class="line">a=Node(<span class="number">3</span>,Node(<span class="number">9</span>),Node(<span class="number">20</span>,Node(<span class="number">15</span>),Node(<span class="number">7</span>)))</span><br><span class="line">print(binary_tree_level_order_traversal(a))</span><br></pre></td></tr></table></figure>
+<pre><code>[3.0, 14.5, 11.0]
+</code></pre><h2 id="314-Binary-Tree-Vertical-Order-Traversal"><a href="#314-Binary-Tree-Vertical-Order-Traversal" class="headerlink" title="314. Binary Tree Vertical Order Traversal"></a>314. Binary Tree Vertical Order Traversal</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> defaultdict</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">newNode</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,node,index)</span>:</span></span><br><span class="line">        self.node=node</span><br><span class="line">        self.index=index</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">binary_tree_level_order_traversal</span><span class="params">(root)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> root:</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line">    stack=[newNode(root,<span class="number">0</span>)]</span><br><span class="line">    res=[]</span><br><span class="line">    <span class="keyword">while</span> stack:</span><br><span class="line">        newStack=[]</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> stack:</span><br><span class="line">            res.append((i.index,i.node.val))</span><br><span class="line">            <span class="keyword">if</span> i.node.left:</span><br><span class="line">                newStack.append(newNode(i.node.left,i.index<span class="number">-1</span>))</span><br><span class="line">            <span class="keyword">if</span> i.node.right:</span><br><span class="line">                newStack.append(newNode(i.node.right,i.index+<span class="number">1</span>))</span><br><span class="line">        stack=newStack</span><br><span class="line">    newRes=defaultdict(list)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i,j <span class="keyword">in</span> res:</span><br><span class="line">        newRes[i].append(j)</span><br><span class="line">    newRes=sorted(newRes.items(),key=<span class="keyword">lambda</span> x:x[<span class="number">0</span>])</span><br><span class="line">    res=[]</span><br><span class="line">    <span class="keyword">for</span> values <span class="keyword">in</span> newRes:</span><br><span class="line">        res.append(values[<span class="number">1</span>])</span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line"></span><br><span class="line">a=Node(<span class="number">3</span>,Node(<span class="number">9</span>),Node(<span class="number">20</span>,Node(<span class="number">15</span>),Node(<span class="number">7</span>)))</span><br><span class="line">print(binary_tree_level_order_traversal(a))</span><br></pre></td></tr></table></figure>
+<pre><code>[[9], [3, 15], [20], [7]]
+</code></pre><h2 id="257-Binary-Tree-Paths"><a href="#257-Binary-Tree-Paths" class="headerlink" title="257. Binary Tree Paths"></a>257. Binary Tree Paths</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">binary_tree_paths</span><span class="params">(root)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">helper</span><span class="params">(node,path)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> node:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> node.left <span class="keyword">and</span> <span class="keyword">not</span> node.right:</span><br><span class="line">            <span class="keyword">return</span> [path+[node.val]]</span><br><span class="line">        <span class="keyword">if</span> node.left <span class="keyword">and</span> node.right:</span><br><span class="line">            left=helper(node.left,path+[node.val])</span><br><span class="line">            right=helper(node.right,path+[node.val])</span><br><span class="line">            <span class="keyword">return</span> left+right</span><br><span class="line">        <span class="keyword">if</span> node.left:</span><br><span class="line">            left=helper(node.left,path+[node.val])</span><br><span class="line">            <span class="keyword">return</span> left</span><br><span class="line">        <span class="keyword">if</span> node.right:</span><br><span class="line">            right=helper(node.right,path+[node.val])</span><br><span class="line">            <span class="keyword">return</span> right</span><br><span class="line">    <span class="keyword">return</span> helper(root,[])</span><br><span class="line">a=Node(<span class="number">3</span>,Node(<span class="number">1</span>),Node(<span class="number">2</span>))</span><br><span class="line">binary_tree_paths(a)</span><br></pre></td></tr></table></figure>
+<pre><code>[[3, 1], [3, 2]]
+</code></pre><h2 id="112-Path-Sum"><a href="#112-Path-Sum" class="headerlink" title="112. Path Sum"></a>112. Path Sum</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">path_sum</span><span class="params">(root,n)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">helper</span><span class="params">(node,path)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> node:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> node.left <span class="keyword">and</span> <span class="keyword">not</span> node.right:</span><br><span class="line">            <span class="keyword">return</span> [path+[node.val]]</span><br><span class="line">        <span class="keyword">if</span> node.left <span class="keyword">and</span> node.right:</span><br><span class="line">            left=helper(node.left,path+[node.val])</span><br><span class="line">            right=helper(node.right,path+[node.val])</span><br><span class="line">            <span class="keyword">return</span> left+right</span><br><span class="line">        <span class="keyword">if</span> node.left:</span><br><span class="line">            left=helper(node.left,path+[node.val])</span><br><span class="line">            <span class="keyword">return</span> left</span><br><span class="line">        <span class="keyword">if</span> node.right:</span><br><span class="line">            right=helper(node.right,path+[node.val])</span><br><span class="line">            <span class="keyword">return</span> right</span><br><span class="line">    res=helper(root,[])</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> res:</span><br><span class="line">        <span class="keyword">if</span> sum(i)==n:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">a=Node(<span class="number">3</span>,Node(<span class="number">1</span>),Node(<span class="number">2</span>))</span><br><span class="line">print(path_sum(a,<span class="number">5</span>))</span><br></pre></td></tr></table></figure>
+<pre><code>True
+</code></pre><h2 id="113-Path-Sum-II"><a href="#113-Path-Sum-II" class="headerlink" title="113. Path Sum II"></a>113. Path Sum II</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">path_sum</span><span class="params">(root,n)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">helper</span><span class="params">(node,path)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> node:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> node.left <span class="keyword">and</span> <span class="keyword">not</span> node.right:</span><br><span class="line">            <span class="keyword">return</span> [path+[node.val]]</span><br><span class="line">        <span class="keyword">if</span> node.left <span class="keyword">and</span> node.right:</span><br><span class="line">            left=helper(node.left,path+[node.val])</span><br><span class="line">            right=helper(node.right,path+[node.val])</span><br><span class="line">            <span class="keyword">return</span> left+right</span><br><span class="line">        <span class="keyword">if</span> node.left:</span><br><span class="line">            left=helper(node.left,path+[node.val])</span><br><span class="line">            <span class="keyword">return</span> left</span><br><span class="line">        <span class="keyword">if</span> node.right:</span><br><span class="line">            right=helper(node.right,path+[node.val])</span><br><span class="line">            <span class="keyword">return</span> right</span><br><span class="line">    res=helper(root,[])</span><br><span class="line">    newRes=[]</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> res:</span><br><span class="line">        <span class="keyword">if</span> sum(i)==n:</span><br><span class="line">            newRes.append(i)</span><br><span class="line">    <span class="keyword">return</span> newRes</span><br><span class="line">a=Node(<span class="number">3</span>,Node(<span class="number">1</span>),Node(<span class="number">2</span>))</span><br><span class="line">print(path_sum(a,<span class="number">5</span>))</span><br></pre></td></tr></table></figure>
+<pre><code>[[3, 2]]
+</code></pre><h2 id="129-Sum-Root-to-Leaf-Numbers"><a href="#129-Sum-Root-to-Leaf-Numbers" class="headerlink" title="129. Sum Root to Leaf Numbers"></a>129. Sum Root to Leaf Numbers</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">path_sum</span><span class="params">(root,n)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">helper</span><span class="params">(node,path)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> node:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> node.left <span class="keyword">and</span> <span class="keyword">not</span> node.right:</span><br><span class="line">            <span class="keyword">return</span> [path+[node.val]]</span><br><span class="line">        <span class="keyword">if</span> node.left <span class="keyword">and</span> node.right:</span><br><span class="line">            left=helper(node.left,path+[node.val])</span><br><span class="line">            right=helper(node.right,path+[node.val])</span><br><span class="line">            <span class="keyword">return</span> left+right</span><br><span class="line">        <span class="keyword">if</span> node.left:</span><br><span class="line">            left=helper(node.left,path+[node.val])</span><br><span class="line">            <span class="keyword">return</span> left</span><br><span class="line">        <span class="keyword">if</span> node.right:</span><br><span class="line">            right=helper(node.right,path+[node.val])</span><br><span class="line">            <span class="keyword">return</span> right</span><br><span class="line">    res=helper(root,[])</span><br><span class="line">    newRes=[]</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> res:</span><br><span class="line">        i=map(str,i)</span><br><span class="line">        newRes.append(int(<span class="string">""</span>.join(i)))</span><br><span class="line">    <span class="keyword">return</span> sum(newRes)</span><br><span class="line">a=Node(<span class="number">3</span>,Node(<span class="number">1</span>),Node(<span class="number">2</span>))</span><br><span class="line">print(path_sum(a,<span class="number">5</span>))</span><br></pre></td></tr></table></figure>
+<pre><code>63
+</code></pre><h2 id="124-Binary-Tree-Maximum-Path-Sum"><a href="#124-Binary-Tree-Maximum-Path-Sum" class="headerlink" title="124. Binary Tree Maximum Path Sum"></a>124. Binary Tree Maximum Path Sum</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">binary_tree_maximum_path_sum</span><span class="params">(root)</span>:</span></span><br><span class="line">    maxSum=[float(<span class="string">'-inf'</span>)]</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">helper</span><span class="params">(root,maxSum)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> root:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">        left=helper(root.left,maxSum)</span><br><span class="line">        right=helper(root.right,maxSum)</span><br><span class="line">        temp=max(root.val,root.val+left,root.val+right)</span><br><span class="line">        maxSum[<span class="number">0</span>]=max(maxSum[<span class="number">0</span>],temp,left+root.val+right)</span><br><span class="line">        <span class="keyword">return</span> temp</span><br><span class="line">    helper(root,maxSum)</span><br><span class="line">    <span class="keyword">return</span> maxSum[<span class="number">0</span>]</span><br><span class="line">a=Node(<span class="number">-10</span>,Node(<span class="number">9</span>),Node(<span class="number">20</span>,Node(<span class="number">15</span>),Node(<span class="number">7</span>)))</span><br><span class="line">binary_tree_maximum_path_sum(a)</span><br></pre></td></tr></table></figure>
+<pre><code>42
+</code></pre><h2 id="563-Binary-Tree-Tilt"><a href="#563-Binary-Tree-Tilt" class="headerlink" title="563. Binary Tree Tilt"></a>563. Binary Tree Tilt</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">add</span><span class="params">(root)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> root:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">    <span class="keyword">return</span> add(root.left)+root.val+add(root.right)</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">tilt</span><span class="params">(root)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> root:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">    left=tilt(root.left)</span><br><span class="line">    right=tilt(root.right)</span><br><span class="line">    diff=abs(add(root.left)-add(root.right))</span><br><span class="line">    <span class="keyword">return</span> left+right+diff</span><br><span class="line">a=Node(<span class="number">1</span>,Node(<span class="number">2</span>),Node(<span class="number">3</span>))</span><br><span class="line">tilt(a)</span><br></pre></td></tr></table></figure>
+<pre><code>1
+</code></pre>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/03/23/xgboost-introduction/" rel="next" title="Xgboost introduction">
+                <i class="fa fa-chevron-left"></i> Xgboost introduction
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/uploads/avatar.jpg" alt="Kehui Yao">
+          <p class="site-author-name" itemprop="name">Kehui Yao</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#二叉树逐层打印"><span class="nav-number">1.</span> <span class="nav-text">二叉树逐层打印</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二叉树前序遍历（非递归）"><span class="nav-number">2.</span> <span class="nav-text">二叉树前序遍历（非递归）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二叉树中序遍历-（非递归）"><span class="nav-number">3.</span> <span class="nav-text">二叉树中序遍历 （非递归）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二叉树后序遍历-（非递归）"><span class="nav-number">4.</span> <span class="nav-text">二叉树后序遍历 （非递归）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#110-balance-binary-tree"><span class="nav-number">5.</span> <span class="nav-text">110. balance binary tree</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#100-same-tree"><span class="nav-number">6.</span> <span class="nav-text">100. same tree</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#101-symmetric-tree"><span class="nav-number">7.</span> <span class="nav-text">101. symmetric tree</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#116-Populating-Next-Right-Pointers-in-Each-Node"><span class="nav-number">8.</span> <span class="nav-text">116. Populating Next Right Pointers in Each Node</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#102-Binary-Tree-Level-Order-Traversal"><span class="nav-number">9.</span> <span class="nav-text">102. Binary Tree Level Order Traversal</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#107-Binary-Tree-Level-Order-Traversal-II"><span class="nav-number">10.</span> <span class="nav-text">107. Binary Tree Level Order Traversal II</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#103-Binary-Tree-Zigzag-Level-Order-Traversal"><span class="nav-number">11.</span> <span class="nav-text">103. Binary Tree Zigzag Level Order Traversal</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#637-Average-of-Levels-in-Binary-Tree"><span class="nav-number">12.</span> <span class="nav-text">637. Average of Levels in Binary Tree</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#314-Binary-Tree-Vertical-Order-Traversal"><span class="nav-number">13.</span> <span class="nav-text">314. Binary Tree Vertical Order Traversal</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#257-Binary-Tree-Paths"><span class="nav-number">14.</span> <span class="nav-text">257. Binary Tree Paths</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#112-Path-Sum"><span class="nav-number">15.</span> <span class="nav-text">112. Path Sum</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#113-Path-Sum-II"><span class="nav-number">16.</span> <span class="nav-text">113. Path Sum II</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#129-Sum-Root-to-Leaf-Numbers"><span class="nav-number">17.</span> <span class="nav-text">129. Sum Root to Leaf Numbers</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#124-Binary-Tree-Maximum-Path-Sum"><span class="nav-number">18.</span> <span class="nav-text">124. Binary Tree Maximum Path Sum</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#563-Binary-Tree-Tilt"><span class="nav-number">19.</span> <span class="nav-text">563. Binary Tree Tilt</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Kehui Yao</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+  
+
+
+  
+
+</body>
+</html>
