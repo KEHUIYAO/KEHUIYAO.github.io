@@ -87,13 +87,14 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="Kehui&#39;s Blog">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="pandas_introduction">
+<meta property="og:url" content="http://yoursite.com/2019/03/26/pandas-introduction/index.html">
 <meta property="og:site_name" content="Kehui&#39;s Blog">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-03-26T20:03:00.735Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Kehui&#39;s Blog">
+<meta name="twitter:title" content="pandas_introduction">
 
 
 
@@ -121,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/">
+  <link rel="canonical" href="http://yoursite.com/2019/03/26/pandas-introduction/">
 
 
 
 
 
-  <title> Kehui's Blog </title>
+  <title> pandas_introduction | Kehui's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="default">
@@ -152,9 +153,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left 
-   page-home 
- ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -237,9 +236,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -269,10 +268,7 @@
             
             
               
-                
-                <a class="post-title-link" href="/2019/03/26/pandas-introduction/" itemprop="url">
-                  pandas_introduction
-                </a>
+                pandas_introduction
               
             
           </h1>
@@ -324,8 +320,6 @@
 
       
         
-          
-            
 <iframe id="ipynb" marginheight="0" frameborder="0" width="924px" srcdoc="<!DOCTYPE html>
 <html>
 <head><meta charset='utf-8' />
@@ -13605,16 +13599,20 @@ document.getElementById('ipynb').height=$("#ipynb").contents().find("#notebook")
 </script> 
     
 
-          
+      
+    </div>
+
+    <div>
+      
         
+
       
     </div>
 
     <div>
       
-    </div>
+        
 
-    <div>
       
     </div>
 
@@ -13623,1223 +13621,38 @@ document.getElementById('ipynb').height=$("#ipynb").contents().find("#notebook")
       
 
       
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/26/leetcode-stack/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Kehui Yao">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Kehui's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2019/03/26/leetcode-stack/" itemprop="url">
-                  leetcode_stack
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-26T12:21:12-05:00">
-                2019-03-26
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="单调栈"><a href="#单调栈" class="headerlink" title="单调栈"></a>单调栈</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 单调递减栈实现返回列表中左边第一个比自身大的元素的值</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">decreasing_stack</span><span class="params">(nums)</span>:</span></span><br><span class="line">    index=[<span class="number">-1</span>]</span><br><span class="line">    stack=[nums[<span class="number">0</span>]]</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,len(nums)):</span><br><span class="line">        <span class="keyword">while</span> stack <span class="keyword">and</span> nums[i]&gt;=stack[<span class="number">-1</span>] :</span><br><span class="line">            stack.pop()</span><br><span class="line">        <span class="keyword">if</span> stack:</span><br><span class="line">            index.append(stack[<span class="number">-1</span>])</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            index.append(<span class="number">-1</span>)</span><br><span class="line">        stack.append(nums[i])</span><br><span class="line">    <span class="keyword">return</span> index</span><br><span class="line">a=[<span class="number">4</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">5</span>]</span><br><span class="line">decreasing_stack(a)</span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 返回index</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">decreasing_stack_return_index</span><span class="params">(nums)</span>:</span></span><br><span class="line">    index=[<span class="number">-1</span>]</span><br><span class="line">    stack=[<span class="number">0</span>]</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,len(nums)):</span><br><span class="line">        <span class="keyword">while</span> stack <span class="keyword">and</span> nums[i]&gt;=nums[stack[<span class="number">-1</span>]] :</span><br><span class="line">            stack.pop()</span><br><span class="line">        <span class="keyword">if</span> stack:</span><br><span class="line">            index.append(stack[<span class="number">-1</span>])</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            index.append(<span class="number">-1</span>)</span><br><span class="line">        stack.append(i)</span><br><span class="line">    <span class="keyword">return</span> index</span><br><span class="line">a=[<span class="number">4</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">2</span>]</span><br><span class="line">decreasing_stack_return_index(a)</span><br></pre></td></tr></table></figure>
-<pre><code>[-1, 0, 0, 2]
-</code></pre><h2 id="42-Trapping-Rain-Water"><a href="#42-Trapping-Rain-Water" class="headerlink" title="42. Trapping Rain Water"></a>42. Trapping Rain Water</h2><p>这道题感觉不是十分好想，需要维持一个stack来进行操作，当遇到新加的元素比栈顶元素大的时候，我们就要比较之前的元素，如果栈里面是有一个，则不能形成坑，continue；不然就比较之前的元素和当前的最小值，减去高度。我们的做法是，遍历高度，如果此时栈为空，或者当前高度小于等于栈顶高度，则把当前高度的坐标压入栈，注意我们不直接把高度压入栈，而是把坐标压入栈，这样方便我们在后来算水平距离。当我们遇到比栈顶高度大的时候，就说明有可能会有坑存在，可以装雨水。此时我们栈里至少有一个高度，如果只有一个的话，那么不能形成坑，我们直接跳过，如果多余一个的话，那么此时把栈顶元素取出来当作坑，新的栈顶元素就是左边界，当前高度是右边界，只要取二者较小的，减去坑的高度，长度就是右边界坐标减去左边界坐标再减1，二者相乘就是盛水量啦,重复此操作直至当前高度小于等于栈顶高度，把当前高度压入栈</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">trap</span><span class="params">(self, height)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type height: List[int]</span></span><br><span class="line"><span class="string">        :rtype: int</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        stack = []</span><br><span class="line">        i = <span class="number">0</span></span><br><span class="line">        size = len(height)</span><br><span class="line">        res = <span class="number">0</span></span><br><span class="line">        <span class="keyword">while</span> i &lt; size:</span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> stack <span class="keyword">or</span> height[i] &lt;= height[stack[<span class="number">-1</span>]]:</span><br><span class="line">                stack.append(i)</span><br><span class="line">                i += <span class="number">1</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                top = stack.pop()</span><br><span class="line">                <span class="keyword">if</span> <span class="keyword">not</span> stack:</span><br><span class="line">                    <span class="keyword">continue</span></span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    res += (min(height[i], height[stack[<span class="number">-1</span>]]) - height[top]) * (i - stack[<span class="number">-1</span>] <span class="number">-1</span>) <span class="comment"># height * width</span></span><br><span class="line">        <span class="keyword">return</span> res</span><br></pre></td></tr></table></figure>
-<h2 id="496-Next-Greater-Element-I"><a href="#496-Next-Greater-Element-I" class="headerlink" title="496. Next Greater Element I"></a>496. Next Greater Element I</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">next_greater_element</span><span class="params">(a,b)</span>:</span></span><br><span class="line">    stack=[b[<span class="number">0</span>]]</span><br><span class="line">    res=&#123;&#125;</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,len(b)):</span><br><span class="line">        <span class="keyword">while</span> stack <span class="keyword">and</span> b[i]&gt;stack[<span class="number">-1</span>]:</span><br><span class="line">            res[stack.pop()]=b[i]</span><br><span class="line">        stack.append(b[i])</span><br><span class="line">    <span class="keyword">while</span> stack:</span><br><span class="line">        res[stack.pop()]=<span class="number">-1</span></span><br><span class="line">    newRes=[]</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> a:</span><br><span class="line">        newRes.append(res[i])</span><br><span class="line">    <span class="keyword">return</span> newRes</span><br><span class="line">nums1 = [<span class="number">4</span>,<span class="number">1</span>,<span class="number">2</span>]</span><br><span class="line">nums2 = [<span class="number">1</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">2</span>]</span><br><span class="line">print(next_greater_element(nums1,nums2))</span><br><span class="line">nums1=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">1</span>]</span><br><span class="line">nums2=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">1</span>]</span><br><span class="line">print(next_greater_element(nums1,nums2))</span><br></pre></td></tr></table></figure>
-<pre><code>[-1, 3, -1]
-[-1, -1, -1]
-</code></pre><h2 id="739-Daily-Temperatures"><a href="#739-Daily-Temperatures" class="headerlink" title="739. Daily Temperatures"></a>739. Daily Temperatures</h2><p>用一个单调递减栈完事</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">warmer_weather</span><span class="params">(x)</span>:</span></span><br><span class="line">    stack=[<span class="number">0</span>]</span><br><span class="line">    res=&#123;&#125;</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,len(x)):</span><br><span class="line">        <span class="keyword">while</span> stack <span class="keyword">and</span> x[i]&gt;x[stack[<span class="number">-1</span>]]:</span><br><span class="line">            res[stack.pop()]=i</span><br><span class="line">        stack.append(i)</span><br><span class="line">    <span class="keyword">while</span> stack:</span><br><span class="line">        temp=stack.pop()</span><br><span class="line">        res[temp]=temp</span><br><span class="line">    newRes=[]</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(len(x)):</span><br><span class="line">        newRes.append(res[i]-i)</span><br><span class="line">    <span class="keyword">return</span> newRes</span><br><span class="line">a=[<span class="number">73</span>, <span class="number">74</span>, <span class="number">75</span>, <span class="number">71</span>, <span class="number">69</span>, <span class="number">72</span>, <span class="number">76</span>, <span class="number">73</span>]</span><br><span class="line">warmer_weather(a)</span><br></pre></td></tr></table></figure>
-<pre><code>[1, 1, 4, 2, 1, 1, 0, 0]
-</code></pre><h2 id="503-Next-Greater-Element-II"><a href="#503-Next-Greater-Element-II" class="headerlink" title="503. Next Greater Element II"></a>503. Next Greater Element II</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">next_greater_element</span><span class="params">(x)</span>:</span></span><br><span class="line">    res=[<span class="number">-1</span>]*len(x)</span><br><span class="line">    stack=[<span class="number">0</span>]</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,len(x)*<span class="number">2</span>):</span><br><span class="line">        <span class="keyword">while</span> stack <span class="keyword">and</span> x[i%len(x)]&gt;x[stack[<span class="number">-1</span>]]:            </span><br><span class="line">            res[stack.pop()]=x[i%len(x)]    </span><br><span class="line">        <span class="keyword">if</span> i&lt;=len(x)<span class="number">-1</span>:</span><br><span class="line">            stack.append(i%len(x))</span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line">a=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">1</span>]</span><br><span class="line">print(next_greater_element(a))</span><br></pre></td></tr></table></figure>
-<pre><code>[2, -1, 2]
-</code></pre><h2 id="316-Remove-Duplicate-Letters"><a href="#316-Remove-Duplicate-Letters" class="headerlink" title="316. Remove Duplicate Letters"></a>316. Remove Duplicate Letters</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">removeDuplicateLetters</span><span class="params">(self, s)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type s: str</span></span><br><span class="line"><span class="string">        :rtype: str</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        stack = []</span><br><span class="line">        dic = dict()</span><br><span class="line">        <span class="keyword">for</span> char <span class="keyword">in</span> s:</span><br><span class="line">            dic[char] = dic.get(char, <span class="number">0</span>) + <span class="number">1</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> char <span class="keyword">in</span> s:</span><br><span class="line">            dic[char] -= <span class="number">1</span></span><br><span class="line">            <span class="keyword">if</span> char <span class="keyword">in</span> stack:</span><br><span class="line">                <span class="keyword">continue</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">while</span> stack <span class="keyword">and</span> ord(char) &lt; ord(stack[<span class="number">-1</span>]) <span class="keyword">and</span> dic[stack[<span class="number">-1</span>]] &gt; <span class="number">0</span>:</span><br><span class="line">                    stack.pop()</span><br><span class="line">            stack.append(char)</span><br><span class="line">        <span class="keyword">return</span> <span class="string">""</span>.join(stack)</span><br></pre></td></tr></table></figure>
-<h2 id="84-Largest-Rectangle-in-Histogram"><a href="#84-Largest-Rectangle-in-Histogram" class="headerlink" title="84. Largest Rectangle in Histogram"></a>84. Largest Rectangle in Histogram</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">largestRectangleArea</span><span class="params">( heights)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type heights: List[int]</span></span><br><span class="line"><span class="string">        :rtype: int</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        res = <span class="number">0</span></span><br><span class="line">        stack = []</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(heights)+<span class="number">1</span>):</span><br><span class="line">            height = heights[i] <span class="keyword">if</span> i!= len(heights) <span class="keyword">else</span> <span class="number">0</span></span><br><span class="line">            <span class="keyword">while</span> stack <span class="keyword">and</span> height &lt;= heights[stack[<span class="number">-1</span>]]:</span><br><span class="line">                h = heights[stack.pop()]</span><br><span class="line">                w = i - stack[<span class="number">-1</span>] <span class="number">-1</span> <span class="keyword">if</span> stack <span class="keyword">else</span> i</span><br><span class="line">                res = max(res, h*w)</span><br><span class="line">                print(<span class="string">"res equals &#123;&#125;"</span>.format(res))</span><br><span class="line">                print(<span class="string">"h equals &#123;&#125;"</span>.format(h))</span><br><span class="line">                print(<span class="string">"w equals &#123;&#125;"</span>.format(w))</span><br><span class="line">                print(<span class="string">"stack equals &#123;&#125;"</span>.format(stack))</span><br><span class="line">            stack.append(i)</span><br><span class="line">        <span class="keyword">return</span> res</span><br><span class="line">largestRectangleArea([<span class="number">2</span>,<span class="number">3</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">1</span>])</span><br></pre></td></tr></table></figure>
-<pre><code>res equals 3
-h equals 3
-w equals 1
-stack equals [0]
-res equals 4
-h equals 2
-w equals 2
-stack equals []
-res equals 4
-h equals 3
-w equals 1
-stack equals [2, 3]
-res equals 4
-h equals 2
-w equals 2
-stack equals [2]
-res equals 5
-h equals 1
-w equals 5
-stack equals []
-res equals 6
-h equals 1
-w equals 6
-stack equals []
-
-
-
-
-
-6
-</code></pre><h2 id="85-Maximal-Rectangle"><a href="#85-Maximal-Rectangle" class="headerlink" title="85. Maximal Rectangle"></a>85. Maximal Rectangle</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">maximalRectangle</span><span class="params">(self, matrix)</span>:</span></span><br><span class="line">    	<span class="comment"># O(m^2)</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> matrix <span class="keyword">or</span> <span class="keyword">not</span> matrix[<span class="number">0</span>]:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">        n = len(matrix[<span class="number">0</span>])</span><br><span class="line">        <span class="comment"># init heights array</span></span><br><span class="line">        height = [<span class="number">0</span>] * (n + <span class="number">1</span>)</span><br><span class="line">        ans = <span class="number">0</span></span><br><span class="line">        <span class="comment"># calculate each row</span></span><br><span class="line">        <span class="keyword">for</span> row <span class="keyword">in</span> matrix:</span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> range(n):</span><br><span class="line">                <span class="comment"># count next level '1'</span></span><br><span class="line">                height[i] = height[i] + <span class="number">1</span> <span class="keyword">if</span> row[i] == <span class="string">'1'</span> <span class="keyword">else</span> <span class="number">0</span></span><br><span class="line"></span><br><span class="line">            stack = []</span><br><span class="line"></span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> range(n + <span class="number">1</span>):</span><br><span class="line">                <span class="keyword">while</span> stack <span class="keyword">and</span> height[i] &lt;= height[stack[<span class="number">-1</span>]]:</span><br><span class="line">                    h = height[stack.pop()]</span><br><span class="line">                    <span class="comment"># if not stack means left boundary is zero then width is i else is the stack[-1] index</span></span><br><span class="line">                    w = i - <span class="number">1</span> - stack[<span class="number">-1</span>] <span class="keyword">if</span> stack <span class="keyword">else</span> i</span><br><span class="line">                    ans = max(ans, h * w)</span><br><span class="line">                stack.append(i)</span><br><span class="line">        <span class="keyword">return</span> ans</span><br></pre></td></tr></table></figure>
-
-          
         
       
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
 
       
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/25/numpy-tutorial/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Kehui Yao">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Kehui's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
+              <a href="/2019/03/26/leetcode-stack/" rel="next" title="leetcode_stack">
+                <i class="fa fa-chevron-left"></i> leetcode_stack
+              </a>
             
-              
-                
-                <a class="post-title-link" href="/2019/03/25/numpy-tutorial/" itemprop="url">
-                  Data Manipulation using Numpy Arrays
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-25T18:44:57-05:00">
-                2019-03-25
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>这部分内容转载自: Python DataScience Handbook</p>
-<h1 id="The-Basics-of-NumPy-Arrays"><a href="#The-Basics-of-NumPy-Arrays" class="headerlink" title="The Basics of NumPy Arrays"></a>The Basics of NumPy Arrays</h1><p>Data manipulation in Python is nearly synonymous with NumPy array manipulation: even newer tools like Pandas (<a href="03.00-Introduction-to-Pandas.ipynb">Chapter 3</a>) are built around the NumPy array.<br>This section will present several examples of using NumPy array manipulation to access data and subarrays, and to split, reshape, and join the arrays.<br>While the types of operations shown here may seem a bit dry and pedantic, they comprise the building blocks of many other examples used throughout the book.<br>Get to know them well!</p>
-<p>We’ll cover a few categories of basic array manipulations here:</p>
-<ul>
-<li><em>Attributes of arrays</em>: Determining the size, shape, memory consumption, and data types of arrays</li>
-<li><em>Indexing of arrays</em>: Getting and setting the value of individual array elements</li>
-<li><em>Slicing of arrays</em>: Getting and setting smaller subarrays within a larger array</li>
-<li><em>Reshaping of arrays</em>: Changing the shape of a given array</li>
-<li><em>Joining and splitting of arrays</em>: Combining multiple arrays into one, and splitting one array into many</li>
-</ul>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/03/25/numpy-tutorial/#more" rel="contents">
-              Read more &raquo;
-            </a>
           </div>
-          <!--/noindex-->
-        
-      
-    </div>
 
-    <div>
-      
-    </div>
+          <span class="post-nav-divider"></span>
 
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/24/tree-algorithm/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Kehui Yao">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Kehui's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
+          <div class="post-nav-prev post-nav-item">
             
-            
-              
-                
-                <a class="post-title-link" href="/2019/03/24/tree-algorithm/" itemprop="url">
-                  Tree problem in Leetcode
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-24T00:53:10-05:00">
-                2019-03-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="二叉树逐层打印"><a href="#二叉树逐层打印" class="headerlink" title="二叉树逐层打印"></a>二叉树逐层打印</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Node</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,val,left=None,right=None)</span>:</span></span><br><span class="line">        self.val=val</span><br><span class="line">        self.left=left</span><br><span class="line">        self.right=right</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">printNode</span><span class="params">(root)</span>:</span></span><br><span class="line">    output=[]</span><br><span class="line">    queue=[root]</span><br><span class="line">    current=[]</span><br><span class="line">    <span class="keyword">while</span> queue <span class="keyword">and</span> root:</span><br><span class="line">        nextQueue=[]</span><br><span class="line">        current=[]</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> queue:</span><br><span class="line">            current.append(i.val)</span><br><span class="line">            <span class="keyword">if</span> i.left:</span><br><span class="line">                nextQueue.append(i.left)</span><br><span class="line">            <span class="keyword">if</span> i.right:</span><br><span class="line">                nextQueue.append(i.right)         </span><br><span class="line">        queue=nextQueue</span><br><span class="line">        output.append(current)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> output</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/03/24/tree-algorithm/#more" rel="contents">
-              Read more &raquo;
-            </a>
           </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/23/xgboost-introduction/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Kehui Yao">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Kehui's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2019/03/23/xgboost-introduction/" itemprop="url">
-                  Xgboost introduction
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-23T22:32:13-05:00">
-                2019-03-23
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
         </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          <h2 id="XGBoost"><a href="#XGBoost" class="headerlink" title="XGBoost"></a>XGBoost</h2><h3 id="Using-standard-interface"><a href="#Using-standard-interface" class="headerlink" title="Using standard interface"></a>Using standard interface</h3><p>The following notebooks presents the basic usage of native XGBoost Python interface.</p>
-<p><strong>Flight-plan</strong>:</p>
-<ul>
-<li><a href="#libs">load libraries</a> and <a href="#data">prepare data</a>,</li>
-<li><a href="#params">specify parameters</a>,</li>
-<li><a href="#train">train classifier</a>,</li>
-<li><a href="#predict">make predictions</a></li>
-</ul>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/03/23/xgboost-introduction/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
-    
-      
 
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/23/xgboost-variable-selection/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Kehui Yao">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Kehui's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2019/03/23/xgboost-variable-selection/" itemprop="url">
-                  Xgboost variable selection
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-23T22:23:58-05:00">
-                2019-03-23
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="Spotting-Most-Important-Features"><a href="#Spotting-Most-Important-Features" class="headerlink" title="Spotting Most Important Features"></a>Spotting Most Important Features</h2><p>The following notebook presents how to distinguish the relative importance of features in the dataset.<br>Using this knowledge will help you to figure out what is driving the splits most for the trees and where we may be able to make some improvements in feature engineering if possible.</p>
-<p><strong>What we’ll be doing</strong>:</p>
-<ul>
-<li><a href="#libs">loading libraries</a> and <a href="#data">data</a>,</li>
-<li><a href="#model">training a model</a>,</li>
-<li><a href="#tree">knowing how a tree is represented</a>,</li>
-<li><a href="#plot">plotting feature importance</a></li>
-</ul>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/03/23/xgboost-variable-selection/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
+    <div class="post-spread">
       
     </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/21/xgboost-tuning-parameters/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Kehui Yao">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Kehui's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2019/03/21/xgboost-tuning-parameters/" itemprop="url">
-                  Xgboost bias variance trade-off and hyper-parameters tuning
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-21T23:27:22-05:00">
-                2019-03-21
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="Bias-variance-trade-off"><a href="#Bias-variance-trade-off" class="headerlink" title="Bias/variance trade-off"></a>Bias/variance trade-off</h2><p>The following notebook presents visual explanation about how to deal with bias/variance trade-off, which is common machine learning problem.</p>
-<p><strong>What you will learn</strong>:</p>
-<ul>
-<li><a href="#biasvariance">what is bias and variance in terms of ML problem</a>,</li>
-<li><a href="#fitting">concept of under- and over-fitting</a>,</li>
-<li><a href="#detect">how to detect if there is a problem</a>,</li>
-<li><a href="#deal">dealing with high variance/bias</a></li>
-</ul>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/03/21/xgboost-tuning-parameters/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/21/Boosting/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Kehui Yao">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Kehui's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2019/03/21/Boosting/" itemprop="url">
-                  Boosting algorithm principle and practice
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-21T00:29:15-05:00">
-                2019-03-21
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="Boosting-introduction"><a href="#Boosting-introduction" class="headerlink" title="Boosting introduction"></a>Boosting introduction</h2><p>This blog refers to the materials for an online-course - “Practical XGBoost in Python”.</p>
-<p>Here I list some sources to learn boosting algorithm, especially xgboost.</p>
-<ul>
-<li><a href="#idea-of-boosting">What is the idea of boosting</a></li>
-<li><a href="#weak-vclassifier">Why use tree as a weak classifier</a></li>
-<li><a href="#common-algorithms">What are some common boosting implementations</a></li>
-<li><a href="#how-xgboost-helps">How XGBoost helps</a></li>
-<li><a href="https://homes.cs.washington.edu/~tqchen/pdf/BoostedTree.pdf" target="_blank" rel="noopener">Tianqi chen’s slide</a></li>
-<li><a href="https://arxiv.org/pdf/1603.02754.pdf" target="_blank" rel="noopener">xgboost original paper</a></li>
-</ul>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/03/21/Boosting/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/19/factorization-machine/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Kehui Yao">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Kehui's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2019/03/19/factorization-machine/" itemprop="url">
-                  Factorization machine principle and projects
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-19T17:24:33-05:00">
-                2019-03-19
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="principle"><a href="#principle" class="headerlink" title="principle:"></a>principle:</h1><ul>
-<li><p><a href="https://www.csie.ntu.edu.tw/~b97053/paper/Rendle2010FM.pdf" target="_blank" rel="noopener">the original paper</a></p>
-</li>
-<li><p><a href="https://www.analyticsvidhya.com/blog/2018/01/factorization-machines/" target="_blank" rel="noopener"> great explanation</a></p>
-</li>
-<li><p><a href="https://tech.meituan.com/2016/03/03/deep-understanding-of-ffm-principles-and-practices.html" target="_blank" rel="noopener">美团技术团队深入理解FM及实践</a></p>
-</li>
-</ul>
-<h1 id="projects"><a href="#projects" class="headerlink" title="projects:"></a>projects:</h1><h2 id="Building-a-Movie-Recommendation-Service"><a href="#Building-a-Movie-Recommendation-Service" class="headerlink" title="Building a Movie Recommendation Service"></a>Building a Movie Recommendation Service</h2><h3 id="Matrix-factorization-algorithm-implement-by-hand"><a href="#Matrix-factorization-algorithm-implement-by-hand" class="headerlink" title="Matrix factorization algorithm implement by hand"></a>Matrix factorization algorithm implement by hand</h3><h4 id="load-necessary-packages"><a href="#load-necessary-packages" class="headerlink" title="load necessary packages"></a>load necessary packages</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> sys, numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">from</span> numpy <span class="keyword">import</span> genfromtxt</span><br><span class="line"><span class="keyword">import</span> codecs</span><br><span class="line"><span class="keyword">from</span> numpy <span class="keyword">import</span> linalg <span class="keyword">as</span> LA</span><br></pre></td></tr></table></figure>
-<h4 id="load-movie-data-and-rating-data"><a href="#load-movie-data-and-rating-data" class="headerlink" title="load movie data and rating data"></a>load movie data and rating data</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">movies=pd.read_csv(<span class="string">"movies.csv"</span>)</span><br><span class="line">ratings=pd.read_csv(<span class="string">"ratings.csv"</span>)</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/03/19/factorization-machine/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/18/question/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Kehui Yao">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Kehui's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2019/03/18/question/" itemprop="url">
-                  Data science interview questions
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-18T00:13:28-05:00">
-                2019-03-18
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="P1"><a href="#P1" class="headerlink" title="P1"></a>P1</h2><h3 id="Description"><a href="#Description" class="headerlink" title="Description:"></a>Description:</h3><p>Write a function to calculate all possible assignment vectors of 2n users, where n users are assigned to group 0 (control), and n users are assigned to group 1 (treatment).</p>
-<h3 id="Solution"><a href="#Solution" class="headerlink" title="Solution:"></a>Solution:</h3><p>We First look at how to print all possible combinations of r elements in a given array of size n.</p>
-<p>Given an array of size n, generate and print all possible combinations of r elements in array. For example, if input array is {1, 2, 3, 4} and r is 2, then output should be {1, 2}, {1, 3}, {1, 4}, {2, 3}, {2, 4} and {3, 4}.<br>Following are two methods to do this.</p>
-<p>Method: define a helper function, the input is the data we’d like to get our element from, and A is a list containing the elements which are already used.<br>When len(data)+len(A)&lt;n, we cannot take any sample from the list. Otherwise, we can write recursive function to generate every possible result.</p>
-<blockquote>
-<p>python code:</p>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">permute</span><span class="params">(data,n)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">helper</span><span class="params">(data,A)</span>:</span></span><br><span class="line">        res=[]</span><br><span class="line">        <span class="keyword">if</span> len(data)+len(A)&lt;n:</span><br><span class="line">            <span class="keyword">return</span> []</span><br><span class="line">        <span class="keyword">if</span> len(A)==n:</span><br><span class="line">            <span class="keyword">return</span> [A]</span><br><span class="line">        <span class="keyword">if</span> len(data)==<span class="number">1</span>:</span><br><span class="line">            <span class="keyword">return</span> [A+[data[<span class="number">0</span>]]]</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(data)):</span><br><span class="line"></span><br><span class="line">            temp=helper(data[(i+<span class="number">1</span>):],A+[data[i]])</span><br><span class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> temp:</span><br><span class="line">                res.append(j)</span><br><span class="line">        <span class="keyword">return</span> res</span><br><span class="line">    <span class="keyword">return</span> helper(data,[])</span><br><span class="line">permute([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>],<span class="number">2</span>)</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>output:</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[[1, 2], [1, 3], [1, 4], [2, 3], [2, 4], [3, 4]]</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/03/18/question/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-  </section>
-
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
-  </nav>
-
+  </div>
 
           
           </div>
@@ -14847,6 +13660,10 @@ stack equals []
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -15026,6 +13843,10 @@ stack equals []
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
 
   
 
