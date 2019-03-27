@@ -248,6 +248,133 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/27/git/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kehui Yao">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kehui's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2019/03/27/git/" itemprop="url">
+                  Git 笔记
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-27T17:14:59-05:00">
+                2019-03-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>这篇博客主要讲讲git的几个小技巧，git的教程可以参考廖雪峰老师的git教程，比较浅显易懂<img src="https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000" alt="廖雪峰git教程"></p>
+<h2 id="本地Git仓库和GitHub仓库之间的免密码传输"><a href="#本地Git仓库和GitHub仓库之间的免密码传输" class="headerlink" title="本地Git仓库和GitHub仓库之间的免密码传输"></a>本地Git仓库和GitHub仓库之间的免密码传输</h2><p>由于你的本地Git仓库和GitHub仓库之间的传输是通过SSH加密的，所以，需要一点设置：</p>
+<ul>
+<li>第1步：创建SSH Key。在用户主目录下，看看有没有.ssh目录，如果有，再看看这个目录下有没有id_rsa和id_rsa.pub这两个文件，如果已经有了，可直接跳到下一步。如果没有，打开Shell（Windows下打开Git Bash），创建SSH Key：你需要把邮件地址换成你自己的邮件地址，然后一路回车，使用默认值即可，由于这个Key也不是用于军事目的，所以也无需设置密码。如果一切顺利的话，可以在用户主目录里找到.ssh目录，里面有id_rsa和id_rsa.pub两个文件，这两个就是SSH Key的秘钥对，id_rsa是私钥，不能泄露出去，id_rsa.pub是公钥，可以放心地告诉任何人。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-keygen -t rsa -C &quot;youremail@example.com&quot;</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/03/27/git/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/27/yelp-data-challenge/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -271,7 +398,7 @@
               
                 
                 <a class="post-title-link" href="/2019/03/27/yelp-data-challenge/" itemprop="url">
-                  yelp_data_challenge
+                  Kaggle Yelp Data Challenge
                 </a>
               
             
@@ -324,42 +451,14 @@
 
       
         
-          
-            <h2 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h2><p>The task is based on the yelp_academic_dataset_review.json file (5 million rows) in the challenge. It has two fields, namely “stars” and “text”. The “text” field is customer’s raw review sentence, while the “stars” field is the customer’s rating for the corresponding review ranging from 1 to 5. Our goal is to predict the stars based on the text.</p>
-<h2 id="Review-data-preprocessing"><a href="#Review-data-preprocessing" class="headerlink" title="Review data preprocessing"></a>Review data preprocessing</h2><p>We begin with looking at the first 10,000 lines of the review data. Three issues were founded:</p>
-<ul>
-<li>various language types</li>
-<li>emojis</li>
-<li>numbers</li>
-</ul>
-<p>Next step is to solve these problems step by step. The whole procedure are briefed described as follows.</p>
-<ol>
-<li>In view of computation cost, we just encode each string with utf-8 and delete those ‘\x’ part. In such way, the text will remain only Latin languages.  </li>
-<li>Punctuations are usually useless except emoticons. So we will consider emoticons as individual words.  </li>
-<li><p>Numbers are sometimes very confusing. In different situation, the same number will have different meanings. So they are supposed to be deleted.  </p>
-</li>
-<li><p>To further reduce the computation cost, we reduce the corpus size by performing the following operations.</p>
-</li>
-</ol>
-<ul>
-<li>Expand abbreviation: Reduce the size of dictionary.</li>
-<li>Unify adversatives: In such way, it is easier to create adversative phrases which will extract more information.</li>
-<li>Simple spell check: English words which contain three or more consecutive letters are suspicious words. For example, ‘noooooo’. We’ll first look it up in WordNet corpus. Then check the word with only two consecutive letter exists and if not check the case with only one letter. (‘noooooo’ -&gt; ‘noo’ -&gt; ‘no’) If all these approaches failed, an operation using python built-in function called ‘suggest’ will be performed.  </li>
-<li>Delete stop words: Stop words are those useless words like ‘the, and, is …’ which can’t give us any information whether the restaurant is good or not.</li>
-<li>Word lemmatization: There are many tenses in English. Our purpose is to convert verbs to their primary form.</li>
-</ul>
-<ol start="5">
-<li>Find bigrams: The limitation of bag-of-words is that connections between words are lost. Constructing phrases can remit it . There is a function called ‘phrase’ in the package ‘gensim’. This function comes in handy to tokenize the sentence then search through all the bigrams and count each bigrams. According to its built-in bigram dictionary and the frequency calculation schema, the function will convert some words into a bigram form.</li>
-</ol>
-<h2 id="Deep-learning-methods-for-predicting-the-ratings"><a href="#Deep-learning-methods-for-predicting-the-ratings" class="headerlink" title="Deep learning methods for predicting the ratings"></a>Deep learning methods for predicting the ratings</h2><p>In this section, a deep learning model is constructed to predict the star that a customer will give based on the review he writes.</p>
-<p>There are many sentiment analysis model using in NLP field. Many models are tried and the results are shown below.</p>
-<p><img src="proposed_model.png" alt></p>
-<p>As we can see from above, the result is pretty good for deep learning model. So maybe we can build our own deep learning model by combining the advantages of existing model to make the prediction. We know that LSTM is good at dealing sequential texts and CNN is good at extracting the local features. By combining them, the result should be better than existing ones. The final model we built is shown below.</p>
-<p><img src="own_model.png" alt></p>
-<p>In this model, the first layer is the embedding layer, it can transform the reviews into word vectors. I choose the embedding size be 100, and the number of unique words is 1391195 which is also the length of original one-hot vector for word in reviews (Later I think the result will be better if I use a pretrained embedding layer). Then I add a dropout layer for higher speed and avoiding overfitting. LSTM layer is added then, there are 4 gates and we have 32 LSTM units in this layer. After that, the output will be dealt with a 1-dimentional convolution layer. There are 64 kernels in this layer, and the kernel size is 3 to work as a tri-gram model. To extract the local feature, a max-pooling layer is added behind this layer. Then we add dropout and flat is into a fully connected layer. The last layer is SoftMax if we want it be a classification problem and linear if we want it be a regression problem.</p>
-<p>The accuracy of this model in validation sets with 1 million samples is 0.715 for classification. And the mean absolute error is 0.37 for regression. The result is pretty awesome and I choose it as the final model.</p>
-
-          
+          <h2 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h2><p>The task is based on the yelp_academic_dataset_review.json file (5 million rows) in the challenge. It has two fields, namely “stars” and “text”. The “text” field is customer’s raw review sentence, while the “stars” field is the customer’s rating for the corresponding review ranging from 1 to 5. Our goal is to predict the stars based on the text.</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/03/27/yelp-data-challenge/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1037,55 +1136,14 @@ TypeError: Index does not support mutable operations
 
       
         
-          
-            <h2 id="单调栈"><a href="#单调栈" class="headerlink" title="单调栈"></a>单调栈</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 单调递减栈实现返回列表中左边第一个比自身大的元素的值</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">decreasing_stack</span><span class="params">(nums)</span>:</span></span><br><span class="line">    index=[<span class="number">-1</span>]</span><br><span class="line">    stack=[nums[<span class="number">0</span>]]</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,len(nums)):</span><br><span class="line">        <span class="keyword">while</span> stack <span class="keyword">and</span> nums[i]&gt;=stack[<span class="number">-1</span>] :</span><br><span class="line">            stack.pop()</span><br><span class="line">        <span class="keyword">if</span> stack:</span><br><span class="line">            index.append(stack[<span class="number">-1</span>])</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            index.append(<span class="number">-1</span>)</span><br><span class="line">        stack.append(nums[i])</span><br><span class="line">    <span class="keyword">return</span> index</span><br><span class="line">a=[<span class="number">4</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">5</span>]</span><br><span class="line">decreasing_stack(a)</span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 返回index</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">decreasing_stack_return_index</span><span class="params">(nums)</span>:</span></span><br><span class="line">    index=[<span class="number">-1</span>]</span><br><span class="line">    stack=[<span class="number">0</span>]</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,len(nums)):</span><br><span class="line">        <span class="keyword">while</span> stack <span class="keyword">and</span> nums[i]&gt;=nums[stack[<span class="number">-1</span>]] :</span><br><span class="line">            stack.pop()</span><br><span class="line">        <span class="keyword">if</span> stack:</span><br><span class="line">            index.append(stack[<span class="number">-1</span>])</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            index.append(<span class="number">-1</span>)</span><br><span class="line">        stack.append(i)</span><br><span class="line">    <span class="keyword">return</span> index</span><br><span class="line">a=[<span class="number">4</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">2</span>]</span><br><span class="line">decreasing_stack_return_index(a)</span><br></pre></td></tr></table></figure>
-<pre><code>[-1, 0, 0, 2]
-</code></pre><h2 id="42-Trapping-Rain-Water"><a href="#42-Trapping-Rain-Water" class="headerlink" title="42. Trapping Rain Water"></a>42. Trapping Rain Water</h2><p>这道题感觉不是十分好想，需要维持一个stack来进行操作，当遇到新加的元素比栈顶元素大的时候，我们就要比较之前的元素，如果栈里面是有一个，则不能形成坑，continue；不然就比较之前的元素和当前的最小值，减去高度。我们的做法是，遍历高度，如果此时栈为空，或者当前高度小于等于栈顶高度，则把当前高度的坐标压入栈，注意我们不直接把高度压入栈，而是把坐标压入栈，这样方便我们在后来算水平距离。当我们遇到比栈顶高度大的时候，就说明有可能会有坑存在，可以装雨水。此时我们栈里至少有一个高度，如果只有一个的话，那么不能形成坑，我们直接跳过，如果多余一个的话，那么此时把栈顶元素取出来当作坑，新的栈顶元素就是左边界，当前高度是右边界，只要取二者较小的，减去坑的高度，长度就是右边界坐标减去左边界坐标再减1，二者相乘就是盛水量啦,重复此操作直至当前高度小于等于栈顶高度，把当前高度压入栈</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">trap</span><span class="params">(self, height)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type height: List[int]</span></span><br><span class="line"><span class="string">        :rtype: int</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        stack = []</span><br><span class="line">        i = <span class="number">0</span></span><br><span class="line">        size = len(height)</span><br><span class="line">        res = <span class="number">0</span></span><br><span class="line">        <span class="keyword">while</span> i &lt; size:</span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> stack <span class="keyword">or</span> height[i] &lt;= height[stack[<span class="number">-1</span>]]:</span><br><span class="line">                stack.append(i)</span><br><span class="line">                i += <span class="number">1</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                top = stack.pop()</span><br><span class="line">                <span class="keyword">if</span> <span class="keyword">not</span> stack:</span><br><span class="line">                    <span class="keyword">continue</span></span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    res += (min(height[i], height[stack[<span class="number">-1</span>]]) - height[top]) * (i - stack[<span class="number">-1</span>] <span class="number">-1</span>) <span class="comment"># height * width</span></span><br><span class="line">        <span class="keyword">return</span> res</span><br></pre></td></tr></table></figure>
-<h2 id="496-Next-Greater-Element-I"><a href="#496-Next-Greater-Element-I" class="headerlink" title="496. Next Greater Element I"></a>496. Next Greater Element I</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">next_greater_element</span><span class="params">(a,b)</span>:</span></span><br><span class="line">    stack=[b[<span class="number">0</span>]]</span><br><span class="line">    res=&#123;&#125;</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,len(b)):</span><br><span class="line">        <span class="keyword">while</span> stack <span class="keyword">and</span> b[i]&gt;stack[<span class="number">-1</span>]:</span><br><span class="line">            res[stack.pop()]=b[i]</span><br><span class="line">        stack.append(b[i])</span><br><span class="line">    <span class="keyword">while</span> stack:</span><br><span class="line">        res[stack.pop()]=<span class="number">-1</span></span><br><span class="line">    newRes=[]</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> a:</span><br><span class="line">        newRes.append(res[i])</span><br><span class="line">    <span class="keyword">return</span> newRes</span><br><span class="line">nums1 = [<span class="number">4</span>,<span class="number">1</span>,<span class="number">2</span>]</span><br><span class="line">nums2 = [<span class="number">1</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">2</span>]</span><br><span class="line">print(next_greater_element(nums1,nums2))</span><br><span class="line">nums1=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">1</span>]</span><br><span class="line">nums2=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">1</span>]</span><br><span class="line">print(next_greater_element(nums1,nums2))</span><br></pre></td></tr></table></figure>
-<pre><code>[-1, 3, -1]
-[-1, -1, -1]
-</code></pre><h2 id="739-Daily-Temperatures"><a href="#739-Daily-Temperatures" class="headerlink" title="739. Daily Temperatures"></a>739. Daily Temperatures</h2><p>用一个单调递减栈完事</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">warmer_weather</span><span class="params">(x)</span>:</span></span><br><span class="line">    stack=[<span class="number">0</span>]</span><br><span class="line">    res=&#123;&#125;</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,len(x)):</span><br><span class="line">        <span class="keyword">while</span> stack <span class="keyword">and</span> x[i]&gt;x[stack[<span class="number">-1</span>]]:</span><br><span class="line">            res[stack.pop()]=i</span><br><span class="line">        stack.append(i)</span><br><span class="line">    <span class="keyword">while</span> stack:</span><br><span class="line">        temp=stack.pop()</span><br><span class="line">        res[temp]=temp</span><br><span class="line">    newRes=[]</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(len(x)):</span><br><span class="line">        newRes.append(res[i]-i)</span><br><span class="line">    <span class="keyword">return</span> newRes</span><br><span class="line">a=[<span class="number">73</span>, <span class="number">74</span>, <span class="number">75</span>, <span class="number">71</span>, <span class="number">69</span>, <span class="number">72</span>, <span class="number">76</span>, <span class="number">73</span>]</span><br><span class="line">warmer_weather(a)</span><br></pre></td></tr></table></figure>
-<pre><code>[1, 1, 4, 2, 1, 1, 0, 0]
-</code></pre><h2 id="503-Next-Greater-Element-II"><a href="#503-Next-Greater-Element-II" class="headerlink" title="503. Next Greater Element II"></a>503. Next Greater Element II</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">next_greater_element</span><span class="params">(x)</span>:</span></span><br><span class="line">    res=[<span class="number">-1</span>]*len(x)</span><br><span class="line">    stack=[<span class="number">0</span>]</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,len(x)*<span class="number">2</span>):</span><br><span class="line">        <span class="keyword">while</span> stack <span class="keyword">and</span> x[i%len(x)]&gt;x[stack[<span class="number">-1</span>]]:            </span><br><span class="line">            res[stack.pop()]=x[i%len(x)]    </span><br><span class="line">        <span class="keyword">if</span> i&lt;=len(x)<span class="number">-1</span>:</span><br><span class="line">            stack.append(i%len(x))</span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line">a=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">1</span>]</span><br><span class="line">print(next_greater_element(a))</span><br></pre></td></tr></table></figure>
-<pre><code>[2, -1, 2]
-</code></pre><h2 id="316-Remove-Duplicate-Letters"><a href="#316-Remove-Duplicate-Letters" class="headerlink" title="316. Remove Duplicate Letters"></a>316. Remove Duplicate Letters</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">removeDuplicateLetters</span><span class="params">(self, s)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type s: str</span></span><br><span class="line"><span class="string">        :rtype: str</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        stack = []</span><br><span class="line">        dic = dict()</span><br><span class="line">        <span class="keyword">for</span> char <span class="keyword">in</span> s:</span><br><span class="line">            dic[char] = dic.get(char, <span class="number">0</span>) + <span class="number">1</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> char <span class="keyword">in</span> s:</span><br><span class="line">            dic[char] -= <span class="number">1</span></span><br><span class="line">            <span class="keyword">if</span> char <span class="keyword">in</span> stack:</span><br><span class="line">                <span class="keyword">continue</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">while</span> stack <span class="keyword">and</span> ord(char) &lt; ord(stack[<span class="number">-1</span>]) <span class="keyword">and</span> dic[stack[<span class="number">-1</span>]] &gt; <span class="number">0</span>:</span><br><span class="line">                    stack.pop()</span><br><span class="line">            stack.append(char)</span><br><span class="line">        <span class="keyword">return</span> <span class="string">""</span>.join(stack)</span><br></pre></td></tr></table></figure>
-<h2 id="84-Largest-Rectangle-in-Histogram"><a href="#84-Largest-Rectangle-in-Histogram" class="headerlink" title="84. Largest Rectangle in Histogram"></a>84. Largest Rectangle in Histogram</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">largestRectangleArea</span><span class="params">( heights)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type heights: List[int]</span></span><br><span class="line"><span class="string">        :rtype: int</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        res = <span class="number">0</span></span><br><span class="line">        stack = []</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(heights)+<span class="number">1</span>):</span><br><span class="line">            height = heights[i] <span class="keyword">if</span> i!= len(heights) <span class="keyword">else</span> <span class="number">0</span></span><br><span class="line">            <span class="keyword">while</span> stack <span class="keyword">and</span> height &lt;= heights[stack[<span class="number">-1</span>]]:</span><br><span class="line">                h = heights[stack.pop()]</span><br><span class="line">                w = i - stack[<span class="number">-1</span>] <span class="number">-1</span> <span class="keyword">if</span> stack <span class="keyword">else</span> i</span><br><span class="line">                res = max(res, h*w)</span><br><span class="line">                print(<span class="string">"res equals &#123;&#125;"</span>.format(res))</span><br><span class="line">                print(<span class="string">"h equals &#123;&#125;"</span>.format(h))</span><br><span class="line">                print(<span class="string">"w equals &#123;&#125;"</span>.format(w))</span><br><span class="line">                print(<span class="string">"stack equals &#123;&#125;"</span>.format(stack))</span><br><span class="line">            stack.append(i)</span><br><span class="line">        <span class="keyword">return</span> res</span><br><span class="line">largestRectangleArea([<span class="number">2</span>,<span class="number">3</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">1</span>])</span><br></pre></td></tr></table></figure>
-<pre><code>res equals 3
-h equals 3
-w equals 1
-stack equals [0]
-res equals 4
-h equals 2
-w equals 2
-stack equals []
-res equals 4
-h equals 3
-w equals 1
-stack equals [2, 3]
-res equals 4
-h equals 2
-w equals 2
-stack equals [2]
-res equals 5
-h equals 1
-w equals 5
-stack equals []
-res equals 6
-h equals 1
-w equals 6
-stack equals []
-
-
-
-
-
-6
-</code></pre><h2 id="85-Maximal-Rectangle"><a href="#85-Maximal-Rectangle" class="headerlink" title="85. Maximal Rectangle"></a>85. Maximal Rectangle</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">maximalRectangle</span><span class="params">(self, matrix)</span>:</span></span><br><span class="line">    	<span class="comment"># O(m^2)</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> matrix <span class="keyword">or</span> <span class="keyword">not</span> matrix[<span class="number">0</span>]:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">        n = len(matrix[<span class="number">0</span>])</span><br><span class="line">        <span class="comment"># init heights array</span></span><br><span class="line">        height = [<span class="number">0</span>] * (n + <span class="number">1</span>)</span><br><span class="line">        ans = <span class="number">0</span></span><br><span class="line">        <span class="comment"># calculate each row</span></span><br><span class="line">        <span class="keyword">for</span> row <span class="keyword">in</span> matrix:</span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> range(n):</span><br><span class="line">                <span class="comment"># count next level '1'</span></span><br><span class="line">                height[i] = height[i] + <span class="number">1</span> <span class="keyword">if</span> row[i] == <span class="string">'1'</span> <span class="keyword">else</span> <span class="number">0</span></span><br><span class="line"></span><br><span class="line">            stack = []</span><br><span class="line"></span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> range(n + <span class="number">1</span>):</span><br><span class="line">                <span class="keyword">while</span> stack <span class="keyword">and</span> height[i] &lt;= height[stack[<span class="number">-1</span>]]:</span><br><span class="line">                    h = height[stack.pop()]</span><br><span class="line">                    <span class="comment"># if not stack means left boundary is zero then width is i else is the stack[-1] index</span></span><br><span class="line">                    w = i - <span class="number">1</span> - stack[<span class="number">-1</span>] <span class="keyword">if</span> stack <span class="keyword">else</span> i</span><br><span class="line">                    ans = max(ans, h * w)</span><br><span class="line">                stack.append(i)</span><br><span class="line">        <span class="keyword">return</span> ans</span><br></pre></td></tr></table></figure>
-
-          
+          <h2 id="单调栈"><a href="#单调栈" class="headerlink" title="单调栈"></a>单调栈</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 单调递减栈实现返回列表中左边第一个比自身大的元素的值</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">decreasing_stack</span><span class="params">(nums)</span>:</span></span><br><span class="line">    index=[<span class="number">-1</span>]</span><br><span class="line">    stack=[nums[<span class="number">0</span>]]</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,len(nums)):</span><br><span class="line">        <span class="keyword">while</span> stack <span class="keyword">and</span> nums[i]&gt;=stack[<span class="number">-1</span>] :</span><br><span class="line">            stack.pop()</span><br><span class="line">        <span class="keyword">if</span> stack:</span><br><span class="line">            index.append(stack[<span class="number">-1</span>])</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            index.append(<span class="number">-1</span>)</span><br><span class="line">        stack.append(nums[i])</span><br><span class="line">    <span class="keyword">return</span> index</span><br><span class="line">a=[<span class="number">4</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">5</span>]</span><br><span class="line">decreasing_stack(a)</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/03/26/leetcode-stack/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1755,137 +1813,6 @@ stack equals []
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/21/Boosting/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Kehui Yao">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Kehui's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2019/03/21/Boosting/" itemprop="url">
-                  Boosting algorithm principle and practice
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-21T00:29:15-05:00">
-                2019-03-21
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="Boosting-introduction"><a href="#Boosting-introduction" class="headerlink" title="Boosting introduction"></a>Boosting introduction</h2><p>This blog refers to the materials for an online-course - “Practical XGBoost in Python”.</p>
-<p>Here I list some sources to learn boosting algorithm, especially xgboost.</p>
-<ul>
-<li><a href="#idea-of-boosting">What is the idea of boosting</a></li>
-<li><a href="#weak-vclassifier">Why use tree as a weak classifier</a></li>
-<li><a href="#common-algorithms">What are some common boosting implementations</a></li>
-<li><a href="#how-xgboost-helps">How XGBoost helps</a></li>
-<li><a href="https://homes.cs.washington.edu/~tqchen/pdf/BoostedTree.pdf" target="_blank" rel="noopener">Tianqi chen’s slide</a></li>
-<li><a href="https://arxiv.org/pdf/1603.02754.pdf" target="_blank" rel="noopener">xgboost original paper</a></li>
-</ul>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/03/21/Boosting/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1933,7 +1860,7 @@ stack equals []
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-count">14</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -1948,6 +1875,26 @@ stack equals []
         
 
         <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/KEHUIYAO" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.linkedin.com/in/kehui-yao-a5b770165/" target="_blank" title="Linkedin">
+                  
+                    <i class="fa fa-fw fa-linkedin"></i>
+                  
+                  Linkedin
+                </a>
+              </span>
+            
           
         </div>
 
