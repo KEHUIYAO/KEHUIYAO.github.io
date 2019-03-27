@@ -94,7 +94,7 @@
 <meta property="og:site_name" content="Kehui&#39;s Blog">
 <meta property="og:description" content="这部分内容转载自: Python DataScience Handbook Introducing Pandas ObjectsAt the very basic level, Pandas objects can be thought of as enhanced versions of NumPy structured arrays in which the rows and columns">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-03-27T20:03:23.000Z">
+<meta property="og:updated_time" content="2019-03-27T23:18:46.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Data Manipulation using Pandas">
 <meta name="twitter:description" content="这部分内容转载自: Python DataScience Handbook Introducing Pandas ObjectsAt the very basic level, Pandas objects can be thought of as enhanced versions of NumPy structured arrays in which the rows and columns">
@@ -326,6 +326,7 @@
 <h1 id="Introducing-Pandas-Objects"><a href="#Introducing-Pandas-Objects" class="headerlink" title="Introducing Pandas Objects"></a>Introducing Pandas Objects</h1><p>At the very basic level, Pandas objects can be thought of as enhanced versions of NumPy structured arrays in which the rows and columns are identified with labels rather than simple integer indices.<br>As we will see during the course of this chapter, Pandas provides a host of useful tools, methods, and functionality on top of the basic data structures, but nearly everything that follows will require an understanding of what these structures are.<br>Thus, before we go any further, let’s introduce these three fundamental Pandas data structures: the <code>Series</code>, <code>DataFrame</code>, and <code>Index</code>.</p>
 <p>We will start our code sessions with the standard NumPy and Pandas imports:</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
 <h2 id="The-Pandas-Series-Object"><a href="#The-Pandas-Series-Object" class="headerlink" title="The Pandas Series Object"></a>The Pandas Series Object</h2><p>A Pandas <code>Series</code> is a one-dimensional array of indexed data.<br>It can be created from a list or array as follows:</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">data = pd.Series([<span class="number">0.25</span>, <span class="number">0.5</span>, <span class="number">0.75</span>, <span class="number">1.0</span>])</span><br><span class="line">data</span><br></pre></td></tr></table></figure>
 <pre><code>0    0.25
