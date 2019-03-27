@@ -1,0 +1,805 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0">
+
+
+
+
+
+
+<meta name="description" content="46. Permutations123456789101112131415161718def permutate(x):    if len(x)==0:        return []    if len(x)==1:        return [x]    res=[]    for i in range(len(x)):        x[0],x[i]=x[i],x[0]">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Leetcode backtracking problem">
+<meta property="og:url" content="http://yoursite.com/2019/03/27/leetcode-backtracking/index.html">
+<meta property="og:site_name" content="Kehui&#39;s Blog">
+<meta property="og:description" content="46. Permutations123456789101112131415161718def permutate(x):    if len(x)==0:        return []    if len(x)==1:        return [x]    res=[]    for i in range(len(x)):        x[0],x[i]=x[i],x[0]">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-03-27T20:00:04.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Leetcode backtracking problem">
+<meta name="twitter:description" content="46. Permutations123456789101112131415161718def permutate(x):    if len(x)==0:        return []    if len(x)==1:        return [x]    res=[]    for i in range(len(x)):        x[0],x[i]=x[i],x[0]">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"always","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/03/27/leetcode-backtracking/">
+
+
+
+
+
+  <title> Leetcode backtracking problem | Kehui's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Kehui's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Do statistics, learn some computer science.</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/27/leetcode-backtracking/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kehui Yao">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kehui's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Leetcode backtracking problem
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-27T14:58:16-05:00">
+                2019-03-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="46-Permutations"><a href="#46-Permutations" class="headerlink" title="46. Permutations"></a>46. Permutations</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">permutate</span><span class="params">(x)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> len(x)==<span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> []</span><br><span class="line">    <span class="keyword">if</span> len(x)==<span class="number">1</span>:</span><br><span class="line">        <span class="keyword">return</span> [x]</span><br><span class="line">    res=[]</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(len(x)):</span><br><span class="line">        x[<span class="number">0</span>],x[i]=x[i],x[<span class="number">0</span>]</span><br><span class="line"></span><br><span class="line">        temp=permutate(x[<span class="number">1</span>:])</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> temp:</span><br><span class="line"></span><br><span class="line">            res.append([x[<span class="number">0</span>]]+j)</span><br><span class="line">        x[<span class="number">0</span>],x[i]=x[i],x[<span class="number">0</span>]</span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line">a=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line">permutate(a)</span><br></pre></td></tr></table></figure>
+<pre><code>[[1, 2, 3], [1, 3, 2], [2, 1, 3], [2, 3, 1], [3, 2, 1], [3, 1, 2]]
+</code></pre><h2 id="46-Permutations-1"><a href="#46-Permutations-1" class="headerlink" title="46. Permutations"></a>46. Permutations</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">permutate</span><span class="params">(x)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> len(x)==<span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> []</span><br><span class="line">    <span class="keyword">if</span> len(x)==<span class="number">1</span>:</span><br><span class="line">        <span class="keyword">return</span> [x]</span><br><span class="line">    res=[]</span><br><span class="line">    visited=[]</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(len(x)):</span><br><span class="line">        <span class="keyword">if</span> x[i] <span class="keyword">in</span> visited:</span><br><span class="line">            <span class="keyword">continue</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            visited.append(x[i])</span><br><span class="line">            x[<span class="number">0</span>],x[i]=x[i],x[<span class="number">0</span>]</span><br><span class="line"></span><br><span class="line">            temp=permutate(x[<span class="number">1</span>:])</span><br><span class="line"></span><br><span class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> temp:</span><br><span class="line"></span><br><span class="line">                res.append([x[<span class="number">0</span>]]+j)</span><br><span class="line">            x[<span class="number">0</span>],x[i]=x[i],x[<span class="number">0</span>]</span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line">a=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">2</span>]</span><br><span class="line">permutate(a)</span><br></pre></td></tr></table></figure>
+<pre><code>[[1, 2, 2], [2, 1, 2], [2, 2, 1]]
+</code></pre><h2 id="78-Subsets"><a href="#78-Subsets" class="headerlink" title="78. Subsets"></a>78. Subsets</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">backtracking</span><span class="params">( nums, temp, res, start)</span>:</span></span><br><span class="line">    res.append(list(temp))</span><br><span class="line">    <span class="comment">#print(res)</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(start,len(nums)):</span><br><span class="line">        temp.append(nums[i])</span><br><span class="line">        print(temp)</span><br><span class="line">        backtracking(nums, temp, res, i+<span class="number">1</span>)</span><br><span class="line">        temp.pop()</span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line">a=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line">backtracking(a,[],[],<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>[1]
+[1, 2]
+[1, 2, 3]
+[1, 3]
+[2]
+[2, 3]
+[3]
+
+
+
+
+
+[[], [1], [1, 2], [1, 2, 3], [1, 3], [2], [2, 3], [3]]
+</code></pre><h2 id="90-Subsets-II"><a href="#90-Subsets-II" class="headerlink" title="90. Subsets II"></a>90. Subsets II</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">backtracking</span><span class="params">( nums, temp, res, start)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> temp <span class="keyword">not</span> <span class="keyword">in</span> res:</span><br><span class="line">        res.append(list(temp))</span><br><span class="line">    <span class="comment">#print(res)</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(start,len(nums)):</span><br><span class="line">        temp.append(nums[i])</span><br><span class="line">        print(temp)</span><br><span class="line">        backtracking(nums, temp, res, i+<span class="number">1</span>)</span><br><span class="line">        temp.pop()</span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line">a=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">2</span>]</span><br><span class="line">backtracking(sorted(a),[],[],<span class="number">0</span>) <span class="comment"># sorted is important</span></span><br></pre></td></tr></table></figure>
+<pre><code>[1]
+[1, 2]
+[1, 2, 2]
+[1, 2]
+[2]
+[2, 2]
+[2]
+
+
+
+
+
+[[], [1], [1, 2], [1, 2, 2], [2], [2, 2]]
+</code></pre><p>Another solution:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">backtracking</span><span class="params">(nums, temp, res, start)</span>:</span></span><br><span class="line">    res.append(list(temp))</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(start,len(nums)):</span><br><span class="line">        <span class="keyword">if</span> i &gt; start <span class="keyword">and</span> nums[i] == nums[i<span class="number">-1</span>]:</span><br><span class="line">            print(i)</span><br><span class="line">            <span class="keyword">continue</span></span><br><span class="line">        temp.append(nums[i])</span><br><span class="line">        backtracking(nums, temp, res, i+<span class="number">1</span>)</span><br><span class="line">        temp.pop()</span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line">a=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">1</span>]</span><br><span class="line">backtracking(a,[],[],<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>[[], [1], [1, 2], [1, 2, 1], [1, 1], [2], [2, 1], [1]]
+</code></pre><h2 id="39-Combination-Sum"><a href="#39-Combination-Sum" class="headerlink" title="39. Combination Sum"></a>39. Combination Sum</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">backtracking</span><span class="params">(x,target,temp,res,start)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> sum(temp)==target:</span><br><span class="line">        <span class="comment">#print(type(temp))</span></span><br><span class="line">        <span class="comment">#print(list(temp))</span></span><br><span class="line">        print(res)</span><br><span class="line">        res.append(list(temp)) <span class="comment"># here we must use list(temp)</span></span><br><span class="line">        <span class="comment">#print(res)</span></span><br><span class="line">        <span class="comment">#print(res)</span></span><br><span class="line">    <span class="keyword">if</span> sum(temp)&gt;target:</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    <span class="keyword">if</span> sum(temp)&lt;target:</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(start,len(x)):</span><br><span class="line">            temp.append(x[i])</span><br><span class="line">            <span class="comment">#print(temp)</span></span><br><span class="line">            backtracking(x,target,temp,res,i)</span><br><span class="line">            temp.pop()</span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line">a=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line">backtracking(a,<span class="number">6</span>,[],[],<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>[]
+[[1, 1, 1, 1, 1, 1]]
+[[1, 1, 1, 1, 1, 1], [1, 1, 1, 1, 2]]
+[[1, 1, 1, 1, 1, 1], [1, 1, 1, 1, 2], [1, 1, 1, 3]]
+[[1, 1, 1, 1, 1, 1], [1, 1, 1, 1, 2], [1, 1, 1, 3], [1, 1, 2, 2]]
+[[1, 1, 1, 1, 1, 1], [1, 1, 1, 1, 2], [1, 1, 1, 3], [1, 1, 2, 2], [1, 2, 3]]
+[[1, 1, 1, 1, 1, 1], [1, 1, 1, 1, 2], [1, 1, 1, 3], [1, 1, 2, 2], [1, 2, 3], [2, 2, 2]]
+
+
+
+
+
+[[1, 1, 1, 1, 1, 1],
+ [1, 1, 1, 1, 2],
+ [1, 1, 1, 3],
+ [1, 1, 2, 2],
+ [1, 2, 3],
+ [2, 2, 2],
+ [3, 3]]
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">f</span><span class="params">(a,b)</span>:</span></span><br><span class="line">    a.append(b)</span><br><span class="line">    b.append(<span class="number">4</span>)</span><br><span class="line">    <span class="keyword">return</span> a</span><br><span class="line">print(f([],[<span class="number">3</span>,<span class="number">4</span>]))</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">f</span><span class="params">(a,b)</span>:</span></span><br><span class="line">    a.append(list(b))</span><br><span class="line">    b.append(<span class="number">4</span>)</span><br><span class="line">    <span class="keyword">return</span> a</span><br><span class="line">print(f([],[<span class="number">3</span>,<span class="number">4</span>]))</span><br></pre></td></tr></table></figure>
+<pre><code>[[3, 4, 4]]
+[[3, 4]]
+</code></pre><h2 id="40-Combination-Sum-II"><a href="#40-Combination-Sum-II" class="headerlink" title="40. Combination Sum II"></a>40. Combination Sum II</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">backtracking</span><span class="params">(x,target,temp,res,start)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> sum(temp)==target:</span><br><span class="line">        <span class="comment">#print(type(temp))</span></span><br><span class="line">        <span class="comment">#print(list(temp))</span></span><br><span class="line">        print(res)</span><br><span class="line">        res.append(list(temp)) <span class="comment"># here we must use list(temp)</span></span><br><span class="line">        <span class="comment">#print(res)</span></span><br><span class="line">        <span class="comment">#print(res)</span></span><br><span class="line">    <span class="keyword">if</span> sum(temp)&gt;target:</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    <span class="keyword">if</span> sum(temp)&lt;target:</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(start,len(x)):</span><br><span class="line">            temp.append(x[i])</span><br><span class="line">            <span class="comment">#print(temp)</span></span><br><span class="line">            backtracking(x,target,temp,res,i+<span class="number">1</span>)</span><br><span class="line">            temp.pop()</span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line">a=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line">backtracking(a,<span class="number">6</span>,[],[],<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>[]
+
+
+
+
+
+[[1, 2, 3]]
+</code></pre><h2 id="216-Combination-Sum-III"><a href="#216-Combination-Sum-III" class="headerlink" title="216. Combination Sum III"></a>216. Combination Sum III</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">backtracking</span><span class="params">(x,target,temp,res,start,k)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> len(temp)==k <span class="keyword">and</span> sum(temp)==target:     </span><br><span class="line">        res.append(list(temp)) <span class="comment"># here we must use list(temp)      </span></span><br><span class="line">    <span class="keyword">elif</span> sum(temp)&lt;target <span class="keyword">and</span> len(temp)&lt;k:</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(start,len(x)):</span><br><span class="line">            temp.append(x[i])</span><br><span class="line">            <span class="comment">#print(temp)</span></span><br><span class="line">            backtracking(x,target,temp,res,i+<span class="number">1</span>,k)</span><br><span class="line">            temp.pop()</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line">a=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>]</span><br><span class="line">backtracking(a,<span class="number">7</span>,[],[],<span class="number">0</span>,<span class="number">3</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>[[1, 2, 4]]
+</code></pre><h2 id="22-Generate-Parentheses"><a href="#22-Generate-Parentheses" class="headerlink" title="22. Generate Parentheses"></a>22. Generate Parentheses</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">backtracking</span><span class="params">(x,temp,tempCount,res,n)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> len(temp)==n*<span class="number">2</span> <span class="keyword">and</span> tempCount[<span class="string">'('</span>]==tempCount[<span class="string">')'</span>]:</span><br><span class="line">        res.append(<span class="string">''</span>.join(list(temp)))</span><br><span class="line">        <span class="comment">#print(temp)</span></span><br><span class="line">    <span class="keyword">elif</span> tempCount[<span class="string">'('</span>]&lt;tempCount[<span class="string">')'</span>] <span class="keyword">or</span> tempCount[<span class="string">'('</span>]&gt;n:</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(x)):</span><br><span class="line">            temp.append(x[i])</span><br><span class="line">            print(temp)</span><br><span class="line">            tempCount[x[i]]+=<span class="number">1</span></span><br><span class="line">            backtracking(x,temp,tempCount,res,n)</span><br><span class="line">            temp.pop()</span><br><span class="line">            tempCount[x[i]]-=<span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line"></span><br><span class="line">backtracking([<span class="string">'('</span>,<span class="string">')'</span>],[],&#123;<span class="string">'('</span>:<span class="number">0</span>,<span class="string">')'</span>:<span class="number">0</span>&#125;,[],<span class="number">3</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>[&apos;(&apos;]
+[&apos;(&apos;, &apos;(&apos;]
+[&apos;(&apos;, &apos;(&apos;, &apos;(&apos;]
+[&apos;(&apos;, &apos;(&apos;, &apos;(&apos;, &apos;(&apos;]
+[&apos;(&apos;, &apos;(&apos;, &apos;(&apos;, &apos;)&apos;]
+[&apos;(&apos;, &apos;(&apos;, &apos;(&apos;, &apos;)&apos;, &apos;(&apos;]
+[&apos;(&apos;, &apos;(&apos;, &apos;(&apos;, &apos;)&apos;, &apos;)&apos;]
+[&apos;(&apos;, &apos;(&apos;, &apos;(&apos;, &apos;)&apos;, &apos;)&apos;, &apos;(&apos;]
+[&apos;(&apos;, &apos;(&apos;, &apos;(&apos;, &apos;)&apos;, &apos;)&apos;, &apos;)&apos;]
+[&apos;(&apos;, &apos;(&apos;, &apos;)&apos;]
+[&apos;(&apos;, &apos;(&apos;, &apos;)&apos;, &apos;(&apos;]
+[&apos;(&apos;, &apos;(&apos;, &apos;)&apos;, &apos;(&apos;, &apos;(&apos;]
+[&apos;(&apos;, &apos;(&apos;, &apos;)&apos;, &apos;(&apos;, &apos;)&apos;]
+[&apos;(&apos;, &apos;(&apos;, &apos;)&apos;, &apos;(&apos;, &apos;)&apos;, &apos;(&apos;]
+[&apos;(&apos;, &apos;(&apos;, &apos;)&apos;, &apos;(&apos;, &apos;)&apos;, &apos;)&apos;]
+[&apos;(&apos;, &apos;(&apos;, &apos;)&apos;, &apos;)&apos;]
+[&apos;(&apos;, &apos;(&apos;, &apos;)&apos;, &apos;)&apos;, &apos;(&apos;]
+[&apos;(&apos;, &apos;(&apos;, &apos;)&apos;, &apos;)&apos;, &apos;(&apos;, &apos;(&apos;]
+[&apos;(&apos;, &apos;(&apos;, &apos;)&apos;, &apos;)&apos;, &apos;(&apos;, &apos;)&apos;]
+[&apos;(&apos;, &apos;(&apos;, &apos;)&apos;, &apos;)&apos;, &apos;)&apos;]
+[&apos;(&apos;, &apos;)&apos;]
+[&apos;(&apos;, &apos;)&apos;, &apos;(&apos;]
+[&apos;(&apos;, &apos;)&apos;, &apos;(&apos;, &apos;(&apos;]
+[&apos;(&apos;, &apos;)&apos;, &apos;(&apos;, &apos;(&apos;, &apos;(&apos;]
+[&apos;(&apos;, &apos;)&apos;, &apos;(&apos;, &apos;(&apos;, &apos;)&apos;]
+[&apos;(&apos;, &apos;)&apos;, &apos;(&apos;, &apos;(&apos;, &apos;)&apos;, &apos;(&apos;]
+[&apos;(&apos;, &apos;)&apos;, &apos;(&apos;, &apos;(&apos;, &apos;)&apos;, &apos;)&apos;]
+[&apos;(&apos;, &apos;)&apos;, &apos;(&apos;, &apos;)&apos;]
+[&apos;(&apos;, &apos;)&apos;, &apos;(&apos;, &apos;)&apos;, &apos;(&apos;]
+[&apos;(&apos;, &apos;)&apos;, &apos;(&apos;, &apos;)&apos;, &apos;(&apos;, &apos;(&apos;]
+[&apos;(&apos;, &apos;)&apos;, &apos;(&apos;, &apos;)&apos;, &apos;(&apos;, &apos;)&apos;]
+[&apos;(&apos;, &apos;)&apos;, &apos;(&apos;, &apos;)&apos;, &apos;)&apos;]
+[&apos;(&apos;, &apos;)&apos;, &apos;)&apos;]
+[&apos;)&apos;]
+
+
+
+
+
+[&apos;((()))&apos;, &apos;(()())&apos;, &apos;(())()&apos;, &apos;()(())&apos;, &apos;()()()&apos;]
+</code></pre><h2 id="320-Generalized-Abbreviation"><a href="#320-Generalized-Abbreviation" class="headerlink" title="320. Generalized Abbreviation"></a>320. Generalized Abbreviation</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">backtracking</span><span class="params">(x,temp,res,n)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> len(temp)==n:</span><br><span class="line">        res.append(list(temp))</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(x)):</span><br><span class="line">            temp.append(x[i])</span><br><span class="line">            backtracking(x,temp,res,n)</span><br><span class="line">            temp.pop()</span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line">backtracking([<span class="number">1</span>,<span class="number">0</span>],[],[],<span class="number">4</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">generalized_abbreviation</span><span class="params">(x)</span>:</span></span><br><span class="line">    n=len(x)</span><br><span class="line">    res=backtracking([<span class="number">1</span>,<span class="number">0</span>],[],[],n)</span><br><span class="line">    newRes=[]</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(len(res)):</span><br><span class="line">        index=res[i]</span><br><span class="line">        temp=[]</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(n):</span><br><span class="line">            <span class="keyword">if</span> index[j]==<span class="number">1</span>:</span><br><span class="line">                temp.append(<span class="number">1</span>)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                temp.append(x[j])</span><br><span class="line">        newRes.append(temp)</span><br><span class="line">    res=[]</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(len(newRes)):</span><br><span class="line">        temp=newRes[i]</span><br><span class="line">        stack=[]</span><br><span class="line">        tmp=&#123;<span class="number">1</span>:<span class="number">0</span>&#125;</span><br><span class="line">        <span class="keyword">while</span> temp:</span><br><span class="line"></span><br><span class="line">            a=temp.pop(<span class="number">0</span>)</span><br><span class="line">            <span class="keyword">if</span> a!=<span class="number">1</span>:</span><br><span class="line">                <span class="keyword">if</span> tmp[<span class="number">1</span>]!=<span class="number">0</span>:</span><br><span class="line">                    stack.append(str(tmp[<span class="number">1</span>]))</span><br><span class="line">                    tmp[<span class="number">1</span>]=<span class="number">0</span></span><br><span class="line">                stack.append(a)</span><br><span class="line"></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                tmp[<span class="number">1</span>]+=<span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> tmp[<span class="number">1</span>]!=<span class="number">0</span>:</span><br><span class="line">            stack.append(str(tmp[<span class="number">1</span>]))</span><br><span class="line">        res.append(<span class="string">''</span>.join(stack))</span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line">generalized_abbreviation(<span class="string">"word"</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>[&apos;4&apos;,
+ &apos;3d&apos;,
+ &apos;2r1&apos;,
+ &apos;2rd&apos;,
+ &apos;1o2&apos;,
+ &apos;1o1d&apos;,
+ &apos;1or1&apos;,
+ &apos;1ord&apos;,
+ &apos;w3&apos;,
+ &apos;w2d&apos;,
+ &apos;w1r1&apos;,
+ &apos;w1rd&apos;,
+ &apos;wo2&apos;,
+ &apos;wo1d&apos;,
+ &apos;wor1&apos;,
+ &apos;word&apos;]
+</code></pre>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/03/26/pandas-introduction/" rel="next" title="Data Manipulation using Pandas">
+                <i class="fa fa-chevron-left"></i> Data Manipulation using Pandas
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/03/27/yelp-data-challenge/" rel="prev" title="yelp_data_challenge">
+                yelp_data_challenge <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/uploads/avatar.jpg" alt="Kehui Yao">
+          <p class="site-author-name" itemprop="name">Kehui Yao</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#46-Permutations"><span class="nav-number">1.</span> <span class="nav-text">46. Permutations</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#46-Permutations-1"><span class="nav-number">2.</span> <span class="nav-text">46. Permutations</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#78-Subsets"><span class="nav-number">3.</span> <span class="nav-text">78. Subsets</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#90-Subsets-II"><span class="nav-number">4.</span> <span class="nav-text">90. Subsets II</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#39-Combination-Sum"><span class="nav-number">5.</span> <span class="nav-text">39. Combination Sum</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#40-Combination-Sum-II"><span class="nav-number">6.</span> <span class="nav-text">40. Combination Sum II</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#216-Combination-Sum-III"><span class="nav-number">7.</span> <span class="nav-text">216. Combination Sum III</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#22-Generate-Parentheses"><span class="nav-number">8.</span> <span class="nav-text">22. Generate Parentheses</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#320-Generalized-Abbreviation"><span class="nav-number">9.</span> <span class="nav-text">320. Generalized Abbreviation</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Kehui Yao</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+  
+
+
+  
+
+</body>
+</html>
