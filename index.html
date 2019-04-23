@@ -248,6 +248,128 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/13/excel2latex/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kehui Yao">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kehui's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2019/04/13/excel2latex/" itemprop="url">
+                  Introduction of an excel add-in which converts tables to latex code
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-13T23:50:58-05:00">
+                2019-04-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Making tables in LaTeX can be tedious, especially if some columns are calculated. This converter allows you to write a table in Excel instead, and export the current selection as LaTeX markup which can be pasted into an existing LaTeX document, or exported to a file and included via the input command.</p>
+<p>Known to be compatible with Windows Excel 2000–2016 (32-bit and 64-bit) and Mac Excel 2004, 2011, and 2016. May also be compatible with other versions that support .xla add-ins.</p>
+<p><img src="demo.png" alt></p>
+<p>Just open the file Excel2LaTeX.xla in Excel. Then you will have two additional menu items in your Tools menu and a new toolbar with two buttons on it. For Excel 2007 and later, you will have two new buttons in the Add-Ins ribbon. If you plan to use the program frequently, you can save it in your addin directory and add it with Tools→Add-Ins. This way it will be loaded whenever Excel is opened.</p>
+<p>Select the table to convert and hit the button Convert Table to LaTeX. You will be given the option to save the result to a .tex file, or send it to the clipboard (so you can paste it into your LaTeX editor). Hit the Store button to store the current settings so you can Load them later or Export All to files.</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/31/three-types-searches/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1351,137 +1473,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/25/numpy-tutorial/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Kehui Yao">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Kehui's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2019/03/25/numpy-tutorial/" itemprop="url">
-                  Data Manipulation using Numpy Arrays
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-25T18:44:57-05:00">
-                2019-03-25
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>这部分内容转载自: Python DataScience Handbook</p>
-<h1 id="The-Basics-of-NumPy-Arrays"><a href="#The-Basics-of-NumPy-Arrays" class="headerlink" title="The Basics of NumPy Arrays"></a>The Basics of NumPy Arrays</h1><p>Data manipulation in Python is nearly synonymous with NumPy array manipulation: even newer tools like Pandas (<a href="03.00-Introduction-to-Pandas.ipynb">Chapter 3</a>) are built around the NumPy array.<br>This section will present several examples of using NumPy array manipulation to access data and subarrays, and to split, reshape, and join the arrays.<br>While the types of operations shown here may seem a bit dry and pedantic, they comprise the building blocks of many other examples used throughout the book.<br>Get to know them well!</p>
-<p>We’ll cover a few categories of basic array manipulations here:</p>
-<ul>
-<li><em>Attributes of arrays</em>: Determining the size, shape, memory consumption, and data types of arrays</li>
-<li><em>Indexing of arrays</em>: Getting and setting the value of individual array elements</li>
-<li><em>Slicing of arrays</em>: Getting and setting smaller subarrays within a larger array</li>
-<li><em>Reshaping of arrays</em>: Changing the shape of a given array</li>
-<li><em>Joining and splitting of arrays</em>: Combining multiple arrays into one, and splitting one array into many</li>
-</ul>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/03/25/numpy-tutorial/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1529,7 +1520,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">18</span>
+                <span class="site-state-item-count">19</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
