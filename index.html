@@ -271,7 +271,7 @@
               
                 
                 <a class="post-title-link" href="/2019/04/13/excel2latex/" itemprop="url">
-                  Introduction of an excel add-in which converts tables to latex code
+                  Latex Tips
                 </a>
               
             
@@ -325,11 +325,27 @@
       
         
           
-            <p>Making tables in LaTeX can be tedious, especially if some columns are calculated. This converter allows you to write a table in Excel instead, and export the current selection as LaTeX markup which can be pasted into an existing LaTeX document, or exported to a file and included via the input command.</p>
-<p>Known to be compatible with Windows Excel 2000–2016 (32-bit and 64-bit) and Mac Excel 2004, 2011, and 2016. May also be compatible with other versions that support .xla add-ins.</p>
-<p><img src="demo.png" alt></p>
-<p>Just open the file Excel2LaTeX.xla in Excel. Then you will have two additional menu items in your Tools menu and a new toolbar with two buttons on it. For Excel 2007 and later, you will have two new buttons in the Add-Ins ribbon. If you plan to use the program frequently, you can save it in your addin directory and add it with Tools→Add-Ins. This way it will be loaded whenever Excel is opened.</p>
-<p>Select the table to convert and hit the button Convert Table to LaTeX. You will be given the option to save the result to a .tex file, or send it to the clipboard (so you can paste it into your LaTeX editor). Hit the Store button to store the current settings so you can Load them later or Export All to files.</p>
+            <h2 id="Covert-tables-to-latex-code"><a href="#Covert-tables-to-latex-code" class="headerlink" title="Covert tables to latex code"></a>Covert tables to latex code</h2><p>Making tables in latex can be tedious. This section will show you how to use some tools to automatically generate the latex codes based on the .xlsx or .csv format files. First I will introduce an excel add-in called excel2latex, then I will show a python script which does the same job and it’s more flexible when encountering special characters which you don’t want to escape when you output to your latex code.</p>
+<h3 id="Excel2latex-add-in"><a href="#Excel2latex-add-in" class="headerlink" title="Excel2latex add-in"></a>Excel2latex add-in</h3><p><a href="https://github.com/krlmlr/Ex­cel2LaTeX" target="_blank" rel="noopener">Re­pos­i­tory</a></p>
+<p><a href="https://www.ctan.org/tex-archive/support/excel2latex" target="_blank" rel="noopener">Doc­u­men­ta­tion</a></p>
+<p>When I use this add-in, it is very nice if I want to convert some complex structured-tables into latex. For example, I could use merge cells, change font colors, change font size, set borders color in excel, and convert it to latex code, which is very convenient. However, I do not know how to let the program do not modify some special characters I write in latex formula environment like \$\alpha_0\$, so I found another converting tool which could handle this situation well.</p>
+<h3 id="Tably"><a href="#Tably" class="headerlink" title="Tably"></a>Tably</h3><p><a href="https://github.com/narimiran/tably" target="_blank" rel="noopener">Repository</a></p>
+<p><a href="https://github.com/narimiran/tably/blob/master/README.md" target="_blank" rel="noopener">Documentation</a></p>
+<p>It has many good features:</p>
+<ul>
+<li>easy to use - just provide a .csv file</li>
+<li>optionally escapes commonly used special LaTeX characters, such as <code>$</code>, <code>&amp;</code>, <code>%</code>, etc.(You can turn on ‘do not escape’ option)</li>
+<li>user-defined separators - comma, tab, semicolon, etc.</li>
+<li>units for each column can be specified</li>
+<li>possible to define table caption and label</li>
+<li>columns’ alignments can be customized</li>
+<li>can be used on multiple .csv files at the same time</li>
+<li>table can be added to the existing .tex file</li>
+<li>can generate only the fragment inside a tabular environment for inserting into another tex file</li>
+<li>when working with multiple .csv files, can optionally save each table in a different file</li>
+</ul>
+<h2 id="Latex-insert-figure-side-by-side"><a href="#Latex-insert-figure-side-by-side" class="headerlink" title="Latex insert figure side by side"></a>Latex insert figure side by side</h2><p>I want to place 2 images (.png file) side by side in LaTeX.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
           
         
