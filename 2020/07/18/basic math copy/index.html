@@ -1,0 +1,779 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="study,">
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0">
+
+
+
+
+
+
+<meta name="description" content="三角函数求导 $\frac{d}{d x} \arcsin x=\frac{1}{\sqrt{1-x^{2}}}$  Proof:$$y=\arcsin x \\sin y=x\\begin{aligned} \cos y \frac{d y}{d x} &amp;amp;=1 \ \frac{d y}{d x} &amp;amp;=\frac{1}{\cos y} \ \frac{d y}{d x} &amp;amp;">
+<meta name="keywords" content="study">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Some math calculation tips">
+<meta property="og:url" content="http://yoursite.com/2020/07/18/basic math copy/index.html">
+<meta property="og:site_name" content="Kehui&#39;s Blog">
+<meta property="og:description" content="三角函数求导 $\frac{d}{d x} \arcsin x=\frac{1}{\sqrt{1-x^{2}}}$  Proof:$$y=\arcsin x \\sin y=x\\begin{aligned} \cos y \frac{d y}{d x} &amp;amp;=1 \ \frac{d y}{d x} &amp;amp;=\frac{1}{\cos y} \ \frac{d y}{d x} &amp;amp;">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://i.imgur.com/Fz1NuAS.png">
+<meta property="og:image" content="https://i.imgur.com/hGzCMWi.png">
+<meta property="og:image" content="https://i.imgur.com/iuyuY26.png">
+<meta property="og:image" content="https://i.imgur.com/VftZ62R.png">
+<meta property="og:image" content="https://i.imgur.com/Hz3cDol.png">
+<meta property="og:image" content="https://i.imgur.com/037U33Z.png">
+<meta property="og:image" content="https://i.imgur.com/IhxoJOz.jpg">
+<meta property="og:updated_time" content="2020-07-22T18:01:32.798Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Some math calculation tips">
+<meta name="twitter:description" content="三角函数求导 $\frac{d}{d x} \arcsin x=\frac{1}{\sqrt{1-x^{2}}}$  Proof:$$y=\arcsin x \\sin y=x\\begin{aligned} \cos y \frac{d y}{d x} &amp;amp;=1 \ \frac{d y}{d x} &amp;amp;=\frac{1}{\cos y} \ \frac{d y}{d x} &amp;amp;">
+<meta name="twitter:image" content="https://i.imgur.com/Fz1NuAS.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"always","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2020/07/18/basic math copy/">
+
+
+
+
+
+  <title> Some math calculation tips | Kehui's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Kehui's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">For Kevin Durant</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/18/basic math copy/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kehui Yao">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kehui's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Some math calculation tips
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-07-18T00:29:15-05:00">
+                2020-07-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="三角函数求导"><a href="#三角函数求导" class="headerlink" title="三角函数求导"></a>三角函数求导</h4><ol>
+<li>$\frac{d}{d x} \arcsin x=\frac{1}{\sqrt{1-x^{2}}}$</li>
+</ol>
+<p>Proof:<br>$$<br>y=\arcsin x \<br>\sin y=x\<br>\begin{aligned} \cos y \frac{d y}{d x} &amp;=1 \ \frac{d y}{d x} &amp;=\frac{1}{\cos y} \ \frac{d y}{d x} &amp;=\frac{1}{\sqrt{1-x^{2}}} \end{aligned}<br>$$</p>
+<h4 id="Characteristic-function-of-normal-distribution"><a href="#Characteristic-function-of-normal-distribution" class="headerlink" title="Characteristic function of normal distribution"></a>Characteristic function of normal distribution</h4><p>The <a href="https://proofwiki.org/w/index.php?title=Definition:Characteristic_Function_(Probability_Theory" target="_blank" rel="noopener">characteristic function</a>&amp;action=edit&amp;redlink=1) of the <a href="https://proofwiki.org/wiki/Definition:Gaussian_Distribution" target="_blank" rel="noopener">normal distribution</a> with mean $\mu$ and variance $\sigma^2$ is<br>$$<br>\phi(t)=e^{i t \mu-\frac{1}{2} t^{2} \sigma^{2}}<br>$$<br>Proof:<br>$$<br>\begin{aligned} \phi(t) &amp;=E\left[e^{i t X}\right] \ &amp;=\int_{x \in \mathbb{R}} e^{i t x} \frac{1}{\sqrt{2 \pi \sigma^{2}}} e^{-\frac{(x-\mu)^{2}}{2 \sigma^{2}}} \mathrm{d} x \ &amp;=\frac{1}{\sqrt{2 \pi \sigma^{2}}} \int_{x \in \mathbb{R}} e^{i t x} e^{-\frac{(x-\mu)^{2}}{2 \sigma^{2}}} \mathrm{d} x \ &amp;=\frac{1}{\sqrt{2 \pi \sigma^{2}}} \int_{x \in \mathbb{R}} e^{i t x-\frac{(x-\mu)^{2}}{2 \sigma^{2}}} \mathrm{d} x \end{aligned}<br>$$<br>By verifying<br>$$<br>i t x-\frac{(x-\mu)^{2}}{2 \sigma^{2}}=-\frac{(x-k)^{2}+2 \mu i t \sigma^{2}-t^{2} \sigma^{4}}{2 \sigma^{2}}<br>$$<br>We can then simplify the integral in (1)<br>$$<br>\begin{aligned} \int_{x \in \mathbb{R}} e^{i t x-\frac{(x-\mu)^{2}}{2 \sigma^{2}}} \mathrm{d} x &amp;=\int_{x \in \mathbb{R} \atop 2 \pi i \sigma^{2}-t^{2} \sigma^{4}} e^{-\frac{(x-k)^{2}+2 \mu i \sigma^{2}-t^{2} \sigma^{4}}{2 \sigma^{2}}} \mathrm{d} x \ &amp;=e^{\frac{2 \mu i t \sigma^{2}-t^{2} \sigma^{4}}{2 \sigma^{2}}} \int_{x \in \mathbb{R}} e^{-\frac{(x-k)^{2}}{2 \sigma^{2}}} \mathrm{d} x \ &amp;=e^{\mu i t-\frac{1}{2} t^{2} \sigma^{2}} \int_{x \in \mathbb{R}} e^{-\left(\frac{x-k}{\sqrt{2} \sigma}\right)^{2}} \mathrm{d} x \ &amp;=c \int_{x \in \mathbb{R}} e^{-\left(\frac{x-k}{\sqrt{2 \sigma}}\right)^{2}} \mathrm{d} x \end{aligned}<br>$$<br>insider it’s the kernel of another normal distribution. 凑个系数既可以得到结论。</p>
+<h4 id="Jenson’s-inequality"><a href="#Jenson’s-inequality" class="headerlink" title="Jenson’s inequality"></a>Jenson’s inequality</h4><p>If $\varphi$  is a convex function: then<br>$$<br>\varphi(\mathrm{E}[X]) \leq \mathrm{E}[\varphi(X)]<br>$$<br>Proof:</p>
+<p><img src="https://i.imgur.com/Fz1NuAS.png" alt="image-20191201201746371"></p>
+<p>很简单的想法，就是假设一个很极端的xdistribution，比如两点分布，X=0概率是1/2，X=1概率是1/2，又可以看到，convex function随着x的变大，Y变大幅度增大，那么f(E(X)) = f(1/2)显然不如 1/2(f(0)+f(1)) (因为我们可以假设f(1)变得巨大无比，这不会影响convex function 的定义)。</p>
+<h4 id="General-joint-or-the-marginal-distributions-of-bar-X-and-S-2"><a href="#General-joint-or-the-marginal-distributions-of-bar-X-and-S-2" class="headerlink" title="General joint or the marginal distributions of $\bar{X}$ and $S^{2}$"></a>General joint or the marginal distributions of $\bar{X}$ and $S^{2}$</h4><p>Let $X_{1}, \ldots, X_{n} \text { be i.i.d. }$ random variables having a common distribution $P$ and $X = (X_1,\ldots,X_n)$. The sample mean $\bar{X}$ and sample variance $S^2$ are two commonly used statistics. Can we find the joint or the marginal distributions of $\bar{X}$ and $S^2$ ? </p>
+<p>First, $E \bar{X}=\mu$ and $E S^{2}=\sigma^{2}$ ,</p>
+<p>to show  $E S^{2}=\sigma^{2}$,<br>$$<br>\begin{array}{l}{\mathbb{E}\left(\sum\left(X_{i}-\bar{X}\right)^{2}\right)=\mathbb{E}\left(\sum X_{i}^{2}-2 \bar{X} \sum X_{i}+n \bar{X}^{2}\right)=\sum \mathbb{E}\left(X_{i}^{2}\right)-\mathbb{E}\left(n \bar{X}^{2}\right)} \ {\sum \mathbb{E}\left(X_{i}^{2}\right)-\mathbb{E}\left(n \bar{X}^{2}\right)=\sum \mathbb{E}\left(X_{i}^{2}\right)-n \mathbb{E}\left(\bar{X}^{2}\right)=n \sigma^{2}+n \mu^{2}-\sigma^{2}-n \mu^{2}}\end{array}<br>$$<br>This simplifies to $(n-1) \sigma^{2}$.</p>
+<p>So far, we have shown that $\mathbb{E}\left(\sum\left(X_{i}-\bar{X}\right)^{2}\right)=(n-1) \sigma^{2}$ </p>
+<p>$\mathbb{E}\left(s^{2}\right)=\mathbb{E}\left(\frac{\sum\left(X_{i}-\bar{X}\right)^{2}}{n-1}\right)=\frac{1}{n-1} \mathbb{E}\left(\sum\left(X_{i}-\bar{X}\right)^{2}\right)$</p>
+<p>$\mathbb{E}\left(s^{2}\right)=\frac{(n-1) \sigma^{2}}{n-1}=\sigma^{2}$ </p>
+<p>With a finite $E\left|X_{1}\right|^{3}$, we can obtain $E(\bar{X})^{3}$ and $\operatorname{Cov}\left(\bar{X}, S^{2}\right)$, and with a finite $E\left|X_{1}\right|^{4}$, we can obtain $\operatorname{Var}\left(S^{2}\right)$.</p>
+<p>Second, let $Y_{i}=\left(X_{i}-\mu,\left(X_{i}-\mu\right)^{2}\right)$, 这里构造这样的$Y_i$是为了凑后面协方差矩阵的好的形式。如果把$Y_i$写成$(X_i,(X_i-\mu)^2)$,后面计算协方差会比较困难。当然如果你这样算，算出来的结果也是一样的。then $Y_{1}, \dots, Y_{n}$ are i.i.d. random 2-vectors with $EY_1 = (0,\sigma^2)$ and variance-covariance matrix:<br>$$<br>\Sigma=\left(\begin{array}{cc}{\sigma^{2}} &amp; {E\left(X_{1}-\mu\right)^{3}} \ {E\left(X_{1}-\mu\right)^{3}} &amp; {E\left(X_{1}-\mu\right)^{4}-\sigma^{4}}\end{array}\right)<br>$$<br>Note that $\bar{Y}=n^{-1} \sum_{i=1}^{n} Y_{i}=\left(\bar{X}-\mu, \tilde{S}^{2}\right)$, where $\tilde{S}^{2}=n^{-1} \sum_{i=1}^{n}\left(X_{i}-\mu\right)^{2}$.</p>
+<p>Applying the CLT to $Y_i^{‘}s$ （二维CLT), we obtain that $\sqrt{n}\left(\bar{X}-\mu, \tilde{S}^{2}-\sigma^{2}\right) \rightarrow_{d} N_{2}(0, \Sigma)$.</p>
+<p>Since $S^{2}=\frac{n}{n-1}\left[\tilde{S}^{2}-(\bar{X}-\mu)^{2}\right]$ and $\bar{X} \rightarrow_{a . s .} \mu$, slutsky theorem says $S^2 \longrightarrow_d \tilde{S}^{2}$, and $\sqrt n S^2 \longrightarrow_d \sqrt n\tilde{S}^{2}$,</p>
+<p>it leads to $\sqrt{n}\left(\bar{X}-\mu, S^{2}-\sigma^{2}\right) \rightarrow_{d} N_{2}(0, \Sigma)$ 用S代替了S tilde。</p>
+<h4 id="Matrix-derivative-向量矩阵求导"><a href="#Matrix-derivative-向量矩阵求导" class="headerlink" title="Matrix derivative 向量矩阵求导"></a>Matrix derivative 向量矩阵求导</h4><p>Vector-by-scalar: trivial</p>
+<p>Scalar-by-vector:</p>
+<p><img src="https://i.imgur.com/hGzCMWi.png" alt="image-20191202175820294"></p>
+<p>Vector-by-vector:</p>
+<p><img src="https://i.imgur.com/iuyuY26.png" alt="image-20191202175839884"></p>
+<h4 id="Big-O-notation-and-small-O-notation"><a href="#Big-O-notation-and-small-O-notation" class="headerlink" title="Big O notation and small O notation"></a>Big O notation and small O notation</h4><p>Big O notation: let $f(x) = 6 x^{4}-2 x^{3}+5$ and $f(x)=O\left(x^{4}\right)$.</p>
+<p>little O notation: $3n+4$ is $o(n^2)$.</p>
+<h4 id="Big-Op-notation"><a href="#Big-Op-notation" class="headerlink" title="Big Op notation"></a>Big Op notation</h4><p>The notation $X_n = O_p(a_n)$ means that the for any $\epsilon &lt; 0$, there exists an upper bound $M$ and a finite $N$ , which satisfy $P\left(\left|X_{n} / a_{n}\right|&gt;M\right)&lt;\varepsilon, \forall n&gt;N$.</p>
+<h4 id="Least-square-estimation-求解beta"><a href="#Least-square-estimation-求解beta" class="headerlink" title="Least square estimation 求解beta"></a>Least square estimation 求解beta</h4><p>Identities:</p>
+<p><strong>scalar by vector</strong> identities: 这个链接告诉你如何做矩阵求导。</p>
+<p><a href="https://en.wikipedia.org/wiki/Matrix_calculus" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Matrix_calculus</a></p>
+<h1 id><a href="#" class="headerlink" title></a><img src="https://i.imgur.com/VftZ62R.png" alt="image-20191203104124401"></h1><h4 id="Gamma-积分"><a href="#Gamma-积分" class="headerlink" title="$\Gamma$ 积分"></a>$\Gamma$ 积分</h4><p>首先，$\Gamma$函数的递推公式为：$\Gamma(x+1)=x \Gamma(x)$</p>
+<p>对于正整数n,有<br>$$<br>\Gamma(n+1)=n !<br>$$</p>
+<p>$$<br>\Gamma(n+1)=\int_{0}^{\infty} \mathrm{e}^{-x} x^{n+1-1} \mathrm{d} x=\int_{0}^{\infty} \mathrm{e}^{-x} x^{n} \mathrm{d} x<br>$$</p>
+<h4 id="Taylor-expansion-泰勒展开"><a href="#Taylor-expansion-泰勒展开" class="headerlink" title="Taylor expansion (泰勒展开)"></a>Taylor expansion (泰勒展开)</h4><p>The Taylor series of a <a href="https://en.wikipedia.org/wiki/Real-valued_function" target="_blank" rel="noopener">real</a> or <a href="https://en.wikipedia.org/wiki/Complex-valued_function" target="_blank" rel="noopener">complex-valued function</a> <em>f</em> (<em>x</em>) that is <a href="https://en.wikipedia.org/wiki/Infinitely_differentiable_function" target="_blank" rel="noopener">infinitely differentiable</a> at a <a href="https://en.wikipedia.org/wiki/Real_number" target="_blank" rel="noopener">real</a> or <a href="https://en.wikipedia.org/wiki/Complex_number" target="_blank" rel="noopener">complex number</a> <em>a</em> is the <a href="https://en.wikipedia.org/wiki/Power_series" target="_blank" rel="noopener">power series</a><br>$$<br>f(a)+\frac{f^{\prime}(a)}{1 !}(x-a)+\frac{f^{\prime \prime}(a)}{2 !}(x-a)^{2}+\frac{f^{\prime \prime \prime}(a)}{3 !}(x-a)^{3}+\cdots<br>$$</p>
+<h4 id="Limit-superior-and-inferior"><a href="#Limit-superior-and-inferior" class="headerlink" title="Limit superior and inferior"></a>Limit superior and inferior</h4><p>A number t is the <strong>limit superior</strong> of a sequence $a_n$  if the following two conditions are both satisfied:</p>
+<ul>
+<li>For every $s&lt;t$ we have $s&lt;a_n$ for infinitely many n’s.</li>
+<li>For every $s&gt;t$, we have $s&lt;a_n$ for only finitely many n’s.</li>
+</ul>
+<p>A number t is the <strong>limit inferior</strong> of a sequence $a_n$ if the following two conditions are both satisfied.</p>
+<ul>
+<li>For every s&gt;t we have s&gt;an for infinitely many n’s.</li>
+<li>For every s&lt;t, we have s&gt;an for only finitely many n’s (possibly none).</li>
+</ul>
+<p><strong>limit superior of a function</strong></p>
+<p>lim sup tries to ignore what happens on any finite interval $[0,\infty]$ and tells you the supremum once you look further and further away. In other words, it is the limit of the supremums as we look further away:<br>$$<br>\limsup _{x \rightarrow \infty} f(x)=\lim _{y \rightarrow \infty} \sup _{x \geq y} f(x)<br>$$</p>
+<h4 id="L1-loss-function-yields-the-median"><a href="#L1-loss-function-yields-the-median" class="headerlink" title="L1 loss function yields the median"></a>L1 loss function yields the median</h4><p><img src="https://i.imgur.com/Hz3cDol.png" alt="image-20200222221747493"></p>
+<h4 id="proof-of-E-E-X-Z-Y-E-X-Y"><a href="#proof-of-E-E-X-Z-Y-E-X-Y" class="headerlink" title="proof of $E(E(X|Z,Y))= E(X|Y)$"></a>proof of $E(E(X|Z,Y))= E(X|Y)$</h4><p>Use the definition of conditional expectation.</p>
+<h4 id="Intuitive-explanation-for-dividing-by-n-1-when-calculating-standard-deviation"><a href="#Intuitive-explanation-for-dividing-by-n-1-when-calculating-standard-deviation" class="headerlink" title="Intuitive explanation for dividing by n-1 when calculating standard deviation"></a>Intuitive explanation for dividing by n-1 when calculating standard deviation</h4><p>The standard deviation calculated with a divisor of 𝑛−1n−1 is a standard deviation calculated from the sample as an estimate of the standard deviation of the population from which the sample was drawn. Because the observed values fall, on average, closer to the sample mean than to the population mean, the standard deviation which is calculated using deviations from the sample mean underestimates the desired standard deviation of the population. Using 𝑛−1n−1 instead of 𝑛n as the divisor corrects for that by making the result a little bit bigger.</p>
+<p>Note that the correction has a larger proportional effect when 𝑛n is small than when it is large, which is what we want because when n is larger the sample mean is likely to be a good estimator of the population mean.</p>
+<p>When the sample is the whole population we use the standard deviation with 𝑛n as the divisor because the sample mean <em>is</em> population mean.</p>
+<p><img src="https://i.imgur.com/037U33Z.png" alt="image-20200315144234555"></p>
+<h4 id="几个重要极限"><a href="#几个重要极限" class="headerlink" title="几个重要极限"></a>几个重要极限</h4><p><img src="https://i.imgur.com/IhxoJOz.jpg" alt="image-20200715220702735"></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/study/" rel="tag"># study</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/08/03/leetcode-heap/" rel="next" title="leetcode-heap">
+                <i class="fa fa-chevron-left"></i> leetcode-heap
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/uploads/avatar.jpg" alt="Kehui Yao">
+          <p class="site-author-name" itemprop="name">Kehui Yao</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">20</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/KEHUIYAO" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.linkedin.com/in/kehui-yao-a5b770165/" target="_blank" title="Linkedin">
+                  
+                    <i class="fa fa-fw fa-linkedin"></i>
+                  
+                  Linkedin
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/KehuiY" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#三角函数求导"><span class="nav-number">1.</span> <span class="nav-text">三角函数求导</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Characteristic-function-of-normal-distribution"><span class="nav-number">2.</span> <span class="nav-text">Characteristic function of normal distribution</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Jenson’s-inequality"><span class="nav-number">3.</span> <span class="nav-text">Jenson’s inequality</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#General-joint-or-the-marginal-distributions-of-bar-X-and-S-2"><span class="nav-number">4.</span> <span class="nav-text">General joint or the marginal distributions of $\bar{X}$ and $S^{2}$</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Matrix-derivative-向量矩阵求导"><span class="nav-number">5.</span> <span class="nav-text">Matrix derivative 向量矩阵求导</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Big-O-notation-and-small-O-notation"><span class="nav-number">6.</span> <span class="nav-text">Big O notation and small O notation</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Big-Op-notation"><span class="nav-number">7.</span> <span class="nav-text">Big Op notation</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Least-square-estimation-求解beta"><span class="nav-number">8.</span> <span class="nav-text">Least square estimation 求解beta</span></a></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#"><span class="nav-number"></span> <span class="nav-text"></span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Gamma-积分"><span class="nav-number">1.</span> <span class="nav-text">$\Gamma$ 积分</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Taylor-expansion-泰勒展开"><span class="nav-number">2.</span> <span class="nav-text">Taylor expansion (泰勒展开)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Limit-superior-and-inferior"><span class="nav-number">3.</span> <span class="nav-text">Limit superior and inferior</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#L1-loss-function-yields-the-median"><span class="nav-number">4.</span> <span class="nav-text">L1 loss function yields the median</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#proof-of-E-E-X-Z-Y-E-X-Y"><span class="nav-number">5.</span> <span class="nav-text">proof of $E(E(X|Z,Y))= E(X|Y)$</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Intuitive-explanation-for-dividing-by-n-1-when-calculating-standard-deviation"><span class="nav-number">6.</span> <span class="nav-text">Intuitive explanation for dividing by n-1 when calculating standard deviation</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#几个重要极限"><span class="nav-number">7.</span> <span class="nav-text">几个重要极限</span></a></li></ol></li></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Kehui Yao</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+  
+
+
+  
+
+</body>
+</html>
