@@ -94,18 +94,18 @@
 <meta property="og:site_name" content="Kehui&#39;s Blog">
 <meta property="og:description" content="三角函数求导 $\frac{d}{d x} \arcsin x=\frac{1}{\sqrt{1-x^{2}}}$  Proof:$$y=\arcsin x \\sin y=x\\begin{aligned} \cos y \frac{d y}{d x} &amp;amp;=1 \ \frac{d y}{d x} &amp;amp;=\frac{1}{\cos y} \ \frac{d y}{d x} &amp;amp;">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://yoursite.com/Users/kehuiyao/Library/Application%20Support/typora-user-images/image-20191201201746371.png">
-<meta property="og:image" content="http://yoursite.com/Users/kehuiyao/Library/Application%20Support/typora-user-images/image-20191202175820294.png">
-<meta property="og:image" content="http://yoursite.com/Users/kehuiyao/Library/Application%20Support/typora-user-images/image-20191202175839884.png">
-<meta property="og:image" content="http://yoursite.com/Users/kehuiyao/Library/Application%20Support/typora-user-images/image-20191203104124401.png">
-<meta property="og:image" content="http://yoursite.com/Users/kehuiyao/Library/Application%20Support/typora-user-images/image-20200222221747493.png">
-<meta property="og:image" content="http://yoursite.com/Users/kehuiyao/Library/Application%20Support/typora-user-images/image-20200315144234555.png">
-<meta property="og:image" content="http://yoursite.com/Users/kehuiyao/Library/Application%20Support/typora-user-images/image-20200715220702735.jpg">
-<meta property="og:updated_time" content="2020-07-16T03:07:09.991Z">
+<meta property="og:image" content="https://i.imgur.com/Fz1NuAS.png">
+<meta property="og:image" content="https://i.imgur.com/hGzCMWi.png">
+<meta property="og:image" content="https://i.imgur.com/iuyuY26.png">
+<meta property="og:image" content="https://i.imgur.com/VftZ62R.png">
+<meta property="og:image" content="https://i.imgur.com/Hz3cDol.png">
+<meta property="og:image" content="https://i.imgur.com/037U33Z.png">
+<meta property="og:image" content="https://i.imgur.com/IhxoJOz.jpg">
+<meta property="og:updated_time" content="2020-07-22T17:54:45.023Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Kehui&#39;s Blog">
 <meta name="twitter:description" content="三角函数求导 $\frac{d}{d x} \arcsin x=\frac{1}{\sqrt{1-x^{2}}}$  Proof:$$y=\arcsin x \\sin y=x\\begin{aligned} \cos y \frac{d y}{d x} &amp;amp;=1 \ \frac{d y}{d x} &amp;amp;=\frac{1}{\cos y} \ \frac{d y}{d x} &amp;amp;">
-<meta name="twitter:image" content="http://yoursite.com/Users/kehuiyao/Library/Application%20Support/typora-user-images/image-20191201201746371.png">
+<meta name="twitter:image" content="https://i.imgur.com/Fz1NuAS.png">
 
 
 
@@ -336,7 +336,7 @@
 <p>Proof:<br>$$<br>y=\arcsin x \<br>\sin y=x\<br>\begin{aligned} \cos y \frac{d y}{d x} &amp;=1 \ \frac{d y}{d x} &amp;=\frac{1}{\cos y} \ \frac{d y}{d x} &amp;=\frac{1}{\sqrt{1-x^{2}}} \end{aligned}<br>$$</p>
 <h4 id="Characteristic-function-of-normal-distribution"><a href="#Characteristic-function-of-normal-distribution" class="headerlink" title="Characteristic function of normal distribution"></a>Characteristic function of normal distribution</h4><p>The <a href="https://proofwiki.org/w/index.php?title=Definition:Characteristic_Function_(Probability_Theory" target="_blank" rel="noopener">characteristic function</a>&amp;action=edit&amp;redlink=1) of the <a href="https://proofwiki.org/wiki/Definition:Gaussian_Distribution" target="_blank" rel="noopener">normal distribution</a> with mean $\mu$ and variance $\sigma^2$ is<br>$$<br>\phi(t)=e^{i t \mu-\frac{1}{2} t^{2} \sigma^{2}}<br>$$<br>Proof:<br>$$<br>\begin{aligned} \phi(t) &amp;=E\left[e^{i t X}\right] \ &amp;=\int_{x \in \mathbb{R}} e^{i t x} \frac{1}{\sqrt{2 \pi \sigma^{2}}} e^{-\frac{(x-\mu)^{2}}{2 \sigma^{2}}} \mathrm{d} x \ &amp;=\frac{1}{\sqrt{2 \pi \sigma^{2}}} \int_{x \in \mathbb{R}} e^{i t x} e^{-\frac{(x-\mu)^{2}}{2 \sigma^{2}}} \mathrm{d} x \ &amp;=\frac{1}{\sqrt{2 \pi \sigma^{2}}} \int_{x \in \mathbb{R}} e^{i t x-\frac{(x-\mu)^{2}}{2 \sigma^{2}}} \mathrm{d} x \end{aligned}<br>$$<br>By verifying<br>$$<br>i t x-\frac{(x-\mu)^{2}}{2 \sigma^{2}}=-\frac{(x-k)^{2}+2 \mu i t \sigma^{2}-t^{2} \sigma^{4}}{2 \sigma^{2}}<br>$$<br>We can then simplify the integral in (1)<br>$$<br>\begin{aligned} \int_{x \in \mathbb{R}} e^{i t x-\frac{(x-\mu)^{2}}{2 \sigma^{2}}} \mathrm{d} x &amp;=\int_{x \in \mathbb{R} \atop 2 \pi i \sigma^{2}-t^{2} \sigma^{4}} e^{-\frac{(x-k)^{2}+2 \mu i \sigma^{2}-t^{2} \sigma^{4}}{2 \sigma^{2}}} \mathrm{d} x \ &amp;=e^{\frac{2 \mu i t \sigma^{2}-t^{2} \sigma^{4}}{2 \sigma^{2}}} \int_{x \in \mathbb{R}} e^{-\frac{(x-k)^{2}}{2 \sigma^{2}}} \mathrm{d} x \ &amp;=e^{\mu i t-\frac{1}{2} t^{2} \sigma^{2}} \int_{x \in \mathbb{R}} e^{-\left(\frac{x-k}{\sqrt{2} \sigma}\right)^{2}} \mathrm{d} x \ &amp;=c \int_{x \in \mathbb{R}} e^{-\left(\frac{x-k}{\sqrt{2 \sigma}}\right)^{2}} \mathrm{d} x \end{aligned}<br>$$<br>insider it’s the kernel of another normal distribution. 凑个系数既可以得到结论。</p>
 <h4 id="Jenson’s-inequality"><a href="#Jenson’s-inequality" class="headerlink" title="Jenson’s inequality"></a>Jenson’s inequality</h4><p>If $\varphi$  is a convex function: then<br>$$<br>\varphi(\mathrm{E}[X]) \leq \mathrm{E}[\varphi(X)]<br>$$<br>Proof:</p>
-<p><img src="/Users/kehuiyao/Library/Application Support/typora-user-images/image-20191201201746371.png" alt="image-20191201201746371"></p>
+<p><img src="https://i.imgur.com/Fz1NuAS.png" alt="image-20191201201746371"></p>
 <p>很简单的想法，就是假设一个很极端的xdistribution，比如两点分布，X=0概率是1/2，X=1概率是1/2，又可以看到，convex function随着x的变大，Y变大幅度增大，那么f(E(X)) = f(1/2)显然不如 1/2(f(0)+f(1)) (因为我们可以假设f(1)变得巨大无比，这不会影响convex function 的定义)。</p>
 <h4 id="General-joint-or-the-marginal-distributions-of-bar-X-and-S-2"><a href="#General-joint-or-the-marginal-distributions-of-bar-X-and-S-2" class="headerlink" title="General joint or the marginal distributions of $\bar{X}$ and $S^{2}$"></a>General joint or the marginal distributions of $\bar{X}$ and $S^{2}$</h4><p>Let $X_{1}, \ldots, X_{n} \text { be i.i.d. }$ random variables having a common distribution $P$ and $X = (X_1,\ldots,X_n)$. The sample mean $\bar{X}$ and sample variance $S^2$ are two commonly used statistics. Can we find the joint or the marginal distributions of $\bar{X}$ and $S^2$ ? </p>
 <p>First, $E \bar{X}=\mu$ and $E S^{2}=\sigma^{2}$ ,</p>
@@ -351,16 +351,16 @@
 <p>it leads to $\sqrt{n}\left(\bar{X}-\mu, S^{2}-\sigma^{2}\right) \rightarrow_{d} N_{2}(0, \Sigma)$ 用S代替了S tilde。</p>
 <h4 id="Matrix-derivative-向量矩阵求导"><a href="#Matrix-derivative-向量矩阵求导" class="headerlink" title="Matrix derivative 向量矩阵求导"></a>Matrix derivative 向量矩阵求导</h4><p>Vector-by-scalar: trivial</p>
 <p>Scalar-by-vector:</p>
-<p><img src="/Users/kehuiyao/Library/Application Support/typora-user-images/image-20191202175820294.png" alt="image-20191202175820294"></p>
+<p><img src="https://i.imgur.com/hGzCMWi.png" alt="image-20191202175820294"></p>
 <p>Vector-by-vector:</p>
-<p><img src="/Users/kehuiyao/Library/Application Support/typora-user-images/image-20191202175839884.png" alt="image-20191202175839884"></p>
+<p><img src="https://i.imgur.com/iuyuY26.png" alt="image-20191202175839884"></p>
 <h4 id="Big-O-notation-and-small-O-notation"><a href="#Big-O-notation-and-small-O-notation" class="headerlink" title="Big O notation and small O notation"></a>Big O notation and small O notation</h4><p>Big O notation: let $f(x) = 6 x^{4}-2 x^{3}+5$ and $f(x)=O\left(x^{4}\right)$.</p>
 <p>little O notation: $3n+4$ is $o(n^2)$.</p>
 <h4 id="Big-Op-notation"><a href="#Big-Op-notation" class="headerlink" title="Big Op notation"></a>Big Op notation</h4><p>The notation $X_n = O_p(a_n)$ means that the for any $\epsilon &lt; 0$, there exists an upper bound $M$ and a finite $N$ , which satisfy $P\left(\left|X_{n} / a_{n}\right|&gt;M\right)&lt;\varepsilon, \forall n&gt;N$.</p>
 <h4 id="Least-square-estimation-求解beta"><a href="#Least-square-estimation-求解beta" class="headerlink" title="Least square estimation 求解beta"></a>Least square estimation 求解beta</h4><p>Identities:</p>
 <p><strong>scalar by vector</strong> identities: 这个链接告诉你如何做矩阵求导。</p>
 <p><a href="https://en.wikipedia.org/wiki/Matrix_calculus" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Matrix_calculus</a></p>
-<h1 id><a href="#" class="headerlink" title></a><img src="/Users/kehuiyao/Library/Application Support/typora-user-images/image-20191203104124401.png" alt="image-20191203104124401"></h1><h4 id="Gamma-积分"><a href="#Gamma-积分" class="headerlink" title="$\Gamma$ 积分"></a>$\Gamma$ 积分</h4><p>首先，$\Gamma$函数的递推公式为：$\Gamma(x+1)=x \Gamma(x)$</p>
+<h1 id><a href="#" class="headerlink" title></a><img src="https://i.imgur.com/VftZ62R.png" alt="image-20191203104124401"></h1><h4 id="Gamma-积分"><a href="#Gamma-积分" class="headerlink" title="$\Gamma$ 积分"></a>$\Gamma$ 积分</h4><p>首先，$\Gamma$函数的递推公式为：$\Gamma(x+1)=x \Gamma(x)$</p>
 <p>对于正整数n,有<br>$$<br>\Gamma(n+1)=n !<br>$$</p>
 <p>$$<br>\Gamma(n+1)=\int_{0}^{\infty} \mathrm{e}^{-x} x^{n+1-1} \mathrm{d} x=\int_{0}^{\infty} \mathrm{e}^{-x} x^{n} \mathrm{d} x<br>$$</p>
 <h4 id="Taylor-expansion-泰勒展开"><a href="#Taylor-expansion-泰勒展开" class="headerlink" title="Taylor expansion (泰勒展开)"></a>Taylor expansion (泰勒展开)</h4><p>The Taylor series of a <a href="https://en.wikipedia.org/wiki/Real-valued_function" target="_blank" rel="noopener">real</a> or <a href="https://en.wikipedia.org/wiki/Complex-valued_function" target="_blank" rel="noopener">complex-valued function</a> <em>f</em> (<em>x</em>) that is <a href="https://en.wikipedia.org/wiki/Infinitely_differentiable_function" target="_blank" rel="noopener">infinitely differentiable</a> at a <a href="https://en.wikipedia.org/wiki/Real_number" target="_blank" rel="noopener">real</a> or <a href="https://en.wikipedia.org/wiki/Complex_number" target="_blank" rel="noopener">complex number</a> <em>a</em> is the <a href="https://en.wikipedia.org/wiki/Power_series" target="_blank" rel="noopener">power series</a><br>$$<br>f(a)+\frac{f^{\prime}(a)}{1 !}(x-a)+\frac{f^{\prime \prime}(a)}{2 !}(x-a)^{2}+\frac{f^{\prime \prime \prime}(a)}{3 !}(x-a)^{3}+\cdots<br>$$</p>
@@ -376,13 +376,13 @@
 </ul>
 <p><strong>limit superior of a function</strong></p>
 <p>lim sup tries to ignore what happens on any finite interval $[0,\infty]$ and tells you the supremum once you look further and further away. In other words, it is the limit of the supremums as we look further away:<br>$$<br>\limsup _{x \rightarrow \infty} f(x)=\lim _{y \rightarrow \infty} \sup _{x \geq y} f(x)<br>$$</p>
-<h4 id="L1-loss-function-yields-the-median"><a href="#L1-loss-function-yields-the-median" class="headerlink" title="L1 loss function yields the median"></a>L1 loss function yields the median</h4><p><img src="/Users/kehuiyao/Library/Application Support/typora-user-images/image-20200222221747493.png" alt="image-20200222221747493"></p>
+<h4 id="L1-loss-function-yields-the-median"><a href="#L1-loss-function-yields-the-median" class="headerlink" title="L1 loss function yields the median"></a>L1 loss function yields the median</h4><p><img src="https://i.imgur.com/Hz3cDol.png" alt="image-20200222221747493"></p>
 <h4 id="proof-of-E-E-X-Z-Y-E-X-Y"><a href="#proof-of-E-E-X-Z-Y-E-X-Y" class="headerlink" title="proof of $E(E(X|Z,Y))= E(X|Y)$"></a>proof of $E(E(X|Z,Y))= E(X|Y)$</h4><p>Use the definition of conditional expectation.</p>
 <h4 id="Intuitive-explanation-for-dividing-by-n-1-when-calculating-standard-deviation"><a href="#Intuitive-explanation-for-dividing-by-n-1-when-calculating-standard-deviation" class="headerlink" title="Intuitive explanation for dividing by n-1 when calculating standard deviation"></a>Intuitive explanation for dividing by n-1 when calculating standard deviation</h4><p>The standard deviation calculated with a divisor of 𝑛−1n−1 is a standard deviation calculated from the sample as an estimate of the standard deviation of the population from which the sample was drawn. Because the observed values fall, on average, closer to the sample mean than to the population mean, the standard deviation which is calculated using deviations from the sample mean underestimates the desired standard deviation of the population. Using 𝑛−1n−1 instead of 𝑛n as the divisor corrects for that by making the result a little bit bigger.</p>
 <p>Note that the correction has a larger proportional effect when 𝑛n is small than when it is large, which is what we want because when n is larger the sample mean is likely to be a good estimator of the population mean.</p>
 <p>When the sample is the whole population we use the standard deviation with 𝑛n as the divisor because the sample mean <em>is</em> population mean.</p>
-<p><img src="/Users/kehuiyao/Library/Application Support/typora-user-images/image-20200315144234555.png" alt="image-20200315144234555"></p>
-<h4 id="几个重要极限"><a href="#几个重要极限" class="headerlink" title="几个重要极限"></a>几个重要极限</h4><p><img src="/Users/kehuiyao/Library/Application Support/typora-user-images/image-20200715220702735.jpg" alt="image-20200715220702735"></p>
+<p><img src="https://i.imgur.com/037U33Z.png" alt="image-20200315144234555"></p>
+<h4 id="几个重要极限"><a href="#几个重要极限" class="headerlink" title="几个重要极限"></a>几个重要极限</h4><p><img src="https://i.imgur.com/IhxoJOz.jpg" alt="image-20200715220702735"></p>
 
       
     </div>
