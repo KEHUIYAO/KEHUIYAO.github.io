@@ -248,6 +248,131 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/26/leetcode-stack/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kehui Yao">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kehui's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2019/03/26/leetcode-stack/" itemprop="url">
+                  Leetcode stack problem
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-26T12:21:12-05:00">
+                2019-03-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="单调栈"><a href="#单调栈" class="headerlink" title="单调栈"></a>单调栈</h2><p>Find the first element on the left which is larger than itself.</p>
+<p>The most straight forward idea is to compare the current element with the left element in the list one by one. But soon we found that it is not the efficient solution. For example, you have a list [1,4,2,3,5]. When you compare the element 5 with 3, you found 5 &gt; 3, then you proceed to the next element 2. But when you set the position of 3, you have already do the comparison 3 &gt; 2. So we do not need to do the comparison 5 &gt; 2, which could save the computation time if the list is much larger. </p>
+<p>So, we apply the trick of the decreasing stack. The idea is to keep a temporary list and the elements in this list are in decreasing order. At the beginning, the decreasing stack is empty. Then, we loop through the list, and for each element, we compare the element with the top element in the decreasing stack. If larger, then pop the top element out, and do it again until the decreasing stack is empty or it encouter the top elment which is larger than itself. If empty, it means no other element is larger than it, otherwise, output the element which is larger than it. Finally, push it into the decreasing stack.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 单调递减栈实现返回列表中左边第一个比自身大的元素的值</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">decreasing_stack</span><span class="params">(nums)</span>:</span></span><br><span class="line">    index=[<span class="number">-1</span>]</span><br><span class="line">    stack=[nums[<span class="number">0</span>]]</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,len(nums)):</span><br><span class="line">        <span class="keyword">while</span> stack <span class="keyword">and</span> nums[i]&gt;=stack[<span class="number">-1</span>] :</span><br><span class="line">            stack.pop()</span><br><span class="line">        <span class="keyword">if</span> stack:</span><br><span class="line">            index.append(stack[<span class="number">-1</span>])</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            index.append(<span class="number">-1</span>)</span><br><span class="line">        stack.append(nums[i])</span><br><span class="line">    <span class="keyword">return</span> index</span><br><span class="line">a=[<span class="number">4</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">5</span>]</span><br><span class="line">decreasing_stack(a)</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/03/26/leetcode-stack/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/25/numpy-tutorial/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1392,142 +1517,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/16/bytedance_interview/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Kehui Yao">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Kehui's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2019/03/16/bytedance_interview/" itemprop="url">
-                  字节跳动春招算法四道编程题
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-16T22:25:12-05:00">
-                2019-03-16
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="P1"><a href="#P1" class="headerlink" title="P1"></a>P1</h2><h3 id="Problem-description"><a href="#Problem-description" class="headerlink" title="Problem description:"></a>Problem description:</h3><p>总共有1024元，买一件价格为N元的商品，N为1到1024间的整数。<br>找零都以硬币形式给出，可能值为1元，4元，16元，64元。问最少找零硬币数。</p>
-<h3 id="Soution"><a href="#Soution" class="headerlink" title="Soution:"></a>Soution:</h3><p>典型的递归问题。</p>
-<blockquote>
-<p>python code:</p>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">how_many_coins</span><span class="params">(x)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> x==<span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">    <span class="keyword">if</span> x&gt;=<span class="number">64</span>:</span><br><span class="line">        <span class="keyword">return</span> how_many_coins(x<span class="number">-64</span>)+<span class="number">1</span></span><br><span class="line">    <span class="keyword">if</span> x&gt;=<span class="number">16</span>:</span><br><span class="line">        <span class="keyword">return</span> how_many_coins(x<span class="number">-16</span>)+<span class="number">1</span></span><br><span class="line">    <span class="keyword">if</span> x&gt;=<span class="number">4</span>:</span><br><span class="line">        <span class="keyword">return</span> how_many_coins(x<span class="number">-4</span>)+<span class="number">1</span></span><br><span class="line">    <span class="keyword">if</span> x&gt;=<span class="number">1</span>:</span><br><span class="line">        <span class="keyword">return</span> how_many_coins(x<span class="number">-1</span>)+<span class="number">1</span></span><br><span class="line">how_many_coins(<span class="number">65</span>)</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>output:</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/03/16/bytedance_interview/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1570,7 +1564,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">20</span>
+                <span class="site-state-item-count">21</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -1581,7 +1575,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-count">2</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>

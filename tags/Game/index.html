@@ -89,7 +89,7 @@
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="Kehui&#39;s Blog">
-<meta property="og:url" content="http://yoursite.com/page/3/index.html">
+<meta property="og:url" content="http://yoursite.com/tags/Game/index.html">
 <meta property="og:site_name" content="Kehui&#39;s Blog">
 <meta property="og:locale" content="default">
 <meta name="twitter:card" content="summary">
@@ -121,13 +121,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/page/3/">
+  <link rel="canonical" href="http://yoursite.com/tags/Game/">
 
 
 
 
 
-  <title> Kehui's Blog </title>
+  <title> Tag: Game | Kehui's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="default">
@@ -152,9 +152,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left 
-   page-home 
- ">
+  <div class="container one-collumn sidebar-position-left  ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -237,146 +235,45 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
-    
-      
 
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/16/bytedance_interview/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Kehui Yao">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Kehui's Blog">
-    </span>
+  <div id="posts" class="posts-collapse">
+    <div class="collection-title">
+      <h2>
+        Game
+        <small>Tag</small>
+      </h2>
+    </div>
 
     
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2019/03/16/bytedance_interview/" itemprop="url">
-                  字节跳动春招算法四道编程题
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-16T22:25:12-05:00">
-                2019-03-16
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
-      
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h1 class="post-title">
         
-          <h2 id="P1"><a href="#P1" class="headerlink" title="P1"></a>P1</h2><h3 id="Problem-description"><a href="#Problem-description" class="headerlink" title="Problem description:"></a>Problem description:</h3><p>总共有1024元，买一件价格为N元的商品，N为1到1024间的整数。<br>找零都以硬币形式给出，可能值为1元，4元，16元，64元。问最少找零硬币数。</p>
-<h3 id="Soution"><a href="#Soution" class="headerlink" title="Soution:"></a>Soution:</h3><p>典型的递归问题。</p>
-<blockquote>
-<p>python code:</p>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">how_many_coins</span><span class="params">(x)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> x==<span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">    <span class="keyword">if</span> x&gt;=<span class="number">64</span>:</span><br><span class="line">        <span class="keyword">return</span> how_many_coins(x<span class="number">-64</span>)+<span class="number">1</span></span><br><span class="line">    <span class="keyword">if</span> x&gt;=<span class="number">16</span>:</span><br><span class="line">        <span class="keyword">return</span> how_many_coins(x<span class="number">-16</span>)+<span class="number">1</span></span><br><span class="line">    <span class="keyword">if</span> x&gt;=<span class="number">4</span>:</span><br><span class="line">        <span class="keyword">return</span> how_many_coins(x<span class="number">-4</span>)+<span class="number">1</span></span><br><span class="line">    <span class="keyword">if</span> x&gt;=<span class="number">1</span>:</span><br><span class="line">        <span class="keyword">return</span> how_many_coins(x<span class="number">-1</span>)+<span class="number">1</span></span><br><span class="line">how_many_coins(<span class="number">65</span>)</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>output:</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/03/16/bytedance_interview/#more" rel="contents">
-              Read more &raquo;
+            <a class="post-title-link" href="/2020/07/20/puyo技巧/" itemprop="url">
+              
+                <span itemprop="name">Puyo高阶技巧</span>
+              
             </a>
-          </div>
-          <!--/noindex-->
         
-      
-    </div>
+      </h1>
 
-    <div>
-      
-    </div>
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated" datetime="2020-07-20T00:29:15-05:00" content="2020-07-20">
+          07-20
+        </time>
+      </div>
 
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
+    </header>
   </article>
 
 
     
-  </section>
+  </div>
 
   
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
-  </nav>
-
 
           
           </div>
