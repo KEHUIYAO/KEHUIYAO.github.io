@@ -99,7 +99,33 @@
 <meta property="og:image" content="https://i.loli.net/2020/07/22/4jAkvP1feBDwlcq.jpg">
 <meta property="og:image" content="https://i.loli.net/2020/07/22/XqaukWU7BLF9G5g.jpg">
 <meta property="og:image" content="https://i.loli.net/2020/07/22/49tfWk8ucivoTm5.jpg">
-<meta property="og:updated_time" content="2020-07-22T18:03:30.744Z">
+<meta property="og:image" content="https://i.imgur.com/O8Ynaku.png">
+<meta property="og:image" content="https://i.imgur.com/sUzLSKZ.png">
+<meta property="og:image" content="https://i.imgur.com/iaFxV4q.png">
+<meta property="og:image" content="https://i.imgur.com/h64IIUg.png">
+<meta property="og:image" content="https://i.imgur.com/F93UGwt.png">
+<meta property="og:image" content="https://i.imgur.com/2I8hZTU.png">
+<meta property="og:image" content="https://i.imgur.com/DcJXcA0.png">
+<meta property="og:image" content="https://i.imgur.com/baUwPJq.png">
+<meta property="og:image" content="https://i.imgur.com/Lxqw1nc.png">
+<meta property="og:image" content="https://i.imgur.com/e9FXxy8.png">
+<meta property="og:image" content="https://i.imgur.com/JtMkCUl.png">
+<meta property="og:image" content="https://i.imgur.com/jv8lPHO.png">
+<meta property="og:image" content="https://i.imgur.com/Z2olLvy.png">
+<meta property="og:image" content="https://i.imgur.com/HaykPq5.png">
+<meta property="og:image" content="https://i.imgur.com/4kjQ2DQ.png">
+<meta property="og:image" content="https://i.imgur.com/A1Zf46R.png">
+<meta property="og:image" content="https://i.imgur.com/GDJi6r8.png">
+<meta property="og:image" content="https://i.imgur.com/Jtf9Q7A.png">
+<meta property="og:image" content="https://i.imgur.com/92XtH7X.png">
+<meta property="og:image" content="https://i.imgur.com/yyqhP4K.png">
+<meta property="og:image" content="https://i.imgur.com/cLqoOZw.png">
+<meta property="og:image" content="https://i.imgur.com/w4Hjt07.png">
+<meta property="og:image" content="https://i.imgur.com/mwpnrVE.png">
+<meta property="og:image" content="https://i.imgur.com/XE1CvwX.png">
+<meta property="og:image" content="https://i.imgur.com/o79lJqz.png">
+<meta property="og:image" content="https://i.imgur.com/FKX02zo.png">
+<meta property="og:updated_time" content="2020-07-24T04:07:52.939Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Some statistics tips">
 <meta name="twitter:description" content="自由度 degree of freedom道格拉斯试验设计206页 interaction term 的自由度是(a-1)(b-1), 这是因为treatment A 的自由度是a-1，treatment B的自由度是b-1。 test for nonadditivity when to use: one observation per cell, want to test if the inte">
@@ -334,10 +360,43 @@
 <li>when to use: one observation per cell, want to test if the interaction term is not significant</li>
 <li>douglas 203-204, and 205 example</li>
 </ul>
+<a id="more"></a>
 <h4 id="Moments-of-normal-distribution"><a href="#Moments-of-normal-distribution" class="headerlink" title="Moments of normal distribution"></a>Moments of normal distribution</h4><p><img src="https://i.loli.net/2020/07/22/4Cj5PtqbEHVWhN7.jpg" alt="image-20200719230938507"></p>
 <h4 id="chebyshev’s-inequality"><a href="#chebyshev’s-inequality" class="headerlink" title="chebyshev’s inequality"></a>chebyshev’s inequality</h4><p><img src="https://i.loli.net/2020/07/22/4jAkvP1feBDwlcq.jpg" alt="image-20200720115229399"></p>
 <h4 id="Conditional-distribution-of-multinormal-distribution"><a href="#Conditional-distribution-of-multinormal-distribution" class="headerlink" title="Conditional distribution of multinormal distribution"></a>Conditional distribution of multinormal distribution</h4><p><img src="https://i.loli.net/2020/07/22/XqaukWU7BLF9G5g.jpg" alt="image-20200720002553353"></p>
 <h4 id="Exponential-distribution-gamma-distribution-and-chi-square-distribution"><a href="#Exponential-distribution-gamma-distribution-and-chi-square-distribution" class="headerlink" title="Exponential distribution, gamma distribution and chi-square distribution"></a>Exponential distribution, gamma distribution and chi-square distribution</h4><p><img src="https://i.loli.net/2020/07/22/49tfWk8ucivoTm5.jpg" alt="image-20200722000304062"></p>
+<h4 id="multicollinearity-in-regression"><a href="#multicollinearity-in-regression" class="headerlink" title="multicollinearity in regression"></a>multicollinearity in regression</h4><p>Suppose you are fitting a regression model with two highly correlated explanatory variables. When you fit it use simple linear regression model:</p>
+<p><img src="https://i.imgur.com/O8Ynaku.png" alt="image-20200723120043056"></p>
+<p>We can see both term are not significant. But if we fit them separately, we can find:</p>
+<p><img src="https://i.imgur.com/sUzLSKZ.png" alt="image-20200723120224941"></p>
+<p><img src="https://i.imgur.com/iaFxV4q.png" alt="image-20200723120237788"></p>
+<p>both terms appear significant.</p>
+<p>Intuitively, when we test if a term is significant or not, our null hypothesis is setting the coefficient before that variable to be 0 and refit the model to see whether the model performs worse or not. If the model performs very bad, we can conclude that variable is very important. But in our situation. two variables are  highly correlated, no matter which one you remove, the other one can still explain the response quite well, so if we include both in the model, both terms appear insignificant.</p>
+<h4 id="Multiparameters-MLE"><a href="#Multiparameters-MLE" class="headerlink" title="Multiparameters MLE"></a>Multiparameters MLE</h4><p><img src="https://i.imgur.com/h64IIUg.png" alt="image-20200723124721954"></p>
+<p><img src="https://i.imgur.com/F93UGwt.png" alt="image-20200723124731745"></p>
+<p><img src="https://i.imgur.com/2I8hZTU.png" alt="image-20200723124632235"></p>
+<p><img src="https://i.imgur.com/DcJXcA0.png" alt="image-20200723124700323"></p>
+<p><img src="https://i.imgur.com/baUwPJq.png" alt="image-20200723124850893"></p>
+<p><img src="https://i.imgur.com/Lxqw1nc.png" alt="image-20200723124926761"></p>
+<p><img src="https://i.imgur.com/e9FXxy8.png" alt="image-20200723125002238"></p>
+<p>If we have some restrictions on $\theta$, say $\theta &gt; 0$ ，</p>
+<p><img src="https://i.imgur.com/JtMkCUl.png" alt="image-20200723135157947"></p>
+<h4 id="MLE-may-not-be-unique"><a href="#MLE-may-not-be-unique" class="headerlink" title="MLE may not be unique"></a>MLE may not be unique</h4><p><img src="https://i.imgur.com/jv8lPHO.png" alt="image-20200723135637145"></p>
+<h4 id="MLE-in-exponential-family"><a href="#MLE-in-exponential-family" class="headerlink" title="MLE in exponential family"></a>MLE in exponential family</h4><p><img src="https://i.imgur.com/Z2olLvy.png" alt="image-20200723142716742"></p>
+<p><img src="https://i.imgur.com/HaykPq5.png" alt="image-20200723142825756"></p>
+<h4 id="Bayes-estimator"><a href="#Bayes-estimator" class="headerlink" title="Bayes estimator"></a>Bayes estimator</h4><p>Intuition: If $\theta$ is fixed, we want to find a estimator to estimate $\theta$ such that its mse is minimized. Since due to bayesian point of view, our goal becomes:</p>
+<p><img src="https://i.imgur.com/4kjQ2DQ.png" alt="image-20200723145713803"></p>
+<p><img src="https://i.imgur.com/A1Zf46R.png" alt="image-20200723145814434"></p>
+<p><img src="https://i.imgur.com/GDJi6r8.png" alt="image-20200723150147895"></p>
+<h4 id="Proving-the-crammer-rao-lower-bound"><a href="#Proving-the-crammer-rao-lower-bound" class="headerlink" title="Proving the crammer rao lower bound"></a>Proving the crammer rao lower bound</h4><p><img src="https://i.imgur.com/Jtf9Q7A.png" alt="image-20200723221757963"></p>
+<p><img src="https://i.imgur.com/92XtH7X.png" alt="image-20200723221830197"></p>
+<p><img src="https://i.imgur.com/yyqhP4K.png" alt="image-20200723221902753"></p>
+<p><img src="https://i.imgur.com/cLqoOZw.png" alt="image-20200723221936751"></p>
+<h4 id="UMVUE-in-normal-distribution"><a href="#UMVUE-in-normal-distribution" class="headerlink" title="UMVUE in normal distribution"></a>UMVUE in normal distribution</h4><p><img src="https://i.imgur.com/w4Hjt07.png" alt="image-20200723222956747"></p>
+<p><img src="https://i.imgur.com/mwpnrVE.png" alt="image-20200723223139060"></p>
+<h4 id><a href="#" class="headerlink" title=" "></a> </h4><h4 id="Situations-that-the-key-condition-for-crammer-rao-lower-bound-is-violated"><a href="#Situations-that-the-key-condition-for-crammer-rao-lower-bound-is-violated" class="headerlink" title="Situations that the key condition for crammer-rao lower bound is violated."></a>Situations that the key condition for crammer-rao lower bound is violated.</h4><p><img src="https://i.imgur.com/XE1CvwX.png" alt="image-20200723224057735"></p>
+<p><img src="https://i.imgur.com/o79lJqz.png" alt="image-20200723230455565"></p>
+<p><img src="https://i.imgur.com/FKX02zo.png" alt="image-20200723230523126"></p>
 
       
     </div>
@@ -456,7 +515,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">21</span>
+                <span class="site-state-item-count">22</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -467,7 +526,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
@@ -531,7 +590,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#自由度-degree-of-freedom"><span class="nav-number">1.</span> <span class="nav-text">自由度 degree of freedom</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#test-for-nonadditivity"><span class="nav-number">2.</span> <span class="nav-text">test for nonadditivity</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Moments-of-normal-distribution"><span class="nav-number">3.</span> <span class="nav-text">Moments of normal distribution</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#chebyshev’s-inequality"><span class="nav-number">4.</span> <span class="nav-text">chebyshev’s inequality</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Conditional-distribution-of-multinormal-distribution"><span class="nav-number">5.</span> <span class="nav-text">Conditional distribution of multinormal distribution</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Exponential-distribution-gamma-distribution-and-chi-square-distribution"><span class="nav-number">6.</span> <span class="nav-text">Exponential distribution, gamma distribution and chi-square distribution</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#自由度-degree-of-freedom"><span class="nav-number">1.</span> <span class="nav-text">自由度 degree of freedom</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#test-for-nonadditivity"><span class="nav-number">2.</span> <span class="nav-text">test for nonadditivity</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Moments-of-normal-distribution"><span class="nav-number">3.</span> <span class="nav-text">Moments of normal distribution</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#chebyshev’s-inequality"><span class="nav-number">4.</span> <span class="nav-text">chebyshev’s inequality</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Conditional-distribution-of-multinormal-distribution"><span class="nav-number">5.</span> <span class="nav-text">Conditional distribution of multinormal distribution</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Exponential-distribution-gamma-distribution-and-chi-square-distribution"><span class="nav-number">6.</span> <span class="nav-text">Exponential distribution, gamma distribution and chi-square distribution</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#multicollinearity-in-regression"><span class="nav-number">7.</span> <span class="nav-text">multicollinearity in regression</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Multiparameters-MLE"><span class="nav-number">8.</span> <span class="nav-text">Multiparameters MLE</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#MLE-may-not-be-unique"><span class="nav-number">9.</span> <span class="nav-text">MLE may not be unique</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#MLE-in-exponential-family"><span class="nav-number">10.</span> <span class="nav-text">MLE in exponential family</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Bayes-estimator"><span class="nav-number">11.</span> <span class="nav-text">Bayes estimator</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Proving-the-crammer-rao-lower-bound"><span class="nav-number">12.</span> <span class="nav-text">Proving the crammer rao lower bound</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#UMVUE-in-normal-distribution"><span class="nav-number">13.</span> <span class="nav-text">UMVUE in normal distribution</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#"><span class="nav-number">14.</span> <span class="nav-text"> </span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Situations-that-the-key-condition-for-crammer-rao-lower-bound-is-violated"><span class="nav-number">15.</span> <span class="nav-text">Situations that the key condition for crammer-rao lower bound is violated.</span></a></li></ol></div>
             
 
           </div>
