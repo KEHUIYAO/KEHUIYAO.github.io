@@ -125,7 +125,33 @@
 <meta property="og:image" content="https://i.imgur.com/RaEah3m.png">
 <meta property="og:image" content="https://i.imgur.com/KNFBJTW.png">
 <meta property="og:image" content="https://i.imgur.com/0dLOfR8.png">
-<meta property="og:updated_time" content="2020-07-25T17:04:30.351Z">
+<meta property="og:image" content="https://i.imgur.com/Jojkvmb.png">
+<meta property="og:image" content="https://i.imgur.com/rGEz1Js.png">
+<meta property="og:image" content="https://i.imgur.com/pkwEFyc.png">
+<meta property="og:image" content="https://i.imgur.com/PJiGC48.png">
+<meta property="og:image" content="https://i.imgur.com/XRaqDbJ.png">
+<meta property="og:image" content="https://i.imgur.com/ZobHFuQ.png">
+<meta property="og:image" content="https://i.imgur.com/lzyU2P6.png">
+<meta property="og:image" content="https://i.imgur.com/z3hxmKW.png">
+<meta property="og:image" content="https://i.imgur.com/kArCwFa.png">
+<meta property="og:image" content="https://i.imgur.com/n86mNCE.png">
+<meta property="og:image" content="https://i.imgur.com/TZkVMrK.png">
+<meta property="og:image" content="https://i.imgur.com/UVaMqXT.png">
+<meta property="og:image" content="https://i.imgur.com/FbdNmtb.png">
+<meta property="og:image" content="https://i.imgur.com/oR20lTK.png">
+<meta property="og:image" content="https://i.imgur.com/2X0ssJt.png">
+<meta property="og:image" content="https://i.imgur.com/4wYR6Dn.png">
+<meta property="og:image" content="https://i.imgur.com/2iHL4zE.png">
+<meta property="og:image" content="https://i.imgur.com/rHFKWuS.png">
+<meta property="og:image" content="https://i.imgur.com/c8NY0Lj.png">
+<meta property="og:image" content="https://i.imgur.com/SbPbU3b.png">
+<meta property="og:image" content="https://i.imgur.com/Bz2nAVd.png">
+<meta property="og:image" content="https://i.imgur.com/plsp49B.png">
+<meta property="og:image" content="https://i.imgur.com/8Fq9hFy.png">
+<meta property="og:image" content="https://i.imgur.com/mRIziEB.png">
+<meta property="og:image" content="https://i.imgur.com/xgqI0Rl.png">
+<meta property="og:image" content="https://i.imgur.com/rT6Vaej.png">
+<meta property="og:updated_time" content="2020-07-27T16:00:42.652Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Regression analysis tips">
 <meta name="twitter:description" content="The procedure using sample correlation to derive the F-test">
@@ -393,6 +419,40 @@
 <p>Notice that it we add two more observations in our data and our goal is to enforce that $\alpha_1+\alpha_2 = 0$ and $\beta_1+\beta_2 = 0$. The estimated coefficient using the expanded design matrix will satifsy the two constraints. Why this works?</p>
 <p>Intuitively, now we have n+2 data points, and we can do as better as we have done for the first n-1 points by having the two constraints and make the error in the remaining 2 data points to be zero.</p>
 <p>Put it in another way. Previously, you need to think how to take values of $\alpha_1-\alpha_2$ to make the error smallest, now, we want as well minimize the error due to the last two obeservations and luckily we find we can solve them explicitly to reduce the error to 0.</p>
+<h4 id="Assumption-on-error-term"><a href="#Assumption-on-error-term" class="headerlink" title="Assumption on error term"></a>Assumption on error term</h4><p><img src="https://i.imgur.com/Jojkvmb.png" alt="image-20200725231230718"></p>
+<p>Some properties:</p>
+<ul>
+<li><p>under A2, an unbiased estimator of $\sigma^2$ is $|Y-X \widehat{\beta}|^{2} /(n-p)$</p>
+</li>
+<li><p>The LSE and the residual vector is always uncorrelated.<img src="https://i.imgur.com/rGEz1Js.png" alt="image-20200726123518105"></p>
+</li>
+<li><p>Under A3, <img src="https://i.imgur.com/pkwEFyc.png" alt="image-20200726123633868"></p>
+<p><img src="https://i.imgur.com/PJiGC48.png" alt="image-20200726123817182"></p>
+<p><img src="https://i.imgur.com/XRaqDbJ.png" alt="image-20200726124323727"></p>
+<p><img src="https://i.imgur.com/ZobHFuQ.png" alt="image-20200726125305977"></p>
+<p><img src="https://i.imgur.com/lzyU2P6.png" alt="image-20200726125413047"></p>
+</li>
+</ul>
+<p>  #### </p>
+<h4 id="Fisher-information-of-the-regression-parameters"><a href="#Fisher-information-of-the-regression-parameters" class="headerlink" title="Fisher information of the regression parameters"></a>Fisher information of the regression parameters</h4><p><img src="https://i.imgur.com/z3hxmKW.png" alt="image-20200726125805019"></p>
+<p><img src="https://i.imgur.com/kArCwFa.png" alt="image-20200726125910295"></p>
+<h4 id="Weighted-least-squares-estimators"><a href="#Weighted-least-squares-estimators" class="headerlink" title="Weighted least squares estimators"></a>Weighted least squares estimators</h4><p><img src="https://i.imgur.com/n86mNCE.png" alt="image-20200726130031685"></p>
+<p><img src="https://i.imgur.com/TZkVMrK.png" alt="image-20200726130113223"></p>
+<p><img src="https://i.imgur.com/UVaMqXT.png" alt="image-20200726130244327"></p>
+<p><img src="https://i.imgur.com/FbdNmtb.png" alt="image-20200726130439241"></p>
+<p><img src="https://i.imgur.com/oR20lTK.png" alt="image-20200726130836578"></p>
+<h4 id="Gauss-Markov-Theorem"><a href="#Gauss-Markov-Theorem" class="headerlink" title="Gauss-Markov Theorem"></a>Gauss-Markov Theorem</h4><p><img src="https://i.imgur.com/2X0ssJt.png" alt="image-20200725231943193"></p>
+<p><img src="https://i.imgur.com/4wYR6Dn.png" alt="image-20200725232208118"></p>
+<p><img src="https://i.imgur.com/2iHL4zE.png" alt="image-20200725232728681"></p>
+<p><img src="https://i.imgur.com/rHFKWuS.png" alt="image-20200726121852175"></p>
+<h4 id="Random-effect-model"><a href="#Random-effect-model" class="headerlink" title="Random effect model"></a>Random effect model</h4><p><img src="https://i.imgur.com/c8NY0Lj.png" alt="image-20200726153913176"></p>
+<p><img src="https://i.imgur.com/SbPbU3b.png" alt="image-20200726153932656"></p>
+<p><img src="https://i.imgur.com/Bz2nAVd.png" alt="image-20200726154628814"></p>
+<p><img src="https://i.imgur.com/plsp49B.png" alt="image-20200726154713970"></p>
+<h4 id="The-restricted-maximum-likelihood-estimators"><a href="#The-restricted-maximum-likelihood-estimators" class="headerlink" title="The restricted maximum likelihood estimators"></a>The restricted maximum likelihood estimators</h4><p><img src="https://i.imgur.com/8Fq9hFy.png" alt="image-20200726171546822"></p>
+<p><img src="https://i.imgur.com/mRIziEB.png" alt="image-20200726171609879"></p>
+<p><img src="https://i.imgur.com/xgqI0Rl.png" alt="image-20200726171627277"></p>
+<p><img src="https://i.imgur.com/rT6Vaej.png" alt="image-20200726171645670"></p>
 
       
     </div>
@@ -582,7 +642,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#The-procedure-using-sample-correlation-to-derive-the-F-test"><span class="nav-number">1.</span> <span class="nav-text">The procedure using sample correlation to derive the F-test</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Method-of-Orthogonal-Projections"><span class="nav-number">2.</span> <span class="nav-text">Method of Orthogonal Projections</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Method-of-Lagrange-Multipliers"><span class="nav-number">3.</span> <span class="nav-text">Method of Lagrange Multipliers</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Matrix-algebra-cheatsheet"><span class="nav-number">4.</span> <span class="nav-text">Matrix algebra cheatsheet</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Diagonostic-tools-and-model-selection"><span class="nav-number">5.</span> <span class="nav-text">Diagonostic tools and model selection</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#High-leverage-point-will-cover-the-evidence-of-an-outlier"><span class="nav-number">6.</span> <span class="nav-text">High leverage point will cover the evidence of an outlier</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Introducing-new-explanatory-variables"><span class="nav-number">7.</span> <span class="nav-text">Introducing new explanatory variables</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Key-step-to-prove-this-theorem-is-by-orthogonalizing-the-model"><span class="nav-number">8.</span> <span class="nav-text">Key step to prove this theorem is by orthogonalizing the model.</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Generalized-least-square"><span class="nav-number">9.</span> <span class="nav-text">Generalized least square</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#High-leverage-points"><span class="nav-number">10.</span> <span class="nav-text">High leverage points</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Design-matrix-of-less-than-full-rank"><span class="nav-number">11.</span> <span class="nav-text">Design matrix of less than full rank</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#The-procedure-using-sample-correlation-to-derive-the-F-test"><span class="nav-number">1.</span> <span class="nav-text">The procedure using sample correlation to derive the F-test</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Method-of-Orthogonal-Projections"><span class="nav-number">2.</span> <span class="nav-text">Method of Orthogonal Projections</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Method-of-Lagrange-Multipliers"><span class="nav-number">3.</span> <span class="nav-text">Method of Lagrange Multipliers</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Matrix-algebra-cheatsheet"><span class="nav-number">4.</span> <span class="nav-text">Matrix algebra cheatsheet</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Diagonostic-tools-and-model-selection"><span class="nav-number">5.</span> <span class="nav-text">Diagonostic tools and model selection</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#High-leverage-point-will-cover-the-evidence-of-an-outlier"><span class="nav-number">6.</span> <span class="nav-text">High leverage point will cover the evidence of an outlier</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Introducing-new-explanatory-variables"><span class="nav-number">7.</span> <span class="nav-text">Introducing new explanatory variables</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Key-step-to-prove-this-theorem-is-by-orthogonalizing-the-model"><span class="nav-number">8.</span> <span class="nav-text">Key step to prove this theorem is by orthogonalizing the model.</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Generalized-least-square"><span class="nav-number">9.</span> <span class="nav-text">Generalized least square</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#High-leverage-points"><span class="nav-number">10.</span> <span class="nav-text">High leverage points</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Design-matrix-of-less-than-full-rank"><span class="nav-number">11.</span> <span class="nav-text">Design matrix of less than full rank</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Assumption-on-error-term"><span class="nav-number">12.</span> <span class="nav-text">Assumption on error term</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Fisher-information-of-the-regression-parameters"><span class="nav-number">13.</span> <span class="nav-text">Fisher information of the regression parameters</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Weighted-least-squares-estimators"><span class="nav-number">14.</span> <span class="nav-text">Weighted least squares estimators</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Gauss-Markov-Theorem"><span class="nav-number">15.</span> <span class="nav-text">Gauss-Markov Theorem</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Random-effect-model"><span class="nav-number">16.</span> <span class="nav-text">Random effect model</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#The-restricted-maximum-likelihood-estimators"><span class="nav-number">17.</span> <span class="nav-text">The restricted maximum likelihood estimators</span></a></li></ol></div>
             
 
           </div>
