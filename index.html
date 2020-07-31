@@ -248,7 +248,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/29/design and experiments tips/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/28/design and experiments tips/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Kehui Yao">
@@ -270,8 +270,8 @@
             
               
                 
-                <a class="post-title-link" href="/2020/07/29/design and experiments tips/" itemprop="url">
-                  Untitled
+                <a class="post-title-link" href="/2020/07/28/design and experiments tips/" itemprop="url">
+                  Design and experiments tips
                 </a>
               
             
@@ -287,8 +287,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-07-29T17:38:33-05:00">
-                2020-07-29
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-07-28T00:29:15-05:00">
+                2020-07-28
               </time>
             
 
@@ -353,6 +353,22 @@
 <h4 id="Qualify-exam-2019"><a href="#Qualify-exam-2019" class="headerlink" title="Qualify exam 2019"></a>Qualify exam 2019</h4><p><img src="/Users/kehuiyao/Library/Application Support/typora-user-images/image-20200730004046614.png" alt="image-20200730004046614"></p>
 <p><img src="/Users/kehuiyao/Library/Application Support/typora-user-images/image-20200730010521749.png" alt="image-20200730010521749"></p>
 <p><img src="/Users/kehuiyao/Library/Application Support/typora-user-images/image-20200730010541930.png" alt="image-20200730010541930"></p>
+<ul>
+<li><p>(a)到(c)问只要用它给定的模型算就可以了</p>
+</li>
+<li><p>(d)问有个小技巧，就是看它的variance组成，比如这里我们观察到这两项的差是在同一个tray里的，所以没有$\sigma_{tray}$ 这一项，但肯定会有$\sigma_{tray:planttype}$和$\sigma_{\epsilon}$。所以我们需要关注哪一个term的ems是含这两项的。很明显是planttype:tray interaction。由于有两个replicate，所以ems(planttype:tray) = $\sigma_{\epsilon}^2+2\sigma_{tray:planttype}^2$</p>
+</li>
+<li><p>(g)问以后都是consider the nested model, 这里tray effect nested在pesticide里面了。所以根据这张表</p>
+</li>
+<li><p><img src="https://i.imgur.com/3L40sd7.png" alt="image-20200729192330853"></p>
+</li>
+<li><p>这张表里，可以把$\beta$ 看做pesticde effect，把$\tau$看做tray effect，把$\gamma$看做是planttype。</p>
+</li>
+<li><p>在test pesticide effect的时候，F test分母上除以的是tray effect, 因为nested design没有pesticide:tray这一项。</p>
+</li>
+<li><p>在test pesticide:planttype:interaction的时候，分母上除以的是planttype:tray interaction。</p>
+</li>
+</ul>
 <h4 id="Qualify-exam-2018"><a href="#Qualify-exam-2018" class="headerlink" title="Qualify exam 2018"></a>Qualify exam 2018</h4><p><img src="https://i.imgur.com/qLvcGG7.png" alt="image-20200730104214237"></p>
 <p><img src="https://i.imgur.com/NVHfA2A.png" alt="image-20200730104237795"></p>
 <p><img src="https://i.imgur.com/085LUc3.png" alt="image-20200730104258174"></p>
@@ -367,6 +383,18 @@
 <h4 id="Qualify-exam-2017"><a href="#Qualify-exam-2017" class="headerlink" title="Qualify exam 2017"></a>Qualify exam 2017</h4><p><img src="https://i.imgur.com/36k0nDz.png" alt="image-20200730162339509"></p>
 <p><img src="https://i.imgur.com/SPrZAwi.png" alt="image-20200730162400121"></p>
 <p><img src="https://i.imgur.com/YYvZ0zC.png" alt="image-20200730162417554"></p>
+<ul>
+<li><p>这个问题模型已经给定了。</p>
+</li>
+<li><p>(d)问中mc main effect 的ems(expected mean squared)的计算方法就是看模型中有多少项是含subscript j的。这里我们发现$b_j$, $c_{ij}$, 和$\tau_{jk}$,$\epsilon_{ijk}$ 都是含j的项。而又因为$c_{ij}$ 是fixed and restricted的，所以他不会出现在ems里面。而 $\tau_{jk}$ 是random effect,所以会出现在ems里。在做F-test的时候分子上是MS(mc main effect), 分母上应该含有除$b_j$以外的剩余项，也就是MC:GH interaction 的ems。</p>
+</li>
+<li><p>(e)问中geno main effect 的ems是不geno:GH这一项的，（因为模型里没有，其实就等于假设了他们的interaction为0），所以它的ems只含有$a_i$和$\sigma_{\epsilon}$。在做F-test的时候，分母上是geno:GH的SS加上error的SS，再除以这两项的自由度之和。</p>
+</li>
+<li><p>(g)问中geno:mc interaction只含$c_{ij}$和$\sigma_{\epsilon}$这两项，所以在F test里也除以的是geno:GH和error term的pool error。</p>
+</li>
+<li><p>这里的error term统统指的是三阶interaction：GH:gend:mc。</p>
+</li>
+</ul>
 <h4 id="Qualify-exam-2016"><a href="#Qualify-exam-2016" class="headerlink" title="Qualify exam 2016"></a>Qualify exam 2016</h4><p><img src="https://i.imgur.com/Kpi3GUD.png" alt="image-20200730233609224"></p>
 <p><img src="https://i.imgur.com/wx9T0Qy.png" alt="image-20200730233651803"></p>
 <p><img src="https://i.imgur.com/z6EtOyJ.png" alt="image-20200730233715470"></p>

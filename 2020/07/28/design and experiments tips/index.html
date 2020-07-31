@@ -1,0 +1,845 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="study,">
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0">
+
+
+
+
+
+
+<meta name="description" content="Design with both nested and factorial factors   Split plot design       Rules for expected mean squares 你可以死算，不过太烦。           this is because summing over fixed effect equals zero for the interaction">
+<meta name="keywords" content="study">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Design and experiments tips">
+<meta property="og:url" content="http://yoursite.com/2020/07/28/design and experiments tips/index.html">
+<meta property="og:site_name" content="Kehui&#39;s Blog">
+<meta property="og:description" content="Design with both nested and factorial factors   Split plot design       Rules for expected mean squares 你可以死算，不过太烦。           this is because summing over fixed effect equals zero for the interaction">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://i.imgur.com/Rv2nBWM.png">
+<meta property="og:image" content="https://i.imgur.com/EgVSsGJ.png">
+<meta property="og:image" content="https://i.imgur.com/Bx5Wu7t.png">
+<meta property="og:image" content="https://i.imgur.com/iQQPywn.png">
+<meta property="og:image" content="https://i.imgur.com/ocfZ9R7.png">
+<meta property="og:image" content="https://i.imgur.com/nGOoymF.png">
+<meta property="og:image" content="https://i.imgur.com/HSPNc94.png">
+<meta property="og:image" content="https://i.imgur.com/qApGQRo.png">
+<meta property="og:image" content="https://i.imgur.com/oRKWRJY.png">
+<meta property="og:image" content="https://i.imgur.com/pIrYy4v.png">
+<meta property="og:image" content="https://i.imgur.com/4Z2E8Q6.png">
+<meta property="og:image" content="https://i.imgur.com/7OU69c7.png">
+<meta property="og:image" content="https://i.imgur.com/FUiMdZg.png">
+<meta property="og:image" content="https://i.imgur.com/aSoCYdl.png">
+<meta property="og:image" content="https://i.imgur.com/NuGA4TW.png">
+<meta property="og:image" content="https://i.imgur.com/2INx39s.png">
+<meta property="og:image" content="https://i.imgur.com/D42yATv.png">
+<meta property="og:image" content="https://i.imgur.com/Ufi705r.png">
+<meta property="og:image" content="https://i.imgur.com/vBrJOgG.png">
+<meta property="og:image" content="https://i.imgur.com/ikaP5uY.png">
+<meta property="og:image" content="https://i.imgur.com/b8omBn0.png">
+<meta property="og:image" content="https://i.imgur.com/5YUMTno.png">
+<meta property="og:image" content="https://i.imgur.com/qsie24A.png">
+<meta property="og:image" content="http://yoursite.com/Users/kehuiyao/Library/Application%20Support/typora-user-images/image-20200730004046614.png">
+<meta property="og:image" content="http://yoursite.com/Users/kehuiyao/Library/Application%20Support/typora-user-images/image-20200730010521749.png">
+<meta property="og:image" content="http://yoursite.com/Users/kehuiyao/Library/Application%20Support/typora-user-images/image-20200730010541930.png">
+<meta property="og:image" content="https://i.imgur.com/3L40sd7.png">
+<meta property="og:image" content="https://i.imgur.com/qLvcGG7.png">
+<meta property="og:image" content="https://i.imgur.com/NVHfA2A.png">
+<meta property="og:image" content="https://i.imgur.com/085LUc3.png">
+<meta property="og:image" content="https://i.imgur.com/k4CaWuv.png">
+<meta property="og:image" content="https://i.imgur.com/FAKG0PZ.png">
+<meta property="og:image" content="https://i.imgur.com/0YoKPMA.png">
+<meta property="og:image" content="https://i.imgur.com/tnza4YE.png">
+<meta property="og:image" content="https://i.imgur.com/vEBQ2UI.png">
+<meta property="og:image" content="https://i.imgur.com/Qp5omxS.png">
+<meta property="og:image" content="https://i.imgur.com/jG3bDLQ.png">
+<meta property="og:image" content="https://i.imgur.com/QNjj1JJ.png">
+<meta property="og:image" content="https://i.imgur.com/36k0nDz.png">
+<meta property="og:image" content="https://i.imgur.com/SPrZAwi.png">
+<meta property="og:image" content="https://i.imgur.com/YYvZ0zC.png">
+<meta property="og:image" content="https://i.imgur.com/Kpi3GUD.png">
+<meta property="og:image" content="https://i.imgur.com/wx9T0Qy.png">
+<meta property="og:image" content="https://i.imgur.com/z6EtOyJ.png">
+<meta property="og:image" content="https://i.imgur.com/gv0dsbb.png">
+<meta property="og:image" content="https://i.imgur.com/dxtgLPp.png">
+<meta property="og:image" content="https://i.imgur.com/8Hg79O4.png">
+<meta property="og:image" content="http://yoursite.com/Users/kehuiyao/Library/Application%20Support/typora-user-images/image-20200730233855107.png">
+<meta property="og:updated_time" content="2020-07-31T14:54:22.093Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Design and experiments tips">
+<meta name="twitter:description" content="Design with both nested and factorial factors   Split plot design       Rules for expected mean squares 你可以死算，不过太烦。           this is because summing over fixed effect equals zero for the interaction">
+<meta name="twitter:image" content="https://i.imgur.com/Rv2nBWM.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"always","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2020/07/28/design and experiments tips/">
+
+
+
+
+
+  <title> Design and experiments tips | Kehui's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Kehui's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">For Kevin Durant</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/28/design and experiments tips/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kehui Yao">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kehui's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Design and experiments tips
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-07-28T00:29:15-05:00">
+                2020-07-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="Design-with-both-nested-and-factorial-factors"><a href="#Design-with-both-nested-and-factorial-factors" class="headerlink" title="Design with both nested and factorial factors"></a>Design with both nested and factorial factors</h4><p><img src="https://i.imgur.com/Rv2nBWM.png" alt="image-20200729191811153"></p>
+<p><img src="https://i.imgur.com/EgVSsGJ.png" alt="image-20200729191830357"></p>
+<p><img src="https://i.imgur.com/Bx5Wu7t.png" alt="image-20200729192330853"></p>
+<h4 id="Split-plot-design"><a href="#Split-plot-design" class="headerlink" title="Split plot design"></a>Split plot design</h4><p><img src="https://i.imgur.com/iQQPywn.png" alt="image-20200729225354644"></p>
+<p><img src="https://i.imgur.com/ocfZ9R7.png" alt="image-20200729225424772"></p>
+<p><img src="https://i.imgur.com/nGOoymF.png" alt="image-20200729225501837"></p>
+<p><img src="https://i.imgur.com/HSPNc94.png" alt="image-20200729225743109"></p>
+<p><img src="https://i.imgur.com/qApGQRo.png" alt="image-20200729225829915"></p>
+<p><img src="https://i.imgur.com/oRKWRJY.png" alt="image-20200729225849614"></p>
+<p><img src="https://i.imgur.com/pIrYy4v.png" alt="image-20200729230618155"></p>
+<h4 id="Rules-for-expected-mean-squares"><a href="#Rules-for-expected-mean-squares" class="headerlink" title="Rules for expected mean squares"></a>Rules for expected mean squares</h4><p><img src="https://i.imgur.com/4Z2E8Q6.png" alt="image-20200729231013618"></p>
+<p>你可以死算，不过太烦。</p>
+<p><img src="https://i.imgur.com/7OU69c7.png" alt="image-20200729231131004"></p>
+<p><img src="https://i.imgur.com/FUiMdZg.png" alt="image-20200729231249155"></p>
+<p><img src="https://i.imgur.com/aSoCYdl.png" alt="image-20200729231344799"></p>
+<p><img src="https://i.imgur.com/NuGA4TW.png" alt="image-20200729231427168"></p>
+<p><img src="https://i.imgur.com/2INx39s.png" alt="image-20200729231542903"></p>
+<p><img src="https://i.imgur.com/D42yATv.png" alt="image-20200729231601013"></p>
+<p><img src="https://i.imgur.com/Ufi705r.png" alt="image-20200729231918957"></p>
+<p><img src="https://i.imgur.com/vBrJOgG.png" alt="image-20200729231943873"></p>
+<p><img src="https://i.imgur.com/ikaP5uY.png" alt="image-20200729232129940"></p>
+<p><img src="https://i.imgur.com/b8omBn0.png" alt="image-20200729232402400"></p>
+<p>this is because summing over fixed effect equals zero for the interaction terms. (Which means it Is a restricted model)</p>
+<p><img src="https://i.imgur.com/5YUMTno.png" alt="image-20200730002413853"></p>
+<p><img src="https://i.imgur.com/qsie24A.png" alt="image-20200730002540717"></p>
+<h4 id="Qualify-exam-2019"><a href="#Qualify-exam-2019" class="headerlink" title="Qualify exam 2019"></a>Qualify exam 2019</h4><p><img src="/Users/kehuiyao/Library/Application Support/typora-user-images/image-20200730004046614.png" alt="image-20200730004046614"></p>
+<p><img src="/Users/kehuiyao/Library/Application Support/typora-user-images/image-20200730010521749.png" alt="image-20200730010521749"></p>
+<p><img src="/Users/kehuiyao/Library/Application Support/typora-user-images/image-20200730010541930.png" alt="image-20200730010541930"></p>
+<ul>
+<li><p>(a)到(c)问只要用它给定的模型算就可以了</p>
+</li>
+<li><p>(d)问有个小技巧，就是看它的variance组成，比如这里我们观察到这两项的差是在同一个tray里的，所以没有$\sigma_{tray}$ 这一项，但肯定会有$\sigma_{tray:planttype}$和$\sigma_{\epsilon}$。所以我们需要关注哪一个term的ems是含这两项的。很明显是planttype:tray interaction。由于有两个replicate，所以ems(planttype:tray) = $\sigma_{\epsilon}^2+2\sigma_{tray:planttype}^2$</p>
+</li>
+<li><p>(g)问以后都是consider the nested model, 这里tray effect nested在pesticide里面了。所以根据这张表</p>
+</li>
+<li><p><img src="https://i.imgur.com/3L40sd7.png" alt="image-20200729192330853"></p>
+</li>
+<li><p>这张表里，可以把$\beta$ 看做pesticde effect，把$\tau$看做tray effect，把$\gamma$看做是planttype。</p>
+</li>
+<li><p>在test pesticide effect的时候，F test分母上除以的是tray effect, 因为nested design没有pesticide:tray这一项。</p>
+</li>
+<li><p>在test pesticide:planttype:interaction的时候，分母上除以的是planttype:tray interaction。</p>
+</li>
+</ul>
+<h4 id="Qualify-exam-2018"><a href="#Qualify-exam-2018" class="headerlink" title="Qualify exam 2018"></a>Qualify exam 2018</h4><p><img src="https://i.imgur.com/qLvcGG7.png" alt="image-20200730104214237"></p>
+<p><img src="https://i.imgur.com/NVHfA2A.png" alt="image-20200730104237795"></p>
+<p><img src="https://i.imgur.com/085LUc3.png" alt="image-20200730104258174"></p>
+<p><img src="https://i.imgur.com/k4CaWuv.png" alt="image-20200730104315144"></p>
+<p><img src="https://i.imgur.com/FAKG0PZ.png" alt="image-20200730104334873"></p>
+<p><img src="https://i.imgur.com/0YoKPMA.png" alt="image-20200730104351932"></p>
+<p><img src="https://i.imgur.com/tnza4YE.png" alt="image-20200730104409453"></p>
+<p><img src="https://i.imgur.com/vEBQ2UI.png" alt="image-20200730104429132"></p>
+<p><img src="https://i.imgur.com/Qp5omxS.png" alt="image-20200730104443865"></p>
+<p><img src="https://i.imgur.com/jG3bDLQ.png" alt="image-20200730104458523"></p>
+<p><img src="https://i.imgur.com/QNjj1JJ.png" alt="image-20200730104514327"></p>
+<h4 id="Qualify-exam-2017"><a href="#Qualify-exam-2017" class="headerlink" title="Qualify exam 2017"></a>Qualify exam 2017</h4><p><img src="https://i.imgur.com/36k0nDz.png" alt="image-20200730162339509"></p>
+<p><img src="https://i.imgur.com/SPrZAwi.png" alt="image-20200730162400121"></p>
+<p><img src="https://i.imgur.com/YYvZ0zC.png" alt="image-20200730162417554"></p>
+<ul>
+<li><p>这个问题模型已经给定了。</p>
+</li>
+<li><p>(d)问中mc main effect 的ems(expected mean squared)的计算方法就是看模型中有多少项是含subscript j的。这里我们发现$b_j$, $c_{ij}$, 和$\tau_{jk}$,$\epsilon_{ijk}$ 都是含j的项。而又因为$c_{ij}$ 是fixed and restricted的，所以他不会出现在ems里面。而 $\tau_{jk}$ 是random effect,所以会出现在ems里。在做F-test的时候分子上是MS(mc main effect), 分母上应该含有除$b_j$以外的剩余项，也就是MC:GH interaction 的ems。</p>
+</li>
+<li><p>(e)问中geno main effect 的ems是不geno:GH这一项的，（因为模型里没有，其实就等于假设了他们的interaction为0），所以它的ems只含有$a_i$和$\sigma_{\epsilon}$。在做F-test的时候，分母上是geno:GH的SS加上error的SS，再除以这两项的自由度之和。</p>
+</li>
+<li><p>(g)问中geno:mc interaction只含$c_{ij}$和$\sigma_{\epsilon}$这两项，所以在F test里也除以的是geno:GH和error term的pool error。</p>
+</li>
+<li><p>这里的error term统统指的是三阶interaction：GH:gend:mc。</p>
+</li>
+</ul>
+<h4 id="Qualify-exam-2016"><a href="#Qualify-exam-2016" class="headerlink" title="Qualify exam 2016"></a>Qualify exam 2016</h4><p><img src="https://i.imgur.com/Kpi3GUD.png" alt="image-20200730233609224"></p>
+<p><img src="https://i.imgur.com/wx9T0Qy.png" alt="image-20200730233651803"></p>
+<p><img src="https://i.imgur.com/z6EtOyJ.png" alt="image-20200730233715470"></p>
+<p><img src="https://i.imgur.com/gv0dsbb.png" alt="image-20200730233733471"></p>
+<p><img src="https://i.imgur.com/dxtgLPp.png" alt="image-20200730233816188"></p>
+<p><img src="https://i.imgur.com/8Hg79O4.png" alt="image-20200730233835846"></p>
+<p><img src="/Users/kehuiyao/Library/Application Support/typora-user-images/image-20200730233855107.png" alt="image-20200730233855107"></p>
+<p>(To be continued)</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/study/" rel="tag"># study</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/07/24/Tips for regression analysis/" rel="next" title="Regression analysis tips">
+                <i class="fa fa-chevron-left"></i> Regression analysis tips
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/uploads/avatar.jpg" alt="Kehui Yao">
+          <p class="site-author-name" itemprop="name">Kehui Yao</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">24</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/KEHUIYAO" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.linkedin.com/in/kehui-yao-a5b770165/" target="_blank" title="Linkedin">
+                  
+                    <i class="fa fa-fw fa-linkedin"></i>
+                  
+                  Linkedin
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/KehuiY" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Design-with-both-nested-and-factorial-factors"><span class="nav-number">1.</span> <span class="nav-text">Design with both nested and factorial factors</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Split-plot-design"><span class="nav-number">2.</span> <span class="nav-text">Split plot design</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Rules-for-expected-mean-squares"><span class="nav-number">3.</span> <span class="nav-text">Rules for expected mean squares</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Qualify-exam-2019"><span class="nav-number">4.</span> <span class="nav-text">Qualify exam 2019</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Qualify-exam-2018"><span class="nav-number">5.</span> <span class="nav-text">Qualify exam 2018</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Qualify-exam-2017"><span class="nav-number">6.</span> <span class="nav-text">Qualify exam 2017</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Qualify-exam-2016"><span class="nav-number">7.</span> <span class="nav-text">Qualify exam 2016</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Kehui Yao</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+  
+
+
+  
+
+</body>
+</html>
