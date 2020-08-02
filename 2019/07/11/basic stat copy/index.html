@@ -183,7 +183,22 @@
 <meta property="og:image" content="https://i.imgur.com/nFAGSfC.png">
 <meta property="og:image" content="https://i.imgur.com/YPhRyJs.png">
 <meta property="og:image" content="https://i.imgur.com/tQi92BT.png">
-<meta property="og:updated_time" content="2020-08-01T17:50:06.860Z">
+<meta property="og:image" content="https://i.imgur.com/Q63hULW.jpg">
+<meta property="og:image" content="https://i.imgur.com/VfeiWZj.png">
+<meta property="og:image" content="https://i.imgur.com/emN0xll.jpg">
+<meta property="og:image" content="https://i.imgur.com/shE26Xv.png">
+<meta property="og:image" content="https://i.imgur.com/8K0RWLr.png">
+<meta property="og:image" content="https://i.imgur.com/j0ZThD4.png">
+<meta property="og:image" content="https://i.imgur.com/tuWDmTp.png">
+<meta property="og:image" content="https://i.imgur.com/9bCVL3M.png">
+<meta property="og:image" content="https://i.imgur.com/Eqv29yT.png">
+<meta property="og:image" content="https://i.imgur.com/7FFMGtM.png">
+<meta property="og:image" content="https://i.imgur.com/Jyom4Qr.png">
+<meta property="og:image" content="https://i.imgur.com/L6oxAHo.png">
+<meta property="og:image" content="https://i.imgur.com/mYLilUU.png">
+<meta property="og:image" content="https://i.imgur.com/cQjHLvk.png">
+<meta property="og:image" content="https://i.imgur.com/UAn66wW.png">
+<meta property="og:updated_time" content="2020-08-02T06:58:07.318Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Some statistics tips">
 <meta name="twitter:description" content="自由度 degree of freedom道格拉斯试验设计206页 interaction term 的自由度是(a-1)(b-1), 这是因为treatment A 的自由度是a-1，treatment B的自由度是b-1。 test for nonadditivity when to use: one observation per cell, want to test if the inte">
@@ -520,7 +535,81 @@
 <h4 id="Pivoting-cdf’s"><a href="#Pivoting-cdf’s" class="headerlink" title="Pivoting cdf’s"></a>Pivoting cdf’s</h4><p><img src="https://i.imgur.com/nFAGSfC.png" alt="image-20200728110924052"></p>
 <p><img src="https://i.imgur.com/YPhRyJs.png" alt="image-20200728112039598"></p>
 <p><img src="https://i.imgur.com/tQi92BT.png" alt="image-20200728112055489"></p>
-<h4 id="Qualify-exam-2019"><a href="#Qualify-exam-2019" class="headerlink" title="Qualify exam 2019"></a>Qualify exam 2019</h4>
+<h4 id="Qualify-exam-2019"><a href="#Qualify-exam-2019" class="headerlink" title="Qualify exam 2019"></a>Qualify exam 2019</h4><p><img src="https://i.imgur.com/Q63hULW.jpg" alt="image-20200801160026997"></p>
+<ul>
+<li><p>(a): write the pdf in the exponential family form </p>
+<p><img src="https://i.imgur.com/VfeiWZj.png" alt="image-20200801171447814"></p>
+</li>
+<li><p>(d): use lehmann scheffe theorem, find a statistics that is a function of the css that is unbiased of $\theta^2$</p>
+</li>
+<li><p>(e): to calculate ARE, we need to calculate the limiting variance of both estimators. For $X_1/n$, CLT can be used. For MLE, the limiting variance will attain the CR-lower bound, which is $1/I(\theta)$, 要注意的是with respect to 后面的东西放在分子上。</p>
+</li>
+<li><p>(f): apply delta method.</p>
+</li>
+</ul>
+<p><img src="https://i.imgur.com/emN0xll.jpg" alt="image-20200801172858913"></p>
+<ul>
+<li><p>(a): apply CLT directly</p>
+</li>
+<li><p>(b): 把$Y_i - \hat{\mu}$ 拆成$Y_i - \mu + \mu - \hat{\mu}$, 再用slutsky’s theorem。</p>
+</li>
+<li><p>(c): 在(b)的基础上替换$\hat{\sigma^3}$。</p>
+</li>
+<li><p>注意使用LLN的条件只需要E(X)存在，使用CLT的条件还需要方差有限。</p>
+</li>
+<li><p>两个以概率收敛的项相加，得到的也是以概率收敛的。</p>
+</li>
+</ul>
+<h4 id="Qualify-exam-2018"><a href="#Qualify-exam-2018" class="headerlink" title="Qualify exam 2018"></a>Qualify exam 2018</h4><p><img src="https://i.imgur.com/shE26Xv.png" alt="image-20200801181448415"></p>
+<ul>
+<li>(c): Find CSS, and try to do some transformation and make it unbiased. Here our CSS is $log(X_1\cdots X_n)$, we already know that $\bar{X}$ is unbiased  for $\theta$, so naturally, we would like to try transformation $e^{log(X_1 \cdots X_n)/n}$。To ease calculation, we can first derive the distribution of $log(X_1 \cdots X_n) / n$, then do exp transformation.</li>
+<li>(d): MSE  = bias^2 + variance, and UMVUE is unbiased.</li>
+<li>(e): MLE is asymptotically normal, its limiting variance can be obtained by fisher’s information. The other one’s limiting variance requires CLT and delta’s method.</li>
+<li>(f): for $\bar{X}$, use CLT to calculate its limiting variance</li>
+</ul>
+<p><img src="https://i.imgur.com/8K0RWLr.png" alt="image-20200801214106104"></p>
+<ul>
+<li>(a): <img src="https://i.imgur.com/j0ZThD4.png" alt="image-20200801215119657"></li>
+<li>(b) remeber <img src="https://i.imgur.com/tuWDmTp.png" alt="image-20200801222048063"></li>
+<li>(b) part (iii): 2log($\frac{H_1}{H_0}$) follows $\chi$ (difference of df), here, it is p(p+1)/2.</li>
+</ul>
+<h4 id="Qualify-exam-2017"><a href="#Qualify-exam-2017" class="headerlink" title="Qualify exam 2017"></a>Qualify exam 2017</h4><p><img src="https://i.imgur.com/9bCVL3M.png" alt="image-20200801222516542"></p>
+<p><img src="https://i.imgur.com/Eqv29yT.png" alt="image-20200801222532011"></p>
+<ul>
+<li>(a) keep in mind 分部积分</li>
+<li>(c) 可以直接用$\theta$是mle的性质，用fisher information计算limiting variance，再用delta method计算$\gamma$的 limiting variance. 也可以不用这个性质，利用CLT和delta method直接计算统计量的limiting variance。</li>
+<li>(d) Wald test, based on (c)问计算得到的mle的limiting variance。<img src="https://i.imgur.com/7FFMGtM.png" alt="image-20200801223737558"></li>
+</ul>
+<p><img src="https://i.imgur.com/Jyom4Qr.png" alt="image-20200801224215640"></p>
+<ul>
+<li><p>(a) (iii): asymptotic normal distribution sometimes gives a asymptotic test and confidence interval</p>
+</li>
+<li><p>(b) (i)  the key is to write</p>
+<p><img src="https://i.imgur.com/L6oxAHo.png" alt="image-20200802011623299"></p>
+<h4 id="Qualify-exam-2016"><a href="#Qualify-exam-2016" class="headerlink" title="Qualify exam 2016"></a>Qualify exam 2016</h4><p><img src="https://i.imgur.com/mYLilUU.png" alt="image-20200802011806930"></p>
+</li>
+</ul>
+<ul>
+<li><p>(b): bayes estimator under squared error loss is the expectation of the posterior distribution of $\theta$.</p>
+</li>
+<li><p>(c): prove the family has an MLR on a test statistic.  Here two important properties. </p>
+</li>
+<li><ol>
+<li>x follow a beta distribution, so -log(x) follows a exponential distribution</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>Sum of -log(xi) follows Gamma(n,$\theta$).</li>
+</ol>
+</li>
+<li>(e): transform from Gamma(n,$\theta$) to Gamma(n,1)</li>
+<li><img src="https://i.imgur.com/cQjHLvk.png" alt="image-20200802014203649"></li>
+</ul>
+<p><img src="https://i.imgur.com/UAn66wW.png" alt="image-20200802014541205"></p>
+<ul>
+<li>(a) the key is to show $\hat{\sigma}$ converges in probability to $\sigma$ by continuous mapping and slutsky’s theorem.</li>
+</ul>
+
       
     </div>
 
@@ -713,7 +802,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#自由度-degree-of-freedom"><span class="nav-number">1.</span> <span class="nav-text">自由度 degree of freedom</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#test-for-nonadditivity"><span class="nav-number">2.</span> <span class="nav-text">test for nonadditivity</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Moments-of-normal-distribution"><span class="nav-number">3.</span> <span class="nav-text">Moments of normal distribution</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#chebyshev’s-inequality"><span class="nav-number">4.</span> <span class="nav-text">chebyshev’s inequality</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Conditional-distribution-of-multinormal-distribution"><span class="nav-number">5.</span> <span class="nav-text">Conditional distribution of multinormal distribution</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Exponential-distribution-gamma-distribution-and-chi-square-distribution"><span class="nav-number">6.</span> <span class="nav-text">Exponential distribution, gamma distribution and chi-square distribution</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#multicollinearity-in-regression"><span class="nav-number">7.</span> <span class="nav-text">multicollinearity in regression</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Multiparameters-MLE"><span class="nav-number">8.</span> <span class="nav-text">Multiparameters MLE</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#MLE-may-not-be-unique"><span class="nav-number">9.</span> <span class="nav-text">MLE may not be unique</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#MLE-in-exponential-family"><span class="nav-number">10.</span> <span class="nav-text">MLE in exponential family</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Bayes-estimator"><span class="nav-number">11.</span> <span class="nav-text">Bayes estimator</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Proving-the-crammer-rao-lower-bound"><span class="nav-number">12.</span> <span class="nav-text">Proving the crammer rao lower bound</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#UMVUE-in-normal-distribution"><span class="nav-number">13.</span> <span class="nav-text">UMVUE in normal distribution</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#"><span class="nav-number">14.</span> <span class="nav-text"> </span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Situations-that-the-key-condition-for-crammer-rao-lower-bound-is-violated"><span class="nav-number">15.</span> <span class="nav-text">Situations that the key condition for crammer-rao lower bound is violated.</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#UMVUE-is-uncorrelated-with-all-estimators-which-are-unbiased-to-0"><span class="nav-number">16.</span> <span class="nav-text">UMVUE is uncorrelated with all estimators which are unbiased to 0</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Example-that-UMVUE-does-not-exist"><span class="nav-number">17.</span> <span class="nav-text">Example that UMVUE does not exist</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Lehmann-Scheffe-Theorem"><span class="nav-number">18.</span> <span class="nav-text">Lehmann-Scheffe Theorem</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#FInd-a-complete-statistics-in-uniform-distribution"><span class="nav-number">19.</span> <span class="nav-text">FInd a complete statistics in uniform distribution</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#UMVUE-in-poisson-family"><span class="nav-number">20.</span> <span class="nav-text">UMVUE in poisson family</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Prove-S-is-not-unbiased-for-sigma"><span class="nav-number">21.</span> <span class="nav-text">Prove S is not unbiased for sigma</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#UMVUE-in-normal-family"><span class="nav-number">22.</span> <span class="nav-text">UMVUE in normal family</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#UMVUE-is-exponential-distribution-family"><span class="nav-number">23.</span> <span class="nav-text">UMVUE is exponential distribution family</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#UMVUE-in-simple-linear-regression"><span class="nav-number">24.</span> <span class="nav-text">UMVUE in simple linear regression</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#UMP-test-using-Neyman-Pearson-lemma"><span class="nav-number">25.</span> <span class="nav-text">UMP test using Neyman-Pearson lemma</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Existence-of-UMP-without-monotone-likelihood-ratio"><span class="nav-number">26.</span> <span class="nav-text">Existence of UMP without monotone likelihood ratio</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#How-to-show-the-UMP-test-does-not-exist"><span class="nav-number">27.</span> <span class="nav-text">How to show the UMP test does not exist</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#UMPU-test-in-exponential-family"><span class="nav-number">28.</span> <span class="nav-text">UMPU test in exponential family</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Definition-of-the-p-value"><span class="nav-number">29.</span> <span class="nav-text">Definition of the p-value</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Definition-of-confidence-coefficient"><span class="nav-number">30.</span> <span class="nav-text">Definition of confidence coefficient</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Confidence-sets-by-inverting-test-statistics"><span class="nav-number">31.</span> <span class="nav-text">Confidence sets by inverting test statistics</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Pivoting-cdf’s"><span class="nav-number">32.</span> <span class="nav-text">Pivoting cdf’s</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Qualify-exam-2019"><span class="nav-number">33.</span> <span class="nav-text">Qualify exam 2019</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#自由度-degree-of-freedom"><span class="nav-number">1.</span> <span class="nav-text">自由度 degree of freedom</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#test-for-nonadditivity"><span class="nav-number">2.</span> <span class="nav-text">test for nonadditivity</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Moments-of-normal-distribution"><span class="nav-number">3.</span> <span class="nav-text">Moments of normal distribution</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#chebyshev’s-inequality"><span class="nav-number">4.</span> <span class="nav-text">chebyshev’s inequality</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Conditional-distribution-of-multinormal-distribution"><span class="nav-number">5.</span> <span class="nav-text">Conditional distribution of multinormal distribution</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Exponential-distribution-gamma-distribution-and-chi-square-distribution"><span class="nav-number">6.</span> <span class="nav-text">Exponential distribution, gamma distribution and chi-square distribution</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#multicollinearity-in-regression"><span class="nav-number">7.</span> <span class="nav-text">multicollinearity in regression</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Multiparameters-MLE"><span class="nav-number">8.</span> <span class="nav-text">Multiparameters MLE</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#MLE-may-not-be-unique"><span class="nav-number">9.</span> <span class="nav-text">MLE may not be unique</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#MLE-in-exponential-family"><span class="nav-number">10.</span> <span class="nav-text">MLE in exponential family</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Bayes-estimator"><span class="nav-number">11.</span> <span class="nav-text">Bayes estimator</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Proving-the-crammer-rao-lower-bound"><span class="nav-number">12.</span> <span class="nav-text">Proving the crammer rao lower bound</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#UMVUE-in-normal-distribution"><span class="nav-number">13.</span> <span class="nav-text">UMVUE in normal distribution</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#"><span class="nav-number">14.</span> <span class="nav-text"> </span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Situations-that-the-key-condition-for-crammer-rao-lower-bound-is-violated"><span class="nav-number">15.</span> <span class="nav-text">Situations that the key condition for crammer-rao lower bound is violated.</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#UMVUE-is-uncorrelated-with-all-estimators-which-are-unbiased-to-0"><span class="nav-number">16.</span> <span class="nav-text">UMVUE is uncorrelated with all estimators which are unbiased to 0</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Example-that-UMVUE-does-not-exist"><span class="nav-number">17.</span> <span class="nav-text">Example that UMVUE does not exist</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Lehmann-Scheffe-Theorem"><span class="nav-number">18.</span> <span class="nav-text">Lehmann-Scheffe Theorem</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#FInd-a-complete-statistics-in-uniform-distribution"><span class="nav-number">19.</span> <span class="nav-text">FInd a complete statistics in uniform distribution</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#UMVUE-in-poisson-family"><span class="nav-number">20.</span> <span class="nav-text">UMVUE in poisson family</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Prove-S-is-not-unbiased-for-sigma"><span class="nav-number">21.</span> <span class="nav-text">Prove S is not unbiased for sigma</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#UMVUE-in-normal-family"><span class="nav-number">22.</span> <span class="nav-text">UMVUE in normal family</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#UMVUE-is-exponential-distribution-family"><span class="nav-number">23.</span> <span class="nav-text">UMVUE is exponential distribution family</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#UMVUE-in-simple-linear-regression"><span class="nav-number">24.</span> <span class="nav-text">UMVUE in simple linear regression</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#UMP-test-using-Neyman-Pearson-lemma"><span class="nav-number">25.</span> <span class="nav-text">UMP test using Neyman-Pearson lemma</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Existence-of-UMP-without-monotone-likelihood-ratio"><span class="nav-number">26.</span> <span class="nav-text">Existence of UMP without monotone likelihood ratio</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#How-to-show-the-UMP-test-does-not-exist"><span class="nav-number">27.</span> <span class="nav-text">How to show the UMP test does not exist</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#UMPU-test-in-exponential-family"><span class="nav-number">28.</span> <span class="nav-text">UMPU test in exponential family</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Definition-of-the-p-value"><span class="nav-number">29.</span> <span class="nav-text">Definition of the p-value</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Definition-of-confidence-coefficient"><span class="nav-number">30.</span> <span class="nav-text">Definition of confidence coefficient</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Confidence-sets-by-inverting-test-statistics"><span class="nav-number">31.</span> <span class="nav-text">Confidence sets by inverting test statistics</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Pivoting-cdf’s"><span class="nav-number">32.</span> <span class="nav-text">Pivoting cdf’s</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Qualify-exam-2019"><span class="nav-number">33.</span> <span class="nav-text">Qualify exam 2019</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Qualify-exam-2018"><span class="nav-number">34.</span> <span class="nav-text">Qualify exam 2018</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Qualify-exam-2017"><span class="nav-number">35.</span> <span class="nav-text">Qualify exam 2017</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Qualify-exam-2016"><span class="nav-number">36.</span> <span class="nav-text">Qualify exam 2016</span></a></li></ol></div>
             
 
           </div>
