@@ -90,7 +90,7 @@
 <meta name="description" content="The procedure using sample correlation to derive the F-test">
 <meta name="keywords" content="study">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Regression analysis tips">
+<meta property="og:title" content="Regression analysis">
 <meta property="og:url" content="http://yoursite.com/2020/07/24/Tips for regression analysis/index.html">
 <meta property="og:site_name" content="Kehui&#39;s Blog">
 <meta property="og:description" content="The procedure using sample correlation to derive the F-test">
@@ -137,6 +137,9 @@
 <meta property="og:image" content="https://i.imgur.com/RaEah3m.png">
 <meta property="og:image" content="https://i.imgur.com/KNFBJTW.png">
 <meta property="og:image" content="https://i.imgur.com/0dLOfR8.png">
+<meta property="og:image" content="https://i.imgur.com/44MkBua.png">
+<meta property="og:image" content="https://i.imgur.com/2WiwKJH.png">
+<meta property="og:image" content="https://i.imgur.com/5ENz0d7.png">
 <meta property="og:image" content="https://i.imgur.com/Jojkvmb.png">
 <meta property="og:image" content="https://i.imgur.com/rGEz1Js.png">
 <meta property="og:image" content="https://i.imgur.com/pkwEFyc.png">
@@ -166,6 +169,7 @@
 <meta property="og:image" content="https://i.imgur.com/2hLT1to.jpg">
 <meta property="og:image" content="https://i.imgur.com/sFFrJ1C.png">
 <meta property="og:image" content="https://i.imgur.com/iH6xNS0.png">
+<meta property="og:image" content="https://i.imgur.com/J6GUfVj.png">
 <meta property="og:image" content="https://i.imgur.com/vMVBDOs.png">
 <meta property="og:image" content="https://i.imgur.com/ZYqo2EY.png">
 <meta property="og:image" content="https://i.imgur.com/ltinqIn.png">
@@ -178,9 +182,15 @@
 <meta property="og:image" content="https://i.imgur.com/XeEded1.png">
 <meta property="og:image" content="https://i.imgur.com/Ue7DZlr.png">
 <meta property="og:image" content="https://i.imgur.com/ndlZ8ff.png">
-<meta property="og:updated_time" content="2020-08-03T17:11:24.858Z">
+<meta property="og:image" content="https://i.imgur.com/O18OjGH.png">
+<meta property="og:image" content="https://i.imgur.com/nGRT9KS.png">
+<meta property="og:image" content="https://i.imgur.com/TXjkxsg.png">
+<meta property="og:image" content="https://i.imgur.com/EHUfZw1.png">
+<meta property="og:image" content="https://i.imgur.com/u19Kokc.png">
+<meta property="og:image" content="https://i.imgur.com/qafhwVN.png">
+<meta property="og:updated_time" content="2020-08-06T18:47:29.902Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Regression analysis tips">
+<meta name="twitter:title" content="Regression analysis">
 <meta name="twitter:description" content="The procedure using sample correlation to derive the F-test">
 <meta name="twitter:image" content="https://i.imgur.com/sDSt3E1.png">
 
@@ -216,7 +226,7 @@
 
 
 
-  <title> Regression analysis tips | Kehui's Blog </title>
+  <title> Regression analysis | Kehui's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="default">
@@ -356,7 +366,7 @@
             
             
               
-                Regression analysis tips
+                Regression analysis
               
             
           </h1>
@@ -461,6 +471,13 @@
 <p>Notice that it we add two more observations in our data and our goal is to enforce that $\alpha_1+\alpha_2 = 0$ and $\beta_1+\beta_2 = 0$. The estimated coefficient using the expanded design matrix will satifsy the two constraints. Why this works?</p>
 <p>Intuitively, now we have n+2 data points, and we can do as better as we have done for the first n-1 points by having the two constraints and make the error in the remaining 2 data points to be zero.</p>
 <p>Put it in another way. Previously, you need to think how to take values of $\alpha_1-\alpha_2$ to make the error smallest, now, we want as well minimize the error due to the last two obeservations and luckily we find we can solve them explicitly to reduce the error to 0.</p>
+<h4 id="multicollinearity-in-regression"><a href="#multicollinearity-in-regression" class="headerlink" title="multicollinearity in regression"></a>multicollinearity in regression</h4><p>Suppose you are fitting a regression model with two highly correlated explanatory variables. When you fit it use simple linear regression model:</p>
+<p><img src="https://i.imgur.com/44MkBua.png" alt="image-20200723120043056"></p>
+<p>We can see both term are not significant. But if we fit them separately, we can find:</p>
+<p><img src="https://i.imgur.com/2WiwKJH.png" alt="image-20200723120224941"></p>
+<p><img src="https://i.imgur.com/5ENz0d7.png" alt="image-20200723120237788"></p>
+<p>both terms appear significant.</p>
+<p>Intuitively, when we test if a term is significant or not, our null hypothesis is setting the coefficient before that variable to be 0 and refit the model to see whether the model performs worse or not. If the model performs very bad, we can conclude that variable is very important. But in our situation. two variables are  highly correlated, no matter which one you remove, the other one can still explain the response quite well, so if we include both in the model, both terms appear insignificant.</p>
 <h4 id="Assumption-on-error-term"><a href="#Assumption-on-error-term" class="headerlink" title="Assumption on error term"></a>Assumption on error term</h4><p><img src="https://i.imgur.com/Jojkvmb.png" alt="image-20200725231230718"></p>
 <p>Some properties:</p>
 <ul>
@@ -514,6 +531,7 @@
 <li>(d)问用(a)问的结论，因为X1 和 X2是orthogonal。</li>
 <li>H indicates leverage, residual indicates outliers and <a href="#DFFITS">DFFITS</a> indicates the influential point.</li>
 </ul>
+<p><img src="https://i.imgur.com/J6GUfVj.png" alt="image-20200806134726081"></p>
 <h4 id="Qualify-exam-2017"><a href="#Qualify-exam-2017" class="headerlink" title="Qualify exam 2017"></a>Qualify exam 2017</h4><p><img src="https://i.imgur.com/vMVBDOs.png" alt="image-20200731172320912"></p>
 <p><img src="https://i.imgur.com/ZYqo2EY.png" alt="image-20200731172341033"></p>
 <ul>
@@ -553,6 +571,20 @@
 </ul>
 <p>  <img src="https://i.imgur.com/ndlZ8ff.png" alt="image-20200802222214145"></p>
 <p>  (e): To minimize C(k,$\lambda$), we could first do C(k+1,$\lambda$)-C(k,$\lambda$), if &lt;0, continue. Then we can find  C(k+1,$\lambda$)-C(k,$\lambda$) is exactly $Z_i-\ \lambda$。Then $\hat{k}$ will be some kind of change point.</p>
+<h4 id="Qualify-exam-2014"><a href="#Qualify-exam-2014" class="headerlink" title="Qualify exam 2014"></a>Qualify exam 2014</h4><p><img src="https://i.imgur.com/O18OjGH.png" alt="image-20200805230047939"></p>
+<p><img src="https://i.imgur.com/nGRT9KS.png" alt="image-20200805230106293"></p>
+<p><img src="https://i.imgur.com/TXjkxsg.png" alt="image-20200805230120784"></p>
+<p><img src="https://i.imgur.com/EHUfZw1.png" alt="image-20200805230133478"></p>
+<p><img src="https://i.imgur.com/u19Kokc.png" alt="image-20200805230148250"></p>
+<p><img src="https://i.imgur.com/qafhwVN.png" alt="image-20200805230202657"></p>
+<ul>
+<li>(a),(b): add sum to zero constraint.</li>
+<li>(c): fisher-lsd test</li>
+<li>(d) use F = (RSSH0 - RSS) / RSS to test main effect and also interaction effect</li>
+<li>(e): no, the condition that F test can be used is that the numerator chi square random variable is independent of the denominator’s chi square random variable. The pair like trt and trt+bWeight can form a F test, since RSSH0 - RSS / RSS is a F distribution. But other pairs like trt and bWeight can not achieve this.</li>
+<li>(g): it is a prediction of a new sample, the variance should be $x\hat{\sigma^2}(X^{‘}X^{-1})x^{‘}$</li>
+<li>(h): see if there is multicollinearity</li>
+</ul>
 
       
     </div>
@@ -599,8 +631,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2020/07/28/design and experiments tips/" rel="prev" title="Design and experiments tips">
-                Design and experiments tips <i class="fa fa-chevron-right"></i>
+              <a href="/2020/07/29/design and experiments tips/" rel="prev" title>
+                 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -746,7 +778,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#The-procedure-using-sample-correlation-to-derive-the-F-test"><span class="nav-number">1.</span> <span class="nav-text">The procedure using sample correlation to derive the F-test</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Method-of-Orthogonal-Projections"><span class="nav-number">2.</span> <span class="nav-text">Method of Orthogonal Projections</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Method-of-Lagrange-Multipliers"><span class="nav-number">3.</span> <span class="nav-text">Method of Lagrange Multipliers</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Regression-hypothesis-testing"><span class="nav-number">4.</span> <span class="nav-text">Regression hypothesis testing</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Matrix-algebra-cheatsheet"><span class="nav-number">5.</span> <span class="nav-text">Matrix algebra cheatsheet</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Diagonostic-tools-and-model-selection"><span class="nav-number">6.</span> <span class="nav-text">Diagonostic tools and model selection</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#High-leverage-point-will-cover-the-evidence-of-an-outlier"><span class="nav-number">7.</span> <span class="nav-text">High leverage point will cover the evidence of an outlier</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Straight-line-regression-的一些结论"><span class="nav-number">8.</span> <span class="nav-text">Straight line regression 的一些结论</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Straight-line-prediction-interval-and-band"><span class="nav-number">9.</span> <span class="nav-text">Straight line prediction interval and band</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Introducing-new-explanatory-variables"><span class="nav-number">10.</span> <span class="nav-text">Introducing new explanatory variables</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Key-step-to-prove-this-theorem-is-by-orthogonalizing-the-model"><span class="nav-number">11.</span> <span class="nav-text">Key step to prove this theorem is by orthogonalizing the model.</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Generalized-least-square"><span class="nav-number">12.</span> <span class="nav-text">Generalized least square</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#High-leverage-points"><span class="nav-number">13.</span> <span class="nav-text">High leverage points</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#DFFITS"><span class="nav-number">14.</span> <span class="nav-text">DFFITS</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Cook’s-distance"><span class="nav-number">15.</span> <span class="nav-text">Cook’s distance</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Design-matrix-of-less-than-full-rank"><span class="nav-number">16.</span> <span class="nav-text">Design matrix of less than full rank</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Assumption-on-error-term"><span class="nav-number">17.</span> <span class="nav-text">Assumption on error term</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Fisher-information-of-the-regression-parameters"><span class="nav-number">18.</span> <span class="nav-text">Fisher information of the regression parameters</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Weighted-least-squares-estimators"><span class="nav-number">19.</span> <span class="nav-text">Weighted least squares estimators</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Gauss-Markov-Theorem"><span class="nav-number">20.</span> <span class="nav-text">Gauss-Markov Theorem</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Random-effect-model"><span class="nav-number">21.</span> <span class="nav-text">Random effect model</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#The-restricted-maximum-likelihood-estimators"><span class="nav-number">22.</span> <span class="nav-text">The restricted maximum likelihood estimators</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Qualify-exam-2019"><span class="nav-number">23.</span> <span class="nav-text">Qualify exam 2019</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Qualify-exam-2018"><span class="nav-number">24.</span> <span class="nav-text">Qualify exam 2018</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Qualify-exam-2017"><span class="nav-number">25.</span> <span class="nav-text">Qualify exam 2017</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Qualify-exam-2016"><span class="nav-number">26.</span> <span class="nav-text">Qualify exam 2016</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Qualify-exam-2012"><span class="nav-number">27.</span> <span class="nav-text">Qualify exam 2012</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Qualify-exam-2013"><span class="nav-number">28.</span> <span class="nav-text">Qualify exam 2013</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#The-procedure-using-sample-correlation-to-derive-the-F-test"><span class="nav-number">1.</span> <span class="nav-text">The procedure using sample correlation to derive the F-test</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Method-of-Orthogonal-Projections"><span class="nav-number">2.</span> <span class="nav-text">Method of Orthogonal Projections</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Method-of-Lagrange-Multipliers"><span class="nav-number">3.</span> <span class="nav-text">Method of Lagrange Multipliers</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Regression-hypothesis-testing"><span class="nav-number">4.</span> <span class="nav-text">Regression hypothesis testing</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Matrix-algebra-cheatsheet"><span class="nav-number">5.</span> <span class="nav-text">Matrix algebra cheatsheet</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Diagonostic-tools-and-model-selection"><span class="nav-number">6.</span> <span class="nav-text">Diagonostic tools and model selection</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#High-leverage-point-will-cover-the-evidence-of-an-outlier"><span class="nav-number">7.</span> <span class="nav-text">High leverage point will cover the evidence of an outlier</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Straight-line-regression-的一些结论"><span class="nav-number">8.</span> <span class="nav-text">Straight line regression 的一些结论</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Straight-line-prediction-interval-and-band"><span class="nav-number">9.</span> <span class="nav-text">Straight line prediction interval and band</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Introducing-new-explanatory-variables"><span class="nav-number">10.</span> <span class="nav-text">Introducing new explanatory variables</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Key-step-to-prove-this-theorem-is-by-orthogonalizing-the-model"><span class="nav-number">11.</span> <span class="nav-text">Key step to prove this theorem is by orthogonalizing the model.</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Generalized-least-square"><span class="nav-number">12.</span> <span class="nav-text">Generalized least square</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#High-leverage-points"><span class="nav-number">13.</span> <span class="nav-text">High leverage points</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#DFFITS"><span class="nav-number">14.</span> <span class="nav-text">DFFITS</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Cook’s-distance"><span class="nav-number">15.</span> <span class="nav-text">Cook’s distance</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Design-matrix-of-less-than-full-rank"><span class="nav-number">16.</span> <span class="nav-text">Design matrix of less than full rank</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#multicollinearity-in-regression"><span class="nav-number">17.</span> <span class="nav-text">multicollinearity in regression</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Assumption-on-error-term"><span class="nav-number">18.</span> <span class="nav-text">Assumption on error term</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Fisher-information-of-the-regression-parameters"><span class="nav-number">19.</span> <span class="nav-text">Fisher information of the regression parameters</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Weighted-least-squares-estimators"><span class="nav-number">20.</span> <span class="nav-text">Weighted least squares estimators</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Gauss-Markov-Theorem"><span class="nav-number">21.</span> <span class="nav-text">Gauss-Markov Theorem</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Random-effect-model"><span class="nav-number">22.</span> <span class="nav-text">Random effect model</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#The-restricted-maximum-likelihood-estimators"><span class="nav-number">23.</span> <span class="nav-text">The restricted maximum likelihood estimators</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Qualify-exam-2019"><span class="nav-number">24.</span> <span class="nav-text">Qualify exam 2019</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Qualify-exam-2018"><span class="nav-number">25.</span> <span class="nav-text">Qualify exam 2018</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Qualify-exam-2017"><span class="nav-number">26.</span> <span class="nav-text">Qualify exam 2017</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Qualify-exam-2016"><span class="nav-number">27.</span> <span class="nav-text">Qualify exam 2016</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Qualify-exam-2012"><span class="nav-number">28.</span> <span class="nav-text">Qualify exam 2012</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Qualify-exam-2013"><span class="nav-number">29.</span> <span class="nav-text">Qualify exam 2013</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Qualify-exam-2014"><span class="nav-number">30.</span> <span class="nav-text">Qualify exam 2014</span></a></li></ol></div>
             
 
           </div>
