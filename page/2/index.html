@@ -248,6 +248,433 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/13/excel2latex/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kehui Yao">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kehui's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2019/04/13/excel2latex/" itemprop="url">
+                  Latex Tips
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-13T23:50:58-05:00">
+                2019-04-13
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Post modified</span>
+              
+              <time title="Post modified" itemprop="dateModified" datetime="2020-07-22T13:06:19-05:00">
+                2020-07-22
+              </time>
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Covert-tables-to-latex-code"><a href="#Covert-tables-to-latex-code" class="headerlink" title="Covert tables to latex code"></a>Covert tables to latex code</h2><p>Making tables in latex can be tedious. This section will show you how to use some tools to automatically generate the latex codes based on the .xlsx or .csv format files. First I will introduce an excel add-in called excel2latex, then I will show a python script which does the same job and it’s more flexible when encountering special characters which you don’t want to escape when you output to your latex code.</p>
+<h3 id="Excel2latex-add-in"><a href="#Excel2latex-add-in" class="headerlink" title="Excel2latex add-in"></a>Excel2latex add-in</h3><p><a href="https://github.com/krlmlr/Ex­cel2LaTeX" target="_blank" rel="noopener">Re­pos­i­tory</a></p>
+<p><a href="https://www.ctan.org/tex-archive/support/excel2latex" target="_blank" rel="noopener">Doc­u­men­ta­tion</a></p>
+<p>When I use this add-in, it is very nice if I want to convert some complex structured-tables into latex. For example, I could use merge cells, change font colors, change font size, set borders color in excel, and convert it to latex code, which is very convenient. However, I do not know how to let the program do not modify some special characters I write in latex formula environment like \$\alpha_0\$, so I found another converting tool which could handle this situation well.</p>
+<h3 id="Tably"><a href="#Tably" class="headerlink" title="Tably"></a>Tably</h3><p><a href="https://github.com/narimiran/tably" target="_blank" rel="noopener">Repository</a></p>
+<p><a href="https://github.com/narimiran/tably/blob/master/README.md" target="_blank" rel="noopener">Documentation</a></p>
+<p>It has many good features:</p>
+<ul>
+<li>easy to use - just provide a .csv file</li>
+<li>optionally escapes commonly used special LaTeX characters, such as <code>$</code>, <code>&amp;</code>, <code>%</code>, etc.(You can turn on ‘do not escape’ option)</li>
+<li>user-defined separators - comma, tab, semicolon, etc.</li>
+<li>units for each column can be specified</li>
+<li>possible to define table caption and label</li>
+<li>columns’ alignments can be customized</li>
+<li>can be used on multiple .csv files at the same time</li>
+<li>table can be added to the existing .tex file</li>
+<li>can generate only the fragment inside a tabular environment for inserting into another tex file</li>
+<li>when working with multiple .csv files, can optionally save each table in a different file</li>
+</ul>
+<h2 id="Latex-insert-figure-side-by-side"><a href="#Latex-insert-figure-side-by-side" class="headerlink" title="Latex insert figure side by side"></a>Latex insert figure side by side</h2><p>I want to place 2 images (.png file) side by side in LaTeX.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/29/leetcode-dp/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kehui Yao">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kehui's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2019/03/29/leetcode-dp/" itemprop="url">
+                  Leetcode dynamic programming
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-29T17:37:19-05:00">
+                2019-03-29
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Post modified</span>
+              
+              <time title="Post modified" itemprop="dateModified" datetime="2020-07-22T13:07:26-05:00">
+                2020-07-22
+              </time>
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="53-Maximum-Subarray"><a href="#53-Maximum-Subarray" class="headerlink" title="53.  Maximum Subarray"></a>53.  Maximum Subarray</h2><p>dp[i] means if the the maximum subarray that contains the ith element.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">maximum_subarray</span><span class="params">(x)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> len(x)==<span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line">    dp=[float(<span class="string">'-inf'</span>)]*len(x)</span><br><span class="line">    res=x[<span class="number">0</span>]</span><br><span class="line">    dp[<span class="number">0</span>]=x[<span class="number">0</span>]</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,len(x)):</span><br><span class="line">        dp[i]=max(x[i],dp[i<span class="number">-1</span>]+x[i])</span><br><span class="line">        </span><br><span class="line">    <span class="keyword">return</span> max(dp)</span><br><span class="line"></span><br><span class="line">a=[<span class="number">-2</span>,<span class="number">1</span>,<span class="number">-3</span>,<span class="number">4</span>,<span class="number">-1</span>,<span class="number">2</span>,<span class="number">1</span>,<span class="number">-5</span>,<span class="number">4</span>]</span><br><span class="line">print(maximum_subarray(a))</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">maximum_subarray</span><span class="params">(x)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> len(x)==<span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line">    dp=[float(<span class="string">'-inf'</span>)]*len(x)</span><br><span class="line">    res=x[<span class="number">0</span>]</span><br><span class="line">    dp[<span class="number">0</span>]=x[<span class="number">0</span>]</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,len(x)):</span><br><span class="line">        dp[i]=max(x[i],dp[i<span class="number">-1</span>]+x[i])</span><br><span class="line">        res=max(res,dp[i])</span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line"></span><br><span class="line">a=[<span class="number">-2</span>,<span class="number">1</span>,<span class="number">-3</span>,<span class="number">4</span>,<span class="number">-1</span>,<span class="number">2</span>,<span class="number">1</span>,<span class="number">-5</span>,<span class="number">4</span>]</span><br><span class="line">maximum_subarray(a)</span><br></pre></td></tr></table></figure>
+<pre><code>6
+</code></pre>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/03/29/leetcode-dp/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/27/git/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kehui Yao">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kehui's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2019/03/27/git/" itemprop="url">
+                  Git 笔记
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-27T17:14:59-05:00">
+                2019-03-27
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Post modified</span>
+              
+              <time title="Post modified" itemprop="dateModified" datetime="2020-07-22T13:06:36-05:00">
+                2020-07-22
+              </time>
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>这篇博客主要讲讲git的几个小技巧，git的教程可以参考廖雪峰老师的git教程，比较浅显易懂<a href="https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000" target="_blank" rel="noopener">廖雪峰git教程</a></p>
+<h2 id="本地Git仓库和GitHub仓库之间的免密码传输"><a href="#本地Git仓库和GitHub仓库之间的免密码传输" class="headerlink" title="本地Git仓库和GitHub仓库之间的免密码传输"></a>本地Git仓库和GitHub仓库之间的免密码传输</h2><p>由于你的本地Git仓库和GitHub仓库之间的传输是通过SSH加密的，所以，需要一点设置：</p>
+<ul>
+<li>第1步：创建SSH Key。在用户主目录下，看看有没有.ssh目录，如果有，再看看这个目录下有没有id_rsa和id_rsa.pub这两个文件，如果已经有了，可直接跳到下一步。如果没有，打开Shell（Windows下打开Git Bash），创建SSH Key：你需要把邮件地址换成你自己的邮件地址，然后一路回车，使用默认值即可，由于这个Key也不是用于军事目的，所以也无需设置密码。如果一切顺利的话，可以在用户主目录里找到.ssh目录，里面有id_rsa和id_rsa.pub两个文件，这两个就是SSH Key的秘钥对，id_rsa是私钥，不能泄露出去，id_rsa.pub是公钥，可以放心地告诉任何人。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-keygen -t rsa -C &quot;youremail@example.com&quot;</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/03/27/git/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/27/yelp-data-challenge/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1201,431 +1628,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/23/xgboost-variable-selection/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Kehui Yao">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Kehui's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2019/03/23/xgboost-variable-selection/" itemprop="url">
-                  Xgboost variable selection
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-23T22:23:58-05:00">
-                2019-03-23
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Post modified</span>
-              
-              <time title="Post modified" itemprop="dateModified" datetime="2020-07-22T13:10:16-05:00">
-                2020-07-22
-              </time>
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="Spotting-Most-Important-Features"><a href="#Spotting-Most-Important-Features" class="headerlink" title="Spotting Most Important Features"></a>Spotting Most Important Features</h2><p>The following notebook presents how to distinguish the relative importance of features in the dataset.<br>Using this knowledge will help you to figure out what is driving the splits most for the trees and where we may be able to make some improvements in feature engineering if possible.</p>
-<p><strong>What we’ll be doing</strong>:</p>
-<ul>
-<li><a href="#libs">loading libraries</a> and <a href="#data">data</a>,</li>
-<li><a href="#model">training a model</a>,</li>
-<li><a href="#tree">knowing how a tree is represented</a>,</li>
-<li><a href="#plot">plotting feature importance</a></li>
-</ul>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/03/23/xgboost-variable-selection/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/21/xgboost-tuning-parameters/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Kehui Yao">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Kehui's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2019/03/21/xgboost-tuning-parameters/" itemprop="url">
-                  Xgboost bias variance trade-off and hyper-parameters tuning
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-21T23:27:22-05:00">
-                2019-03-21
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Post modified</span>
-              
-              <time title="Post modified" itemprop="dateModified" datetime="2020-07-22T13:10:12-05:00">
-                2020-07-22
-              </time>
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="Bias-variance-trade-off"><a href="#Bias-variance-trade-off" class="headerlink" title="Bias/variance trade-off"></a>Bias/variance trade-off</h2><p>The following notebook presents visual explanation about how to deal with bias/variance trade-off, which is common machine learning problem.</p>
-<p><strong>What you will learn</strong>:</p>
-<ul>
-<li><a href="#biasvariance">what is bias and variance in terms of ML problem</a>,</li>
-<li><a href="#fitting">concept of under- and over-fitting</a>,</li>
-<li><a href="#detect">how to detect if there is a problem</a>,</li>
-<li><a href="#deal">dealing with high variance/bias</a></li>
-</ul>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/03/21/xgboost-tuning-parameters/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/21/Boosting/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Kehui Yao">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Kehui's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2019/03/21/Boosting/" itemprop="url">
-                  Boosting algorithm principle and practice
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-21T00:29:15-05:00">
-                2019-03-21
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Post modified</span>
-              
-              <time title="Post modified" itemprop="dateModified" datetime="2020-07-22T13:05:53-05:00">
-                2020-07-22
-              </time>
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="Boosting-introduction"><a href="#Boosting-introduction" class="headerlink" title="Boosting introduction"></a>Boosting introduction</h2><p>This blog refers to the materials for an online-course - “Practical XGBoost in Python”.</p>
-<p>Here I list some sources to learn boosting algorithm, especially xgboost.</p>
-<ul>
-<li><a href="#idea-of-boosting">What is the idea of boosting</a></li>
-<li><a href="#weak-vclassifier">Why use tree as a weak classifier</a></li>
-<li><a href="#common-algorithms">What are some common boosting implementations</a></li>
-<li><a href="#how-xgboost-helps">How XGBoost helps</a></li>
-<li><a href="https://homes.cs.washington.edu/~tqchen/pdf/BoostedTree.pdf" target="_blank" rel="noopener">Tianqi chen’s slide</a></li>
-<li><a href="https://arxiv.org/pdf/1603.02754.pdf" target="_blank" rel="noopener">xgboost original paper</a></li>
-</ul>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/03/21/Boosting/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1673,7 +1675,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">24</span>
+                <span class="site-state-item-count">27</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
