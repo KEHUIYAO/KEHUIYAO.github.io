@@ -99,7 +99,17 @@
 <meta property="og:image" content="https://i.imgur.com/eAeLPxX.png">
 <meta property="og:image" content="https://i.imgur.com/9Ab1jtL.png">
 <meta property="og:image" content="https://i.imgur.com/r5qxRdb.png">
-<meta property="og:updated_time" content="2020-09-15T16:01:05.951Z">
+<meta property="og:image" content="https://i.imgur.com/hvl7wqt.png">
+<meta property="og:image" content="https://i.imgur.com/qpy4iZQ.png">
+<meta property="og:image" content="https://i.imgur.com/OqfxHzW.png">
+<meta property="og:image" content="https://i.imgur.com/8num3Vw.png">
+<meta property="og:image" content="https://i.imgur.com/QM84pRT.png">
+<meta property="og:image" content="https://i.imgur.com/Wc2badA.png">
+<meta property="og:image" content="https://i.imgur.com/nPWX2Lk.png">
+<meta property="og:image" content="https://i.imgur.com/MlVoKPQ.png">
+<meta property="og:image" content="https://i.imgur.com/qdZv890.png">
+<meta property="og:image" content="https://i.imgur.com/A1eQAwq.png">
+<meta property="og:updated_time" content="2020-09-16T19:05:34.450Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Deep learning theory">
 <meta name="twitter:description" content="Numerical computationDirectional derivative The directional derivative in direction $\mu$ (a unit vector) is the slope of he function f in direction u. Formally, it is the derivative of the function $">
@@ -308,8 +318,8 @@
               
                 <span class="post-meta-item-text">Post modified</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2020-09-15T11:01:05-05:00">
-                2020-09-15
+              <time title="Post modified" itemprop="dateModified" datetime="2020-09-16T14:05:34-05:00">
+                2020-09-16
               </time>
             
           </span>
@@ -349,6 +359,70 @@
 <p>Where $\theta$ is the angle between $\mu$ and the gradient, substituting in <img src="https://i.imgur.com/9Ab1jtL.png" alt="image-20200915105830687"> and ignoring factors that do not depend on $\mu$, this simplifies to <img src="https://i.imgur.com/r5qxRdb.png" alt="image-20200915105937469"> This is minimized when $\mu$ points in the opposite direction as the gradient.</p>
 </li>
 <li><p>This is known as the method of steepest descend , or gradient descent.</p>
+</li>
+<li><p>Steepest descent proposes a new point <img src="https://i.imgur.com/hvl7wqt.png" alt="image-20200915112118999"></p>
+</li>
+</ul>
+<a id="more"></a>
+<h4 id="Choose-step-size-in-different-ways"><a href="#Choose-step-size-in-different-ways" class="headerlink" title="Choose step  size in different ways"></a>Choose step  size in different ways</h4><ul>
+<li>Set $\epsilon$ to a small constant.</li>
+<li>Evaluate <img src="https://i.imgur.com/qpy4iZQ.png" alt="image-20200915112408672"> for several values of $\epsilon$ and choose the one that results in the smallest objective function value.</li>
+<li>Line search.</li>
+</ul>
+<h3 id="Beyond-the-gradient-Jacobian-and-Hessian-Matrices"><a href="#Beyond-the-gradient-Jacobian-and-Hessian-Matrices" class="headerlink" title="Beyond the gradient: Jacobian and Hessian Matrices"></a>Beyond the gradient: Jacobian and Hessian Matrices</h3><ul>
+<li><p>Second derivative measures curvature.</p>
+</li>
+<li><p>If the gradient is 1, then we can make a step of size $\epsilon$ along the negative gradient, and the cost function will decrease by more than $\epsilon$ if the second derivative is negative, meaning that the function curves downward. </p>
+</li>
+<li><p>The hessian matrix H(f)(x) is defined such that:</p>
+<p><img src="https://i.imgur.com/OqfxHzW.png" alt="image-20200915113132517"></p>
+<p>Because the hessian matrix is real and symmetric, we can decompose it into a set of real eigenvalues and an orthogonal basis of eigenvectors. </p>
+</li>
+<li><p>The second derivative in a specific direction represented by a unit vector d is given by $d^{T}Hd$. This  can be easily verified by taking the second derivative of <img src="https://i.imgur.com/8num3Vw.png" alt="image-20200915115859689"> and evaluate at $\alpha = 0$.  </p>
+</li>
+<li><p>When d is an eigenvector of H, the second derivative in that direction is given by the corresponding eigenvalue. This can be verified by the definition of eigenvalue Ax = $\lambda$x. </p>
+</li>
+<li><p>For other directions of $d$, the directional second derivative is a weighted average of all the eigenvalues, with weights between 0 and 1, and eigenvectors that have a smaller angle with d receiving more weight. This can be verified by the decomposition of H times unit vector d.</p>
+</li>
+<li><p>The maximum eigenvalue determines the maximum second derivative, and the minimum eigenvalues determine the minimum second derivative. </p>
+</li>
+<li><p>To summary, the second derivative tells us how well we can expect a gradient descent step to perform.</p>
+</li>
+<li><p>Second- order Taylor series approximation to the function f(x) around the current point $x^{(0)}$:</p>
+<p><img src="https://i.imgur.com/QM84pRT.png" alt="image-20200915120921881"></p>
+<p>Where g is the gradient and H is the Hessian.</p>
+</li>
+<li><p>If we use a learning rate of $\epsilon$, then the new point x will be given by $x^{(0)} - \epsilon g$. Substituting this into our approximation, we obtain <img src="https://i.imgur.com/Wc2badA.png" alt="image-20200915133101857"> There are three terms here: the original value of the function, the expected improvement due to the slope of the function, and the correction we must apply to account for the curvature of the function. When this last term is too large, the gradient descent step can actually move uphill. When $g^{T}Hg$ is zero or negative, the Taylor series approximation predicts that increasing $\epsilon$ forever will decrease f forever.</p>
+</li>
+<li><p>In practice, the Taylor series is unlikely to remain accurate for large $\epsilon$. So one must resort to more heuristic choices of $\epsilon$ in this case. When $g^{T}Hg$ is positive, solving for the optimal step size that decreases the Taylor series yields <img src="https://i.imgur.com/nPWX2Lk.png" alt="image-20200915134150977"> In the worst case, when g aligns with the eigenvector of H corresponding to the maximal eigenvalue $\lambda_{max}$, then this optimal step size is given by $1/\lambda_{max}$. The eigenvalues of the Hessian thus determine the scale of the learning rate.</p>
+</li>
+<li><p>Second derivative can be used to determine whether a  critical point is a local maximum, a local minimum, or a saddle point. In univariate case, it’s trivial, we can draw a a picture of $x^2$ or $-x^2$ to help us understand. </p>
+<p>In multiple dimensions, we can examine the eigenvalues of the Hessian to determine whether the critical point is a local maximum, local minimum or a saddle point. </p>
+<p>When the Hessian matrix is positive definite  (all its eigenvalues are positive), the point is local maximum. This can be seen by observing that the directional second derivative in any directional must be positive, and making reference to the univariate case.</p>
+<p>When at least one eigenvalue is positive and at least one eigenvalue is negative, we know that x is a local maximum on one cross section of f but a local minimum on another cross section. </p>
+<p><img src="https://i.imgur.com/MlVoKPQ.png" alt="image-20200916110206336"></p>
+<p>The test is inconclusive whenever al the nonzero eigenvalues have the same sign but at least one eigenvalue is zero.</p>
+</li>
+</ul>
+<h4 id="Condition-number-of-the-Hessian-matrix"><a href="#Condition-number-of-the-Hessian-matrix" class="headerlink" title="Condition number of the Hessian matrix"></a>Condition number of the Hessian matrix</h4><ul>
+<li><p>In multiple dimensions, there is a different second derivative for each direction at a single point.</p>
+</li>
+<li><p>The condition number of the Hessian at this point measures how much the second derivatives differ from each other. </p>
+</li>
+<li><p>When the Hessian has a poor condition number, gradient descent performs poorly. This is because in one direction, the derivative increases rapidly, while in another direction, it increases slowly. Gradient descent is unaware of this change in the derivative. So it does not know that it needs to explore preferentially in the direction where the derivative remains negative for longer.</p>
+</li>
+<li><p>Poor condition number also makes choosing a good step size difficult. The step size must be small enough to avoid overshooting the minimum and going uphill in directions with strong positive curvature. This usually means that the step size is too small to make significant progress in other directions with less curvature.</p>
+<p><img src="https://i.imgur.com/qdZv890.png" alt="image-20200916114810380"></p>
+<p>通俗的来说，如果在一个点x，一阶导数最大的方向恰好是curvature比较大的方向，那么gradient descent会让你往那个方向走。但由于curvature太大，走了一小步一阶导数就就直接反向了，又得往回走。</p>
+</li>
+</ul>
+<h4 id="Newton’s-method"><a href="#Newton’s-method" class="headerlink" title="Newton’s method"></a>Newton’s method</h4><ul>
+<li><p>We need to solve this condition number problem.</p>
+</li>
+<li><p>This issue can be resolved by using information from the Hessian matrix to guide the search. The simplest method is Newton’s method.</p>
+</li>
+<li><p>The Newton’s method is based on using a second-order Tyaylor series expansion to approximate f(x) near some point $x_{(0)}$:</p>
+<p><img src="https://i.imgur.com/A1eQAwq.png" alt="image-20200916115727114"></p>
 </li>
 </ul>
 
@@ -396,6 +470,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/09/16/Statistical methods for epidemiology/" rel="prev" title>
+                 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -465,7 +543,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">27</span>
+                <span class="site-state-item-count">28</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -540,7 +618,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Numerical-computation"><span class="nav-number">1.</span> <span class="nav-text">Numerical computation</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Directional-derivative"><span class="nav-number">1.1.</span> <span class="nav-text">Directional derivative</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Numerical-computation"><span class="nav-number">1.</span> <span class="nav-text">Numerical computation</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Directional-derivative"><span class="nav-number">1.1.</span> <span class="nav-text">Directional derivative</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Choose-step-size-in-different-ways"><span class="nav-number">1.2.</span> <span class="nav-text">Choose step  size in different ways</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Beyond-the-gradient-Jacobian-and-Hessian-Matrices"><span class="nav-number">2.</span> <span class="nav-text">Beyond the gradient: Jacobian and Hessian Matrices</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Condition-number-of-the-Hessian-matrix"><span class="nav-number">2.1.</span> <span class="nav-text">Condition number of the Hessian matrix</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Newton’s-method"><span class="nav-number">2.2.</span> <span class="nav-text">Newton’s method</span></a></li></ol></li></ol></div>
             
 
           </div>
