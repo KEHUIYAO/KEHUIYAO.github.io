@@ -99,10 +99,15 @@
 <meta property="og:image" content="https://i.imgur.com/NdJ4cMv.png">
 <meta property="og:image" content="https://i.imgur.com/4YSxE2Q.png">
 <meta property="og:image" content="https://i.imgur.com/IwurckY.png">
+<meta property="og:image" content="https://i.imgur.com/ymdReBD.png">
+<meta property="og:image" content="https://i.imgur.com/mVzaqdN.png">
+<meta property="og:image" content="https://i.imgur.com/hI9uX9T.png">
+<meta property="og:image" content="https://i.imgur.com/eKfb5WL.png">
+<meta property="og:image" content="https://i.imgur.com/nViGL4l.png">
 <meta property="og:image" content="https://i.imgur.com/eXgq1p8.png">
 <meta property="og:image" content="https://i.imgur.com/c9TLjge.png">
 <meta property="og:image" content="https://i.imgur.com/7PIzFeU.png">
-<meta property="og:updated_time" content="2020-09-17T16:47:50.324Z">
+<meta property="og:updated_time" content="2020-09-22T22:31:09.537Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="线性代数">
 <meta name="twitter:description" content="线性代数的几何解释本文素材来自于up主3blue1brown的线性代数视频教程，从几何的角度解释了线性代数，比较有意思。 向量的本质scalar之所以叫scalar是因为它可以scale向量？ 线性组合，张成的空间和基矩阵和线性变换 把矩阵在几何上就是一种对空间的线性变换。 A 2x2 matrix, can be thought as a linear transformation on 2d">
@@ -311,8 +316,8 @@
               
                 <span class="post-meta-item-text">Post modified</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2020-09-17T11:47:50-05:00">
-                2020-09-17
+              <time title="Post modified" itemprop="dateModified" datetime="2020-09-22T17:31:09-05:00">
+                2020-09-22
               </time>
             
           </span>
@@ -428,10 +433,54 @@
 </ul>
 </li>
 </ul>
-<h3 id="Linear-algebra-for-deep-learning"><a href="#Linear-algebra-for-deep-learning" class="headerlink" title="Linear algebra for deep learning"></a>Linear algebra for deep learning</h3><h4 id="Singular-value-decomposition"><a href="#Singular-value-decomposition" class="headerlink" title="Singular value decomposition"></a>Singular value decomposition</h4><ul>
-<li>Similar to eigendecomposition</li>
-<li>More general; matrix need not be square</li>
-<li>A = UDV’</li>
+<h3 id="Linear-algebra-for-deep-learning"><a href="#Linear-algebra-for-deep-learning" class="headerlink" title="Linear algebra for deep learning"></a>Linear algebra for deep learning</h3><h4 id="Positive-semidefinite"><a href="#Positive-semidefinite" class="headerlink" title="Positive semidefinite"></a>Positive semidefinite</h4><ul>
+<li><p>Formal definition:</p>
+<p><img src="https://i.imgur.com/ymdReBD.png" alt="image-20200922164640161"></p>
+</li>
+<li><p>判断条件：</p>
+<ul>
+<li>The matrix is PSD If and only if 所有顺序主子式$\geq$0</li>
+<li>The matrix is PSD If and only if 所有特征值都$\geq$0</li>
+</ul>
+</li>
+</ul>
+<h4 id="Eigendecomposition-of-a-matrix"><a href="#Eigendecomposition-of-a-matrix" class="headerlink" title="Eigendecomposition of a matrix"></a>Eigendecomposition of a matrix</h4><ul>
+<li>Let A be a square nxn matrix with n linearly independent eigenvectors $q_i$. Then A can be factorized as <img src="https://i.imgur.com/mVzaqdN.png" alt="image-20200922162927726"> </li>
+<li>For nxn real symmetric matrix,:<ul>
+<li>the eigenvalues are real.</li>
+<li>the eigenvectors can be chosen real and orthonormal. Here is the proof [<a href="https://math.stackexchange.com/questions/82467/eigenvectors-of-real-symmetric-matrices-are-orthogonal]" target="_blank" rel="noopener">https://math.stackexchange.com/questions/82467/eigenvectors-of-real-symmetric-matrices-are-orthogonal]</a></li>
+<li>Thus a real symmetric matrix A can be decomposed as <img src="https://i.imgur.com/hI9uX9T.png" alt="image-20200922163122296"> ,where Q is an orthogonal matrix whose columns are the eigenvectors of A, and $\Lambda$ is a diagonal matrix whose entries are the eigenvalues of A.</li>
+</ul>
+</li>
+</ul>
+<h4 id="Symmetric-matrix"><a href="#Symmetric-matrix" class="headerlink" title="Symmetric matrix"></a>Symmetric matrix</h4><ul>
+<li>Let A be a real symmetric dxd matrix:<ul>
+<li><img src="https://i.imgur.com/eKfb5WL.png" alt="image-20200922164102133">, here $\lambda_1$ is the smallest eigenvalue, and $\lambda_d$ is the largest.</li>
+</ul>
+</li>
+</ul>
+<h4 id="Principle-component-analysis"><a href="#Principle-component-analysis" class="headerlink" title="Principle component analysis"></a>Principle component analysis</h4><ul>
+<li><p>#### </p>
+</li>
+</ul>
+<h4 id="Singular-value-decomposition"><a href="#Singular-value-decomposition" class="headerlink" title="Singular value decomposition"></a>Singular value decomposition</h4><ul>
+<li><p>Formal definition:</p>
+<ul>
+<li><p>M = $U\Sigma V^T$</p>
+</li>
+<li><p>where M is a mxn matrix, U is an mxm real or complex unitary(orthonormal if M is real) matrix, $\Sigma$ is an mxn rectangular diagonal matrix with non-negative real numbers on the diagonal, and V is an nxn real or complex unitary matrix</p>
+</li>
+<li><p>The SVD is not unique. It’s always possible to choose the decomposition so that singular values $\Sigma_{ii}$ are in descending order. In this case, $\Sigma$ is uniquely determined by M.</p>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>Intuitive interpretations:<ul>
+<li>In terms of geometrically interpretation:  a SVD is a transformation that contains: rotation, coordinate scaling, and reflection.</li>
+</ul>
+</li>
+<li>Relations to eigenvalue decomposition<img src="https://i.imgur.com/nViGL4l.png" alt="image-20200922173049324"></li>
 </ul>
 <h4 id="克拉默法则"><a href="#克拉默法则" class="headerlink" title="克拉默法则"></a>克拉默法则</h4><p><img src="https://i.imgur.com/eXgq1p8.png" alt="image-20200909114403555"></p>
 <p><img src="https://i.imgur.com/c9TLjge.png" alt="image-20200909114431271"></p>
@@ -629,7 +678,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#线性代数的几何解释"><span class="nav-number">1.</span> <span class="nav-text">线性代数的几何解释</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#向量的本质"><span class="nav-number">1.1.</span> <span class="nav-text">向量的本质</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#线性组合，张成的空间和基"><span class="nav-number">1.2.</span> <span class="nav-text">线性组合，张成的空间和基</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#矩阵和线性变换"><span class="nav-number">1.3.</span> <span class="nav-text">矩阵和线性变换</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#矩阵乘法和线性变换复合"><span class="nav-number">1.4.</span> <span class="nav-text">矩阵乘法和线性变换复合</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#行列式"><span class="nav-number">1.5.</span> <span class="nav-text">行列式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#逆矩阵，列空间，零空间"><span class="nav-number">1.6.</span> <span class="nav-text">逆矩阵，列空间，零空间</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#点积和对偶性"><span class="nav-number">1.7.</span> <span class="nav-text">点积和对偶性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#以线性变换的眼光看叉积"><span class="nav-number">1.8.</span> <span class="nav-text">以线性变换的眼光看叉积</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#基变换"><span class="nav-number">1.9.</span> <span class="nav-text">基变换</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#特征值与特征向量"><span class="nav-number">1.10.</span> <span class="nav-text">特征值与特征向量</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Linear-algebra-for-deep-learning"><span class="nav-number">2.</span> <span class="nav-text">Linear algebra for deep learning</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Singular-value-decomposition"><span class="nav-number">2.1.</span> <span class="nav-text">Singular value decomposition</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#克拉默法则"><span class="nav-number">2.2.</span> <span class="nav-text">克拉默法则</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#线性方程组有非零解的条件"><span class="nav-number">2.3.</span> <span class="nav-text">线性方程组有非零解的条件</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#线性代数的几何解释"><span class="nav-number">1.</span> <span class="nav-text">线性代数的几何解释</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#向量的本质"><span class="nav-number">1.1.</span> <span class="nav-text">向量的本质</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#线性组合，张成的空间和基"><span class="nav-number">1.2.</span> <span class="nav-text">线性组合，张成的空间和基</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#矩阵和线性变换"><span class="nav-number">1.3.</span> <span class="nav-text">矩阵和线性变换</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#矩阵乘法和线性变换复合"><span class="nav-number">1.4.</span> <span class="nav-text">矩阵乘法和线性变换复合</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#行列式"><span class="nav-number">1.5.</span> <span class="nav-text">行列式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#逆矩阵，列空间，零空间"><span class="nav-number">1.6.</span> <span class="nav-text">逆矩阵，列空间，零空间</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#点积和对偶性"><span class="nav-number">1.7.</span> <span class="nav-text">点积和对偶性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#以线性变换的眼光看叉积"><span class="nav-number">1.8.</span> <span class="nav-text">以线性变换的眼光看叉积</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#基变换"><span class="nav-number">1.9.</span> <span class="nav-text">基变换</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#特征值与特征向量"><span class="nav-number">1.10.</span> <span class="nav-text">特征值与特征向量</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Linear-algebra-for-deep-learning"><span class="nav-number">2.</span> <span class="nav-text">Linear algebra for deep learning</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Positive-semidefinite"><span class="nav-number">2.1.</span> <span class="nav-text">Positive semidefinite</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Eigendecomposition-of-a-matrix"><span class="nav-number">2.2.</span> <span class="nav-text">Eigendecomposition of a matrix</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Symmetric-matrix"><span class="nav-number">2.3.</span> <span class="nav-text">Symmetric matrix</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Principle-component-analysis"><span class="nav-number">2.4.</span> <span class="nav-text">Principle component analysis</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Singular-value-decomposition"><span class="nav-number">2.5.</span> <span class="nav-text">Singular value decomposition</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#克拉默法则"><span class="nav-number">2.6.</span> <span class="nav-text">克拉默法则</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#线性方程组有非零解的条件"><span class="nav-number">2.7.</span> <span class="nav-text">线性方程组有非零解的条件</span></a></li></ol></li></ol></div>
             
 
           </div>
