@@ -108,8 +108,28 @@
 <meta property="og:image" content="https://i.imgur.com/nPWX2Lk.png">
 <meta property="og:image" content="https://i.imgur.com/MlVoKPQ.png">
 <meta property="og:image" content="https://i.imgur.com/qdZv890.png">
+<meta property="og:image" content="https://i.imgur.com/NLZHBZk.png">
 <meta property="og:image" content="https://i.imgur.com/A1eQAwq.png">
-<meta property="og:updated_time" content="2020-09-16T19:05:34.450Z">
+<meta property="og:image" content="https://i.imgur.com/BkARyi6.png">
+<meta property="og:image" content="https://i.imgur.com/aHKcHZg.png">
+<meta property="og:image" content="https://i.imgur.com/3IgoOCn.png">
+<meta property="og:image" content="https://i.imgur.com/vyGaM6o.png">
+<meta property="og:image" content="https://i.imgur.com/BpVJKMQ.png">
+<meta property="og:image" content="https://i.imgur.com/CDvIj8A.png">
+<meta property="og:image" content="https://i.imgur.com/XYf9KAN.png">
+<meta property="og:image" content="https://i.imgur.com/MQplF0u.png">
+<meta property="og:image" content="https://i.imgur.com/jSb38dP.png">
+<meta property="og:image" content="https://i.imgur.com/TXGr64K.png">
+<meta property="og:image" content="https://i.imgur.com/7pUMGt9.png">
+<meta property="og:image" content="https://i.imgur.com/8lsEvGy.png">
+<meta property="og:image" content="https://i.imgur.com/ZWRuLqK.png">
+<meta property="og:image" content="https://i.imgur.com/BlVVJzw.png">
+<meta property="og:image" content="https://i.imgur.com/Y28pzUD.png">
+<meta property="og:image" content="https://i.imgur.com/EMFXt0y.png">
+<meta property="og:image" content="https://i.imgur.com/yP3WpaM.png">
+<meta property="og:image" content="https://i.imgur.com/jDKOXvR.png">
+<meta property="og:image" content="https://i.imgur.com/fUFg67t.png">
+<meta property="og:updated_time" content="2020-09-22T06:32:48.353Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Deep learning theory">
 <meta name="twitter:description" content="Numerical computationDirectional derivative The directional derivative in direction $\mu$ (a unit vector) is the slope of he function f in direction u. Formally, it is the derivative of the function $">
@@ -318,8 +338,8 @@
               
                 <span class="post-meta-item-text">Post modified</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2020-09-16T14:05:34-05:00">
-                2020-09-16
+              <time title="Post modified" itemprop="dateModified" datetime="2020-09-22T01:32:48-05:00">
+                2020-09-22
               </time>
             
           </span>
@@ -413,7 +433,7 @@
 </li>
 <li><p>Poor condition number also makes choosing a good step size difficult. The step size must be small enough to avoid overshooting the minimum and going uphill in directions with strong positive curvature. This usually means that the step size is too small to make significant progress in other directions with less curvature.</p>
 <p><img src="https://i.imgur.com/qdZv890.png" alt="image-20200916114810380"></p>
-<p>通俗的来说，如果在一个点x，一阶导数最大的方向恰好是curvature比较大的方向，那么gradient descent会让你往那个方向走。但由于curvature太大，走了一小步一阶导数就就直接反向了，又得往回走。</p>
+<p>刚开始的时候step size还挺大的，后面由于curvature变得越来越大，步长就越来越小了。<img src="https://i.imgur.com/NLZHBZk.png" alt="image-20200919103543879"></p>
 </li>
 </ul>
 <h4 id="Newton’s-method"><a href="#Newton’s-method" class="headerlink" title="Newton’s method"></a>Newton’s method</h4><ul>
@@ -423,6 +443,183 @@
 </li>
 <li><p>The Newton’s method is based on using a second-order Tyaylor series expansion to approximate f(x) near some point $x_{(0)}$:</p>
 <p><img src="https://i.imgur.com/A1eQAwq.png" alt="image-20200916115727114"></p>
+<p>If we then solve for the critical point of this function, we obtain </p>
+<p><img src="https://i.imgur.com/BkARyi6.png" alt="image-20200918232903625"></p>
+</li>
+</ul>
+<h4 id="Numerical-Precision-a-deep-earning-super-kill"><a href="#Numerical-Precision-a-deep-earning-super-kill" class="headerlink" title="Numerical Precision: a deep earning super kill"></a>Numerical Precision: a deep earning super kill</h4><ul>
+<li><p>Often deep learning algorithms “sort of work”</p>
+</li>
+<li><p>Often deep learning algorithms “explode”</p>
+</li>
+<li><p>Culprit is often loss of numerical precision</p>
+</li>
+<li><p>Rounding and truncation errors:</p>
+<ul>
+<li>In a digital computer, we use float32 or similar schemes to represent real numbers.</li>
+<li>A real number x is rounded to x+delta for some small delta.</li>
+<li>Overflow: large x replaced by inf</li>
+<li>Underflow: small x replaced by 0 (very harmful)</li>
+</ul>
+</li>
+<li><p><img src="https://i.imgur.com/aHKcHZg.png" alt="image-20200919104747621"></p>
+</li>
+<li><p><img src="https://i.imgur.com/3IgoOCn.png" alt="image-20200919104905561"></p>
+</li>
+<li><p>Exp function:</p>
+<ul>
+<li>Overflows for large x</li>
+<li>Doesn’t need to be very large</li>
+<li>Float32:89 overflows</li>
+<li>Never use large x</li>
+<li>Underflows for very negative x, possibly catastrophic if exp(x) in denominator.</li>
+</ul>
+</li>
+<li><p>Subtraction:</p>
+<p><img src="https://i.imgur.com/vyGaM6o.png" alt="image-20200919105202962"></p>
+</li>
+<li><p>Log and sqrt:</p>
+<p><img src="https://i.imgur.com/BpVJKMQ.png" alt="image-20200919105311566"></p>
+</li>
+</ul>
+<ul>
+<li><p>Log exp:</p>
+<p><img src="https://i.imgur.com/CDvIj8A.png" alt="image-20200919105456570"></p>
+</li>
+<li><p>Which is the better hack?</p>
+<p><img src="https://i.imgur.com/XYf9KAN.png" alt="image-20200919105601015"></p>
+<p>The first one is better, because it avoids the derivative of sqrt(x) equals to 0.</p>
+</li>
+<li><p>Log(sum(exp))</p>
+<p><img src="https://i.imgur.com/MQplF0u.png" alt="image-20200919105928959"></p>
+<p><img src="https://i.imgur.com/jSb38dP.png" alt="image-20200919110029920"></p>
+<p>Why does the logsumexp trick work?</p>
+<p>Algebraically equivalent to  the original version:</p>
+<p><img src="https://i.imgur.com/TXGr64K.png" alt="image-20200919114807312"></p>
+<p>Miss one log in the last equation……</p>
+<p><img src="https://i.imgur.com/7pUMGt9.png" alt="image-20200919114938929"></p>
+</li>
+<li><p>Softmax</p>
+<p><img src="https://i.imgur.com/8lsEvGy.png" alt="image-20200919115034258"></p>
+</li>
+</ul>
+<ul>
+<li><p>Sigmoid</p>
+<p><img src="https://i.imgur.com/ZWRuLqK.png" alt="image-20200919115202817"></p>
+</li>
+</ul>
+<ul>
+<li><p>cross-entropy</p>
+<p><img src="https://i.imgur.com/BlVVJzw.png" alt="image-20200919223037263"></p>
+<p>Recommendations are using built-in library.</p>
+</li>
+<li><p>Bug hunting strategies:</p>
+<ul>
+<li><img src="https://i.imgur.com/Y28pzUD.png" alt="image-20200919223239296"></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><img src="https://i.imgur.com/EMFXt0y.png" alt="image-20200919223440481"></li>
+</ul>
+<h3 id="Machine-learning-basics"><a href="#Machine-learning-basics" class="headerlink" title="Machine learning basics"></a>Machine learning basics</h3><h4 id="Different-tasks-of-machine-learning"><a href="#Different-tasks-of-machine-learning" class="headerlink" title="Different tasks of machine learning"></a>Different tasks of machine learning</h4><ul>
+<li><p>Classification with missing inputs</p>
+<ul>
+<li>Learn a set of functions, each function corresponds to classifying x with a different subset of its inputs missing.</li>
+<li>A more efficient way is to learn a probability distribution over all the relevant variables, then solve the classification task by marginalizing out the missing variables.</li>
+</ul>
+</li>
+<li><p>Transcription</p>
+<ul>
+<li>Optical character recognition</li>
+<li>Google street view uses deep learning to process address numbers</li>
+<li>Speech recognition</li>
+</ul>
+</li>
+<li>Machine translation<ul>
+<li>A sequence of symbols in some language converted to a sequence of symbols in another language</li>
+</ul>
+</li>
+<li>Structured output<ul>
+<li>The output values should be tightly interrelated, examples are as follows</li>
+<li>Mapping a natural language sentence into a tree that describes its grammatical structure by tagging nodes of the trees as being verbs, nouns, adverbs and so on</li>
+<li>Image captioning, the words produced by an image captioning must form a valid sentence</li>
+</ul>
+</li>
+<li>Anomaly detection<ul>
+<li>Credit card fraud detection</li>
+</ul>
+</li>
+<li>Synthesis and sampling<ul>
+<li>The machine is asked to generate new examples that are similar to those in the training data </li>
+<li>Video games can automatically generate textures for large objects or landscapes, rather than requiring an artist to manually label each pixel.</li>
+<li>Given the input, generate the specific kind of output. For example, we provide a written sentence and ask the program to emit an audio waveform containing a spoken version of that sentence. </li>
+</ul>
+</li>
+<li>Denoising<ul>
+<li>Predict the clean example x from its corrupted version xhat.</li>
+</ul>
+</li>
+<li>Density estimation <ul>
+<li>Learn a function $p_{model}: R^n $ to $R$.</li>
+</ul>
+</li>
+</ul>
+<h4 id="The-performance-measure-P"><a href="#The-performance-measure-P" class="headerlink" title="The performance measure P"></a>The performance measure P</h4><ul>
+<li>Accuracy: the proportion of examples for which the model produces the correct output</li>
+<li>Log-probability the model assigns to some examples</li>
+<li>Sometimes hard to choose a performance measure that corresponds well to the desired behavior of the system.<ul>
+<li>When doing regression task, should we penalize the system more if it frequently makes medium-sized mistakes or if it rarely makes very large mistakes</li>
+</ul>
+</li>
+</ul>
+<h4 id="The-experience-E"><a href="#The-experience-E" class="headerlink" title="The experience E"></a>The experience E</h4><ul>
+<li>Unsupervised learning </li>
+<li>Superviesed learning</li>
+<li>Reinforcement learning algorithms interacts with an environment, which does not just experience a fixed dataset.</li>
+</ul>
+<h4 id="Generalization"><a href="#Generalization" class="headerlink" title="Generalization"></a>Generalization</h4><ul>
+<li>It requires our algorithm to perform well on new, previously unseen inputs, not just those on which our model was trained.</li>
+<li>Test error is generalization error</li>
+</ul>
+<h4 id="Occam’s-razor"><a href="#Occam’s-razor" class="headerlink" title="Occam’s razor"></a>Occam’s razor</h4><ul>
+<li>This principle states that among competing hypotheses that explain known observations equally well, we should choose the “simplest” one. </li>
+</ul>
+<h4 id="Vapnik-Chervonenkis-dimension"><a href="#Vapnik-Chervonenkis-dimension" class="headerlink" title="Vapnik-Chervonenkis dimension"></a>Vapnik-Chervonenkis dimension</h4><ul>
+<li>Measure the capacity of a binary classifier.</li>
+<li>Defined as  being the largest possible value of m for which there exists a training set of m different x points that the classifier can label arbitrarily.</li>
+</ul>
+<h4 id="Regularization"><a href="#Regularization" class="headerlink" title="Regularization"></a>Regularization</h4><ul>
+<li>Expressing preferences for one function over another is a more general way of controlling a model’s capacity than including or excluding members from the   hypothesis space.</li>
+<li>We can think of excluding a function from a hypothesis space as expressing an infinitely strong preference against that function.</li>
+</ul>
+<h4 id="Validation-set-and-hyperparameters"><a href="#Validation-set-and-hyperparameters" class="headerlink" title="Validation set and hyperparameters"></a>Validation set and hyperparameters</h4><ul>
+<li>What is hyperparameters?<ul>
+<li>For example, in linear regression, the degree of the polynomial, which acts as a capacity hyperparameter.</li>
+</ul>
+</li>
+<li>Why use validation set?<ul>
+<li>Train hyperparameters</li>
+</ul>
+</li>
+<li>Why not train hyperparameters using training data?<ul>
+<li>Such hyperparameters would always choose the maximum model capacity, result in overfitting.</li>
+</ul>
+</li>
+</ul>
+<h4 id="Statistics-theory-basic"><a href="#Statistics-theory-basic" class="headerlink" title="Statistics theory basic"></a>Statistics theory basic</h4><ul>
+<li>One can see my another blog: statistics theory</li>
+</ul>
+<h4 id="Maximum-likelihood-estimation"><a href="#Maximum-likelihood-estimation" class="headerlink" title="Maximum likelihood estimation"></a>Maximum likelihood estimation</h4><ul>
+<li><p><img src="https://i.imgur.com/yP3WpaM.png" alt="image-20200922012615930"></p>
+</li>
+<li><p>Because rescale the cost function does not change the argmax.</p>
+<p><img src="https://i.imgur.com/jDKOXvR.png" alt="image-20200922012653791"></p>
+</li>
+<li><p>One way to interpret mle is to view it as minimizing the dissimilarity between the empirical distribution pdata and the model distribution</p>
+</li>
+<li><p>The dissimilarity between the two can be measured by the KL divergence. </p>
+<p><img src="https://i.imgur.com/fUFg67t.png" alt="image-20200922012943236"></p>
 </li>
 </ul>
 
@@ -461,8 +658,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/09/13/短途旅行/" rel="next" title="短途旅行">
-                <i class="fa fa-chevron-left"></i> 短途旅行
+              <a href="/2020/09/16/spatial temporal machine learning/" rel="next" title="Spatial temporal machine learning">
+                <i class="fa fa-chevron-left"></i> Spatial temporal machine learning
               </a>
             
           </div>
@@ -543,7 +740,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">28</span>
+                <span class="site-state-item-count">30</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -554,7 +751,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
@@ -618,7 +815,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Numerical-computation"><span class="nav-number">1.</span> <span class="nav-text">Numerical computation</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Directional-derivative"><span class="nav-number">1.1.</span> <span class="nav-text">Directional derivative</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Choose-step-size-in-different-ways"><span class="nav-number">1.2.</span> <span class="nav-text">Choose step  size in different ways</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Beyond-the-gradient-Jacobian-and-Hessian-Matrices"><span class="nav-number">2.</span> <span class="nav-text">Beyond the gradient: Jacobian and Hessian Matrices</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Condition-number-of-the-Hessian-matrix"><span class="nav-number">2.1.</span> <span class="nav-text">Condition number of the Hessian matrix</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Newton’s-method"><span class="nav-number">2.2.</span> <span class="nav-text">Newton’s method</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Numerical-computation"><span class="nav-number">1.</span> <span class="nav-text">Numerical computation</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Directional-derivative"><span class="nav-number">1.1.</span> <span class="nav-text">Directional derivative</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Choose-step-size-in-different-ways"><span class="nav-number">1.2.</span> <span class="nav-text">Choose step  size in different ways</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Beyond-the-gradient-Jacobian-and-Hessian-Matrices"><span class="nav-number">2.</span> <span class="nav-text">Beyond the gradient: Jacobian and Hessian Matrices</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Condition-number-of-the-Hessian-matrix"><span class="nav-number">2.1.</span> <span class="nav-text">Condition number of the Hessian matrix</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Newton’s-method"><span class="nav-number">2.2.</span> <span class="nav-text">Newton’s method</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Numerical-Precision-a-deep-earning-super-kill"><span class="nav-number">2.3.</span> <span class="nav-text">Numerical Precision: a deep earning super kill</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Machine-learning-basics"><span class="nav-number">3.</span> <span class="nav-text">Machine learning basics</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Different-tasks-of-machine-learning"><span class="nav-number">3.1.</span> <span class="nav-text">Different tasks of machine learning</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#The-performance-measure-P"><span class="nav-number">3.2.</span> <span class="nav-text">The performance measure P</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#The-experience-E"><span class="nav-number">3.3.</span> <span class="nav-text">The experience E</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Generalization"><span class="nav-number">3.4.</span> <span class="nav-text">Generalization</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Occam’s-razor"><span class="nav-number">3.5.</span> <span class="nav-text">Occam’s razor</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Vapnik-Chervonenkis-dimension"><span class="nav-number">3.6.</span> <span class="nav-text">Vapnik-Chervonenkis dimension</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Regularization"><span class="nav-number">3.7.</span> <span class="nav-text">Regularization</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Validation-set-and-hyperparameters"><span class="nav-number">3.8.</span> <span class="nav-text">Validation set and hyperparameters</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Statistics-theory-basic"><span class="nav-number">3.9.</span> <span class="nav-text">Statistics theory basic</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Maximum-likelihood-estimation"><span class="nav-number">3.10.</span> <span class="nav-text">Maximum likelihood estimation</span></a></li></ol></li></ol></div>
             
 
           </div>

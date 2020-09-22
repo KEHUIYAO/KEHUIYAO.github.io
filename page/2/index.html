@@ -248,6 +248,279 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/18/basic math copy/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kehui Yao">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kehui's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2020/07/18/basic math copy/" itemprop="url">
+                  Some math calculation tips
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-07-18T00:29:15-05:00">
+                2020-07-18
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Post modified</span>
+              
+              <time title="Post modified" itemprop="dateModified" datetime="2020-08-21T16:10:00-05:00">
+                2020-08-21
+              </time>
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h4 id="三角函数求导"><a href="#三角函数求导" class="headerlink" title="三角函数求导"></a>三角函数求导</h4><ol>
+<li>$\frac{d}{d x} \arcsin x=\frac{1}{\sqrt{1-x^{2}}}$</li>
+</ol>
+<p>Proof:<br>$$<br>y=\arcsin x \<br>\sin y=x\<br>\begin{aligned} \cos y \frac{d y}{d x} &amp;=1 \ \frac{d y}{d x} &amp;=\frac{1}{\cos y} \ \frac{d y}{d x} &amp;=\frac{1}{\sqrt{1-x^{2}}} \end{aligned}<br>$$</p>
+<h4 id="Characteristic-function-of-normal-distribution"><a href="#Characteristic-function-of-normal-distribution" class="headerlink" title="Characteristic function of normal distribution"></a>Characteristic function of normal distribution</h4><p>The <a href="https://proofwiki.org/w/index.php?title=Definition:Characteristic_Function_(Probability_Theory" target="_blank" rel="noopener">characteristic function</a>&amp;action=edit&amp;redlink=1) of the <a href="https://proofwiki.org/wiki/Definition:Gaussian_Distribution" target="_blank" rel="noopener">normal distribution</a> with mean $\mu$ and variance $\sigma^2$ is<br>$$<br>\phi(t)=e^{i t \mu-\frac{1}{2} t^{2} \sigma^{2}}<br>$$<br>Proof:<br>$$<br>\begin{aligned} \phi(t) &amp;=E\left[e^{i t X}\right] \ &amp;=\int_{x \in \mathbb{R}} e^{i t x} \frac{1}{\sqrt{2 \pi \sigma^{2}}} e^{-\frac{(x-\mu)^{2}}{2 \sigma^{2}}} \mathrm{d} x \ &amp;=\frac{1}{\sqrt{2 \pi \sigma^{2}}} \int_{x \in \mathbb{R}} e^{i t x} e^{-\frac{(x-\mu)^{2}}{2 \sigma^{2}}} \mathrm{d} x \ &amp;=\frac{1}{\sqrt{2 \pi \sigma^{2}}} \int_{x \in \mathbb{R}} e^{i t x-\frac{(x-\mu)^{2}}{2 \sigma^{2}}} \mathrm{d} x \end{aligned}<br>$$<br>By verifying<br>$$<br>i t x-\frac{(x-\mu)^{2}}{2 \sigma^{2}}=-\frac{(x-k)^{2}+2 \mu i t \sigma^{2}-t^{2} \sigma^{4}}{2 \sigma^{2}}<br>$$<br>We can then simplify the integral in (1)<br>$$<br>\begin{aligned} \int_{x \in \mathbb{R}} e^{i t x-\frac{(x-\mu)^{2}}{2 \sigma^{2}}} \mathrm{d} x &amp;=\int_{x \in \mathbb{R} \atop 2 \pi i \sigma^{2}-t^{2} \sigma^{4}} e^{-\frac{(x-k)^{2}+2 \mu i \sigma^{2}-t^{2} \sigma^{4}}{2 \sigma^{2}}} \mathrm{d} x \ &amp;=e^{\frac{2 \mu i t \sigma^{2}-t^{2} \sigma^{4}}{2 \sigma^{2}}} \int_{x \in \mathbb{R}} e^{-\frac{(x-k)^{2}}{2 \sigma^{2}}} \mathrm{d} x \ &amp;=e^{\mu i t-\frac{1}{2} t^{2} \sigma^{2}} \int_{x \in \mathbb{R}} e^{-\left(\frac{x-k}{\sqrt{2} \sigma}\right)^{2}} \mathrm{d} x \ &amp;=c \int_{x \in \mathbb{R}} e^{-\left(\frac{x-k}{\sqrt{2 \sigma}}\right)^{2}} \mathrm{d} x \end{aligned}<br>$$<br>insider it’s the kernel of another normal distribution. 凑个系数既可以得到结论。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2020/07/18/basic math copy/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/11/CS577_algorithm_notes/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kehui Yao">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kehui's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2019/10/11/CS577_algorithm_notes/" itemprop="url">
+                  CS577 Introduction to algorithms notes
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-10-11T00:29:15-05:00">
+                2019-10-11
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Post modified</span>
+              
+              <time title="Post modified" itemprop="dateModified" datetime="2020-07-24T22:41:47-05:00">
+                2020-07-24
+              </time>
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line">CS 577 SECTION 1 </span><br><span class="line">PRE-MIDTERM REVIEW GUIDE</span><br><span class="line">Fall 2019</span><br><span class="line"></span><br><span class="line">1. Useful math</span><br><span class="line"></span><br><span class="line">   Asymptotic relations: O,Omega,Theta,~,o</span><br><span class="line"></span><br><span class="line">   Run times can be polynomial, exponential, or in between</span><br><span class="line">   Pseudopolynomial algorithms (= poly time for inputs in unary)</span><br><span class="line"></span><br><span class="line">   Mathematical induction (for correctness proofs AND alg analysis)</span><br><span class="line"></span><br><span class="line">   Summing by levels to estimate solution to a recurrence</span><br><span class="line"></span><br><span class="line">2. Divide and conquer, recursion</span><br><span class="line"></span><br><span class="line">   Hallmark: Rapid reduction in problem size, usually by a constant</span><br><span class="line">             factor.</span><br><span class="line"></span><br><span class="line">   Exponentiation</span><br><span class="line">   Mergesort -- &quot;oblivious&quot; generation of subproblems</span><br><span class="line">   Inversion counting -- example of piggybacking</span><br><span class="line">   Closest pair in the plane -- subproblems depend on data</span><br><span class="line">   Efficient integer arithmetic (works for polynomials too)</span><br><span class="line">            &quot;School&quot; algorithms</span><br><span class="line">            Karatsuba multiplication</span><br><span class="line">            Newton iteration (reduces division to multiplication)</span><br><span class="line">   Strassen matrix multiplication</span><br><span class="line">   Fast Fourier transform as a remainder tree</span><br><span class="line">            Applications: polynomial and integer multiplication</span><br><span class="line">                          convolutions</span><br><span class="line">                          listing sums and inner products</span><br><span class="line"></span><br><span class="line">3. Greedy algorithms</span><br><span class="line"></span><br><span class="line">   Hallmark: Irrevocable choices, based on (usually numerical) priority</span><br><span class="line"></span><br><span class="line">   Review of graph theory (BFS and DFS, analogous to marching thru an array)</span><br><span class="line">   Problems solvable in linear time: components, 2-coloring, cycle detection,</span><br><span class="line">                                     independent cycles</span><br><span class="line">   Dijkstra single source shortest path with heaps</span><br><span class="line">   Kruskal minimum spanning tree with union-find trees (exchange principle)</span><br><span class="line">   Unit-weight interval scheduling (greedy stays ahead) </span><br><span class="line">   EDD rule to minimize maximum tardiness (correctness uses inversions)</span><br><span class="line"></span><br><span class="line">3. Dynamic programming</span><br><span class="line">  </span><br><span class="line">   Hallmark: Systematic solution of subproblems</span><br><span class="line"></span><br><span class="line">   Bellman equations and the Principle of Optimality (different for</span><br><span class="line">           each problem)</span><br><span class="line"></span><br><span class="line">   Fermat least-time principle (basically shortest path)</span><br><span class="line">   Weighted interval scheduling</span><br><span class="line">   Segmented least squares</span><br><span class="line"></span><br><span class="line">   DP applied to computation: Fibonacci numbers, subset sum problem</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line">CS 577 SECTION 1</span><br><span class="line">POST-MIDTERM REVIEW GUIDE</span><br><span class="line">FALL 2019</span><br><span class="line"></span><br><span class="line">Dynamic Programming Examples</span><br><span class="line"></span><br><span class="line">   Math ideas: induction on structures (arrays, trees, etc.)</span><br><span class="line">               polynomial vs. pseudopolynomial algorithms</span><br><span class="line"></span><br><span class="line">   Fibonacci numbers</span><br><span class="line">   Subset sum</span><br><span class="line">   Knapsack</span><br><span class="line">   Vertex cover for trees</span><br><span class="line">   Longest increasing subsequence and patience sorting</span><br><span class="line">   Edit distance</span><br><span class="line">   Bellman-Ford shortest path algorithm (allows for negative edges)</span><br><span class="line"></span><br><span class="line">Randomization</span><br><span class="line"></span><br><span class="line">   Probability ideas:</span><br><span class="line">     Independence (probabilities multiply)</span><br><span class="line">     Expected value (similar to an integral)</span><br><span class="line">     Linearity of expectation</span><br><span class="line">     Waiting time for success</span><br><span class="line">     Conditional probability</span><br><span class="line"></span><br><span class="line">   Contention resolution</span><br><span class="line">   Global min-cut</span><br><span class="line">   Quicksort and selection by rank</span><br><span class="line">   Rabin-Karp string matching</span><br><span class="line"></span><br><span class="line">Network Flow</span><br><span class="line"></span><br><span class="line">   Linear and integer programming (just the setup, no algorithms)</span><br><span class="line">   Flow network model: Flows and cuts, flow value &lt;= cut capacity</span><br><span class="line">   Failure of greedy algorithm</span><br><span class="line">   Residual graphs</span><br><span class="line">   Ford-Fulkerson procedure </span><br><span class="line">        pseudopolynomial if capacities are integral</span><br><span class="line">   Max-flow / Min-cut theorem (strong duality)</span><br><span class="line">   Applications</span><br><span class="line">       Unit capacity networks and bipartite matching</span><br><span class="line">       Baseball elimination</span><br><span class="line">       Project selection</span><br><span class="line">       </span><br><span class="line">Lower Bound Techniques</span><br><span class="line"></span><br><span class="line">   Decision trees and leaf-counting (&quot;information theory&quot;) bounds</span><br><span class="line">   Adversary arguments</span><br><span class="line"></span><br><span class="line">NP-Completeness</span><br><span class="line"></span><br><span class="line">   Decision problem classes: P, NP (defined using certificates)</span><br><span class="line">   Polynomial-time reductions (multiple queries allowed)</span><br><span class="line">   NP-complete: i) in NP, ii) all other NP problems reduce to it</span><br><span class="line">                if ii) only, problem is called NP-hard</span><br><span class="line">   Cook-Levin theorem: Boolean formula satisfiability is NP-complete</span><br><span class="line">   Satisfiability variations: unrestricted formulas, circuits,</span><br><span class="line">                              conjunctive normal form (CNF)</span><br><span class="line">   Graph problems: </span><br><span class="line">        Vertex Cover (covering) </span><br><span class="line">        Clique and Independent Set (packing)</span><br><span class="line">   3-dimensional Matching</span><br><span class="line">   Subset Sum</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/10/11/CS577_algorithm_notes/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/11/basic stat copy/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1344,283 +1617,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/25/numpy-tutorial/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Kehui Yao">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Kehui's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2019/03/25/numpy-tutorial/" itemprop="url">
-                  Data Manipulation using Numpy Arrays
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-25T18:44:57-05:00">
-                2019-03-25
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Post modified</span>
-              
-              <time title="Post modified" itemprop="dateModified" datetime="2020-07-22T13:09:15-05:00">
-                2020-07-22
-              </time>
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>这部分内容转载自: Python DataScience Handbook</p>
-<h1 id="The-Basics-of-NumPy-Arrays"><a href="#The-Basics-of-NumPy-Arrays" class="headerlink" title="The Basics of NumPy Arrays"></a>The Basics of NumPy Arrays</h1><p>Data manipulation in Python is nearly synonymous with NumPy array manipulation: even newer tools like Pandas (<a href="03.00-Introduction-to-Pandas.ipynb">Chapter 3</a>) are built around the NumPy array.<br>This section will present several examples of using NumPy array manipulation to access data and subarrays, and to split, reshape, and join the arrays.<br>While the types of operations shown here may seem a bit dry and pedantic, they comprise the building blocks of many other examples used throughout the book.<br>Get to know them well!</p>
-<p>We’ll cover a few categories of basic array manipulations here:</p>
-<ul>
-<li><em>Attributes of arrays</em>: Determining the size, shape, memory consumption, and data types of arrays</li>
-<li><em>Indexing of arrays</em>: Getting and setting the value of individual array elements</li>
-<li><em>Slicing of arrays</em>: Getting and setting smaller subarrays within a larger array</li>
-<li><em>Reshaping of arrays</em>: Changing the shape of a given array</li>
-<li><em>Joining and splitting of arrays</em>: Combining multiple arrays into one, and splitting one array into many</li>
-</ul>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/03/25/numpy-tutorial/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/24/tree-algorithm/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Kehui Yao">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Kehui's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2019/03/24/tree-algorithm/" itemprop="url">
-                  Tree problem in Leetcode
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-24T00:53:10-05:00">
-                2019-03-24
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Post modified</span>
-              
-              <time title="Post modified" itemprop="dateModified" datetime="2020-07-22T13:10:00-05:00">
-                2020-07-22
-              </time>
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="二叉树逐层打印"><a href="#二叉树逐层打印" class="headerlink" title="二叉树逐层打印"></a>二叉树逐层打印</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Node</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,val,left=None,right=None)</span>:</span></span><br><span class="line">        self.val=val</span><br><span class="line">        self.left=left</span><br><span class="line">        self.right=right</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">printNode</span><span class="params">(root)</span>:</span></span><br><span class="line">    output=[]</span><br><span class="line">    queue=[root]</span><br><span class="line">    current=[]</span><br><span class="line">    <span class="keyword">while</span> queue <span class="keyword">and</span> root:</span><br><span class="line">        nextQueue=[]</span><br><span class="line">        current=[]</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> queue:</span><br><span class="line">            current.append(i.val)</span><br><span class="line">            <span class="keyword">if</span> i.left:</span><br><span class="line">                nextQueue.append(i.left)</span><br><span class="line">            <span class="keyword">if</span> i.right:</span><br><span class="line">                nextQueue.append(i.right)         </span><br><span class="line">        queue=nextQueue</span><br><span class="line">        output.append(current)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> output</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/03/24/tree-algorithm/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1668,7 +1664,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">28</span>
+                <span class="site-state-item-count">30</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -1679,7 +1675,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
