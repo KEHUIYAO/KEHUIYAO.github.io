@@ -129,7 +129,9 @@
 <meta property="og:image" content="https://i.imgur.com/yP3WpaM.png">
 <meta property="og:image" content="https://i.imgur.com/jDKOXvR.png">
 <meta property="og:image" content="https://i.imgur.com/fUFg67t.png">
-<meta property="og:updated_time" content="2020-09-22T18:20:51.335Z">
+<meta property="og:image" content="https://i.imgur.com/QQxfqWj.png">
+<meta property="og:image" content="https://i.imgur.com/lhhFzxz.png">
+<meta property="og:updated_time" content="2020-09-23T16:26:51.635Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Deep learning theory">
 <meta name="twitter:description" content="Numerical computationDirectional derivative The directional derivative in direction $\mu$ (a unit vector) is the slope of he function f in direction u. Formally, it is the derivative of the function $">
@@ -338,8 +340,8 @@
               
                 <span class="post-meta-item-text">Post modified</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2020-09-22T13:20:51-05:00">
-                2020-09-22
+              <time title="Post modified" itemprop="dateModified" datetime="2020-09-23T11:26:51-05:00">
+                2020-09-23
               </time>
             
           </span>
@@ -625,8 +627,42 @@
 <p>Any loss consisting of a negative log-likelihood is a cross-entropy between the empirical distribution defined by the training set and the probability distribution defined by model.</p>
 </li>
 </ul>
-<p>#### </p>
-
+<h4 id="Stochastic-gradient-descent"><a href="#Stochastic-gradient-descent" class="headerlink" title="Stochastic gradient descent"></a>Stochastic gradient descent</h4><ul>
+<li>Idea: gradient descent requires computing <img src="https://i.imgur.com/QQxfqWj.png" alt="image-20200923095906722">, as the training size grows larger, the time to take a single gradient step becomes long. The insight of SGD is to estimate the expectation using a small set of samples.</li>
+<li>On each step, sample a mini batch uniformly from the training set. And the estimate of the gradient is formed as <img src="https://i.imgur.com/lhhFzxz.png" alt="image-20200923100152249"> </li>
+</ul>
+<h4 id="Challenges-motivating-deep-learning"><a href="#Challenges-motivating-deep-learning" class="headerlink" title="Challenges motivating deep learning"></a>Challenges motivating deep learning</h4><ul>
+<li>The curse of dimensionality:<ul>
+<li>In one dimension, when we generalize to a new data point, we usually tel what to do  simply by inspecting the training examples that lie in the same cell as the new input</li>
+<li>When dimension is high, sometimes we cannot find the training data located in that space.</li>
+<li>We can usually suppose we have a variable taking value of 0 and 1. If we have 100 variables, we need at least 2^100 training data points to have a whole picture of the space.</li>
+</ul>
+</li>
+</ul>
+<h4 id="Local-constancy-and-smoothness-regularization"><a href="#Local-constancy-and-smoothness-regularization" class="headerlink" title="Local constancy and smoothness regularization"></a>Local constancy and smoothness regularization</h4><ul>
+<li><p>Smoothness prior: </p>
+<p>This prior states that the function we learn should not change very much within a small region</p>
+</li>
+<li><p>Many simpler algorithms rely exclusively on this prior to generalize well, and as a result, they fail to scale to the statistical challenges involved in solving AI-level tasks.</p>
+</li>
+<li><p>K-nearest neighbors family of learning algorithms is an extreme example of the local constancy approach.</p>
+</li>
+<li><p>Decision trees also suffer from the limitations of exclusively smoothness-based learning, because:</p>
+<ul>
+<li>It break the input space into as many regions as there are leaves and use a separate (or more) </li>
+<li>If a target function requires a tree with at least n leaves to be represented accurately, then at least n training examples are required to fit the tree.</li>
+</ul>
+</li>
+<li><p>If the function is complicated (we want to distinguish a huge number of regions compared to the number of examples), is there any hope to generalize well?</p>
+<ul>
+<li>Answer is yes</li>
+<li>The key insight is that a very large number of regions, such as $O(2^k)$, can be defined with $O(k)$ examples, so long as we introduce some dependencies between the regions through additional assumptions about the underlying data-generating distribution. </li>
+<li>In this way, we can generalize nonlocally.</li>
+<li>Many different deep learning algorithms provide implicit or explicit assumptions of nonlocality.</li>
+</ul>
+</li>
+</ul>
+<h4 id="Manifold-learning"><a href="#Manifold-learning" class="headerlink" title="Manifold learning"></a>Manifold learning</h4>
       
     </div>
 
@@ -819,7 +855,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Numerical-computation"><span class="nav-number">1.</span> <span class="nav-text">Numerical computation</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Directional-derivative"><span class="nav-number">1.1.</span> <span class="nav-text">Directional derivative</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Choose-step-size-in-different-ways"><span class="nav-number">1.2.</span> <span class="nav-text">Choose step  size in different ways</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Beyond-the-gradient-Jacobian-and-Hessian-Matrices"><span class="nav-number">2.</span> <span class="nav-text">Beyond the gradient: Jacobian and Hessian Matrices</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Condition-number-of-the-Hessian-matrix"><span class="nav-number">2.1.</span> <span class="nav-text">Condition number of the Hessian matrix</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Newton’s-method"><span class="nav-number">2.2.</span> <span class="nav-text">Newton’s method</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Numerical-Precision-a-deep-earning-super-kill"><span class="nav-number">2.3.</span> <span class="nav-text">Numerical Precision: a deep earning super kill</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Machine-learning-basics"><span class="nav-number">3.</span> <span class="nav-text">Machine learning basics</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Different-tasks-of-machine-learning"><span class="nav-number">3.1.</span> <span class="nav-text">Different tasks of machine learning</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#The-performance-measure-P"><span class="nav-number">3.2.</span> <span class="nav-text">The performance measure P</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#The-experience-E"><span class="nav-number">3.3.</span> <span class="nav-text">The experience E</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Generalization"><span class="nav-number">3.4.</span> <span class="nav-text">Generalization</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Occam’s-razor"><span class="nav-number">3.5.</span> <span class="nav-text">Occam’s razor</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Vapnik-Chervonenkis-dimension"><span class="nav-number">3.6.</span> <span class="nav-text">Vapnik-Chervonenkis dimension</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Regularization"><span class="nav-number">3.7.</span> <span class="nav-text">Regularization</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Validation-set-and-hyperparameters"><span class="nav-number">3.8.</span> <span class="nav-text">Validation set and hyperparameters</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Statistics-theory-basic"><span class="nav-number">3.9.</span> <span class="nav-text">Statistics theory basic</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Maximum-likelihood-estimation"><span class="nav-number">3.10.</span> <span class="nav-text">Maximum likelihood estimation</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Numerical-computation"><span class="nav-number">1.</span> <span class="nav-text">Numerical computation</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Directional-derivative"><span class="nav-number">1.1.</span> <span class="nav-text">Directional derivative</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Choose-step-size-in-different-ways"><span class="nav-number">1.2.</span> <span class="nav-text">Choose step  size in different ways</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Beyond-the-gradient-Jacobian-and-Hessian-Matrices"><span class="nav-number">2.</span> <span class="nav-text">Beyond the gradient: Jacobian and Hessian Matrices</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Condition-number-of-the-Hessian-matrix"><span class="nav-number">2.1.</span> <span class="nav-text">Condition number of the Hessian matrix</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Newton’s-method"><span class="nav-number">2.2.</span> <span class="nav-text">Newton’s method</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Numerical-Precision-a-deep-earning-super-kill"><span class="nav-number">2.3.</span> <span class="nav-text">Numerical Precision: a deep earning super kill</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Machine-learning-basics"><span class="nav-number">3.</span> <span class="nav-text">Machine learning basics</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Different-tasks-of-machine-learning"><span class="nav-number">3.1.</span> <span class="nav-text">Different tasks of machine learning</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#The-performance-measure-P"><span class="nav-number">3.2.</span> <span class="nav-text">The performance measure P</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#The-experience-E"><span class="nav-number">3.3.</span> <span class="nav-text">The experience E</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Generalization"><span class="nav-number">3.4.</span> <span class="nav-text">Generalization</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Occam’s-razor"><span class="nav-number">3.5.</span> <span class="nav-text">Occam’s razor</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Vapnik-Chervonenkis-dimension"><span class="nav-number">3.6.</span> <span class="nav-text">Vapnik-Chervonenkis dimension</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Regularization"><span class="nav-number">3.7.</span> <span class="nav-text">Regularization</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Validation-set-and-hyperparameters"><span class="nav-number">3.8.</span> <span class="nav-text">Validation set and hyperparameters</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Statistics-theory-basic"><span class="nav-number">3.9.</span> <span class="nav-text">Statistics theory basic</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Maximum-likelihood-estimation"><span class="nav-number">3.10.</span> <span class="nav-text">Maximum likelihood estimation</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Stochastic-gradient-descent"><span class="nav-number">3.11.</span> <span class="nav-text">Stochastic gradient descent</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Challenges-motivating-deep-learning"><span class="nav-number">3.12.</span> <span class="nav-text">Challenges motivating deep learning</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Local-constancy-and-smoothness-regularization"><span class="nav-number">3.13.</span> <span class="nav-text">Local constancy and smoothness regularization</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Manifold-learning"><span class="nav-number">3.14.</span> <span class="nav-text">Manifold learning</span></a></li></ol></li></ol></div>
             
 
           </div>
