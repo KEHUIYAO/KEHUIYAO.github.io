@@ -131,7 +131,30 @@
 <meta property="og:image" content="https://i.imgur.com/fUFg67t.png">
 <meta property="og:image" content="https://i.imgur.com/QQxfqWj.png">
 <meta property="og:image" content="https://i.imgur.com/lhhFzxz.png">
-<meta property="og:updated_time" content="2020-09-23T16:26:51.635Z">
+<meta property="og:image" content="https://i.imgur.com/89aT2oI.png">
+<meta property="og:image" content="https://i.imgur.com/qPoOVuT.png">
+<meta property="og:image" content="https://i.imgur.com/Rz7ILoI.png">
+<meta property="og:image" content="https://i.imgur.com/kGNg0Xz.png">
+<meta property="og:image" content="https://i.imgur.com/4if2LY1.png">
+<meta property="og:image" content="https://i.imgur.com/exANV8l.png">
+<meta property="og:image" content="https://i.imgur.com/g5lwFVR.png">
+<meta property="og:image" content="https://i.imgur.com/x4GTTeB.png">
+<meta property="og:image" content="https://i.imgur.com/JJrWZLD.png">
+<meta property="og:image" content="https://i.imgur.com/4Ou8ok9.png">
+<meta property="og:image" content="https://i.imgur.com/YlTtlHl.png">
+<meta property="og:image" content="https://i.imgur.com/2P883IF.png">
+<meta property="og:image" content="https://i.imgur.com/lXHwBgz.png">
+<meta property="og:image" content="https://i.imgur.com/p7STyI9.png">
+<meta property="og:image" content="https://i.imgur.com/wnm0Fe5.png">
+<meta property="og:image" content="https://i.imgur.com/iYwBFPy.png">
+<meta property="og:image" content="https://i.imgur.com/fmj0gfv.png">
+<meta property="og:image" content="https://i.imgur.com/QaeIWpx.png">
+<meta property="og:image" content="https://i.imgur.com/eIXw2Y9.png">
+<meta property="og:image" content="https://i.imgur.com/lOACxn9.png">
+<meta property="og:image" content="https://i.imgur.com/LNCucfD.png">
+<meta property="og:image" content="https://i.imgur.com/sPcQhSt.png">
+<meta property="og:image" content="https://i.imgur.com/RG4CQJq.png">
+<meta property="og:updated_time" content="2020-10-09T03:39:25.066Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Deep learning theory">
 <meta name="twitter:description" content="Numerical computationDirectional derivative The directional derivative in direction $\mu$ (a unit vector) is the slope of he function f in direction u. Formally, it is the derivative of the function $">
@@ -340,8 +363,8 @@
               
                 <span class="post-meta-item-text">Post modified</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2020-09-23T11:26:51-05:00">
-                2020-09-23
+              <time title="Post modified" itemprop="dateModified" datetime="2020-10-08T22:39:25-05:00">
+                2020-10-08
               </time>
             
           </span>
@@ -662,7 +685,222 @@
 </ul>
 </li>
 </ul>
-<h4 id="Manifold-learning"><a href="#Manifold-learning" class="headerlink" title="Manifold learning"></a>Manifold learning</h4>
+<h4 id="Manifold-learning"><a href="#Manifold-learning" class="headerlink" title="Manifold learning"></a>Manifold learning</h4><ul>
+<li><p>A very nice answer on zhihu: <a href="https://www.zhihu.com/question/24015486" target="_blank" rel="noopener">https://www.zhihu.com/question/24015486</a></p>
+</li>
+<li><p>Essentially is Nonlinear dimension reduction.</p>
+<p><img src="https://i.imgur.com/89aT2oI.png" alt="image-20200923152423094"></p>
+</li>
+</ul>
+<h3 id="Deep-Feedforward-Networks"><a href="#Deep-Feedforward-Networks" class="headerlink" title="Deep Feedforward Networks"></a>Deep Feedforward Networks</h3><h4 id="Computational-graph-and-backpropagation"><a href="#Computational-graph-and-backpropagation" class="headerlink" title="Computational graph and backpropagation"></a>Computational graph and backpropagation</h4><ul>
+<li>博客资料 <a href="https://colah.github.io/posts/2015-08-Backprop/" target="_blank" rel="noopener">https://colah.github.io/posts/2015-08-Backprop/</a></li>
+<li><p>视频资料 <a href="https://www.youtube.com/watch?v=-yhm3WdGFok" target="_blank" rel="noopener">https://www.youtube.com/watch?v=-yhm3WdGFok</a></p>
+</li>
+<li><p>正向传播走一遍算出所有节点的值</p>
+</li>
+<li>reverse mode走一遍，存下cost对所有node的偏微分</li>
+</ul>
+<h4 id="Learn-conditional-statistics"><a href="#Learn-conditional-statistics" class="headerlink" title="Learn conditional statistics"></a>Learn conditional statistics</h4><p>When we use cross-entropy loss, we are learning p(y|x), actually we only need to learn one conditional statistics of y given x, say E(y|x).</p>
+<ul>
+<li><p><img src="https://i.imgur.com/qPoOVuT.png" alt="image-20200926202307454"></p>
+<p>if we are using the square loss, we can replace f(x) by E(y|x) and train the model using gradient descent</p>
+</li>
+<li><p>Here we can use we only need to use the information of E(y|x), not f(y|x), seemed that we are saving some resources.</p>
+</li>
+<li><p>The truth is, the cost function in this way is hard to train. Some output units that saturate produce very small gradients when combined with these cost functions.</p>
+</li>
+</ul>
+<h4 id="Sigmoid-units-for-Bernoulli-Output-distribution"><a href="#Sigmoid-units-for-Bernoulli-Output-distribution" class="headerlink" title="Sigmoid units for Bernoulli Output distribution:"></a>Sigmoid units for Bernoulli Output distribution:</h4><ul>
+<li><p>Intuition of define a probability over y using values of z:</p>
+<ul>
+<li><p>we first obtain an unnormalized probability by assuming that log(p(y|z)) = yz, the left hand side can take value from -inf to inf since unnormalized p(y|z)&gt;0 , and yz takes value from -inf to inf, so this assumption is reasonable.</p>
+</li>
+<li><p>Another reason of choosing this assumption is to undo the log under cross entropy.</p>
+</li>
+<li><p>So:</p>
+<p><img src="https://i.imgur.com/Rz7ILoI.png" alt="image-20200926204835485"></p>
+<p><img src="https://i.imgur.com/kGNg0Xz.png" alt="image-20200926204857106"></p>
+</li>
+<li><p>The symbol appeared in the last equation is called the softplus. </p>
+</li>
+<li><p><img src="https://i.imgur.com/4if2LY1.png" alt="image-20200926205249603"></p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="Softmax-units-for-multinoulli-output-distributions"><a href="#Softmax-units-for-multinoulli-output-distributions" class="headerlink" title="Softmax units for multinoulli output distributions"></a>Softmax units for multinoulli output distributions</h4><p><img src="https://i.imgur.com/exANV8l.png" alt="image-20200926213815126"></p>
+<p><img src="https://i.imgur.com/g5lwFVR.png" alt="image-20200926213827105"></p>
+<h3 id="Regularization-for-deep-learning"><a href="#Regularization-for-deep-learning" class="headerlink" title="Regularization for deep learning"></a>Regularization for deep learning</h3><h4 id="L2-normalization"><a href="#L2-normalization" class="headerlink" title="L2 normalization"></a>L2 normalization</h4><ul>
+<li><p>Aka weight decay</p>
+</li>
+<li><p>Consider a model has the following total objective function:</p>
+<p><img src="https://i.imgur.com/x4GTTeB.png" alt="image-20201008001403886"></p>
+<p>With the corresponding parameter gradient</p>
+<p><img src="https://i.imgur.com/JJrWZLD.png" alt="image-20201008001446527"></p>
+<p>To take a single gradient step to update the weights, we perform this update:</p>
+<p><img src="https://i.imgur.com/4Ou8ok9.png" alt="image-20201008001523308"></p>
+<p>Written another way, the update is:</p>
+<p><img src="https://i.imgur.com/YlTtlHl.png" alt="image-20201008001601908"></p>
+</li>
+</ul>
+<h4 id="Early-stopping"><a href="#Early-stopping" class="headerlink" title="Early stopping"></a>Early stopping</h4><ul>
+<li><p>The phenomenon that training objective decreases consistently over time, but the validation set average loss eventually begins to increase again, forming an asymmetric U-shaped curve.</p>
+</li>
+<li><p><img src="https://i.imgur.com/2P883IF.png" alt="image-20200926225245821"></p>
+</li>
+<li>consider the training time as a hyperparameter. Early stopping algorithm is to tune this parameter.</li>
+<li>do the training process and periodically record the model performance on validation set. If the performance decreases, we stop the training.</li>
+<li><img src="https://i.imgur.com/lXHwBgz.png" alt="image-20200926225932268"></li>
+<li>early stopping is kind of a regularization method because it mathematically has the same effect as L2 regularizations.</li>
+</ul>
+<h4 id="parameter-sharing"><a href="#parameter-sharing" class="headerlink" title="parameter sharing"></a>parameter sharing</h4><ul>
+<li>from knowledge of the domain and model architecture, that there should be some dependencies between the model parameters</li>
+<li>a typical example is CNN</li>
+</ul>
+<h4 id="Dropout"><a href="#Dropout" class="headerlink" title="Dropout"></a>Dropout</h4><ul>
+<li>Dropout can be thought of as a method of making bagging practical for ensembles of very many large neural networks</li>
+<li>Intuition: cannot rely on any one feature, so have to spread out weights, resulting in shrinking weights like L2 norm.</li>
+<li>Frequently used in computer vision where input is huge.</li>
+<li>Dropout trains not just a bagged ensemble of model, but an ensemble of models that share hidden units. This means each hidden unit must be able to perform well regardless of which other hidden units are in the model. Hidden units must be prepared to be swapped and interchanged between models.</li>
+<li>The noise is multiplicative. If the noise were additive with fixed scale, then a relu hidden unit $h_i$ with added noise $\epsilon$ could simply learn to have $h_i$ become very large in order to make the added noise $\epsilon$ insignificant by comparison. </li>
+<li></li>
+</ul>
+<h4 id="Sparse-Representations"><a href="#Sparse-Representations" class="headerlink" title="Sparse Representations"></a>Sparse Representations</h4><ul>
+<li><p>L1 penalization induces a sparse parametrization, meaning that many of the parameters become zero.</p>
+<p><img src="https://i.imgur.com/p7STyI9.png" alt="image-20201007163307987"></p>
+</li>
+<li><p>Representational sparsity, on the other hand, describes a representation where many of the elements of the representations are zero.</p>
+<p><img src="https://i.imgur.com/wnm0Fe5.png" alt="image-20201007163540259"></p>
+</li>
+<li><p>Just as an L1 penalty on the parameters induces parameter sparsity, an L1 penalty on the elements of the representation induces representational sparsity.</p>
+</li>
+</ul>
+<h4 id="Bagging-and-other-ensemble-methods"><a href="#Bagging-and-other-ensemble-methods" class="headerlink" title="Bagging and other ensemble methods"></a>Bagging and other ensemble methods</h4><ul>
+<li><p>Bagging is a technique for reducing generalization error by combining several models. The idea is to train several different models separately, then have all the models vote on the output for the test examples.</p>
+</li>
+<li><p>Consider for example a set of k regression models. </p>
+<p><img src="https://i.imgur.com/iYwBFPy.png" alt="image-20201007211337587"></p>
+</li>
+</ul>
+<h4 id="Adversarial-Training"><a href="#Adversarial-Training" class="headerlink" title="Adversarial Training"></a>Adversarial Training</h4><p><a href="https://www.youtube.com/watch?v=CIfsB_EYsVI&amp;t=1348s" target="_blank" rel="noopener">https://www.youtube.com/watch?v=CIfsB_EYsVI&amp;t=1348s</a></p>
+<ul>
+<li><p>You want to make some data that will have very low performance (fool the network). This is actually an easy task to do.</p>
+</li>
+<li><p>It is because attacking a linear model is simple.</p>
+</li>
+<li><p>Modern deep nets are very piecewise linear.</p>
+</li>
+<li><p>The fast gradient sign method is very popular to generate the adversarial examples:</p>
+<ul>
+<li><p><img src="https://i.imgur.com/fmj0gfv.png" alt="image-20201006221107960"></p>
+<p>这里用到了sign gradient，含义是如果往一个$\delta J(x)/\delta x_i$的值是正的，那么sign()以后的值就为1</p>
+</li>
+<li><p>Adversarial examples are not noise</p>
+</li>
+<li><p>Cross-technique transferability allows you to use the adversarial examples developed on your own training algorithms to fool others’ network</p>
+</li>
+<li><p><img src="https://i.imgur.com/QaeIWpx.png" alt="image-20201006221706173"></p>
+</li>
+<li><p>If you impose this adversarial attack on the autonomous vehicles, you can fool them to think the passengers as navigable road, which is super-dangerous!</p>
+</li>
+<li><p>Training on adversarial examples can help.</p>
+</li>
+<li><p>Another technique is called virtual adversarial training.</p>
+<p><img src="https://i.imgur.com/eIXw2Y9.png" alt="image-20201006232114148"></p>
+</li>
+<li><p>Adversarial training method can also be applied to universal engineering machine. We can make new inventions by finding input that maximizes model’s predicted performance.</p>
+</li>
+<li><p>Conclusion:</p>
+<ul>
+<li>Attacking is easy.</li>
+<li>Defending is difficult.</li>
+</ul>
+</li>
+<li><p>Open-source library cleverhans:</p>
+<p><img src="https://i.imgur.com/lOACxn9.png" alt="image-20201006232543162"></p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="Deep-learning-training-tips"><a href="#Deep-learning-training-tips" class="headerlink" title="Deep learning training tips"></a>Deep learning training tips</h3><h4 id="testing-the-result-on-training-data-set"><a href="#testing-the-result-on-training-data-set" class="headerlink" title="testing the result on training data set"></a>testing the result on training data set</h4><p>deeper does not imply better</p>
+<h4 id="Vanishing-gradient-problem"><a href="#Vanishing-gradient-problem" class="headerlink" title="Vanishing gradient problem"></a>Vanishing gradient problem</h4><ul>
+<li><p>near input: </p>
+<ul>
+<li>smaller gradients</li>
+<li>learn very slow</li>
+<li>almost random</li>
+</ul>
+</li>
+<li><p>near output:</p>
+<ul>
+<li>larger gradients</li>
+<li>learn very fast</li>
+<li>already converge</li>
+</ul>
+</li>
+<li><p>use relu, not sigmoid</p>
+<ul>
+<li>relu: a thinner linear network, do not have smaller gradients</li>
+<li>sigmoid: vanishing gradient</li>
+<li>some variations of relu: leaky relu, parametric relu, maxout(learnable activation function)</li>
+</ul>
+</li>
+<li>maxout:<ul>
+<li>activation function in maxout network can be any piecewise linear convex function</li>
+<li>how many pieces depending on how many elements in a group</li>
+<li>how to train: train a thin and linear network. Different thin and linear network for different examples</li>
+</ul>
+</li>
+</ul>
+<h4 id="Adaptive-learning-rate"><a href="#Adaptive-learning-rate" class="headerlink" title="Adaptive learning rate"></a>Adaptive learning rate</h4><ul>
+<li><p>adagrad:  we give smaller learning rate when the historical gradients are large. 陡峭的地方一直陡峭，平坦的地方一直平坦。</p>
+</li>
+<li><p>rmsprop: <img src="https://i.imgur.com/LNCucfD.png" alt="image-20200926124712058"></p>
+<p>新看到的gradient比较大的weight，过去的gradient给比较小的weight。</p>
+</li>
+</ul>
+<h4 id="Hard-to-find-optimal-network-parameters"><a href="#Hard-to-find-optimal-network-parameters" class="headerlink" title="Hard to find optimal network parameters"></a>Hard to find optimal network parameters</h4><ul>
+<li>very slow at the plateau </li>
+<li>stuck at saddle point</li>
+<li>stuck at local minima</li>
+</ul>
+<h4 id="Momentum"><a href="#Momentum" class="headerlink" title="Momentum"></a>Momentum</h4><ul>
+<li><p>Intuition from the  physical world: how about put momentum phenomenon into gradient descent</p>
+</li>
+<li><p>Momentum: movement of last step minus gradient at present (惯性)</p>
+<p><img src="https://i.imgur.com/sPcQhSt.png" alt="image-20200926171450571"></p>
+</li>
+<li><p>Movement = negative of gradient + Momentum</p>
+</li>
+</ul>
+<h4 id="Adam"><a href="#Adam" class="headerlink" title="Adam"></a>Adam</h4><p>Combining rmsprop and momentum</p>
+<h4 id="Regularization-1"><a href="#Regularization-1" class="headerlink" title="Regularization"></a>Regularization</h4><ul>
+<li>new loss function to be minimized</li>
+<li>L1 regularization: always delete</li>
+<li>L2 regularization: always scale</li>
+</ul>
+<h4 id="Early-stopping-1"><a href="#Early-stopping-1" class="headerlink" title="Early stopping"></a>Early stopping</h4><h4 id="Dropout-1"><a href="#Dropout-1" class="headerlink" title="Dropout"></a>Dropout</h4><ul>
+<li><p>training: each time before updating the parameter:</p>
+<ul>
+<li>each neuron has p% to dropout</li>
+</ul>
+</li>
+<li><p>Intuitive reason:</p>
+<ul>
+<li>when teams up, if everyone expect the partner will do the work, nothing will be done finally.</li>
+<li>However, if you know your partner will dropout, you will do better.</li>
+<li>When testing, no one dropout actually, so obtaining good results eventually.</li>
+</ul>
+</li>
+<li><p>Why the weights should multiply (1-p)% (dropout rate) when testing?</p>
+<ul>
+<li><p>Assume dropout rate is 50%:</p>
+<p><img src="https://i.imgur.com/RG4CQJq.png" alt="image-20200926191233011"></p>
+</li>
+</ul>
+</li>
+</ul>
+
       
     </div>
 
@@ -780,7 +1018,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">30</span>
+                <span class="site-state-item-count">33</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -855,7 +1093,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Numerical-computation"><span class="nav-number">1.</span> <span class="nav-text">Numerical computation</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Directional-derivative"><span class="nav-number">1.1.</span> <span class="nav-text">Directional derivative</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Choose-step-size-in-different-ways"><span class="nav-number">1.2.</span> <span class="nav-text">Choose step  size in different ways</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Beyond-the-gradient-Jacobian-and-Hessian-Matrices"><span class="nav-number">2.</span> <span class="nav-text">Beyond the gradient: Jacobian and Hessian Matrices</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Condition-number-of-the-Hessian-matrix"><span class="nav-number">2.1.</span> <span class="nav-text">Condition number of the Hessian matrix</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Newton’s-method"><span class="nav-number">2.2.</span> <span class="nav-text">Newton’s method</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Numerical-Precision-a-deep-earning-super-kill"><span class="nav-number">2.3.</span> <span class="nav-text">Numerical Precision: a deep earning super kill</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Machine-learning-basics"><span class="nav-number">3.</span> <span class="nav-text">Machine learning basics</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Different-tasks-of-machine-learning"><span class="nav-number">3.1.</span> <span class="nav-text">Different tasks of machine learning</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#The-performance-measure-P"><span class="nav-number">3.2.</span> <span class="nav-text">The performance measure P</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#The-experience-E"><span class="nav-number">3.3.</span> <span class="nav-text">The experience E</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Generalization"><span class="nav-number">3.4.</span> <span class="nav-text">Generalization</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Occam’s-razor"><span class="nav-number">3.5.</span> <span class="nav-text">Occam’s razor</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Vapnik-Chervonenkis-dimension"><span class="nav-number">3.6.</span> <span class="nav-text">Vapnik-Chervonenkis dimension</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Regularization"><span class="nav-number">3.7.</span> <span class="nav-text">Regularization</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Validation-set-and-hyperparameters"><span class="nav-number">3.8.</span> <span class="nav-text">Validation set and hyperparameters</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Statistics-theory-basic"><span class="nav-number">3.9.</span> <span class="nav-text">Statistics theory basic</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Maximum-likelihood-estimation"><span class="nav-number">3.10.</span> <span class="nav-text">Maximum likelihood estimation</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Stochastic-gradient-descent"><span class="nav-number">3.11.</span> <span class="nav-text">Stochastic gradient descent</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Challenges-motivating-deep-learning"><span class="nav-number">3.12.</span> <span class="nav-text">Challenges motivating deep learning</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Local-constancy-and-smoothness-regularization"><span class="nav-number">3.13.</span> <span class="nav-text">Local constancy and smoothness regularization</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Manifold-learning"><span class="nav-number">3.14.</span> <span class="nav-text">Manifold learning</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Numerical-computation"><span class="nav-number">1.</span> <span class="nav-text">Numerical computation</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Directional-derivative"><span class="nav-number">1.1.</span> <span class="nav-text">Directional derivative</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Choose-step-size-in-different-ways"><span class="nav-number">1.2.</span> <span class="nav-text">Choose step  size in different ways</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Beyond-the-gradient-Jacobian-and-Hessian-Matrices"><span class="nav-number">2.</span> <span class="nav-text">Beyond the gradient: Jacobian and Hessian Matrices</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Condition-number-of-the-Hessian-matrix"><span class="nav-number">2.1.</span> <span class="nav-text">Condition number of the Hessian matrix</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Newton’s-method"><span class="nav-number">2.2.</span> <span class="nav-text">Newton’s method</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Numerical-Precision-a-deep-earning-super-kill"><span class="nav-number">2.3.</span> <span class="nav-text">Numerical Precision: a deep earning super kill</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Machine-learning-basics"><span class="nav-number">3.</span> <span class="nav-text">Machine learning basics</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Different-tasks-of-machine-learning"><span class="nav-number">3.1.</span> <span class="nav-text">Different tasks of machine learning</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#The-performance-measure-P"><span class="nav-number">3.2.</span> <span class="nav-text">The performance measure P</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#The-experience-E"><span class="nav-number">3.3.</span> <span class="nav-text">The experience E</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Generalization"><span class="nav-number">3.4.</span> <span class="nav-text">Generalization</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Occam’s-razor"><span class="nav-number">3.5.</span> <span class="nav-text">Occam’s razor</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Vapnik-Chervonenkis-dimension"><span class="nav-number">3.6.</span> <span class="nav-text">Vapnik-Chervonenkis dimension</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Regularization"><span class="nav-number">3.7.</span> <span class="nav-text">Regularization</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Validation-set-and-hyperparameters"><span class="nav-number">3.8.</span> <span class="nav-text">Validation set and hyperparameters</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Statistics-theory-basic"><span class="nav-number">3.9.</span> <span class="nav-text">Statistics theory basic</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Maximum-likelihood-estimation"><span class="nav-number">3.10.</span> <span class="nav-text">Maximum likelihood estimation</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Stochastic-gradient-descent"><span class="nav-number">3.11.</span> <span class="nav-text">Stochastic gradient descent</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Challenges-motivating-deep-learning"><span class="nav-number">3.12.</span> <span class="nav-text">Challenges motivating deep learning</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Local-constancy-and-smoothness-regularization"><span class="nav-number">3.13.</span> <span class="nav-text">Local constancy and smoothness regularization</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Manifold-learning"><span class="nav-number">3.14.</span> <span class="nav-text">Manifold learning</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deep-Feedforward-Networks"><span class="nav-number">4.</span> <span class="nav-text">Deep Feedforward Networks</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Computational-graph-and-backpropagation"><span class="nav-number">4.1.</span> <span class="nav-text">Computational graph and backpropagation</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Learn-conditional-statistics"><span class="nav-number">4.2.</span> <span class="nav-text">Learn conditional statistics</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Sigmoid-units-for-Bernoulli-Output-distribution"><span class="nav-number">4.3.</span> <span class="nav-text">Sigmoid units for Bernoulli Output distribution:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Softmax-units-for-multinoulli-output-distributions"><span class="nav-number">4.4.</span> <span class="nav-text">Softmax units for multinoulli output distributions</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Regularization-for-deep-learning"><span class="nav-number">5.</span> <span class="nav-text">Regularization for deep learning</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#L2-normalization"><span class="nav-number">5.1.</span> <span class="nav-text">L2 normalization</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Early-stopping"><span class="nav-number">5.2.</span> <span class="nav-text">Early stopping</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#parameter-sharing"><span class="nav-number">5.3.</span> <span class="nav-text">parameter sharing</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Dropout"><span class="nav-number">5.4.</span> <span class="nav-text">Dropout</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Sparse-Representations"><span class="nav-number">5.5.</span> <span class="nav-text">Sparse Representations</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Bagging-and-other-ensemble-methods"><span class="nav-number">5.6.</span> <span class="nav-text">Bagging and other ensemble methods</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Adversarial-Training"><span class="nav-number">5.7.</span> <span class="nav-text">Adversarial Training</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deep-learning-training-tips"><span class="nav-number">6.</span> <span class="nav-text">Deep learning training tips</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#testing-the-result-on-training-data-set"><span class="nav-number">6.1.</span> <span class="nav-text">testing the result on training data set</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Vanishing-gradient-problem"><span class="nav-number">6.2.</span> <span class="nav-text">Vanishing gradient problem</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Adaptive-learning-rate"><span class="nav-number">6.3.</span> <span class="nav-text">Adaptive learning rate</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Hard-to-find-optimal-network-parameters"><span class="nav-number">6.4.</span> <span class="nav-text">Hard to find optimal network parameters</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Momentum"><span class="nav-number">6.5.</span> <span class="nav-text">Momentum</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Adam"><span class="nav-number">6.6.</span> <span class="nav-text">Adam</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Regularization-1"><span class="nav-number">6.7.</span> <span class="nav-text">Regularization</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Early-stopping-1"><span class="nav-number">6.8.</span> <span class="nav-text">Early stopping</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Dropout-1"><span class="nav-number">6.9.</span> <span class="nav-text">Dropout</span></a></li></ol></li></ol></div>
             
 
           </div>
