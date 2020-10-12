@@ -1,0 +1,1263 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="study,">
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0">
+
+
+
+
+
+
+<meta name="description" content="Counter example related to slutsky’s theorem">
+<meta name="keywords" content="study">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Statistics theory">
+<meta property="og:url" content="http://yoursite.com/2019/07/11/basic stat copy/index.html">
+<meta property="og:site_name" content="Kehui&#39;s Blog">
+<meta property="og:description" content="Counter example related to slutsky’s theorem">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://i.imgur.com/kmUzblB.png">
+<meta property="og:image" content="https://i.imgur.com/9bQkadi.png">
+<meta property="og:image" content="https://i.imgur.com/WRnum7N.png">
+<meta property="og:image" content="https://i.imgur.com/sCBcseC.png">
+<meta property="og:image" content="https://i.imgur.com/U2RmUOM.png">
+<meta property="og:image" content="https://i.imgur.com/GBgcAHI.png">
+<meta property="og:image" content="https://i.loli.net/2020/07/22/4Cj5PtqbEHVWhN7.jpg">
+<meta property="og:image" content="https://i.imgur.com/xxWDzr9.png">
+<meta property="og:image" content="https://i.loli.net/2020/07/22/4jAkvP1feBDwlcq.jpg">
+<meta property="og:image" content="https://i.loli.net/2020/07/22/XqaukWU7BLF9G5g.jpg">
+<meta property="og:image" content="https://i.loli.net/2020/07/22/49tfWk8ucivoTm5.jpg">
+<meta property="og:image" content="https://i.imgur.com/h64IIUg.png">
+<meta property="og:image" content="https://i.imgur.com/F93UGwt.png">
+<meta property="og:image" content="https://i.imgur.com/2I8hZTU.png">
+<meta property="og:image" content="https://i.imgur.com/DcJXcA0.png">
+<meta property="og:image" content="https://i.imgur.com/baUwPJq.png">
+<meta property="og:image" content="https://i.imgur.com/Lxqw1nc.png">
+<meta property="og:image" content="https://i.imgur.com/e9FXxy8.png">
+<meta property="og:image" content="https://i.imgur.com/JtMkCUl.png">
+<meta property="og:image" content="https://i.imgur.com/jv8lPHO.png">
+<meta property="og:image" content="https://i.imgur.com/Z2olLvy.png">
+<meta property="og:image" content="https://i.imgur.com/HaykPq5.png">
+<meta property="og:image" content="https://i.imgur.com/4kjQ2DQ.png">
+<meta property="og:image" content="https://i.imgur.com/A1Zf46R.png">
+<meta property="og:image" content="https://i.imgur.com/GDJi6r8.png">
+<meta property="og:image" content="https://i.imgur.com/Jtf9Q7A.png">
+<meta property="og:image" content="https://i.imgur.com/92XtH7X.png">
+<meta property="og:image" content="https://i.imgur.com/yyqhP4K.png">
+<meta property="og:image" content="https://i.imgur.com/cLqoOZw.png">
+<meta property="og:image" content="https://i.imgur.com/w4Hjt07.png">
+<meta property="og:image" content="https://i.imgur.com/mwpnrVE.png">
+<meta property="og:image" content="https://i.imgur.com/XE1CvwX.png">
+<meta property="og:image" content="https://i.imgur.com/o79lJqz.png">
+<meta property="og:image" content="https://i.imgur.com/FKX02zo.png">
+<meta property="og:image" content="https://i.imgur.com/gPdR263.png">
+<meta property="og:image" content="https://i.imgur.com/jItMaQd.png">
+<meta property="og:image" content="https://i.imgur.com/nAhvISE.png">
+<meta property="og:image" content="https://i.imgur.com/xvkVnDp.png">
+<meta property="og:image" content="https://i.imgur.com/eGiAxnx.png">
+<meta property="og:image" content="https://i.imgur.com/F5rShy4.png">
+<meta property="og:image" content="https://i.imgur.com/Brfj30X.png">
+<meta property="og:image" content="https://i.imgur.com/zKwof6Z.png">
+<meta property="og:image" content="https://i.imgur.com/G2ga3RT.png">
+<meta property="og:image" content="https://i.imgur.com/kbeRFnO.png">
+<meta property="og:image" content="https://i.imgur.com/TDXLl08.png">
+<meta property="og:image" content="https://i.imgur.com/ItAS6Gz.png">
+<meta property="og:image" content="https://i.imgur.com/xbWavUp.png">
+<meta property="og:image" content="https://i.imgur.com/rZ7Gm1y.png">
+<meta property="og:image" content="https://i.imgur.com/SmAnGyc.png">
+<meta property="og:image" content="https://i.imgur.com/Qxo4xYI.png">
+<meta property="og:image" content="https://i.imgur.com/CXtaqjj.png">
+<meta property="og:image" content="https://i.imgur.com/yvD2MgO.png">
+<meta property="og:image" content="https://i.imgur.com/3v4vkTJ.png">
+<meta property="og:image" content="https://i.imgur.com/18OaeBj.png">
+<meta property="og:image" content="https://i.imgur.com/ZpnBxCQ.png">
+<meta property="og:image" content="https://i.imgur.com/85dhr56.png">
+<meta property="og:image" content="https://i.imgur.com/zoQ6jkm.png">
+<meta property="og:image" content="https://i.imgur.com/cx0GG4B.png">
+<meta property="og:image" content="https://i.imgur.com/jmB8Xv9.png">
+<meta property="og:image" content="https://i.imgur.com/nWX8eP1.png">
+<meta property="og:image" content="https://i.imgur.com/O3SaXGr.png">
+<meta property="og:image" content="https://i.imgur.com/q6yHOMG.png">
+<meta property="og:image" content="https://i.imgur.com/4qDBvZL.png">
+<meta property="og:image" content="https://i.imgur.com/NO8Apbz.png">
+<meta property="og:image" content="https://i.imgur.com/F9f1pyz.png">
+<meta property="og:image" content="https://i.imgur.com/gFSPfh6.png">
+<meta property="og:image" content="https://i.imgur.com/UdgFAsh.png">
+<meta property="og:image" content="https://i.imgur.com/Hphd23U.png">
+<meta property="og:image" content="https://i.imgur.com/Ay84lL4.png">
+<meta property="og:image" content="https://i.imgur.com/b2bEuJO.png">
+<meta property="og:image" content="https://i.imgur.com/c2Fdh5R.png">
+<meta property="og:image" content="https://i.imgur.com/8OCzSh1.png">
+<meta property="og:image" content="https://i.imgur.com/5tzeK7Y.png">
+<meta property="og:image" content="https://i.imgur.com/IPsDoYa.png">
+<meta property="og:image" content="https://i.imgur.com/89K9VLG.png">
+<meta property="og:image" content="https://i.imgur.com/34lCggt.png">
+<meta property="og:image" content="https://i.imgur.com/WvOCsIE.png">
+<meta property="og:image" content="https://i.imgur.com/LV3Wl9u.png">
+<meta property="og:image" content="https://i.imgur.com/MQXq0z1.png">
+<meta property="og:image" content="https://i.imgur.com/IQND2QY.png">
+<meta property="og:image" content="https://i.imgur.com/kFQHo0C.png">
+<meta property="og:image" content="https://i.imgur.com/PIkLko8.png">
+<meta property="og:image" content="https://i.imgur.com/SMnDeRE.png">
+<meta property="og:image" content="https://i.imgur.com/BGefvjJ.png">
+<meta property="og:image" content="https://i.imgur.com/AZbyxqE.png">
+<meta property="og:image" content="https://i.imgur.com/Y0uwBm6.png">
+<meta property="og:image" content="https://i.imgur.com/MopoUQn.png">
+<meta property="og:image" content="https://i.imgur.com/LO6DHeC.png">
+<meta property="og:image" content="https://i.imgur.com/pzJMh38.png">
+<meta property="og:image" content="https://i.imgur.com/nFAGSfC.png">
+<meta property="og:image" content="https://i.imgur.com/YPhRyJs.png">
+<meta property="og:image" content="https://i.imgur.com/tQi92BT.png">
+<meta property="og:image" content="https://i.imgur.com/BMEYejI.png">
+<meta property="og:image" content="https://i.imgur.com/ZFIjfCF.png">
+<meta property="og:image" content="https://i.imgur.com/Ix79lHc.png">
+<meta property="og:image" content="https://i.imgur.com/BGeWr57.png">
+<meta property="og:image" content="https://i.imgur.com/Yhqb35z.png">
+<meta property="og:image" content="https://i.imgur.com/2FXIvog.png">
+<meta property="og:image" content="https://i.imgur.com/dmqItGS.png">
+<meta property="og:image" content="https://i.imgur.com/JeU0Eux.png">
+<meta property="og:image" content="https://i.imgur.com/AwWMZuY.png">
+<meta property="og:image" content="https://i.imgur.com/T6XgJVO.png">
+<meta property="og:image" content="https://i.imgur.com/BdsvPho.png">
+<meta property="og:image" content="https://i.imgur.com/JgGbw6D.png">
+<meta property="og:image" content="https://i.imgur.com/dRKRiMn.png">
+<meta property="og:image" content="http://yoursite.com/Users/kehuiyao/Library/Application%20Support/typora-user-images/image-20200805110132223.png">
+<meta property="og:image" content="https://i.imgur.com/pfhp0V3.png">
+<meta property="og:image" content="https://i.imgur.com/45LDTon.png">
+<meta property="og:image" content="https://i.imgur.com/NAbmCzR.png">
+<meta property="og:image" content="https://i.imgur.com/5R6tqlV.png">
+<meta property="og:image" content="https://i.imgur.com/NU8nACj.png">
+<meta property="og:image" content="https://i.imgur.com/x34LN5J.png">
+<meta property="og:image" content="https://i.imgur.com/4cg6QMV.png">
+<meta property="og:image" content="https://i.imgur.com/gDwHkIf.png">
+<meta property="og:image" content="https://i.imgur.com/Q63hULW.jpg">
+<meta property="og:image" content="https://i.imgur.com/VfeiWZj.png">
+<meta property="og:image" content="https://i.imgur.com/emN0xll.jpg">
+<meta property="og:image" content="https://i.imgur.com/shE26Xv.png">
+<meta property="og:image" content="https://i.imgur.com/8K0RWLr.png">
+<meta property="og:image" content="https://i.imgur.com/SeO7jli.png">
+<meta property="og:image" content="https://i.imgur.com/tuWDmTp.png">
+<meta property="og:image" content="https://i.imgur.com/9bCVL3M.png">
+<meta property="og:image" content="https://i.imgur.com/Eqv29yT.png">
+<meta property="og:image" content="https://i.imgur.com/7FFMGtM.png">
+<meta property="og:image" content="https://i.imgur.com/Jyom4Qr.png">
+<meta property="og:image" content="https://i.imgur.com/L6oxAHo.png">
+<meta property="og:image" content="https://i.imgur.com/mYLilUU.png">
+<meta property="og:image" content="https://i.imgur.com/cQjHLvk.png">
+<meta property="og:image" content="https://i.imgur.com/UAn66wW.png">
+<meta property="og:image" content="https://i.imgur.com/UEMLqrc.png">
+<meta property="og:image" content="https://i.imgur.com/59qtXLh.png">
+<meta property="og:image" content="https://i.imgur.com/TEiMF4N.png">
+<meta property="og:image" content="https://i.imgur.com/akx3weu.png">
+<meta property="og:image" content="https://i.imgur.com/mr4v6cu.png">
+<meta property="og:image" content="https://i.imgur.com/9ILQRDc.png">
+<meta property="og:image" content="http://yoursite.com/Users/kehuiyao/Library/Application%20Support/typora-user-images/image-20200820145427662.png">
+<meta property="og:image" content="https://i.imgur.com/hmJaYRq.png">
+<meta property="og:image" content="https://i.imgur.com/yKnHsVQ.png">
+<meta property="og:image" content="https://i.imgur.com/h7B91O5.png">
+<meta property="og:image" content="https://i.imgur.com/kIVOinT.png">
+<meta property="og:image" content="https://i.imgur.com/eOdn20N.png">
+<meta property="og:image" content="https://i.imgur.com/rWs6r0r.png">
+<meta property="og:image" content="https://i.imgur.com/B0403CE.png">
+<meta property="og:image" content="https://i.imgur.com/LOqc2rj.png">
+<meta property="og:image" content="https://i.imgur.com/WxvCOcj.png">
+<meta property="og:image" content="https://i.imgur.com/kaScUBU.png">
+<meta property="og:image" content="https://i.imgur.com/QLIAFjG.png">
+<meta property="og:image" content="https://i.imgur.com/ihg1i45.png">
+<meta property="og:image" content="https://i.imgur.com/A6VhvFH.png">
+<meta property="og:image" content="https://i.imgur.com/lS5aPup.png">
+<meta property="og:image" content="https://i.imgur.com/1pAlQIS.png">
+<meta property="og:image" content="https://i.imgur.com/pBYDOR6.png">
+<meta property="og:image" content="https://i.imgur.com/viF15Kn.png">
+<meta property="og:image" content="https://i.imgur.com/1H2x0jC.png">
+<meta property="og:image" content="https://i.imgur.com/T4LKXKQ.png">
+<meta property="og:image" content="https://i.imgur.com/MEPW2AK.png">
+<meta property="og:image" content="https://i.imgur.com/8Ep6uKQ.png">
+<meta property="og:image" content="https://i.imgur.com/eUu4oCE.png">
+<meta property="og:image" content="https://i.imgur.com/hHQikWf.png">
+<meta property="og:image" content="https://i.imgur.com/sLzDuJC.png">
+<meta property="og:image" content="https://i.imgur.com/xDhzxjF.png">
+<meta property="og:image" content="https://i.imgur.com/aMqln4u.png">
+<meta property="og:image" content="https://i.imgur.com/oXd1oYt.png">
+<meta property="og:image" content="https://i.imgur.com/wzGAsP4.png">
+<meta property="og:image" content="https://i.imgur.com/qDXP7Q7.png">
+<meta property="og:image" content="https://i.imgur.com/54MaYy5.png">
+<meta property="og:updated_time" content="2020-08-21T03:02:56.630Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Statistics theory">
+<meta name="twitter:description" content="Counter example related to slutsky’s theorem">
+<meta name="twitter:image" content="https://i.imgur.com/kmUzblB.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"always","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/07/11/basic stat copy/">
+
+
+
+
+
+  <title> Statistics theory | Kehui's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Kehui's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">For Kevin Durant</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/11/basic stat copy/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kehui Yao">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kehui's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Statistics theory
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-07-11T00:29:15-05:00">
+                2019-07-11
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Post modified</span>
+              
+              <time title="Post modified" itemprop="dateModified" datetime="2020-08-20T22:02:56-05:00">
+                2020-08-20
+              </time>
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="Counter-example-related-to-slutsky’s-theorem"><a href="#Counter-example-related-to-slutsky’s-theorem" class="headerlink" title="Counter example related to slutsky’s theorem"></a>Counter example related to slutsky’s theorem</h4><p><img src="https://i.imgur.com/kmUzblB.png" alt="image-20200804110715498"></p>
+<a id="more"></a>
+<h4 id="Normal-distribution-written-in-exponential-family-form"><a href="#Normal-distribution-written-in-exponential-family-form" class="headerlink" title="Normal distribution written in exponential family form"></a>Normal distribution written in exponential family form</h4><p><img src="https://i.imgur.com/9bQkadi.png" alt="image-20200808230114972"></p>
+<h4 id="Ancillary-precision-how-ancillary-statistics-helps-when-estimating-theta"><a href="#Ancillary-precision-how-ancillary-statistics-helps-when-estimating-theta" class="headerlink" title="Ancillary precision (how ancillary statistics helps when estimating $\theta$)"></a>Ancillary precision (how ancillary statistics helps when estimating $\theta$)</h4><p><img src="https://i.imgur.com/WRnum7N.png" alt="image-20200808232204111"></p>
+<p><img src="https://i.imgur.com/sCBcseC.png" alt="image-20200808232220253"></p>
+<p><img src="https://i.imgur.com/U2RmUOM.png" alt="image-20200808232234866"></p>
+<p><img src="https://i.imgur.com/GBgcAHI.png" alt="image-20200808232534895"></p>
+<h4 id="Moments-of-normal-distribution"><a href="#Moments-of-normal-distribution" class="headerlink" title="Moments of normal distribution"></a>Moments of normal distribution</h4><p><img src="https://i.loli.net/2020/07/22/4Cj5PtqbEHVWhN7.jpg" alt="image-20200719230938507"></p>
+<p><img src="https://i.imgur.com/xxWDzr9.png" alt="image-20200803145112498"></p>
+<h4 id="chebyshev’s-inequality"><a href="#chebyshev’s-inequality" class="headerlink" title="chebyshev’s inequality"></a>chebyshev’s inequality</h4><p><img src="https://i.loli.net/2020/07/22/4jAkvP1feBDwlcq.jpg" alt="image-20200720115229399"></p>
+<h4 id="Conditional-distribution-of-multinormal-distribution"><a href="#Conditional-distribution-of-multinormal-distribution" class="headerlink" title="Conditional distribution of multinormal distribution"></a>Conditional distribution of multinormal distribution</h4><p><img src="https://i.loli.net/2020/07/22/XqaukWU7BLF9G5g.jpg" alt="image-20200720002553353"></p>
+<h4 id="Exponential-distribution-gamma-distribution-and-chi-square-distribution"><a href="#Exponential-distribution-gamma-distribution-and-chi-square-distribution" class="headerlink" title="Exponential distribution, gamma distribution and chi-square distribution"></a>Exponential distribution, gamma distribution and chi-square distribution</h4><p><img src="https://i.loli.net/2020/07/22/49tfWk8ucivoTm5.jpg" alt="image-20200722000304062"></p>
+<h4 id="Multiparameters-MLE"><a href="#Multiparameters-MLE" class="headerlink" title="Multiparameters MLE"></a>Multiparameters MLE</h4><p><img src="https://i.imgur.com/h64IIUg.png" alt="image-20200723124721954"></p>
+<p><img src="https://i.imgur.com/F93UGwt.png" alt="image-20200723124731745"></p>
+<p><img src="https://i.imgur.com/2I8hZTU.png" alt="image-20200723124632235"></p>
+<p><img src="https://i.imgur.com/DcJXcA0.png" alt="image-20200723124700323"></p>
+<p><img src="https://i.imgur.com/baUwPJq.png" alt="image-20200723124850893"></p>
+<p><img src="https://i.imgur.com/Lxqw1nc.png" alt="image-20200723124926761"></p>
+<p><img src="https://i.imgur.com/e9FXxy8.png" alt="image-20200723125002238"></p>
+<p>If we have some restrictions on $\theta$, say $\theta &gt; 0$ ，</p>
+<p><img src="https://i.imgur.com/JtMkCUl.png" alt="image-20200723135157947"></p>
+<h4 id="MLE-may-not-be-unique"><a href="#MLE-may-not-be-unique" class="headerlink" title="MLE may not be unique"></a>MLE may not be unique</h4><p><img src="https://i.imgur.com/jv8lPHO.png" alt="image-20200723135637145"></p>
+<h4 id="MLE-in-exponential-family"><a href="#MLE-in-exponential-family" class="headerlink" title="MLE in exponential family"></a>MLE in exponential family</h4><p><img src="https://i.imgur.com/Z2olLvy.png" alt="image-20200723142716742"></p>
+<p><img src="https://i.imgur.com/HaykPq5.png" alt="image-20200723142825756"></p>
+<h4 id="Bayes-estimator"><a href="#Bayes-estimator" class="headerlink" title="Bayes estimator"></a>Bayes estimator</h4><p>Intuition: If $\theta$ is fixed, we want to find a estimator to estimate $\theta$ such that its mse is minimized. Since due to bayesian point of view, our goal becomes:</p>
+<p><img src="https://i.imgur.com/4kjQ2DQ.png" alt="image-20200723145713803"></p>
+<p><img src="https://i.imgur.com/A1Zf46R.png" alt="image-20200723145814434"></p>
+<p><img src="https://i.imgur.com/GDJi6r8.png" alt="image-20200723150147895"></p>
+<h4 id="Proving-the-crammer-rao-lower-bound"><a href="#Proving-the-crammer-rao-lower-bound" class="headerlink" title="Proving the crammer rao lower bound"></a>Proving the crammer rao lower bound</h4><p><img src="https://i.imgur.com/Jtf9Q7A.png" alt="image-20200723221757963"></p>
+<p><img src="https://i.imgur.com/92XtH7X.png" alt="image-20200723221830197"></p>
+<p><img src="https://i.imgur.com/yyqhP4K.png" alt="image-20200723221902753"></p>
+<p><img src="https://i.imgur.com/cLqoOZw.png" alt="image-20200723221936751"></p>
+<h4 id="UMVUE-in-normal-distribution"><a href="#UMVUE-in-normal-distribution" class="headerlink" title="UMVUE in normal distribution"></a>UMVUE in normal distribution</h4><p><img src="https://i.imgur.com/w4Hjt07.png" alt="image-20200723222956747"></p>
+<p><img src="https://i.imgur.com/mwpnrVE.png" alt="image-20200723223139060"></p>
+<h4 id><a href="#" class="headerlink" title=" "></a> </h4><h4 id="Situations-that-the-key-condition-for-crammer-rao-lower-bound-is-violated"><a href="#Situations-that-the-key-condition-for-crammer-rao-lower-bound-is-violated" class="headerlink" title="Situations that the key condition for crammer-rao lower bound is violated."></a>Situations that the key condition for crammer-rao lower bound is violated.</h4><p><img src="https://i.imgur.com/XE1CvwX.png" alt="image-20200723224057735"></p>
+<p><img src="https://i.imgur.com/o79lJqz.png" alt="image-20200723230455565"></p>
+<p><img src="https://i.imgur.com/FKX02zo.png" alt="image-20200723230523126"></p>
+<h4 id="UMVUE-is-uncorrelated-with-all-estimators-which-are-unbiased-to-0"><a href="#UMVUE-is-uncorrelated-with-all-estimators-which-are-unbiased-to-0" class="headerlink" title="UMVUE is uncorrelated with all estimators which are unbiased to 0"></a>UMVUE is uncorrelated with all estimators which are unbiased to 0</h4><p><img src="https://i.imgur.com/gPdR263.png" alt="image-20200724223040517"></p>
+<p><img src="https://i.imgur.com/jItMaQd.png" alt="image-20200724223107646"></p>
+<p><img src="https://i.imgur.com/nAhvISE.png" alt="image-20200724223155943"></p>
+<p>An alternative to Theorem 7.3.20 is that</p>
+<p><img src="https://i.imgur.com/xvkVnDp.png" alt="image-20200725113118840"></p>
+<p><img src="https://i.imgur.com/eGiAxnx.png" alt="image-20200725113202499"></p>
+<h4 id="Example-that-UMVUE-does-not-exist"><a href="#Example-that-UMVUE-does-not-exist" class="headerlink" title="Example that UMVUE does not exist"></a>Example that UMVUE does not exist</h4><p><img src="https://i.imgur.com/F5rShy4.png" alt="image-20200724224008038"></p>
+<p><img src="https://i.imgur.com/Brfj30X.png" alt="image-20200724224501738"></p>
+<p><img src="https://i.imgur.com/zKwof6Z.png" alt="image-20200724224657895"></p>
+<p><img src="https://i.imgur.com/G2ga3RT.png" alt="image-20200724224721455"></p>
+<p><img src="https://i.imgur.com/kbeRFnO.png" alt="image-20200724224939037"></p>
+<h4 id="Lehmann-Scheffe-Theorem"><a href="#Lehmann-Scheffe-Theorem" class="headerlink" title="Lehmann-Scheffe Theorem"></a>Lehmann-Scheffe Theorem</h4><p><img src="https://i.imgur.com/TDXLl08.png" alt="image-20200724230439342"></p>
+<p><img src="https://i.imgur.com/ItAS6Gz.png" alt="image-20200726124827821"></p>
+<h4 id="FInd-a-complete-statistics-in-uniform-distribution"><a href="#FInd-a-complete-statistics-in-uniform-distribution" class="headerlink" title="FInd a complete statistics in uniform distribution"></a>FInd a complete statistics in uniform distribution</h4><p><img src="https://i.imgur.com/xbWavUp.png" alt="image-20200725020418457"></p>
+<p><img src="https://i.imgur.com/rZ7Gm1y.png" alt="image-20200725020626084"></p>
+<p>If we are estimating $g(\theta)$ instead of $\theta$, </p>
+<p><img src="https://i.imgur.com/SmAnGyc.png" alt="image-20200725115905701"></p>
+<p><img src="https://i.imgur.com/Qxo4xYI.png" alt="image-20200725120010372"></p>
+<p><img src="https://i.imgur.com/CXtaqjj.png" alt="image-20200725020832440"></p>
+<p>To show this, intuitively, we can go back to <img src="https://i.imgur.com/yvD2MgO.png" alt="image-20200725020946521"></p>
+<p>Here, we take derivative to $\theta&gt;1$, we can only get the result that $g(t) = 0$ for all $t&gt;1$. </p>
+<p>there  exsits many choices of $g(t)$ to make $g(t) \neq 0$ when $0&lt;t&lt;1$.</p>
+<p>  <img src="https://i.imgur.com/3v4vkTJ.png" alt="image-20200725113944069"></p>
+<p><img src="https://i.imgur.com/18OaeBj.png" alt="image-20200725114305007"></p>
+<p><img src="https://i.imgur.com/ZpnBxCQ.png" alt="image-20200725114445953"></p>
+<p><img src="https://i.imgur.com/85dhr56.png" alt="image-20200725114816359"></p>
+<h4 id="UMVUE-in-poisson-family"><a href="#UMVUE-in-poisson-family" class="headerlink" title="UMVUE in poisson family"></a>UMVUE in poisson family</h4><p><img src="https://i.imgur.com/zoQ6jkm.png" alt="image-20200725120956565"></p>
+<p><img src="https://i.imgur.com/cx0GG4B.png" alt="image-20200725121035951"></p>
+<h4 id="Prove-S-is-not-unbiased-for-sigma"><a href="#Prove-S-is-not-unbiased-for-sigma" class="headerlink" title="Prove S is not unbiased for sigma"></a>Prove S is not unbiased for sigma</h4><p><img src="https://i.imgur.com/jmB8Xv9.png" alt="image-20200725162641622"></p>
+<p><img src="https://i.imgur.com/nWX8eP1.png" alt="image-20200725162707994"></p>
+<p><img src="https://i.imgur.com/O3SaXGr.png" alt="image-20200725162730638"></p>
+<h4 id="UMVUE-in-normal-family"><a href="#UMVUE-in-normal-family" class="headerlink" title="UMVUE in normal family"></a>UMVUE in normal family</h4><p><img src="https://i.imgur.com/q6yHOMG.png" alt="image-20200725162818544"></p>
+<p><img src="https://i.imgur.com/4qDBvZL.png" alt="image-20200725162919977"></p>
+<h4 id="UMVUE-is-exponential-distribution-family"><a href="#UMVUE-is-exponential-distribution-family" class="headerlink" title="UMVUE is exponential distribution family"></a>UMVUE is exponential distribution family</h4><p><img src="https://i.imgur.com/NO8Apbz.png" alt="image-20200725163953882"></p>
+<p><img src="https://i.imgur.com/F9f1pyz.png" alt="image-20200725165010924"></p>
+<p><img src="https://i.imgur.com/gFSPfh6.png" alt="image-20200729105238851"></p>
+<h4 id="UMVUE-in-simple-linear-regression"><a href="#UMVUE-in-simple-linear-regression" class="headerlink" title="UMVUE in simple linear regression"></a>UMVUE in simple linear regression</h4><p><img src="https://i.imgur.com/UdgFAsh.png" alt="image-20200725213847264"></p>
+<p><img src="https://i.imgur.com/Hphd23U.png" alt="image-20200725213955112"></p>
+<p><img src="https://i.imgur.com/Ay84lL4.png" alt="image-20200725220343603"></p>
+<p><img src="https://i.imgur.com/b2bEuJO.png" alt="image-20200725220450337"></p>
+<p><img src="https://i.imgur.com/c2Fdh5R.png" alt="image-20200725220515829"></p>
+<p><img src="https://i.imgur.com/8OCzSh1.png" alt="image-20200725220551988"></p>
+<p><img src="https://i.imgur.com/5tzeK7Y.png" alt="image-20200725220858319"></p>
+<p><img src="https://i.imgur.com/IPsDoYa.png" alt="image-20200725221500193"></p>
+<p><img src="https://i.imgur.com/89K9VLG.png" alt="image-20200725221529577"></p>
+<h4 id="UMP-test-using-Neyman-Pearson-lemma"><a href="#UMP-test-using-Neyman-Pearson-lemma" class="headerlink" title="UMP test using Neyman-Pearson lemma"></a>UMP test using Neyman-Pearson lemma</h4><p><img src="https://i.imgur.com/34lCggt.png" alt="image-20200727145648886"></p>
+<p><img src="https://i.imgur.com/WvOCsIE.png" alt="image-20200727145716157"></p>
+<p><img src="https://i.imgur.com/LV3Wl9u.png" alt="image-20200727152539567"></p>
+<p><img src="https://i.imgur.com/MQXq0z1.png" alt="image-20200727152612318"></p>
+<p><img src="https://i.imgur.com/IQND2QY.png" alt="image-20200727152917412"></p>
+<h4 id="Existence-of-UMP-without-monotone-likelihood-ratio"><a href="#Existence-of-UMP-without-monotone-likelihood-ratio" class="headerlink" title="Existence of UMP without monotone likelihood ratio"></a>Existence of UMP without monotone likelihood ratio</h4><p><img src="https://i.imgur.com/kFQHo0C.png" alt="image-20200727214457258"></p>
+<p><img src="https://i.imgur.com/PIkLko8.png" alt="image-20200727214517705"></p>
+<p><img src="https://i.imgur.com/SMnDeRE.png" alt="image-20200727214541828"></p>
+<h4 id="How-to-show-the-UMP-test-does-not-exist"><a href="#How-to-show-the-UMP-test-does-not-exist" class="headerlink" title="How to show the UMP test does not exist"></a>How to show the UMP test does not exist</h4><p><img src="https://i.imgur.com/BGefvjJ.png" alt="image-20200727215052207"></p>
+<p><img src="https://i.imgur.com/AZbyxqE.png" alt="image-20200727215128059"></p>
+<h4 id="UMPU-test-in-exponential-family"><a href="#UMPU-test-in-exponential-family" class="headerlink" title="UMPU test in exponential family"></a>UMPU test in exponential family</h4><p><img src="https://i.imgur.com/Y0uwBm6.png" alt="image-20200727230331011"></p>
+<h4 id="Definition-of-the-p-value"><a href="#Definition-of-the-p-value" class="headerlink" title="Definition of the p-value"></a>Definition of the p-value</h4><p><img src="https://i.imgur.com/MopoUQn.png" alt="image-20200727231203741"></p>
+<h4 id="Definition-of-confidence-coefficient"><a href="#Definition-of-confidence-coefficient" class="headerlink" title="Definition of confidence coefficient"></a>Definition of confidence coefficient</h4><p><img src="https://i.imgur.com/LO6DHeC.png" alt="image-20200727233541210"></p>
+<h4 id="Confidence-sets-by-inverting-test-statistics"><a href="#Confidence-sets-by-inverting-test-statistics" class="headerlink" title="Confidence sets by inverting test statistics"></a>Confidence sets by inverting test statistics</h4><p>Inverting the acceptance region of the test will give us the confidence set.</p>
+<p>Inverting the acceptance region of the UMP test will give us the UMA confidence interval.</p>
+<p>Inverting the acceptance region of the UMPU test will give us the UMAU confidence interval.</p>
+<p><img src="https://i.imgur.com/pzJMh38.png" alt="image-20200728113548862"></p>
+<h4 id="Pivoting-cdf’s"><a href="#Pivoting-cdf’s" class="headerlink" title="Pivoting cdf’s"></a>Pivoting cdf’s</h4><p><img src="https://i.imgur.com/nFAGSfC.png" alt="image-20200728110924052"></p>
+<p><img src="https://i.imgur.com/YPhRyJs.png" alt="image-20200728112039598"></p>
+<p><img src="https://i.imgur.com/tQi92BT.png" alt="image-20200728112055489"></p>
+<h4 id="Inverting-test-to-obtain-confidence-intervals"><a href="#Inverting-test-to-obtain-confidence-intervals" class="headerlink" title="Inverting test to obtain confidence intervals"></a>Inverting test to obtain confidence intervals</h4><ul>
+<li><p>Invert the acceptance region of a level $\alpha$ test. This test can be one sided test, one sided UMP test or LRT or two-sided test, two-sided UMPU test.</p>
+<p><img src="https://i.imgur.com/BMEYejI.png" alt="image-20200804213306450"></p>
+<p><img src="https://i.imgur.com/ZFIjfCF.png" alt="image-20200804213312747"></p>
+</li>
+<li><p>Construct a one-sided test if you only want a lower or upper bound. For example, construct $H_0:\theta = \theta_0$ $H_1:\theta&gt;\theta_0$, will give a lower bound for $\theta$ if it has an MLR.</p>
+</li>
+<li><p>Intuitively, when when you are testing the above hypothesis, when T is given and $\theta_0$ is unknown, you can try different $\theta_0$ and to see if T still falls in the acceptance region. Naturally, you can push $\theta_0$ to the leftmost point until at a point the $T$ falls into the rejection region(which is determined by $\theta_0$). That’s why it also requires MLR holds.</p>
+</li>
+<li><p>Example:</p>
+<p><img src="https://i.imgur.com/Ix79lHc.png" alt="image-20200804205855240"></p>
+<p><img src="https://i.imgur.com/BGeWr57.png" alt="image-20200804205914639"></p>
+</li>
+</ul>
+<p>This family has MLR obviously.</p>
+<p>here m(p) is like the leftmost point of the rejection region, so y should always fall into the acceptance region, which satisfy that $y \leq m(p)$ holds at any time.</p>
+<h4 id="Pivotal-quantity-to-obtain-the-confidence-interval"><a href="#Pivotal-quantity-to-obtain-the-confidence-interval" class="headerlink" title="Pivotal quantity to obtain the confidence interval"></a>Pivotal quantity to obtain the confidence interval</h4><ul>
+<li><p>Pivot a cdf.</p>
+<p><img src="https://i.imgur.com/Yhqb35z.png" alt="image-20200804212616161"></p>
+<p><img src="https://i.imgur.com/2FXIvog.png" alt="image-20200804212628012"></p>
+</li>
+</ul>
+<h4 id="Shortest-length-confidence-interval"><a href="#Shortest-length-confidence-interval" class="headerlink" title="Shortest length confidence interval"></a>Shortest length confidence interval</h4><p><img src="https://i.imgur.com/dmqItGS.png" alt="image-20200804214230382"></p>
+<h4 id="consistent-estimator"><a href="#consistent-estimator" class="headerlink" title="consistent estimator"></a>consistent estimator</h4><p><img src="https://i.imgur.com/JeU0Eux.png" alt="image-20200804220715895"></p>
+<ul>
+<li><p>Example of evaluating directly:</p>
+<p><img src="https://i.imgur.com/AwWMZuY.png" alt="image-20200804220941931"></p>
+</li>
+<li><p>Example of a trick constructing the consistent estimator:</p>
+<p><img src="https://i.imgur.com/T6XgJVO.png" alt="image-20200805000703607"></p>
+<p><img src="https://i.imgur.com/BdsvPho.png" alt="image-20200805000727092"></p>
+<p>The last step uses  the slutsky’s theorem, which I once wrongly thought it’s continuous mapping, theorem,  so pay attention to that.</p>
+</li>
+</ul>
+<p>#### </p>
+<h4 id="Consistency-of-MLE"><a href="#Consistency-of-MLE" class="headerlink" title="Consistency of MLE"></a>Consistency of MLE</h4><p><img src="https://i.imgur.com/JgGbw6D.png" alt="image-20200805002229580"></p>
+<h4 id="MLE-is-asymptotically-efficient"><a href="#MLE-is-asymptotically-efficient" class="headerlink" title="MLE is asymptotically efficient"></a>MLE is asymptotically efficient</h4><p>Which means its asymptotic variance reaches the CR-lower bound.</p>
+<h4 id="Asymptotic-relative-efficiency"><a href="#Asymptotic-relative-efficiency" class="headerlink" title="Asymptotic relative efficiency"></a>Asymptotic relative efficiency</h4><p><img src="https://i.imgur.com/dRKRiMn.png" alt="image-20200805110111298"></p>
+<p><img src="/Users/kehuiyao/Library/Application Support/typora-user-images/image-20200805110132223.png" alt="image-20200805110132223"></p>
+<h4 id="Asymptotic-test"><a href="#Asymptotic-test" class="headerlink" title="Asymptotic test"></a>Asymptotic test</h4><p><img src="https://i.imgur.com/pfhp0V3.png" alt="image-20200805111736101"></p>
+<p><img src="https://i.imgur.com/45LDTon.png" alt="image-20200805111807190"></p>
+<h4 id="Wald-test"><a href="#Wald-test" class="headerlink" title="Wald test"></a>Wald test</h4><p><img src="https://i.imgur.com/NAbmCzR.png" alt="image-20200805112044150"></p>
+<h4 id="Score-test"><a href="#Score-test" class="headerlink" title="Score test"></a>Score test</h4><p><img src="https://i.imgur.com/5R6tqlV.png" alt="image-20200805112643109"></p>
+<h4 id="Wald-test-Score-test-theorem"><a href="#Wald-test-Score-test-theorem" class="headerlink" title="Wald test, Score test theorem"></a>Wald test, Score test theorem</h4><p><img src="https://i.imgur.com/NU8nACj.png" alt="image-20200805112730780"></p>
+<p><img src="https://i.imgur.com/x34LN5J.png" alt="image-20200805112805366"></p>
+<p><img src="https://i.imgur.com/4cg6QMV.png" alt="image-20200805113132298"></p>
+<h4 id="Asymptotic-confidence-sets"><a href="#Asymptotic-confidence-sets" class="headerlink" title="Asymptotic confidence sets"></a>Asymptotic confidence sets</h4><ul>
+<li><p>Asymptotic pivotal quantity:</p>
+<p>Based on CLT and slutsky’s theorem</p>
+<p><img src="https://i.imgur.com/gDwHkIf.png" alt="image-20200805120558239"></p>
+<p>Here, the reason why we can substitute $\sigma^2$ to $S^2$ Is that $S^2$ converges to $\sigma^2$ almost surely.</p>
+</li>
+</ul>
+<h4 id="Qualify-exam-2019"><a href="#Qualify-exam-2019" class="headerlink" title="Qualify exam 2019"></a>Qualify exam 2019</h4><p><img src="https://i.imgur.com/Q63hULW.jpg" alt="image-20200801160026997"></p>
+<ul>
+<li><p>(a): write the pdf in the exponential family form </p>
+<p><img src="https://i.imgur.com/VfeiWZj.png" alt="image-20200801171447814"></p>
+</li>
+<li><p>(d): use lehmann scheffe theorem, find a statistics that is a function of the css that is unbiased of $\theta^2$</p>
+</li>
+<li><p>(e): to calculate ARE, we need to calculate the limiting variance of both estimators. For $X_1/n$, CLT can be used. For MLE, the limiting variance will attain the CR-lower bound, which is $1/I(\theta)$, 要注意的是with respect to 后面的东西放在分子上。</p>
+</li>
+<li><p>(f): apply delta method.</p>
+</li>
+</ul>
+<p><img src="https://i.imgur.com/emN0xll.jpg" alt="image-20200801172858913"></p>
+<ul>
+<li><p>(a): apply CLT directly</p>
+</li>
+<li><p>(b): 把$Y_i - \hat{\mu}$ 拆成$Y_i - \mu + \mu - \hat{\mu}$, 再用slutsky’s theorem。</p>
+</li>
+<li><p>(c): 在(b)的基础上替换$\hat{\sigma^3}$。</p>
+</li>
+<li><p>注意使用LLN的条件只需要E(X)存在，使用CLT的条件还需要方差有限。</p>
+</li>
+<li><p>两个以概率收敛的项相加，得到的也是以概率收敛的。</p>
+</li>
+</ul>
+<h4 id="Qualify-exam-2018"><a href="#Qualify-exam-2018" class="headerlink" title="Qualify exam 2018"></a>Qualify exam 2018</h4><p><img src="https://i.imgur.com/shE26Xv.png" alt="image-20200801181448415"></p>
+<ul>
+<li>(c): Find CSS, and try to do some transformation and make it unbiased. Here our CSS is $log(X_1\cdots X_n)$, we already know that $\bar{X}$ is unbiased  for $\theta$, so naturally, we would like to try transformation $e^{log(X_1 \cdots X_n)/n}$。To ease calculation, we can first derive the distribution of $log(X_1 \cdots X_n) / n$, then do exp transformation.</li>
+<li>(d): MSE  = bias^2 + variance, and UMVUE is unbiased.</li>
+<li>(e): MLE is asymptotically normal, its limiting variance can be obtained by fisher’s information. The other one’s limiting variance requires CLT and delta’s method.</li>
+<li>(f): for $\bar{X}$, use CLT to calculate its limiting variance</li>
+</ul>
+<p><img src="https://i.imgur.com/8K0RWLr.png" alt="image-20200801214106104"></p>
+<ul>
+<li>(a): <img src="https://i.imgur.com/SeO7jli.png" alt="image-20200811223735647"></li>
+<li>(b) remeber <img src="https://i.imgur.com/tuWDmTp.png" alt="image-20200801222048063"></li>
+<li>(b) part (iii): 2log($\frac{H_1}{H_0}$) follows $\chi$ (difference of df), here, it is p(p+1)/2.</li>
+</ul>
+<h4 id="Qualify-exam-2017"><a href="#Qualify-exam-2017" class="headerlink" title="Qualify exam 2017"></a>Qualify exam 2017</h4><p><img src="https://i.imgur.com/9bCVL3M.png" alt="image-20200801222516542"></p>
+<p><img src="https://i.imgur.com/Eqv29yT.png" alt="image-20200801222532011"></p>
+<ul>
+<li>(a) keep in mind 分部积分</li>
+<li>(c) 可以直接用$\theta$是mle的性质，用fisher information计算limiting variance，再用delta method计算$\gamma$的 limiting variance. 也可以不用这个性质，利用CLT和delta method直接计算统计量的limiting variance。</li>
+<li>(d) Wald test, based on (c)问计算得到的mle的limiting variance。<img src="https://i.imgur.com/7FFMGtM.png" alt="image-20200801223737558"></li>
+</ul>
+<p><img src="https://i.imgur.com/Jyom4Qr.png" alt="image-20200801224215640"></p>
+<ul>
+<li><p>(a) (iii): asymptotic normal distribution sometimes gives a asymptotic test and confidence interval</p>
+</li>
+<li><p>(b) (i)  the key is to write</p>
+<p><img src="https://i.imgur.com/L6oxAHo.png" alt="image-20200802011623299"></p>
+<h4 id="Qualify-exam-2016"><a href="#Qualify-exam-2016" class="headerlink" title="Qualify exam 2016"></a>Qualify exam 2016</h4><p><img src="https://i.imgur.com/mYLilUU.png" alt="image-20200802011806930"></p>
+</li>
+</ul>
+<ul>
+<li><p>(b): bayes estimator under squared error loss is the expectation of the posterior distribution of $\theta$.</p>
+</li>
+<li><p>(c): prove the family has an MLR on a test statistic.  Here two important properties. </p>
+</li>
+<li><ol>
+<li>x follow a beta distribution, so -log(x) follows a exponential distribution</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>Sum of -log(xi) follows Gamma(n,$\theta$).</li>
+</ol>
+</li>
+<li>(e): transform from Gamma(n,$\theta$) to Gamma(n,1)</li>
+<li><img src="https://i.imgur.com/cQjHLvk.png" alt="image-20200802014203649"></li>
+</ul>
+<p><img src="https://i.imgur.com/UAn66wW.png" alt="image-20200802014541205"></p>
+<ul>
+<li>(a) the key is to show $\hat{\sigma}$ converges in probability to $\sigma$ by continuous mapping and slutsky’s theorem.</li>
+</ul>
+<h4 id="Qualify-exam-2012"><a href="#Qualify-exam-2012" class="headerlink" title="Qualify exam 2012"></a>Qualify exam 2012</h4><p><img src="https://i.imgur.com/UEMLqrc.png" alt="image-20200802152621486"></p>
+<ul>
+<li>Same problem like the qualify exam 2019</li>
+</ul>
+<p><img src="https://i.imgur.com/59qtXLh.png" alt="image-20200802152741111"></p>
+<ul>
+<li>(a) write the pdf to be an exponential family.</li>
+<li>(b) transformation of the css gives us the UMVUE by Lehmann-Scheffe.</li>
+</ul>
+<h4 id="Qualify-exam-2013"><a href="#Qualify-exam-2013" class="headerlink" title="Qualify exam 2013"></a>Qualify exam 2013</h4><p><img src="https://i.imgur.com/TEiMF4N.png" alt="image-20200820133121143"></p>
+<ul>
+<li><p>(a) use the property of MLE, derive the fisher information of $\theta$</p>
+</li>
+<li><p>(c) 当theta的dimension小于pi的时候，证明不止有sum theta = 1这一个constraint，所以$\hat{\pi_2}$ 不是MLE，其方差肯定比MLE更大。</p>
+</li>
+</ul>
+<p><img src="https://i.imgur.com/akx3weu.png" alt="image-20200820145314488"></p>
+<p><img src="https://i.imgur.com/mr4v6cu.png" alt="image-20200820145330588"></p>
+<p><img src="https://i.imgur.com/9ILQRDc.png" alt="image-20200820145358431"></p>
+<p><img src="/Users/kehuiyao/Library/Application Support/typora-user-images/image-20200820145427662.png" alt="image-20200820145427662"></p>
+<p><img src="https://i.imgur.com/hmJaYRq.png" alt="image-20200802224219785"></p>
+<ul>
+<li>（a): when encountering E(AB), we can express it into E(E(AB|A)).</li>
+</ul>
+<p><img src="https://i.imgur.com/yKnHsVQ.png" alt="image-20200820110513513"></p>
+<ul>
+<li>(a) use central limit theorem to obtain the asymptotic distribution of $\hat{p_1}-\hat{p_2}$, and use slutsky’s theorem by showing the $\sqrt{2\hat{p}\hat{q}}$ converges in probability to $2p-2p^2$, where $p_1=p_2=p$. When $p_1 \neq p_2$, rearrange the terms inside the P() to match the asymptotic distribution of $\hat{p_2}-\hat{p_1}$.</li>
+</ul>
+<p><img src="https://i.imgur.com/h7B91O5.png" alt="image-20200802231206636"></p>
+<ul>
+<li>(a): Use Jacobian determination.</li>
+</ul>
+<h4 id="Qualify-exam-2014"><a href="#Qualify-exam-2014" class="headerlink" title="Qualify exam 2014"></a>Qualify exam 2014</h4><p><img src="https://i.imgur.com/kIVOinT.png" alt="image-20200807112351614"></p>
+<ul>
+<li>(b): when calculating the CR-lower bound for $f(\theta)$, the formula is $f^{‘}(\theta)^2/I(\theta)$</li>
+<li>(c): $X_nY_n$ also follows  a beta distribution.</li>
+</ul>
+<p><img src="https://i.imgur.com/eOdn20N.png" alt="image-20200807112706077"></p>
+<ul>
+<li>(b) first consider the asymptotic distribution of <img src="https://i.imgur.com/rWs6r0r.png" alt="image-20200807112857371"> , then notice that min is a continuous function, so delta’s method can be applied.</li>
+</ul>
+<p><img src="https://i.imgur.com/B0403CE.png" alt="image-20200807112944915"></p>
+<ul>
+<li><p>(b) consider $P(X_{n+1} = 1|X_1 = 1) = P(X_{n+1} = 1,X_n = 0| X_1 = 1)+P(X_{n+1} = 1,X_n = 1| X_1 = 1) $</p>
+<p>And $P(X_{n+1} = 1,X_n = 0| X_1 = 1) = P(X_{n+1}=1|X_n=0)*P(X_n=0|X_1=1)$</p>
+</li>
+<li><p>(c) (i)  用递归式推导出$\theta_n$</p>
+</li>
+<li><p>(c) (ii) 证明Cov($X_a$,$X_b$) &gt; 0 by writing it to be $E(X_aX_b) - E(X_a)E(X_b)$ and the first term is $E(E(X_aX_b|X_a)) = E(X_a E(X_b|X_a)) = P(X_a = 1)P(X_b = 1| X_a = 1)$</p>
+</li>
+<li><p>(d) write down the transition probability matrix. P(X_n = 0 or 1|X_{n-1} = 0 or 1).</p>
+</li>
+</ul>
+<h4 id="Qualify-exam-2015"><a href="#Qualify-exam-2015" class="headerlink" title="Qualify exam 2015"></a>Qualify exam 2015</h4><p><img src="https://i.imgur.com/LOqc2rj.png" alt="image-20200807171803403"></p>
+<ul>
+<li><p>(a):</p>
+<p>SIjia fang’s solution:</p>
+<p><img src="https://i.imgur.com/WxvCOcj.png" alt="image-20200808104639271"></p>
+</li>
+<li><p>(b): use the three dimension central limit theorem and apply delta’s method. Another way is to write 根号n乘分子以分布收敛于正态，分母的两项全部以概率收敛到常数。</p>
+</li>
+</ul>
+<h4 id="QE-sample-1"><a href="#QE-sample-1" class="headerlink" title="QE sample 1"></a>QE sample 1</h4><p><img src="https://i.imgur.com/kaScUBU.png" alt="image-20200817001009675"></p>
+<ul>
+<li>(f) UMPU</li>
+</ul>
+<p><img src="https://i.imgur.com/QLIAFjG.png" alt="image-20200817001131282"></p>
+<h4 id="QE-sample-2"><a href="#QE-sample-2" class="headerlink" title="QE sample 2"></a>QE sample 2</h4><p><img src="https://i.imgur.com/ihg1i45.png" alt="image-20200817000603205"></p>
+<ul>
+<li>(a) notice that X1-X2 is symmetric between 0.</li>
+<li>(c) exponential, gamma, chi-square transformations</li>
+<li>(f) first calculate the pdf of the conditional probability obtained by RB theorem, then do the integral.</li>
+</ul>
+<p><img src="https://i.imgur.com/A6VhvFH.png" alt="image-20200817000921022"></p>
+<h4 id="STAT609-2019-final"><a href="#STAT609-2019-final" class="headerlink" title="STAT609 2019 final"></a>STAT609 2019 final</h4><p><img src="https://i.imgur.com/lS5aPup.png" alt="image-20200807122429437"></p>
+<ul>
+<li><p>(a): use $P(Y \leq y)$.</p>
+</li>
+<li><p>(b): they are not since $P(Y|X) \neq P(Y)$.</p>
+</li>
+<li><p>(c): cov(X,Y) = E(XY) - E(X)E(Y), E(XY) 用二元积分求解，这里注意给定x以后，y是个point mass.</p>
+</li>
+</ul>
+<h4 id="STAT610-2020-final"><a href="#STAT610-2020-final" class="headerlink" title="STAT610  2020 final"></a>STAT610  2020 final</h4><p><img src="https://i.imgur.com/1pAlQIS.png" alt="image-20200803210614429"></p>
+<ul>
+<li>Show its mean = 0 and limiting variance equals 0.</li>
+</ul>
+<p><img src="https://i.imgur.com/pBYDOR6.png" alt="image-20200803210726452"></p>
+<ul>
+<li>(a) show $T_n$ is MLE, and MLE is asymptotic normal and consistent.</li>
+<li>(b) MLE attains the CR-lower bound.</li>
+</ul>
+<p><img src="https://i.imgur.com/viF15Kn.png" alt="image-20200803210936558"></p>
+<ul>
+<li>(a) show $\hat{\sigma^2}$ is a function of $\bar{X_i}$ and $\bar{X_i^2}$.</li>
+</ul>
+<p><img src="https://i.imgur.com/1H2x0jC.png" alt="image-20200803211218742"></p>
+<ul>
+<li>(b) write $a \leq pivot \leq b$, then show the length of the CI is proportional to $b/a$. Finally minimize b/a given $\int_a^b f(x)dx = 1-\alpha$</li>
+</ul>
+<p><img src="https://i.imgur.com/T4LKXKQ.png" alt="image-20200803213501503"></p>
+<ul>
+<li><p>（a) write $M_n = F^{-1}(W_n)$ and $M = F^{-1}(1/2)$, based on <img src="https://i.imgur.com/MEPW2AK.png" alt="image-20200803214942300"> Apply delta’s method.</p>
+</li>
+<li><p>(b) just calculates $M_n - M$ and show it converges to 0。</p>
+</li>
+<li>(c) ARE’s definition:</li>
+<li><img src="https://i.imgur.com/8Ep6uKQ.png" alt="image-20200803223349088"></li>
+<li>(d) sample mean is more efficient since it is MLE.</li>
+<li>$M_n$ Is more efficient since it is MLE.</li>
+</ul>
+<h4 id="STAT610-2019"><a href="#STAT610-2019" class="headerlink" title="STAT610 2019"></a>STAT610 2019</h4><p><img src="https://i.imgur.com/eUu4oCE.png" alt="image-20200803225520645"></p>
+<ul>
+<li>(b) one parameter exponential family, </li>
+</ul>
+<p><img src="https://i.imgur.com/hHQikWf.png" alt="image-20200803230546898"></p>
+<p><img src="https://i.imgur.com/sLzDuJC.png" alt="image-20200803231027855"></p>
+<ul>
+<li>(c): <img src="https://i.imgur.com/xDhzxjF.png" alt="image-20200803232420520"></li>
+</ul>
+<p><img src="https://i.imgur.com/aMqln4u.png" alt="image-20200804005340794"></p>
+<ul>
+<li>No, if they are from a Poisson distribution. When $\bar{X}$ becomes larger, the $S^2$ becomes larger.</li>
+<li>Note that under normality assumption and if Xi are iid, the two are independent.</li>
+<li>E($S^2$) = $\sigma^2$ is true under iid assumption. Proving this is by using adding and subtracting mean principle.</li>
+</ul>
+<p><img src="https://i.imgur.com/oXd1oYt.png" alt="image-20200804102413933"></p>
+<p><img src="https://i.imgur.com/wzGAsP4.png" alt="image-20200804102426873"></p>
+<ul>
+<li>The rejection region has the form $\lambda &lt; c$, since -2log($\lambda$) has a known distribution, we can then write the rejection region to be {x: -2log($\lambda$) &gt; $c^*$}</li>
+</ul>
+<p><img src="https://i.imgur.com/qDXP7Q7.png" alt="image-20200804103129765"></p>
+<p><img src="https://i.imgur.com/54MaYy5.png" alt="image-20200804103230475"></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/study/" rel="tag"># study</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/04/13/excel2latex/" rel="next" title="Latex Tips">
+                <i class="fa fa-chevron-left"></i> Latex Tips
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/10/11/CS577_algorithm_notes/" rel="prev" title="CS577 Introduction to algorithms notes">
+                CS577 Introduction to algorithms notes <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/uploads/avatar.jpg" alt="Kehui Yao">
+          <p class="site-author-name" itemprop="name">Kehui Yao</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">30</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/KEHUIYAO" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.linkedin.com/in/kehui-yao-a5b770165/" target="_blank" title="Linkedin">
+                  
+                    <i class="fa fa-fw fa-linkedin"></i>
+                  
+                  Linkedin
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/KehuiY" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Counter-example-related-to-slutsky’s-theorem"><span class="nav-number">1.</span> <span class="nav-text">Counter example related to slutsky’s theorem</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Normal-distribution-written-in-exponential-family-form"><span class="nav-number">2.</span> <span class="nav-text">Normal distribution written in exponential family form</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Ancillary-precision-how-ancillary-statistics-helps-when-estimating-theta"><span class="nav-number">3.</span> <span class="nav-text">Ancillary precision (how ancillary statistics helps when estimating $\theta$)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Moments-of-normal-distribution"><span class="nav-number">4.</span> <span class="nav-text">Moments of normal distribution</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#chebyshev’s-inequality"><span class="nav-number">5.</span> <span class="nav-text">chebyshev’s inequality</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Conditional-distribution-of-multinormal-distribution"><span class="nav-number">6.</span> <span class="nav-text">Conditional distribution of multinormal distribution</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Exponential-distribution-gamma-distribution-and-chi-square-distribution"><span class="nav-number">7.</span> <span class="nav-text">Exponential distribution, gamma distribution and chi-square distribution</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Multiparameters-MLE"><span class="nav-number">8.</span> <span class="nav-text">Multiparameters MLE</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#MLE-may-not-be-unique"><span class="nav-number">9.</span> <span class="nav-text">MLE may not be unique</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#MLE-in-exponential-family"><span class="nav-number">10.</span> <span class="nav-text">MLE in exponential family</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Bayes-estimator"><span class="nav-number">11.</span> <span class="nav-text">Bayes estimator</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Proving-the-crammer-rao-lower-bound"><span class="nav-number">12.</span> <span class="nav-text">Proving the crammer rao lower bound</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#UMVUE-in-normal-distribution"><span class="nav-number">13.</span> <span class="nav-text">UMVUE in normal distribution</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#"><span class="nav-number">14.</span> <span class="nav-text"> </span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Situations-that-the-key-condition-for-crammer-rao-lower-bound-is-violated"><span class="nav-number">15.</span> <span class="nav-text">Situations that the key condition for crammer-rao lower bound is violated.</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#UMVUE-is-uncorrelated-with-all-estimators-which-are-unbiased-to-0"><span class="nav-number">16.</span> <span class="nav-text">UMVUE is uncorrelated with all estimators which are unbiased to 0</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Example-that-UMVUE-does-not-exist"><span class="nav-number">17.</span> <span class="nav-text">Example that UMVUE does not exist</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Lehmann-Scheffe-Theorem"><span class="nav-number">18.</span> <span class="nav-text">Lehmann-Scheffe Theorem</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#FInd-a-complete-statistics-in-uniform-distribution"><span class="nav-number">19.</span> <span class="nav-text">FInd a complete statistics in uniform distribution</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#UMVUE-in-poisson-family"><span class="nav-number">20.</span> <span class="nav-text">UMVUE in poisson family</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Prove-S-is-not-unbiased-for-sigma"><span class="nav-number">21.</span> <span class="nav-text">Prove S is not unbiased for sigma</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#UMVUE-in-normal-family"><span class="nav-number">22.</span> <span class="nav-text">UMVUE in normal family</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#UMVUE-is-exponential-distribution-family"><span class="nav-number">23.</span> <span class="nav-text">UMVUE is exponential distribution family</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#UMVUE-in-simple-linear-regression"><span class="nav-number">24.</span> <span class="nav-text">UMVUE in simple linear regression</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#UMP-test-using-Neyman-Pearson-lemma"><span class="nav-number">25.</span> <span class="nav-text">UMP test using Neyman-Pearson lemma</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Existence-of-UMP-without-monotone-likelihood-ratio"><span class="nav-number">26.</span> <span class="nav-text">Existence of UMP without monotone likelihood ratio</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#How-to-show-the-UMP-test-does-not-exist"><span class="nav-number">27.</span> <span class="nav-text">How to show the UMP test does not exist</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#UMPU-test-in-exponential-family"><span class="nav-number">28.</span> <span class="nav-text">UMPU test in exponential family</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Definition-of-the-p-value"><span class="nav-number">29.</span> <span class="nav-text">Definition of the p-value</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Definition-of-confidence-coefficient"><span class="nav-number">30.</span> <span class="nav-text">Definition of confidence coefficient</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Confidence-sets-by-inverting-test-statistics"><span class="nav-number">31.</span> <span class="nav-text">Confidence sets by inverting test statistics</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Pivoting-cdf’s"><span class="nav-number">32.</span> <span class="nav-text">Pivoting cdf’s</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Inverting-test-to-obtain-confidence-intervals"><span class="nav-number">33.</span> <span class="nav-text">Inverting test to obtain confidence intervals</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Pivotal-quantity-to-obtain-the-confidence-interval"><span class="nav-number">34.</span> <span class="nav-text">Pivotal quantity to obtain the confidence interval</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Shortest-length-confidence-interval"><span class="nav-number">35.</span> <span class="nav-text">Shortest length confidence interval</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#consistent-estimator"><span class="nav-number">36.</span> <span class="nav-text">consistent estimator</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Consistency-of-MLE"><span class="nav-number">37.</span> <span class="nav-text">Consistency of MLE</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#MLE-is-asymptotically-efficient"><span class="nav-number">38.</span> <span class="nav-text">MLE is asymptotically efficient</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Asymptotic-relative-efficiency"><span class="nav-number">39.</span> <span class="nav-text">Asymptotic relative efficiency</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Asymptotic-test"><span class="nav-number">40.</span> <span class="nav-text">Asymptotic test</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Wald-test"><span class="nav-number">41.</span> <span class="nav-text">Wald test</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Score-test"><span class="nav-number">42.</span> <span class="nav-text">Score test</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Wald-test-Score-test-theorem"><span class="nav-number">43.</span> <span class="nav-text">Wald test, Score test theorem</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Asymptotic-confidence-sets"><span class="nav-number">44.</span> <span class="nav-text">Asymptotic confidence sets</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Qualify-exam-2019"><span class="nav-number">45.</span> <span class="nav-text">Qualify exam 2019</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Qualify-exam-2018"><span class="nav-number">46.</span> <span class="nav-text">Qualify exam 2018</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Qualify-exam-2017"><span class="nav-number">47.</span> <span class="nav-text">Qualify exam 2017</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Qualify-exam-2016"><span class="nav-number">48.</span> <span class="nav-text">Qualify exam 2016</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Qualify-exam-2012"><span class="nav-number">49.</span> <span class="nav-text">Qualify exam 2012</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Qualify-exam-2013"><span class="nav-number">50.</span> <span class="nav-text">Qualify exam 2013</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Qualify-exam-2014"><span class="nav-number">51.</span> <span class="nav-text">Qualify exam 2014</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Qualify-exam-2015"><span class="nav-number">52.</span> <span class="nav-text">Qualify exam 2015</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#QE-sample-1"><span class="nav-number">53.</span> <span class="nav-text">QE sample 1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#QE-sample-2"><span class="nav-number">54.</span> <span class="nav-text">QE sample 2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#STAT609-2019-final"><span class="nav-number">55.</span> <span class="nav-text">STAT609 2019 final</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#STAT610-2020-final"><span class="nav-number">56.</span> <span class="nav-text">STAT610  2020 final</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#STAT610-2019"><span class="nav-number">57.</span> <span class="nav-text">STAT610 2019</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Kehui Yao</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+  
+
+
+  
+
+</body>
+</html>

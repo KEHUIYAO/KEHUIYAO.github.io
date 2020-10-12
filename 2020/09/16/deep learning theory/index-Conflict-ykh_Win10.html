@@ -1,0 +1,1061 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="study,">
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0">
+
+
+
+
+
+
+<meta name="description" content="Numerical computationDirectional derivative The directional derivative in direction $\mu$ (a unit vector) is the slope of he function f in direction u. Formally, it is the derivative of the function $">
+<meta name="keywords" content="study">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Deep learning theory">
+<meta property="og:url" content="http://yoursite.com/2020/09/16/deep learning theory/index.html">
+<meta property="og:site_name" content="Kehui&#39;s Blog">
+<meta property="og:description" content="Numerical computationDirectional derivative The directional derivative in direction $\mu$ (a unit vector) is the slope of he function f in direction u. Formally, it is the derivative of the function $">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://i.imgur.com/ubBUSYs.png">
+<meta property="og:image" content="https://i.imgur.com/eAeLPxX.png">
+<meta property="og:image" content="https://i.imgur.com/9Ab1jtL.png">
+<meta property="og:image" content="https://i.imgur.com/r5qxRdb.png">
+<meta property="og:image" content="https://i.imgur.com/hvl7wqt.png">
+<meta property="og:image" content="https://i.imgur.com/qpy4iZQ.png">
+<meta property="og:image" content="https://i.imgur.com/OqfxHzW.png">
+<meta property="og:image" content="https://i.imgur.com/8num3Vw.png">
+<meta property="og:image" content="https://i.imgur.com/QM84pRT.png">
+<meta property="og:image" content="https://i.imgur.com/Wc2badA.png">
+<meta property="og:image" content="https://i.imgur.com/nPWX2Lk.png">
+<meta property="og:image" content="https://i.imgur.com/MlVoKPQ.png">
+<meta property="og:image" content="https://i.imgur.com/qdZv890.png">
+<meta property="og:image" content="https://i.imgur.com/NLZHBZk.png">
+<meta property="og:image" content="https://i.imgur.com/A1eQAwq.png">
+<meta property="og:image" content="https://i.imgur.com/BkARyi6.png">
+<meta property="og:image" content="https://i.imgur.com/aHKcHZg.png">
+<meta property="og:image" content="https://i.imgur.com/3IgoOCn.png">
+<meta property="og:image" content="https://i.imgur.com/vyGaM6o.png">
+<meta property="og:image" content="https://i.imgur.com/BpVJKMQ.png">
+<meta property="og:image" content="https://i.imgur.com/CDvIj8A.png">
+<meta property="og:image" content="https://i.imgur.com/XYf9KAN.png">
+<meta property="og:image" content="https://i.imgur.com/MQplF0u.png">
+<meta property="og:image" content="https://i.imgur.com/jSb38dP.png">
+<meta property="og:image" content="https://i.imgur.com/TXGr64K.png">
+<meta property="og:image" content="https://i.imgur.com/7pUMGt9.png">
+<meta property="og:image" content="https://i.imgur.com/8lsEvGy.png">
+<meta property="og:image" content="https://i.imgur.com/ZWRuLqK.png">
+<meta property="og:image" content="https://i.imgur.com/BlVVJzw.png">
+<meta property="og:image" content="https://i.imgur.com/Y28pzUD.png">
+<meta property="og:image" content="https://i.imgur.com/EMFXt0y.png">
+<meta property="og:image" content="https://i.imgur.com/yP3WpaM.png">
+<meta property="og:image" content="https://i.imgur.com/jDKOXvR.png">
+<meta property="og:image" content="https://i.imgur.com/fUFg67t.png">
+<meta property="og:image" content="https://i.imgur.com/QQxfqWj.png">
+<meta property="og:image" content="https://i.imgur.com/lhhFzxz.png">
+<meta property="og:updated_time" content="2020-09-23T16:26:51.635Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Deep learning theory">
+<meta name="twitter:description" content="Numerical computationDirectional derivative The directional derivative in direction $\mu$ (a unit vector) is the slope of he function f in direction u. Formally, it is the derivative of the function $">
+<meta name="twitter:image" content="https://i.imgur.com/ubBUSYs.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"always","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2020/09/16/deep learning theory/">
+
+
+
+
+
+  <title> Deep learning theory | Kehui's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Kehui's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">For Kevin Durant</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/09/16/deep learning theory/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kehui Yao">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kehui's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Deep learning theory
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-09-16T00:00:00-05:00">
+                2020-09-16
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Post modified</span>
+              
+              <time title="Post modified" itemprop="dateModified" datetime="2020-09-23T11:26:51-05:00">
+                2020-09-23
+              </time>
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="Numerical-computation"><a href="#Numerical-computation" class="headerlink" title="Numerical computation"></a>Numerical computation</h3><h4 id="Directional-derivative"><a href="#Directional-derivative" class="headerlink" title="Directional derivative"></a>Directional derivative</h4><ul>
+<li>The directional derivative in direction $\mu$ (a unit vector) is the slope of he function f in direction u. Formally, it is the derivative of the function $f(x+\alpha\mu)$ with respect to $\alpha$, evaluated at $\alpha = 0$, this is an numerically correct expression, you can verify it by writing the derivative of the function of $\alpha$.</li>
+<li>Using the chain rule, we can see <img src="https://i.imgur.com/ubBUSYs.png" alt="image-20200915105658574"></li>
+</ul>
+<ul>
+<li><p>To minimize f, we would like to find the direction in which f decreases the fastest. We can do this by <img src="https://i.imgur.com/eAeLPxX.png" alt="image-20200915105722737"></p>
+<p>Where $\theta$ is the angle between $\mu$ and the gradient, substituting in <img src="https://i.imgur.com/9Ab1jtL.png" alt="image-20200915105830687"> and ignoring factors that do not depend on $\mu$, this simplifies to <img src="https://i.imgur.com/r5qxRdb.png" alt="image-20200915105937469"> This is minimized when $\mu$ points in the opposite direction as the gradient.</p>
+</li>
+<li><p>This is known as the method of steepest descend , or gradient descent.</p>
+</li>
+<li><p>Steepest descent proposes a new point <img src="https://i.imgur.com/hvl7wqt.png" alt="image-20200915112118999"></p>
+</li>
+</ul>
+<a id="more"></a>
+<h4 id="Choose-step-size-in-different-ways"><a href="#Choose-step-size-in-different-ways" class="headerlink" title="Choose step  size in different ways"></a>Choose step  size in different ways</h4><ul>
+<li>Set $\epsilon$ to a small constant.</li>
+<li>Evaluate <img src="https://i.imgur.com/qpy4iZQ.png" alt="image-20200915112408672"> for several values of $\epsilon$ and choose the one that results in the smallest objective function value.</li>
+<li>Line search.</li>
+</ul>
+<h3 id="Beyond-the-gradient-Jacobian-and-Hessian-Matrices"><a href="#Beyond-the-gradient-Jacobian-and-Hessian-Matrices" class="headerlink" title="Beyond the gradient: Jacobian and Hessian Matrices"></a>Beyond the gradient: Jacobian and Hessian Matrices</h3><ul>
+<li><p>Second derivative measures curvature.</p>
+</li>
+<li><p>If the gradient is 1, then we can make a step of size $\epsilon$ along the negative gradient, and the cost function will decrease by more than $\epsilon$ if the second derivative is negative, meaning that the function curves downward. </p>
+</li>
+<li><p>The hessian matrix H(f)(x) is defined such that:</p>
+<p><img src="https://i.imgur.com/OqfxHzW.png" alt="image-20200915113132517"></p>
+<p>Because the hessian matrix is real and symmetric, we can decompose it into a set of real eigenvalues and an orthogonal basis of eigenvectors. </p>
+</li>
+<li><p>The second derivative in a specific direction represented by a unit vector d is given by $d^{T}Hd$. This  can be easily verified by taking the second derivative of <img src="https://i.imgur.com/8num3Vw.png" alt="image-20200915115859689"> and evaluate at $\alpha = 0$.  </p>
+</li>
+<li><p>When d is an eigenvector of H, the second derivative in that direction is given by the corresponding eigenvalue. This can be verified by the definition of eigenvalue Ax = $\lambda$x. </p>
+</li>
+<li><p>For other directions of $d$, the directional second derivative is a weighted average of all the eigenvalues, with weights between 0 and 1, and eigenvectors that have a smaller angle with d receiving more weight. This can be verified by the decomposition of H times unit vector d.</p>
+</li>
+<li><p>The maximum eigenvalue determines the maximum second derivative, and the minimum eigenvalues determine the minimum second derivative. </p>
+</li>
+<li><p>To summary, the second derivative tells us how well we can expect a gradient descent step to perform.</p>
+</li>
+<li><p>Second- order Taylor series approximation to the function f(x) around the current point $x^{(0)}$:</p>
+<p><img src="https://i.imgur.com/QM84pRT.png" alt="image-20200915120921881"></p>
+<p>Where g is the gradient and H is the Hessian.</p>
+</li>
+<li><p>If we use a learning rate of $\epsilon$, then the new point x will be given by $x^{(0)} - \epsilon g$. Substituting this into our approximation, we obtain <img src="https://i.imgur.com/Wc2badA.png" alt="image-20200915133101857"> There are three terms here: the original value of the function, the expected improvement due to the slope of the function, and the correction we must apply to account for the curvature of the function. When this last term is too large, the gradient descent step can actually move uphill. When $g^{T}Hg$ is zero or negative, the Taylor series approximation predicts that increasing $\epsilon$ forever will decrease f forever.</p>
+</li>
+<li><p>In practice, the Taylor series is unlikely to remain accurate for large $\epsilon$. So one must resort to more heuristic choices of $\epsilon$ in this case. When $g^{T}Hg$ is positive, solving for the optimal step size that decreases the Taylor series yields <img src="https://i.imgur.com/nPWX2Lk.png" alt="image-20200915134150977"> In the worst case, when g aligns with the eigenvector of H corresponding to the maximal eigenvalue $\lambda_{max}$, then this optimal step size is given by $1/\lambda_{max}$. The eigenvalues of the Hessian thus determine the scale of the learning rate.</p>
+</li>
+<li><p>Second derivative can be used to determine whether a  critical point is a local maximum, a local minimum, or a saddle point. In univariate case, it’s trivial, we can draw a a picture of $x^2$ or $-x^2$ to help us understand. </p>
+<p>In multiple dimensions, we can examine the eigenvalues of the Hessian to determine whether the critical point is a local maximum, local minimum or a saddle point. </p>
+<p>When the Hessian matrix is positive definite  (all its eigenvalues are positive), the point is local maximum. This can be seen by observing that the directional second derivative in any directional must be positive, and making reference to the univariate case.</p>
+<p>When at least one eigenvalue is positive and at least one eigenvalue is negative, we know that x is a local maximum on one cross section of f but a local minimum on another cross section. </p>
+<p><img src="https://i.imgur.com/MlVoKPQ.png" alt="image-20200916110206336"></p>
+<p>The test is inconclusive whenever al the nonzero eigenvalues have the same sign but at least one eigenvalue is zero.</p>
+</li>
+</ul>
+<h4 id="Condition-number-of-the-Hessian-matrix"><a href="#Condition-number-of-the-Hessian-matrix" class="headerlink" title="Condition number of the Hessian matrix"></a>Condition number of the Hessian matrix</h4><ul>
+<li><p>In multiple dimensions, there is a different second derivative for each direction at a single point.</p>
+</li>
+<li><p>The condition number of the Hessian at this point measures how much the second derivatives differ from each other. </p>
+</li>
+<li><p>When the Hessian has a poor condition number, gradient descent performs poorly. This is because in one direction, the derivative increases rapidly, while in another direction, it increases slowly. Gradient descent is unaware of this change in the derivative. So it does not know that it needs to explore preferentially in the direction where the derivative remains negative for longer.</p>
+</li>
+<li><p>Poor condition number also makes choosing a good step size difficult. The step size must be small enough to avoid overshooting the minimum and going uphill in directions with strong positive curvature. This usually means that the step size is too small to make significant progress in other directions with less curvature.</p>
+<p><img src="https://i.imgur.com/qdZv890.png" alt="image-20200916114810380"></p>
+<p>刚开始的时候step size还挺大的，后面由于curvature变得越来越大，步长就越来越小了。<img src="https://i.imgur.com/NLZHBZk.png" alt="image-20200919103543879"></p>
+</li>
+</ul>
+<h4 id="Newton’s-method"><a href="#Newton’s-method" class="headerlink" title="Newton’s method"></a>Newton’s method</h4><ul>
+<li><p>We need to solve this condition number problem.</p>
+</li>
+<li><p>This issue can be resolved by using information from the Hessian matrix to guide the search. The simplest method is Newton’s method.</p>
+</li>
+<li><p>The Newton’s method is based on using a second-order Tyaylor series expansion to approximate f(x) near some point $x_{(0)}$:</p>
+<p><img src="https://i.imgur.com/A1eQAwq.png" alt="image-20200916115727114"></p>
+<p>If we then solve for the critical point of this function, we obtain </p>
+<p><img src="https://i.imgur.com/BkARyi6.png" alt="image-20200918232903625"></p>
+</li>
+</ul>
+<h4 id="Numerical-Precision-a-deep-earning-super-kill"><a href="#Numerical-Precision-a-deep-earning-super-kill" class="headerlink" title="Numerical Precision: a deep earning super kill"></a>Numerical Precision: a deep earning super kill</h4><ul>
+<li><p>Often deep learning algorithms “sort of work”</p>
+</li>
+<li><p>Often deep learning algorithms “explode”</p>
+</li>
+<li><p>Culprit is often loss of numerical precision</p>
+</li>
+<li><p>Rounding and truncation errors:</p>
+<ul>
+<li>In a digital computer, we use float32 or similar schemes to represent real numbers.</li>
+<li>A real number x is rounded to x+delta for some small delta.</li>
+<li>Overflow: large x replaced by inf</li>
+<li>Underflow: small x replaced by 0 (very harmful)</li>
+</ul>
+</li>
+<li><p><img src="https://i.imgur.com/aHKcHZg.png" alt="image-20200919104747621"></p>
+</li>
+<li><p><img src="https://i.imgur.com/3IgoOCn.png" alt="image-20200919104905561"></p>
+</li>
+<li><p>Exp function:</p>
+<ul>
+<li>Overflows for large x</li>
+<li>Doesn’t need to be very large</li>
+<li>Float32:89 overflows</li>
+<li>Never use large x</li>
+<li>Underflows for very negative x, possibly catastrophic if exp(x) in denominator.</li>
+</ul>
+</li>
+<li><p>Subtraction:</p>
+<p><img src="https://i.imgur.com/vyGaM6o.png" alt="image-20200919105202962"></p>
+</li>
+<li><p>Log and sqrt:</p>
+<p><img src="https://i.imgur.com/BpVJKMQ.png" alt="image-20200919105311566"></p>
+</li>
+</ul>
+<ul>
+<li><p>Log exp:</p>
+<p><img src="https://i.imgur.com/CDvIj8A.png" alt="image-20200919105456570"></p>
+</li>
+<li><p>Which is the better hack?</p>
+<p><img src="https://i.imgur.com/XYf9KAN.png" alt="image-20200919105601015"></p>
+<p>The first one is better, because it avoids the derivative of sqrt(x) equals to 0.</p>
+</li>
+<li><p>Log(sum(exp))</p>
+<p><img src="https://i.imgur.com/MQplF0u.png" alt="image-20200919105928959"></p>
+<p><img src="https://i.imgur.com/jSb38dP.png" alt="image-20200919110029920"></p>
+<p>Why does the logsumexp trick work?</p>
+<p>Algebraically equivalent to  the original version:</p>
+<p><img src="https://i.imgur.com/TXGr64K.png" alt="image-20200919114807312"></p>
+<p>Miss one log in the last equation……</p>
+<p><img src="https://i.imgur.com/7pUMGt9.png" alt="image-20200919114938929"></p>
+</li>
+<li><p>Softmax</p>
+<p><img src="https://i.imgur.com/8lsEvGy.png" alt="image-20200919115034258"></p>
+</li>
+</ul>
+<ul>
+<li><p>Sigmoid</p>
+<p><img src="https://i.imgur.com/ZWRuLqK.png" alt="image-20200919115202817"></p>
+</li>
+</ul>
+<ul>
+<li><p>cross-entropy</p>
+<p><img src="https://i.imgur.com/BlVVJzw.png" alt="image-20200919223037263"></p>
+<p>Recommendations are using built-in library.</p>
+</li>
+<li><p>Bug hunting strategies:</p>
+<ul>
+<li><img src="https://i.imgur.com/Y28pzUD.png" alt="image-20200919223239296"></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><img src="https://i.imgur.com/EMFXt0y.png" alt="image-20200919223440481"></li>
+</ul>
+<h3 id="Machine-learning-basics"><a href="#Machine-learning-basics" class="headerlink" title="Machine learning basics"></a>Machine learning basics</h3><h4 id="Different-tasks-of-machine-learning"><a href="#Different-tasks-of-machine-learning" class="headerlink" title="Different tasks of machine learning"></a>Different tasks of machine learning</h4><ul>
+<li><p>Classification with missing inputs</p>
+<ul>
+<li>Learn a set of functions, each function corresponds to classifying x with a different subset of its inputs missing.</li>
+<li>A more efficient way is to learn a probability distribution over all the relevant variables, then solve the classification task by marginalizing out the missing variables.</li>
+</ul>
+</li>
+<li><p>Transcription</p>
+<ul>
+<li>Optical character recognition</li>
+<li>Google street view uses deep learning to process address numbers</li>
+<li>Speech recognition</li>
+</ul>
+</li>
+<li>Machine translation<ul>
+<li>A sequence of symbols in some language converted to a sequence of symbols in another language</li>
+</ul>
+</li>
+<li>Structured output<ul>
+<li>The output values should be tightly interrelated, examples are as follows</li>
+<li>Mapping a natural language sentence into a tree that describes its grammatical structure by tagging nodes of the trees as being verbs, nouns, adverbs and so on</li>
+<li>Image captioning, the words produced by an image captioning must form a valid sentence</li>
+</ul>
+</li>
+<li>Anomaly detection<ul>
+<li>Credit card fraud detection</li>
+</ul>
+</li>
+<li>Synthesis and sampling<ul>
+<li>The machine is asked to generate new examples that are similar to those in the training data </li>
+<li>Video games can automatically generate textures for large objects or landscapes, rather than requiring an artist to manually label each pixel.</li>
+<li>Given the input, generate the specific kind of output. For example, we provide a written sentence and ask the program to emit an audio waveform containing a spoken version of that sentence. </li>
+</ul>
+</li>
+<li>Denoising<ul>
+<li>Predict the clean example x from its corrupted version xhat.</li>
+</ul>
+</li>
+<li>Density estimation <ul>
+<li>Learn a function $p_{model}: R^n $ to $R$.</li>
+</ul>
+</li>
+</ul>
+<h4 id="The-performance-measure-P"><a href="#The-performance-measure-P" class="headerlink" title="The performance measure P"></a>The performance measure P</h4><ul>
+<li>Accuracy: the proportion of examples for which the model produces the correct output</li>
+<li>Log-probability the model assigns to some examples</li>
+<li>Sometimes hard to choose a performance measure that corresponds well to the desired behavior of the system.<ul>
+<li>When doing regression task, should we penalize the system more if it frequently makes medium-sized mistakes or if it rarely makes very large mistakes</li>
+</ul>
+</li>
+</ul>
+<h4 id="The-experience-E"><a href="#The-experience-E" class="headerlink" title="The experience E"></a>The experience E</h4><ul>
+<li>Unsupervised learning </li>
+<li>Superviesed learning</li>
+<li>Reinforcement learning algorithms interacts with an environment, which does not just experience a fixed dataset.</li>
+</ul>
+<h4 id="Generalization"><a href="#Generalization" class="headerlink" title="Generalization"></a>Generalization</h4><ul>
+<li>It requires our algorithm to perform well on new, previously unseen inputs, not just those on which our model was trained.</li>
+<li>Test error is generalization error</li>
+</ul>
+<h4 id="Occam’s-razor"><a href="#Occam’s-razor" class="headerlink" title="Occam’s razor"></a>Occam’s razor</h4><ul>
+<li>This principle states that among competing hypotheses that explain known observations equally well, we should choose the “simplest” one. </li>
+</ul>
+<h4 id="Vapnik-Chervonenkis-dimension"><a href="#Vapnik-Chervonenkis-dimension" class="headerlink" title="Vapnik-Chervonenkis dimension"></a>Vapnik-Chervonenkis dimension</h4><ul>
+<li>Measure the capacity of a binary classifier.</li>
+<li>Defined as  being the largest possible value of m for which there exists a training set of m different x points that the classifier can label arbitrarily.</li>
+</ul>
+<h4 id="Regularization"><a href="#Regularization" class="headerlink" title="Regularization"></a>Regularization</h4><ul>
+<li>Expressing preferences for one function over another is a more general way of controlling a model’s capacity than including or excluding members from the   hypothesis space.</li>
+<li>We can think of excluding a function from a hypothesis space as expressing an infinitely strong preference against that function.</li>
+</ul>
+<h4 id="Validation-set-and-hyperparameters"><a href="#Validation-set-and-hyperparameters" class="headerlink" title="Validation set and hyperparameters"></a>Validation set and hyperparameters</h4><ul>
+<li>What is hyperparameters?<ul>
+<li>For example, in linear regression, the degree of the polynomial, which acts as a capacity hyperparameter.</li>
+</ul>
+</li>
+<li>Why use validation set?<ul>
+<li>Train hyperparameters</li>
+</ul>
+</li>
+<li>Why not train hyperparameters using training data?<ul>
+<li>Such hyperparameters would always choose the maximum model capacity, result in overfitting.</li>
+</ul>
+</li>
+</ul>
+<h4 id="Statistics-theory-basic"><a href="#Statistics-theory-basic" class="headerlink" title="Statistics theory basic"></a>Statistics theory basic</h4><ul>
+<li>One can see my another blog: statistics theory</li>
+</ul>
+<h4 id="Maximum-likelihood-estimation"><a href="#Maximum-likelihood-estimation" class="headerlink" title="Maximum likelihood estimation"></a>Maximum likelihood estimation</h4><ul>
+<li><p><img src="https://i.imgur.com/yP3WpaM.png" alt="image-20200922012615930"></p>
+</li>
+<li><p>Because rescale the cost function does not change the argmax.</p>
+<p><img src="https://i.imgur.com/jDKOXvR.png" alt="image-20200922012653791"></p>
+</li>
+<li><p>One way to interpret mle is to view it as minimizing the dissimilarity between the empirical distribution pdata and the model distribution</p>
+</li>
+<li><p>The dissimilarity between the two can be measured by the KL divergence. </p>
+<p><img src="https://i.imgur.com/fUFg67t.png" alt="image-20200922012943236"></p>
+</li>
+<li><p>Cross entropy:</p>
+<p>Any loss consisting of a negative log-likelihood is a cross-entropy between the empirical distribution defined by the training set and the probability distribution defined by model.</p>
+</li>
+</ul>
+<h4 id="Stochastic-gradient-descent"><a href="#Stochastic-gradient-descent" class="headerlink" title="Stochastic gradient descent"></a>Stochastic gradient descent</h4><ul>
+<li>Idea: gradient descent requires computing <img src="https://i.imgur.com/QQxfqWj.png" alt="image-20200923095906722">, as the training size grows larger, the time to take a single gradient step becomes long. The insight of SGD is to estimate the expectation using a small set of samples.</li>
+<li>On each step, sample a mini batch uniformly from the training set. And the estimate of the gradient is formed as <img src="https://i.imgur.com/lhhFzxz.png" alt="image-20200923100152249"> </li>
+</ul>
+<h4 id="Challenges-motivating-deep-learning"><a href="#Challenges-motivating-deep-learning" class="headerlink" title="Challenges motivating deep learning"></a>Challenges motivating deep learning</h4><ul>
+<li>The curse of dimensionality:<ul>
+<li>In one dimension, when we generalize to a new data point, we usually tel what to do  simply by inspecting the training examples that lie in the same cell as the new input</li>
+<li>When dimension is high, sometimes we cannot find the training data located in that space.</li>
+<li>We can usually suppose we have a variable taking value of 0 and 1. If we have 100 variables, we need at least 2^100 training data points to have a whole picture of the space.</li>
+</ul>
+</li>
+</ul>
+<h4 id="Local-constancy-and-smoothness-regularization"><a href="#Local-constancy-and-smoothness-regularization" class="headerlink" title="Local constancy and smoothness regularization"></a>Local constancy and smoothness regularization</h4><ul>
+<li><p>Smoothness prior: </p>
+<p>This prior states that the function we learn should not change very much within a small region</p>
+</li>
+<li><p>Many simpler algorithms rely exclusively on this prior to generalize well, and as a result, they fail to scale to the statistical challenges involved in solving AI-level tasks.</p>
+</li>
+<li><p>K-nearest neighbors family of learning algorithms is an extreme example of the local constancy approach.</p>
+</li>
+<li><p>Decision trees also suffer from the limitations of exclusively smoothness-based learning, because:</p>
+<ul>
+<li>It break the input space into as many regions as there are leaves and use a separate (or more) </li>
+<li>If a target function requires a tree with at least n leaves to be represented accurately, then at least n training examples are required to fit the tree.</li>
+</ul>
+</li>
+<li><p>If the function is complicated (we want to distinguish a huge number of regions compared to the number of examples), is there any hope to generalize well?</p>
+<ul>
+<li>Answer is yes</li>
+<li>The key insight is that a very large number of regions, such as $O(2^k)$, can be defined with $O(k)$ examples, so long as we introduce some dependencies between the regions through additional assumptions about the underlying data-generating distribution. </li>
+<li>In this way, we can generalize nonlocally.</li>
+<li>Many different deep learning algorithms provide implicit or explicit assumptions of nonlocality.</li>
+</ul>
+</li>
+</ul>
+<h4 id="Manifold-learning"><a href="#Manifold-learning" class="headerlink" title="Manifold learning"></a>Manifold learning</h4>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/study/" rel="tag"># study</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/09/16/spatial temporal machine learning/" rel="next" title="Spatial temporal machine learning">
+                <i class="fa fa-chevron-left"></i> Spatial temporal machine learning
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/09/16/Statistical methods for epidemiology/" rel="prev" title="Statistical methods for epidemiology">
+                Statistical methods for epidemiology <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/uploads/avatar.jpg" alt="Kehui Yao">
+          <p class="site-author-name" itemprop="name">Kehui Yao</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">30</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/KEHUIYAO" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.linkedin.com/in/kehui-yao-a5b770165/" target="_blank" title="Linkedin">
+                  
+                    <i class="fa fa-fw fa-linkedin"></i>
+                  
+                  Linkedin
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/KehuiY" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Numerical-computation"><span class="nav-number">1.</span> <span class="nav-text">Numerical computation</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Directional-derivative"><span class="nav-number">1.1.</span> <span class="nav-text">Directional derivative</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Choose-step-size-in-different-ways"><span class="nav-number">1.2.</span> <span class="nav-text">Choose step  size in different ways</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Beyond-the-gradient-Jacobian-and-Hessian-Matrices"><span class="nav-number">2.</span> <span class="nav-text">Beyond the gradient: Jacobian and Hessian Matrices</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Condition-number-of-the-Hessian-matrix"><span class="nav-number">2.1.</span> <span class="nav-text">Condition number of the Hessian matrix</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Newton’s-method"><span class="nav-number">2.2.</span> <span class="nav-text">Newton’s method</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Numerical-Precision-a-deep-earning-super-kill"><span class="nav-number">2.3.</span> <span class="nav-text">Numerical Precision: a deep earning super kill</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Machine-learning-basics"><span class="nav-number">3.</span> <span class="nav-text">Machine learning basics</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Different-tasks-of-machine-learning"><span class="nav-number">3.1.</span> <span class="nav-text">Different tasks of machine learning</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#The-performance-measure-P"><span class="nav-number">3.2.</span> <span class="nav-text">The performance measure P</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#The-experience-E"><span class="nav-number">3.3.</span> <span class="nav-text">The experience E</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Generalization"><span class="nav-number">3.4.</span> <span class="nav-text">Generalization</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Occam’s-razor"><span class="nav-number">3.5.</span> <span class="nav-text">Occam’s razor</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Vapnik-Chervonenkis-dimension"><span class="nav-number">3.6.</span> <span class="nav-text">Vapnik-Chervonenkis dimension</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Regularization"><span class="nav-number">3.7.</span> <span class="nav-text">Regularization</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Validation-set-and-hyperparameters"><span class="nav-number">3.8.</span> <span class="nav-text">Validation set and hyperparameters</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Statistics-theory-basic"><span class="nav-number">3.9.</span> <span class="nav-text">Statistics theory basic</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Maximum-likelihood-estimation"><span class="nav-number">3.10.</span> <span class="nav-text">Maximum likelihood estimation</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Stochastic-gradient-descent"><span class="nav-number">3.11.</span> <span class="nav-text">Stochastic gradient descent</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Challenges-motivating-deep-learning"><span class="nav-number">3.12.</span> <span class="nav-text">Challenges motivating deep learning</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Local-constancy-and-smoothness-regularization"><span class="nav-number">3.13.</span> <span class="nav-text">Local constancy and smoothness regularization</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Manifold-learning"><span class="nav-number">3.14.</span> <span class="nav-text">Manifold learning</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Kehui Yao</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+  
+
+
+  
+
+</body>
+</html>

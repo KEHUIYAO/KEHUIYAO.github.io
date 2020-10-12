@@ -1,0 +1,1059 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="study,">
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0">
+
+
+
+
+
+
+<meta name="description" content="12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758CS 577 SECTION 1 PRE-MIDTERM REVIEW GUIDEFall 20191. Useful math   Asymptotic relations: O,Om">
+<meta name="keywords" content="study">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CS577 Introduction to algorithms notes">
+<meta property="og:url" content="http://yoursite.com/2019/10/11/CS577_algorithm_notes/index.html">
+<meta property="og:site_name" content="Kehui&#39;s Blog">
+<meta property="og:description" content="12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758CS 577 SECTION 1 PRE-MIDTERM REVIEW GUIDEFall 20191. Useful math   Asymptotic relations: O,Om">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://i.imgur.com/ETKC09u.png">
+<meta property="og:image" content="https://i.imgur.com/2J5HmvF.png">
+<meta property="og:image" content="https://i.imgur.com/A1PtQK1.png">
+<meta property="og:image" content="https://i.imgur.com/R8eJYjf.png">
+<meta property="og:image" content="https://i.imgur.com/A25iMMG.png">
+<meta property="og:image" content="https://i.imgur.com/VKB3NXY.png">
+<meta property="og:image" content="https://i.imgur.com/2EKSvpA.png">
+<meta property="og:image" content="https://i.imgur.com/3IbqWUt.png">
+<meta property="og:image" content="https://i.imgur.com/e67Hd6W.png">
+<meta property="og:image" content="https://i.imgur.com/z7dGH1e.png">
+<meta property="og:image" content="https://i.imgur.com/TPpMs8V.png">
+<meta property="og:image" content="https://i.imgur.com/7twNaE1.png">
+<meta property="og:image" content="https://i.imgur.com/M7YWU8Q.png">
+<meta property="og:image" content="https://i.imgur.com/BxwDesD.png">
+<meta property="og:image" content="https://i.imgur.com/Bvm4Dqx.png">
+<meta property="og:image" content="https://i.imgur.com/e9kRmyf.png">
+<meta property="og:image" content="https://i.imgur.com/EpFJG0g.png">
+<meta property="og:image" content="https://i.imgur.com/P9YDZ3x.png">
+<meta property="og:image" content="https://i.imgur.com/u2xeFnJ.png">
+<meta property="og:image" content="https://i.imgur.com/flvvcG8.png">
+<meta property="og:image" content="https://i.imgur.com/wcXRgyf.png">
+<meta property="og:image" content="https://i.imgur.com/0FYuyjp.png">
+<meta property="og:image" content="https://i.imgur.com/WiBrj5V.png">
+<meta property="og:image" content="https://i.imgur.com/QCkdE13.png">
+<meta property="og:image" content="https://i.imgur.com/51LkgQX.png">
+<meta property="og:image" content="https://i.imgur.com/DkSYTzQ.png">
+<meta property="og:image" content="https://i.imgur.com/S9DB2o5.png">
+<meta property="og:image" content="https://i.imgur.com/dp48Om1.png">
+<meta property="og:image" content="https://i.imgur.com/riIhdiI.png">
+<meta property="og:image" content="https://i.imgur.com/3EaLitj.png">
+<meta property="og:image" content="https://i.imgur.com/X3FUONQ.png">
+<meta property="og:image" content="https://i.imgur.com/MdwLRVU.png">
+<meta property="og:image" content="https://i.imgur.com/621Yc34.png">
+<meta property="og:image" content="https://i.imgur.com/InTh4xv.png">
+<meta property="og:image" content="https://i.imgur.com/repw5PT.png">
+<meta property="og:image" content="https://i.imgur.com/GAnpZlQ.png">
+<meta property="og:image" content="https://i.imgur.com/7VrSO7T.png">
+<meta property="og:image" content="https://i.imgur.com/X0l45NL.png">
+<meta property="og:image" content="https://i.imgur.com/MjfCpQx.jpg">
+<meta property="og:image" content="https://i.imgur.com/WEa8Xk8.jpg">
+<meta property="og:updated_time" content="2020-07-25T03:41:47.567Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CS577 Introduction to algorithms notes">
+<meta name="twitter:description" content="12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758CS 577 SECTION 1 PRE-MIDTERM REVIEW GUIDEFall 20191. Useful math   Asymptotic relations: O,Om">
+<meta name="twitter:image" content="https://i.imgur.com/ETKC09u.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"always","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/10/11/CS577_algorithm_notes/">
+
+
+
+
+
+  <title> CS577 Introduction to algorithms notes | Kehui's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Kehui's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">For Kevin Durant</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/11/CS577_algorithm_notes/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kehui Yao">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kehui's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                CS577 Introduction to algorithms notes
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-10-11T00:29:15-05:00">
+                2019-10-11
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Post modified</span>
+              
+              <time title="Post modified" itemprop="dateModified" datetime="2020-07-24T22:41:47-05:00">
+                2020-07-24
+              </time>
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line">CS 577 SECTION 1 </span><br><span class="line">PRE-MIDTERM REVIEW GUIDE</span><br><span class="line">Fall 2019</span><br><span class="line"></span><br><span class="line">1. Useful math</span><br><span class="line"></span><br><span class="line">   Asymptotic relations: O,Omega,Theta,~,o</span><br><span class="line"></span><br><span class="line">   Run times can be polynomial, exponential, or in between</span><br><span class="line">   Pseudopolynomial algorithms (= poly time for inputs in unary)</span><br><span class="line"></span><br><span class="line">   Mathematical induction (for correctness proofs AND alg analysis)</span><br><span class="line"></span><br><span class="line">   Summing by levels to estimate solution to a recurrence</span><br><span class="line"></span><br><span class="line">2. Divide and conquer, recursion</span><br><span class="line"></span><br><span class="line">   Hallmark: Rapid reduction in problem size, usually by a constant</span><br><span class="line">             factor.</span><br><span class="line"></span><br><span class="line">   Exponentiation</span><br><span class="line">   Mergesort -- &quot;oblivious&quot; generation of subproblems</span><br><span class="line">   Inversion counting -- example of piggybacking</span><br><span class="line">   Closest pair in the plane -- subproblems depend on data</span><br><span class="line">   Efficient integer arithmetic (works for polynomials too)</span><br><span class="line">            &quot;School&quot; algorithms</span><br><span class="line">            Karatsuba multiplication</span><br><span class="line">            Newton iteration (reduces division to multiplication)</span><br><span class="line">   Strassen matrix multiplication</span><br><span class="line">   Fast Fourier transform as a remainder tree</span><br><span class="line">            Applications: polynomial and integer multiplication</span><br><span class="line">                          convolutions</span><br><span class="line">                          listing sums and inner products</span><br><span class="line"></span><br><span class="line">3. Greedy algorithms</span><br><span class="line"></span><br><span class="line">   Hallmark: Irrevocable choices, based on (usually numerical) priority</span><br><span class="line"></span><br><span class="line">   Review of graph theory (BFS and DFS, analogous to marching thru an array)</span><br><span class="line">   Problems solvable in linear time: components, 2-coloring, cycle detection,</span><br><span class="line">                                     independent cycles</span><br><span class="line">   Dijkstra single source shortest path with heaps</span><br><span class="line">   Kruskal minimum spanning tree with union-find trees (exchange principle)</span><br><span class="line">   Unit-weight interval scheduling (greedy stays ahead) </span><br><span class="line">   EDD rule to minimize maximum tardiness (correctness uses inversions)</span><br><span class="line"></span><br><span class="line">3. Dynamic programming</span><br><span class="line">  </span><br><span class="line">   Hallmark: Systematic solution of subproblems</span><br><span class="line"></span><br><span class="line">   Bellman equations and the Principle of Optimality (different for</span><br><span class="line">           each problem)</span><br><span class="line"></span><br><span class="line">   Fermat least-time principle (basically shortest path)</span><br><span class="line">   Weighted interval scheduling</span><br><span class="line">   Segmented least squares</span><br><span class="line"></span><br><span class="line">   DP applied to computation: Fibonacci numbers, subset sum problem</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line">CS 577 SECTION 1</span><br><span class="line">POST-MIDTERM REVIEW GUIDE</span><br><span class="line">FALL 2019</span><br><span class="line"></span><br><span class="line">Dynamic Programming Examples</span><br><span class="line"></span><br><span class="line">   Math ideas: induction on structures (arrays, trees, etc.)</span><br><span class="line">               polynomial vs. pseudopolynomial algorithms</span><br><span class="line"></span><br><span class="line">   Fibonacci numbers</span><br><span class="line">   Subset sum</span><br><span class="line">   Knapsack</span><br><span class="line">   Vertex cover for trees</span><br><span class="line">   Longest increasing subsequence and patience sorting</span><br><span class="line">   Edit distance</span><br><span class="line">   Bellman-Ford shortest path algorithm (allows for negative edges)</span><br><span class="line"></span><br><span class="line">Randomization</span><br><span class="line"></span><br><span class="line">   Probability ideas:</span><br><span class="line">     Independence (probabilities multiply)</span><br><span class="line">     Expected value (similar to an integral)</span><br><span class="line">     Linearity of expectation</span><br><span class="line">     Waiting time for success</span><br><span class="line">     Conditional probability</span><br><span class="line"></span><br><span class="line">   Contention resolution</span><br><span class="line">   Global min-cut</span><br><span class="line">   Quicksort and selection by rank</span><br><span class="line">   Rabin-Karp string matching</span><br><span class="line"></span><br><span class="line">Network Flow</span><br><span class="line"></span><br><span class="line">   Linear and integer programming (just the setup, no algorithms)</span><br><span class="line">   Flow network model: Flows and cuts, flow value &lt;= cut capacity</span><br><span class="line">   Failure of greedy algorithm</span><br><span class="line">   Residual graphs</span><br><span class="line">   Ford-Fulkerson procedure </span><br><span class="line">        pseudopolynomial if capacities are integral</span><br><span class="line">   Max-flow / Min-cut theorem (strong duality)</span><br><span class="line">   Applications</span><br><span class="line">       Unit capacity networks and bipartite matching</span><br><span class="line">       Baseball elimination</span><br><span class="line">       Project selection</span><br><span class="line">       </span><br><span class="line">Lower Bound Techniques</span><br><span class="line"></span><br><span class="line">   Decision trees and leaf-counting (&quot;information theory&quot;) bounds</span><br><span class="line">   Adversary arguments</span><br><span class="line"></span><br><span class="line">NP-Completeness</span><br><span class="line"></span><br><span class="line">   Decision problem classes: P, NP (defined using certificates)</span><br><span class="line">   Polynomial-time reductions (multiple queries allowed)</span><br><span class="line">   NP-complete: i) in NP, ii) all other NP problems reduce to it</span><br><span class="line">                if ii) only, problem is called NP-hard</span><br><span class="line">   Cook-Levin theorem: Boolean formula satisfiability is NP-complete</span><br><span class="line">   Satisfiability variations: unrestricted formulas, circuits,</span><br><span class="line">                              conjunctive normal form (CNF)</span><br><span class="line">   Graph problems: </span><br><span class="line">        Vertex Cover (covering) </span><br><span class="line">        Clique and Independent Set (packing)</span><br><span class="line">   3-dimensional Matching</span><br><span class="line">   Subset Sum</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h2 id="Dynamic-programming"><a href="#Dynamic-programming" class="headerlink" title="Dynamic programming"></a>Dynamic programming</h2><h3 id="Subset-sum"><a href="#Subset-sum" class="headerlink" title="Subset sum"></a>Subset sum</h3><p>Given a set of non-negative integers, and a value <em>sum</em>, determine if there is a subset of the given set with sum equal to given <em>sum</em>.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">subset_sum</span><span class="params">(x_list,target_sum)</span>:</span></span><br><span class="line">  <span class="comment"># if target_sum = 0, return true</span></span><br><span class="line">  <span class="keyword">if</span> target_sum==<span class="number">0</span>:</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">  </span><br><span class="line">  </span><br><span class="line">  <span class="comment"># create a len(x_list) x target_sum matrix</span></span><br><span class="line">  res = [[<span class="number">0</span> <span class="keyword">for</span> j <span class="keyword">in</span> range(target_sum)] <span class="keyword">for</span> i <span class="keyword">in</span> range(len(x_list)) ]</span><br><span class="line">  <span class="comment"># the [i,j]th element of the matrix represent whether it is possible to get the value j from any subset of the sublist x_list[:i]</span></span><br><span class="line">  </span><br><span class="line">  <span class="comment"># initial condition</span></span><br><span class="line">  <span class="keyword">for</span> j <span class="keyword">in</span> range(<span class="number">1</span>,target_sum+<span class="number">1</span>):</span><br><span class="line">    <span class="keyword">if</span> x_list[<span class="number">0</span>]==j:</span><br><span class="line">      res[<span class="number">0</span>][j<span class="number">-1</span>] = <span class="number">1</span></span><br><span class="line">  </span><br><span class="line">  <span class="comment"># the Bellman equation can be written as </span></span><br><span class="line">  <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,len(x_list)):</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> range(<span class="number">1</span>,target_sum+<span class="number">1</span>):</span><br><span class="line">   		<span class="comment"># if the current element is larger than the current target, we do not select it</span></span><br><span class="line">      <span class="keyword">if</span> x_list[i]&gt;j:</span><br><span class="line">        res[i][j<span class="number">-1</span>] = res[i<span class="number">-1</span>][j<span class="number">-1</span>]</span><br><span class="line">      <span class="comment"># if equal, res = 1</span></span><br><span class="line">      <span class="keyword">elif</span> x_list[i]==j:</span><br><span class="line">        res[i][j<span class="number">-1</span>] = <span class="number">1</span></span><br><span class="line">      <span class="comment"># if the current element is smaller than the current target, we need to discuss whether include this element or not can achieve the current target</span></span><br><span class="line">      <span class="keyword">else</span>:</span><br><span class="line">        <span class="comment"># does not include it</span></span><br><span class="line">      	<span class="keyword">if</span> res[i<span class="number">-1</span>][j<span class="number">-1</span>]==<span class="number">1</span>:</span><br><span class="line">        	res[i][j<span class="number">-1</span>] = <span class="number">1</span></span><br><span class="line">        <span class="comment"># include it</span></span><br><span class="line">      	<span class="keyword">else</span>:</span><br><span class="line">        	res[i][j<span class="number">-1</span>] = res[i<span class="number">-1</span>][j<span class="number">-1</span>-x_list[i]]</span><br><span class="line">  <span class="comment"># see the dynamic programming results</span></span><br><span class="line">  print(res)</span><br><span class="line">  </span><br><span class="line">  <span class="comment"># output the result, True or Fals</span></span><br><span class="line">  <span class="keyword">if</span> res[len(x_list)<span class="number">-1</span>][target_sum<span class="number">-1</span>]==<span class="number">1</span>:</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">  <span class="keyword">else</span>:</span><br><span class="line">  	<span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># test the function</span></span><br><span class="line">print(subset_sum([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>],<span class="number">10</span>))</span><br></pre></td></tr></table></figure>
+<h3 id="Knapsack-problem"><a href="#Knapsack-problem" class="headerlink" title="Knapsack problem"></a>Knapsack problem</h3><p>Given weights and values of n items, put these items in a knapsack of capacity W to get the maximum total value in the knapsack. In other words, given two integer arrays val[0..n-1] and wt[0..n-1] which represent values and weights associated with n items respectively. Also given an integer W which represents knapsack capacity, find out the maximum value subset of val[] such that sum of the weights of this subset is smaller than or equal to W.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">​</span><br></pre></td></tr></table></figure>
+<p>def knapsack(weights,values,max_weight):</p>
+<h1 id="create-a-len-weights-x-max-weight-matrix-row-represents-weights-column-represents-the-current-maximum-capacity"><a href="#create-a-len-weights-x-max-weight-matrix-row-represents-weights-column-represents-the-current-maximum-capacity" class="headerlink" title="create a len(weights) x max_weight matrix, row represents weights, column represents the current maximum capacity"></a>create a len(weights) x max_weight matrix, row represents weights, column represents the current maximum capacity</h1><p>  res = [[0 for j in range(max_weight)] for i in range(len(weights))]<br>  for j in range(max_weight):<br>      if (weights[0]&lt;j+1) or (weights[0]==j+1):<br>          res[0][j] = values[0]<br>  for i in range(1,len(weights)):<br>      for j in range(max_weight):<br>          if weights[i]&gt;j+1:<br>              res[i][j] = res[i-1][j]<br>          elif weights[i]==j+1:<br>              if values[i]&gt;res[i-1][j]:<br>                  res[i][j] = values[i]<br>          else:<br>              res[i][j] = max(res[i-1][j],res[i-1][j-weights[i]]+values[i])<br>  return res[-1][-1]</p>
+<p>print(knapsack([5,4,6,2],[3,2,6,1],16))</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">### Vertex cover for trees</span><br><span class="line"></span><br><span class="line">最小的可以把一颗树所有edge全部cover的一种vertex组合.</span><br><span class="line"></span><br><span class="line">对每一个vertex $i$, $dp[i][0]$表示把这个节点看做root节点，并把这个vertex放入最后的结果集里面以后这颗树的最小value, $dp[i][1]$表示不取这个vertex放入最后的结果集。那么bellman function就是</span><br><span class="line">$$</span><br><span class="line">dp[i][0] = 1+ \sum min_&#123;parent[u]=i&#125;(dp[u][0],dp[u][1])</span><br><span class="line">$$</span><br><span class="line"></span><br><span class="line">$$</span><br><span class="line">dp[i][1] = \sum dp[u][0]</span><br><span class="line">$$</span><br><span class="line"></span><br><span class="line">For the first formula, it says that when we take the root node into the result set, its children can decide whether it goes to the result set or not.</span><br><span class="line"></span><br><span class="line">For the second formula, it says that when we do not take the root node into the result set, its children must go to the result set.</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">### Longest increasing subsequence</span><br><span class="line"></span><br><span class="line">```python</span><br><span class="line">def longest_increasing_subsequence(x_list):</span><br><span class="line">	res = [1 for i in range(len(x_list))]</span><br><span class="line">  for i in range(len(x_list)):</span><br><span class="line">    for j in range(i):</span><br><span class="line">      if x_list[i]&gt;x_list[j]:</span><br><span class="line">      res[i] = max(res[i],res[j]+1)</span><br><span class="line">  return max(res)</span><br><span class="line"></span><br><span class="line">print(longest_increasing_subsequence([1,5,2,3,7,6]))</span><br></pre></td></tr></table></figure>
+<h2 id="Randomized-algorithm"><a href="#Randomized-algorithm" class="headerlink" title="Randomized algorithm"></a>Randomized algorithm</h2><h3 id="Randomized-median-finding"><a href="#Randomized-median-finding" class="headerlink" title="Randomized median finding"></a>Randomized median finding</h3><p>The problem is to find the median of a list of n elements. </p>
+<p>Natural approach is to select a pivot element p, to compute its rank, partition the list into 2 sublists, restrict our search to one of the lists, discard the other, and proceed recursively.</p>
+<p>The worst case happens when we discard very few elements in each recursion, this may lead to $cn^2$ comparisons for some c.</p>
+<p><strong>Randomized approach</strong> is to select an element uniformly at random among all elements in the list. The expectation of this algorithm performs at most <strong>cn</strong> comparisons for some appropriate c.</p>
+<p>Let $f_{n}$ be the number of comparisons this algorithm performs on an input of n elements. We want to compute $E(f_n)$.</p>
+<p>Let $l$ be the random variable of the size of the sublist with elements smaller than p, the list we keep will have size $max(l,n-1-l)$. </p>
+<p>Let $k$ be a random variable denoting the length of the list we keep after the first pivot. Since both $l=1$ and $l=n-1$ would result in keeping a sublist of length $k=n-1$, the prob that the list we keep has length $n-1$ is $P(k=n-1)=\frac{2}{n}$, More generally, we have that $\mathbb{P}(k=i)=\frac{2}{n}$ for $i=\frac{n}{2}, \frac{n}{2}+1, \cdots, n-2, n-1$ .</p>
+<p>To compute $E(f_n)$, we introduce the event $A_k$ that the sublist we keep after the first level has size $k$. These events are disjoint. So $f_{n}=f_{n}\left(I_{A_{n / 2}}+I_{A_{n / 2+1}}+\cdots+I_{A_{n-1}}\right)$, and $\mathbb{E}\left(f_{n}\right)=\mathbb{E}\left(f_{n} I_{A_{n / 2}}\right)+\mathbb{E}\left(f_{n} I_{A_{n / 2+1}}\right)+\cdots+\mathbb{E}\left(f_{n} I_{A_{n-1}}\right)$ </p>
+<p>For one term $E(f_nI_{A_k})$, we have<br>$$<br>\begin{aligned} \mathbb{E}\left(f_{n} I_{A_{k}}\right) &amp;=\mathbb{E}\left(\left(n-1+f_{k}\right) I_{A_{k}}\right)=\mathbb{E}\left((n-1) I_{A_{K}}\right)+\mathbb{E}\left(f_{k} I_{A_{k}}\right) \ &amp;=(n-1) \mathbb{E}\left(I_{A_{k}}\right)+\mathbb{E}\left(f_{k}\right) \mathbb{E}\left(I_{A_{k}}\right) \ &amp;=\left((n-1)+\mathbb{E}\left(f_{k}\right)\right) \mathbb{E}\left(I_{A_{k}}\right) \end{aligned}<br>$$<br>第一行是因为每选择一个pivot point，都需要做和剩余元素做n-1次比较，然后剩下要做的比较次数=$f_k$, 即$f_n = n-1 + f_k$ </p>
+<p>第二行是因为$f_k$ 和 $A_k$ 独立， 因为$f_k$ 只和你第二步的pivot选取有关，而$A_k$ 其实是取决于你第一步的pivot选取。</p>
+<p>Using $\mathbb{E}\left(I_{A_{k}}\right)=\mathbb{P}\left(A_{k}\right)$ and summing over k, we get<br>$$<br>\begin{aligned} \mathbb{E}\left(f_{n}\right) &amp;=\sum_{k=n / 2}^{n-1}\left(n-1+\mathbb{E}\left(f_{k}\right)\right) \mathbb{P}\left(A_{k}\right) \ &amp;=\left((n-1) \sum_{k=n / 2}^{n-1} \mathbb{P}\left(A_{k}\right)\right)+\sum_{k=n / 2}^{n-1} \mathbb{E}\left(f_{k}\right) \mathbb{P}\left(A_{k}\right) \ &amp;=(n-1)+\frac{2}{n} \sum_{k=n / 2}^{n-1} \mathbb{E}\left(f_{k}\right) \end{aligned}<br>$$</p>
+<p>Prove by induction that $\mathbb{E}\left(f_{n}\right) \leq c n$ , let $\mathbb{E}\left(f_{m}\right) \leq c m \text { for all } m&lt;n$ .<br>$$<br>\begin{aligned} \mathbb{E}\left(f_{n}\right) &amp;=(n-1)+\frac{2}{n} \sum_{k=n / 2}^{n-1} \mathbb{E}\left(f_{k}\right) \ &amp; \leq(n-1)+\frac{2}{n} c \sum_{k=n / 2}^{n-1} k \ &amp;&lt;(n-1)+c \frac{3}{4} n \ &amp;&lt;\left(1+\frac{3 c}{4}\right) n \ &amp; \leq c n \end{aligned}<br>$$<br>provided that we chosse $c\geq4$. This proves by induction that $\mathbb{E}\left(f_{n}\right) \leq 4 n$.</p>
+<h3 id="Randomized-quick-sort"><a href="#Randomized-quick-sort" class="headerlink" title="Randomized quick sort"></a>Randomized quick sort</h3><p><strong>Original</strong> quick sort: always take the first or the last element as the pivot point.</p>
+<p><strong>Randomized algorithm</strong> randomly select one element in the list as the pivot point.</p>
+<p>Let $f_j$ be the number of comparison Quicksort takes to sort $j$ items, we then get </p>
+<p>$$<br>f(n)=n-1+f(k)+f(n-k-1)<br>$$<br>The best-case running time for quicksort is when the pivot is always in the exact middle of the list.<br>$$<br>f(n) \leq 2 f(n / 2)+n-1<br>$$</p>
+<p>If we let $f$ be the random variable which gives the amount of time taken by the algorithm on an input of size n, then we have:<br>$$<br>\mathbb{E}(f(n))=n-1+\mathbb{E}(f(k))+\mathbb{E}(f(n-k-1))<br>$$</p>
+<p>Let T(n) be the expected number of comparisons, we have:<br>$$<br>T(n)=(n-1)+\frac{1}{n} \sum_{i=0}^{n-1}(T(i)+T(n-i-1))<br>$$</p>
+<p>$$<br>T(n)=(n-1)+\frac{2}{n} \sum_{i=1}^{n-1} T(i)<br>$$</p>
+<p>Now, we can solve this by the “guess and prove inductively” method. In order to do this, we first need a good guess. We guess a form of $cnln(n)$ for some constant $c$. Once we’ve made our guess, we will need to evaluate the resulting summation. One of the easiest ways of doing this is to upper-bound the sum by an integral. In particular if $f(x)$ is an increasing function, then:<br>$$<br>\sum_{i=1}^{n-1} f(i) \leq \int_{1}^{n} f(x) d x<br>$$<br>In our case, we will be using the fact that $\int(c x \ln x) d x=(c / 2) x^{2} \ln x-c x^{2} / 4$ .</p>
+<p>Now, we are guessing that $T(i) \leq c i \ln i \text { for } i \leq n-1$. This guess works for the base case T(1) = 0. By induction we have:<br>$$<br>\begin{aligned} T(n) &amp; \leq(n-1)+\frac{2}{n} \sum_{i=1}^{n-1}(c i \ln i) \ &amp; \leq(n-1)+\frac{2}{n} \int_{1}^{n}(c x \ln x) d x \ &amp; \leq(n-1)+\frac{2}{n}\left((c / 2) n^{2} \ln n-c n^{2} / 4+c / 4\right) \ &amp; \leq \operatorname{cn} \ln n, \text { for } c=2 \end{aligned}<br>$$<br>In terms of the number of comparison it makes, randomized quicksort is equivalent to randomly shuffling the input and then handing it off to basic quicksort. So we have also proven that basic quicksort has $O(n \log n)$ avergae-case running time.</p>
+<h3 id="Rabin-Karp-string-matching-algorithm"><a href="#Rabin-Karp-string-matching-algorithm" class="headerlink" title="Rabin-Karp string matching algorithm"></a>Rabin-Karp string matching algorithm</h3><p>$$<br>\begin{array}{l}{\text { Text : A A B A A C A A D A A B A A B A }} \ {\text { Pattern : A A B A }}\\end{array}<br>$$</p>
+<p>give each letter a value, and the pattern has a hash value (sum all values of letters) , then use the window to compute the  hash value for the subset of the text, if equal, examine the window(subset) with the pattern elementwise.</p>
+<p>Strong hash function is needed which allows distinct hash value. For example: use $a_1\times 10^3 + a_2\times 10^2 + a_3 \times 10^1 + a_4\times 10^0$ </p>
+<p>If the value is too large, you can apply mod.</p>
+<h3 id="Analysis-of-contraction-algorithm"><a href="#Analysis-of-contraction-algorithm" class="headerlink" title="Analysis of contraction algorithm"></a>Analysis of contraction algorithm</h3><h4 id="To-solve-the-global-minimum-cut-problem"><a href="#To-solve-the-global-minimum-cut-problem" class="headerlink" title="To solve the global minimum cut problem"></a>To solve the global minimum cut problem</h4><p><strong>Cut</strong>: given an undirected graph $G=(V, E)$, we define a cut of $G$ to be a partition of $V$ into non-empty sets A and B.</p>
+<p><strong>s-t cut</strong>: $G$ is with distinguished source and sink nodes s and t, and s-t cut was defined to be a partition of V into sets A and B such that $s\in A$ and $t \in B$.</p>
+<p><strong>size of cut (A,B)</strong>: number of edges with one end in A and the other in B.</p>
+<p><strong>global minimum cut</strong>:  a cut of minimum size, and any cut is allowed.</p>
+<p> <strong>polynomial-time algorithm can solve global min-cut problem</strong>: convert it into <strong>s-t cut</strong> problem, fix one <strong>s</strong> , then compute the minimum s-t cut in $V-{s}$, then find the global minimum. (From the known fact that finding a minimum s-t cut is doable.)</p>
+<h4 id="The-Contraction-Algorithm"><a href="#The-Contraction-Algorithm" class="headerlink" title="The Contraction Algorithm"></a>The Contraction Algorithm</h4><p><strong>beigin</strong> by choosing an edge $e=(u, v)$ of G uniformly at random an <strong>contracting</strong> it. (把u和v合并成w，删掉所有以前在u和v之间的edge，并把以前从u或者v出去或者指向u，v的edge全部连到w上去).</p>
+<p><strong>continue recursively</strong> until there only remains two sets S(v1) and S(v2) which form a partition of V. We output (S(v1), S(v2)) as the cut found by the algorithm.</p>
+<p><img src="https://i.imgur.com/ETKC09u.png" alt="image-20191117113651818"></p>
+<p><strong>analysis</strong>:  It looks like making random choices, but there is some probability that it will succeed in finding a global min-cut.</p>
+<p><strong>the algorithm returns a global min-cut of G with probability at least $1 /\left(\begin{array}{l}{n} \ {2}\end{array}\right)$</strong>. where n is the number of vertexs.</p>
+<p><strong>Proof</strong>: </p>
+<p>Suppose there is a global min-cut (A,B) of G and suppose it has size <strong>k</strong>, which implies that there is a set F of k edges with one end in A and the other in B. We want to give a lower bound on the probability that the Contraction Algorithm returns the cut (A,B).</p>
+<p>如果algorithm没能选到cut(A,B),它一定是把在F里面的edge也contract掉了。所以下一步我们需要一个upper bound 来估计这个算法把F里的edge contradict掉的概率，这个upper bound会决定算法成功的lower bound。</p>
+<p>So, what is the upper bound on the probability that an edge in F is contracted? For this, we need a lower bound on the size of the number of total edges. Notice that if any node $v$ had degree less than $k$, then the cut $({v}, V-{v})$ would have size less than k, contradicting our assumption that (A,B) is a global min-cut. Thus every node in G has degree at least k, and so <strong>the total number of edges |E|</strong> satisfy $|E|\geq\frac{1}{2}kn$. Hence the probability that an edge in F is contracted is at most $\frac{k}{\frac{1}{2} k n}=\frac{2}{n}$ .</p>
+<p>Now consider the situation after j iterations, when there are n-j super nodes in the current graph $G^{‘}$ , and suppose that no edge in F has been contracted yet.  Every cut of $G^{‘}$ is a cut of G, and so there are at least k edges incident to every supernode of $G^{‘}$. Thus $G^{‘}$ has at least $\frac{1}{2} k(n-j)$ edges, and so the probability that an dege of F is contracted in the next iteration j+1 is at most $1/2\times k(n-j)$.</p>
+<p>The cut (A,B) will actually be returned by the algorithm if no edge of F is contracted in any of iterations 1,2, …, n-2. Write $\varepsilon_{j}$ for the event that an edge of F is not contracted in iteration j.</p>
+<p>Then $\operatorname{Pr}\left[\varepsilon_{1}\right] \geq 1-2 / n$ and $\operatorname{Pr}\left[\varepsilon_{j+1} | \varepsilon_{1} \cap \varepsilon_{2} \cdots \cap \varepsilon_{j}\right] \geq 1-2 /(n-j)$ </p>
+<p>We are interested in bounding $\operatorname{Pr}\left[\varepsilon_{1} \cap \varepsilon_{2} \cdots \cap \varepsilon_{n-2}\right]$, which is<br>$$<br>\begin{array}{l}{\operatorname{Pr}\left[\mathcal{E}<em>{1}\right] \cdot \operatorname{Pr}\left[\varepsilon</em>{2} | \varepsilon_{1}\right] \cdots \operatorname{Pr}\left[\varepsilon_{j+1} | \varepsilon_{1} \cap \varepsilon_{2} \cdots n \varepsilon_{j}\right] \cdots \operatorname{Pr}\left[\varepsilon_{n-2} | \varepsilon_{1} \cap \varepsilon_{2} \cdots n \varepsilon_{n-3}\right]} \ {\quad \geq\left(1-\frac{2}{n}\right)\left(1-\frac{2}{n-1}\right) \cdots\left(1-\frac{2}{n-j}\right) \cdots\left(1-\frac{2}{3}\right)} \ {\quad=\left(\frac{n-2}{n}\right)\left(\frac{n-3}{n-1}\right)\left(\frac{n-4}{n-2}\right) \cdots\left(\frac{2}{4}\right)\left(\frac{1}{3}\right)} \ {\quad=\frac{2}{n(n-1)}=\left(\begin{array}{c}{n} \ {2}\end{array}\right)^{-1}}\end{array}<br>$$</p>
+<p>So we now know that a single run of the Contraction Algorithm fails to find a global minimum-cut with probability at most (n choose 2)^(-1).</p>
+<p>This number is very close to <strong>1</strong>, of course, but we can amplify our probability of success simply by repeatedly running the algorithm, with independent random choices, and taking the best cut we find. By fact (13.1), if we run the algorithm $\left(\begin{array}{l}{n} \ {2}\end{array}\right)$ times, then the probability that we fail to find a global minimum-cut in any run is at most:<br>$$<br>\left(1-1 /\left(\begin{array}{l}{n} \ {2}\end{array}\right)\right)</p>
+<p>\left(1-1 /\left(\begin{array}{l}{n} \ {2}\end{array}\right)\right)^{\left(\begin{array}{l}{n} \ {2}\end{array}\right)} \leq \frac{1}{e}<br>$$</p>
+<p>And it’s easy to drive the failure probability below 1/e with further repetitions, If we run the algorithm $\left(\begin{array}{l}{n} \ {2}\end{array}\right)ln n$ times, then the probability we fail to find a global min-cut is at most  </p>
+<p>$e^{-\ln n}=1 / n$.</p>
+<h2 id="Netflow-Problems"><a href="#Netflow-Problems" class="headerlink" title="Netflow Problems"></a>Netflow Problems</h2><h3 id="The-Maximum-Flow-Problem-and-the-Ford-Fulkerson-Algorithm"><a href="#The-Maximum-Flow-Problem-and-the-Ford-Fulkerson-Algorithm" class="headerlink" title="The Maximum-Flow Problem and the Ford-Fulkerson Algorithm"></a>The Maximum-Flow Problem and the Ford-Fulkerson Algorithm</h3><h4 id="Problem-description"><a href="#Problem-description" class="headerlink" title="Problem description:"></a>Problem description:</h4><h4 id><a href="#" class="headerlink" title></a><img src="https://i.imgur.com/2J5HmvF.png" alt="image-20191117151138861"></h4><p><strong>s</strong> is the source node, <strong>t</strong> is the sink node, we want to find the maximum flow which can be passed through s to t. (numbers on edges are the maximum flow an edge can stand).</p>
+<h4 id="Main-theorem"><a href="#Main-theorem" class="headerlink" title="Main theorem"></a>Main theorem</h4><p>The main theorem links the maximum flow through a network with the minimum cut of the network.</p>
+<p><strong>Max-flow min-cut theorem.</strong> The maximum value of an s-t flow is equal to the minimum capacity over all s-t cuts.</p>
+<h4 id="Ford-Fulkerson-algorithm-by-example"><a href="#Ford-Fulkerson-algorithm-by-example" class="headerlink" title="Ford Fulkerson algorithm by example"></a>Ford Fulkerson algorithm by example</h4><p><strong>Initially</strong>, we have</p>
+<p><img src="https://i.imgur.com/A1PtQK1.png" alt="image-20191117153522672"></p>
+<p><strong>select augmenting path</strong>: we can select <strong>non-full</strong> forward edge and <strong>non-zero</strong> backward edge.</p>
+<p>first, we select <strong>S-A-D-T</strong>. The bottle neck capacity equals 8.</p>
+<p><img src="https://i.imgur.com/R8eJYjf.png" alt="image-20191117153722600"></p>
+<p>Then, we select <strong>S-A-D-T</strong>, the bottle neck capacity is 2.</p>
+<p><img src="https://i.imgur.com/A25iMMG.png" alt="image-20191117153942606"></p>
+<p>Then we select <strong>S-C-D-A-B-T</strong> (because D-A is non-zero), the bottle neck capacity is 4.</p>
+<p><img src="https://i.imgur.com/VKB3NXY.png" alt="image-20191117154324263"></p>
+<p>Then we consider <strong>S-A-D-B-T</strong> , the bottle neck capacity is 2.</p>
+<p><img src="https://i.imgur.com/2EKSvpA.png" alt="image-20191117154814019"></p>
+<p>Then we consider <strong>S-C-D-B-T</strong>, the bottleneck capacity is 3.</p>
+<p><img src="https://i.imgur.com/3IbqWUt.png" alt="image-20191117155132614"></p>
+<p>Till this step, we can see, no augmenting path satisfy the condition that <strong>non-full</strong> forward edge and <strong>non-zero</strong> backward edge. We are finished.</p>
+<p>The time complexity of this algorithm is O(max_flow * E).</p>
+<h3 id="Bipartite-Graphs-and-Matchings"><a href="#Bipartite-Graphs-and-Matchings" class="headerlink" title="Bipartite Graphs and Matchings"></a>Bipartite Graphs and Matchings</h3><h4 id="Definition-of-bipartite-graph"><a href="#Definition-of-bipartite-graph" class="headerlink" title="Definition of bipartite graph"></a>Definition of bipartite graph</h4><p>A graph G = (V, E) is called bipartite if there is a partition of V into two disjoint subsets: V = L ∪ R, such every edge e ∈ E joins some vertex in L to some vertex in R。</p>
+<h4 id="Definition-of-matchings-and-perfect-matchings"><a href="#Definition-of-matchings-and-perfect-matchings" class="headerlink" title="Definition of matchings and perfect matchings"></a>Definition of matchings and perfect matchings</h4><p>Let G = (V, E) be a graph. A matching in G is a set of edges M ⊆ E such that for every e, e0 ∈ M, there is no vertex v such that e and e0 are both incident on v.</p>
+<p>The matching M is called <strong>perfect</strong> if for every v ∈ V , there is some e ∈ M which is incident on v. （每一个vertex都仅仅被一条edge覆盖)</p>
+<h4 id="Definition-of-neighbors"><a href="#Definition-of-neighbors" class="headerlink" title="Definition of neighbors"></a>Definition of neighbors</h4><p>For a set of vertices $S \subseteq V$, we define its set of neighbors $\Gamma(S)$ by:<br>$$<br>\Gamma(S)={v \in V | \exists u \in S \text { s.t. }{u, v} \in E}<br>$$</p>
+<h4 id="Get-a-characterization-of-when-a-bipartite-graph-has-a-perfect-matching"><a href="#Get-a-characterization-of-when-a-bipartite-graph-has-a-perfect-matching" class="headerlink" title="Get a characterization of when a bipartite graph has a perfect matching"></a>Get a characterization of when a bipartite graph has a perfect matching</h4><p>Suppose $G=(L, R, E)$ has a perfect matching M. Then for every set $S \subseteq L$, we have that $|\Gamma(S)| \geq|\Gamma(S) \cap M| \geq|S|$ (这是因为</p>
+<p><img src="https://i.imgur.com/e67Hd6W.png" alt="image-20191122164552015">)</p>
+<h4 id="Theorem-4-Hall’s-Marriage-Theorem"><a href="#Theorem-4-Hall’s-Marriage-Theorem" class="headerlink" title="Theorem 4 (Hall’s Marriage Theorem)."></a>Theorem 4 (Hall’s Marriage Theorem).</h4><p>Let $G=(L, R, E)$ be a bipartite graph with $|L|=|R|$. Suppose that for every $S \subseteq L$, we have $|\Gamma(S)| \geq|S|$. Then $G$ has a perfect matching.</p>
+<p>Hall’s condition: for every $S \subseteq L$, we have $|\Gamma(S)| \geq|S|$.</p>
+<p><strong>Proof</strong>:</p>
+<p>这里证明的思路是我们假设这个theorem对所有edge总数小于m的并满足Hall’s条件的图，都有一个perfect match，那么对于我们现在手上这个edge总数=m的图，怎么样把它拆解呢？是有办法的。最naive的想法就是任取一条edge，并把它加入到perfect match中去，然后移除这个edge所接上的两个vertex（一个在左，一个在右），也移除这个edge。那么剩下的图就只有m-1个edges了呀，我们的induction结论就可以用了？不，由于移除两个vertex有可能破坏Hall’s condition,比如</p>
+<p><img src="https://i.imgur.com/z7dGH1e.png" alt="image-20191122213320885"></p>
+<p>在这个图中，本来是满足hall’s condition的，但如果移除了这条edge和对应的vertex，显然剩下的图就不满足hall’s condition了, 怎么办呢？加条件啊，这才有了后面证明中的两个case。case1 其实就完美规避了去掉edge和vertex后不满足hall’s condition 的情况。</p>
+<p>By induction on $|E|$. Let $|E|=m$. Suppose we know the theorem for all bipartite graphs with $&lt; m $ edges.</p>
+<p>We take cases depending on whether there is slack in the hypothesis or not</p>
+<p><strong>Case 1</strong>: For every $S \subseteq L$ with $0&lt;|S|&lt;|L|$, we have $|\Gamma(S)| \geq|S|+1$，In this case, pick any edge e = {u, v} ∈ E and include it in the matching M. Apply the induction hypothesis to the induced bipartite graph on L \ {u} and R \ {v}: this gives us a matching M0 between L \ {u} and R \ {v}. The desired matching between L and R is M0 ∪ {e}.</p>
+<p>Case2 是 case 1 的补集，因为整个图首先是满足hall’s condition的</p>
+<p><strong>Case 2</strong>:</p>
+<p>  For some S ⊆ L with 0 &lt; |S| &lt; |L|, we have |Γ(S)| = |S|. In this case, first apply the induction hypothesis to the the induced bipartite graph on S and Γ(S). This gives us a matching M0 between S and Γ(S).</p>
+<p>Now let T = L \ S and U = R \ Γ(S). Applying the induction hypothesis again, we get that the induced bipartite graph on T and U has a perfect matching M00 (Why? Suppose there was some S 0 ⊆ T such that |Γ(S 0 ) ∩ U| &lt; |S 0 |. Then Γ(S ∪ S 0 ) = |Γ(S 0 ) ∩ U| + |Γ(S)| &lt; |S 0 | + |S| = |S 0 ∪ S|, a contradiction).</p>
+<p>这里的反证法大概意思除去|Γ(S)| = |S|的那些，剩下的也肯定满足hall condition。</p>
+<p>The desired matching between L and R is M0 ∪ M00</p>
+<h4 id="Prove-that-a-k-regular-bipartite-graph-with-k-geq-1-has-a-perfect-matching"><a href="#Prove-that-a-k-regular-bipartite-graph-with-k-geq-1-has-a-perfect-matching" class="headerlink" title="Prove that a k-regular bipartite graph (with k$\geq$ 1) has a perfect matching"></a>Prove that a k-regular bipartite graph (with k$\geq$ 1) has a perfect matching</h4><p>就是每个vertex有exactly k条edge。</p>
+<p>Using Hall’s Theorem: Hall’s Theorem tells us there is matching that matches A if |N(S)| ≥ |S| for all S ⊂ A. The number of edges from S to N(S) is k|S|, and this is the most the number of edges from N(S) to A, which is k|N(S)|. So we have k|S| ≤ k|N(S)|, which implies |N(S)| ≥ |S|.</p>
+<p>Use <strong>generalized hall’s theorem</strong>: 不用考虑左右两边的vertex多少，只要整个图满足hall’s condition，我们就能找到一个match把左边给盖掉。那么这样一来，右边的元素显然是要比左边多的。</p>
+<p>如果我们在左边用一下hall’s theorem, 发现成立，证明右边元素大于等于左边。又在右边用一下hall’s theorem，发现成立，那么证明了左边元素数量又大于右边，于是左右两边的元素数量只能相等，那么任意一个match左边所有元素的match其实都是一个perfect match，完事。</p>
+<h3 id="Selection-and-adversary-arguments"><a href="#Selection-and-adversary-arguments" class="headerlink" title="Selection and adversary arguments"></a>Selection and adversary arguments</h3><h4 id="Lower-bound-for-finding-the-max-and-min-number-in-a-list"><a href="#Lower-bound-for-finding-the-max-and-min-number-in-a-list" class="headerlink" title="Lower bound for finding the max and min number in a list"></a>Lower bound for finding the max and min number in a list</h4><p>A theorem states that any algorithm which can find max and min of the list with $n$ numbers should do at least $3n/2-2$ comparisons in the worst case.</p>
+<p>We assume the elements in the list are distinct. If we want to know a key $x$ is max and a key $y$ is min, the algorithm should know that every other key other than x has lost some comparisons and every other key other than y has won some comparison. Then an algorithm should at least have 2n-2 units of information to be sure to give the right answer.</p>
+<p>我们要证明通过3n/2-2次比较得到的信息量一定大于等于 2n-2 units. 为此我们需要定义每一次比较最坏能获得的信息量的大小。</p>
+<p><img src="https://i.imgur.com/TPpMs8V.png" alt="image-20191128225131271"></p>
+<p>如果一个key还没有参与比较，他的status是N</p>
+<p>如果一个key已经输过了，他的status是L</p>
+<p>如果一个key输过也赢过，他的status是WL</p>
+<p>很容易知道，从N到W或者L，信息量都会增加1</p>
+<p>从W或者L变成WL，信息量也会增加1</p>
+<p>所以最坏的情况下，每次比较两个key，都往不会增加信息量的方向发展，比如</p>
+<p><img src="https://i.imgur.com/7twNaE1.png" alt="image-20191128225408052"></p>
+<p>稍微解释一下：</p>
+<p>两个没比较过的去比较，一定有赢有输，信息量增加2</p>
+<p>一个赢的和一个输的去比，最差的情况就是赢的还是赢，输的还是输，信息量不变</p>
+<p>等等……</p>
+<p>To complete the proof, we only need to show that the algorithm should at least do 3n/2-2 comparisons to gain 2n-2 units of information. Why?</p>
+<p>First, the only case that the algorithm can surely gain 2 units of information is to compare two keys with status N. Consider n is even, we can do n/2 comparisons to gain n units of information. For each other comparison, at most one information unit can be gained, the algorithm will do n-2 more comparisons to gain n-2 information unit and thus finish the task. Then the total comparisons are n/2+n+2 = 3n/2-2. When n is odd, it is the same.</p>
+<h4 id="Find-the-second-largest-key"><a href="#Find-the-second-largest-key" class="headerlink" title="Find the second largest key"></a>Find the second largest key</h4><p>Naively, we can find the second largest key by first finding the largest, then remove the largest and find the next largest. This will cost 2n-3 comparisons, which is not optimal.</p>
+<p>We want to show that any algorithm that can find the second largest in a list of n keys must do at least <strong>n+[lgn]-2</strong> comparisons in the worst case.</p>
+<p>We prove this by using an adversary lower bound argument. 我们设置一种最难的对手棋，使得最高效的办法遇到这样的对手棋都会在找到最大元素的过程中，使得最大的元素至少和lg(n)个元素做了比较。</p>
+<p>又因为有一种很自然的找寻second largest element的方法，就是把n个元素两两配对，赢的n/2个元素进入下一轮，再两两配对，就像锦标赛一样，这样最后决出的胜者就是最大的元素，并且在这个过程中保证了最大元素和其他元素比较了lg(n)次。</p>
+<p>这种naive的方法可以达到lower bound， 而我们找出的对手棋下法，又使在最优方法下的lower bound和naive方法的比较次数相同，这就说明这个naive的方法实际上就是最优的。（因为任何一种方法的比较次数都要at least $\geq$ lower bound)。</p>
+<p>Now let’s see how this 对手棋怎么下</p>
+<p>第一步是给所有n个元素一个weight，都为1.</p>
+<p>然后根据某种思路，选择两个元素，进行比较，根据下表中的case，对手棋会决定谁大还是谁小可以最大程度让你的最大元素比更多次。对手棋的策略如下表。</p>
+<p><img src="https://i.imgur.com/M7YWU8Q.png" alt="image-20191129093742963"></p>
+<p>简单的解释：</p>
+<p>如果w(x)&gt;w(y)，那么对手棋就令x&gt;y（其实就模拟了input可能出现的一种情况)。然后更新两个元素的权重。</p>
+<p>要找到max，那么最终我们要看哪个元素的weight达到了n。</p>
+<p>很自然的，如果我们有一列数 4，3，2，1.</p>
+<p>我们希望先用4和3比，发现4比3大，然后再用3和2和1比，这样4就只比了一次就知道自己是最大的。但聪明的对手棋不会让你这么做。在4比3大以后，4的权重变为2，3的权重归零。以后用3和其他元素比的时候，对手棋会令其他元素一定比3大（或者一样大）。这时候就stuck了。</p>
+<p><strong>lemma</strong>: Let x be the key of non-zero weight when the algorithm stops. The x = [max] and x has at least directly won [lgn] distinct keys.</p>
+<p>假设最大的key通过K次比较使权重变为n。</p>
+<p>$w_{k}=w(x)$ 表示第k次比较后的权重</p>
+<p>根据对手棋的下法$w_{k} \leq 2 w_{k-1}$</p>
+<p>所以</p>
+<p>$n=w_{K} \leq 2^{K} w_{0}=2^{K}$ </p>
+<p>$K \geq\lceil\lg n\rceil$</p>
+<p>证明结束</p>
+<h3 id="Project-Selection-Problem"><a href="#Project-Selection-Problem" class="headerlink" title="Project Selection Problem"></a>Project Selection Problem</h3><p>Project selection problem is to select a feasible set of projects with maximum profits</p>
+<p>Some projects can have a positive benefit, while other projects will have a negative benefit.</p>
+<p><strong>The thing is</strong> some projects are connected with each other, which means sometimes project A is the prerequisite for project B, etc……</p>
+<h4 id="Design-the-algorithm"><a href="#Design-the-algorithm" class="headerlink" title="Design the algorithm"></a>Design the algorithm</h4><p><img src="https://i.imgur.com/BxwDesD.png" alt="image-20191129212154054"></p>
+<p><img src="https://i.imgur.com/Bvm4Dqx.png" alt="image-20191129213907805"></p>
+<p><img src="https://i.imgur.com/e9kRmyf.png" alt="image-20191129213949756"></p>
+<h4 id="Analyzing-the-algorithm"><a href="#Analyzing-the-algorithm" class="headerlink" title="Analyzing the algorithm"></a>Analyzing the algorithm</h4><p><img src="https://i.imgur.com/EpFJG0g.png" alt="image-20191130004111967"></p>
+<p><img src="https://i.imgur.com/P9YDZ3x.png" alt="image-20191130004245040"></p>
+<p>算法解释：</p>
+<p>我们可以看到算出的这个要使the cut的capacity最小，那么$\sum_{i \in A} p_{i}$ 就得最大，又因为这是一个s-t cut，所有和s相连接的project会和所有和t相连接的project分开，那么在cut完以后和s相连的project就是一个feasible set。</p>
+<p>我们把一个找最大profit project sets的问题通过netflow转换成一个minimum cut问题，碰巧解决这个minimum cut问题的dual问题就是解决project selection问题。这里注意，我们把负profit的project先搞成正的，然后连上sink，这种思路真的很难想到。。。</p>
+<h3 id="Baseball-Elimination"><a href="#Baseball-Elimination" class="headerlink" title="Baseball Elimination"></a>Baseball Elimination</h3><h4 id="The-Problem-description"><a href="#The-Problem-description" class="headerlink" title="The Problem description"></a>The Problem description</h4><p>NBA常规赛打到最后阶段，一些机构已经可以知道哪些球队一定拿不了西部冠军或者东部冠军了。这个问题就是通过各支球队已经有的胜负场数和将来的比赛，来判断是否有球队已经退出了头名的争夺，很有意思，这里继续会用netflow方法求解。</p>
+<h4 id="Algorithm-design"><a href="#Algorithm-design" class="headerlink" title="Algorithm design"></a>Algorithm design</h4><p>Suppose we have a set of $S$ teams, and for each $x\in S$, its current number of wins is $w_x$. Also for any team $x$ and $y$ in $S$, they still have to play $g_{xy}$ games against each other. Finally, we are given a specific team $z$ and the problem asks us if $z$ is eleminated from the first prize or not.</p>
+<p><img src="https://i.imgur.com/u2xeFnJ.png" alt="image-20191130101804254"></p>
+<p>一些解释：</p>
+<p>z想要拿第一，接下来的比赛要全赢，最后z总共赢下m场比赛。</p>
+<p>但如果存在这样一个队伍集合，他们现在的总胜场数加上未来在这些队伍之间的所有比赛数（随便在哪两个队之间进行比赛，总能产生一个赢家，所以胜场会+1）&gt; m|T|, 这意味着一定会有一支队伍最后的胜场数是大于m的，也就是说这支队伍才是最后的冠军，而z肯定拿不了冠军了。</p>
+<p><img src="https://i.imgur.com/flvvcG8.png" alt="image-20191130102951713"></p>
+<p><img src="https://i.imgur.com/wcXRgyf.png" alt="image-20191130103015781"></p>
+<p><img src="https://i.imgur.com/0FYuyjp.png" alt="image-20191130103032496"></p>
+<p>一些解释：</p>
+<p>这个netflow蕴含了所有使得z拿冠军的可能性，从source连出去的edge capacity表示任意两个队的比赛场数不能超过他们本来的比赛场数。而连在sink上的edge capcity $= m-w_x$ 这保证了最后流向队伍x的胜利数不足以让它超过队伍z。</p>
+<p>现在把从source到第一级vertex的所有edge capacity全部拉满，表示真实情况。那么如果这个netflow能承受的来，就证明z有机会拿第一。但是，我们如果换个说法，首先计算这个netflow的最大承受力，如果这个承受力直接就小于拉满后source向第一级vertex输送的flow，那就直接可以说z已经被eliminate了。很自然。</p>
+<h2 id="NP-hard-and-NP-complete-Problems"><a href="#NP-hard-and-NP-complete-Problems" class="headerlink" title="NP-hard and NP-complete Problems"></a>NP-hard and NP-complete Problems</h2><h3 id="Pseudo-polynomial"><a href="#Pseudo-polynomial" class="headerlink" title="Pseudo-polynomial"></a>Pseudo-polynomial</h3><p>Definition of pseudo-polynomial is polynomial in input $n$ but exponential in the toal length of input.</p>
+<ul>
+<li>例如传统的排序算法，复杂度为$O(n^2)$, 当输入规模为x = 32n时，复杂度$O(x^2)$</li>
+<li>而检查素数算法，复杂度为$O(n^4)$, 如果用二进制表示的话，当输入规模为x时，可以表示最大的数字是$n = 2^x$，显然不是polynomial的了</li>
+</ul>
+<h3 id="Reduction-via-“Gadgets”-the-satisfiability-problem"><a href="#Reduction-via-“Gadgets”-the-satisfiability-problem" class="headerlink" title="Reduction via “Gadgets”: the satisfiability problem"></a>Reduction via “Gadgets”: the satisfiability problem</h3><p><strong>The SAT and 3-SAT problems</strong></p>
+<p>Suppose we are given a set X of n Boolean variables $x_1,\ldots,x_n$; each can take the value 0 or 1. By a term over X, we mean one of the variables $x_i$ or its negation $\bar{x}<em>{i}$. Finally, a clause is simply a disjunction of distinct terms $t</em>{1} \vee t_{2} \vee \cdots \vee t_{\ell}$. We say the clause has length l if it contains l terms.</p>
+<p>An assignment satisfies a collection of clauses $C_1,\ldots,C_k$ if it causes all of the $C_i$ to evaluate to 1; In other words, if it causes the conjunction $C_{1} \wedge C_{2} \wedge \cdots \wedge C_{k}$ to evaluate to 1. In this case, we will say that $v$ is a satisfying assignment w.r.t $C_1,\ldots,C_k$; and that the set of clauses $C_1,\ldots,C_k$ is satisfiable.</p>
+<p>Here is a simple example. Suppose we have the three clauses:</p>
+<p>$\left(x_{1} \vee \overline{x_{2}}\right),(\overline{x_{1}} \vee \overline{x_{3}}),\left(x_{2} \vee \overline{x_{3}}\right)$ </p>
+<p>The assignment v that sets all variables to 1 is not a satisfying assignment, but the assignment v that sets all variables to 0 is a satisfying assignment.</p>
+<p>The Satisfiability Problem is also referred to as SAT.</p>
+<p><img src="https://i.imgur.com/WiBrj5V.png" alt="image-20191205134611004"></p>
+<p>There is a special case of SAT which is called 3-Satisfiability:</p>
+<p><img src="https://i.imgur.com/QCkdE13.png" alt="image-20191205134721885"></p>
+<p><strong>Reducing 3-SAT to Independent Set</strong></p>
+<p>主要内容：假设independent set 问题被黑箱解决，我们是否能通过把3-SAT问题转换为Independent set 问题求解？答案是可以的。</p>
+<p>We want to prove that $3 \text { -SAT } \leq_{P} \text { Independent Set. }$.</p>
+<p>First, we need to know that a different way to picture the same 3-SAT instance is as follows: You need to choose one term from each clause, then find a truth assignment that causes all these terms to evaluate to 1, thereby satisfying all clauses. So you succeed if you can select a term from each clause in such a way that no two selected terms “conflict”. <strong>For example</strong>, in first triangle, I choose $x_1$ = 1, but in the second triangle, I choose $\bar{x_1} = 1$, which conflicts.</p>
+<p><img src="https://i.imgur.com/51LkgQX.png" alt="image-20191205145813433"></p>
+<p>Our reduction will be based on this knowledge.</p>
+<p>First construct a graph above.(构造这样一个图形，使得这两个问题等价，那么如果构造成上图的形状，其实是很自然的) Consider what the independent sets of size k look like in this graph: Since two vertices cannot be selected from the same triangle, they consist of all ways of choosing one vertex from each of the triangles. <strong>This is implementing our goal of chossing a term in each clause that will evaluate to 1</strong>. But we have so far not prevented ourselves from choosing two terms that conflict.</p>
+<p><strong>We encode conflicts by adding some more edges to the graph</strong>. For each pair of vertices whose labels correspond to terms that conflict, we add an edge between them. 这有可能destroy all the independent sets of size k的假设，不过这确使得这两个问题真正等价了。 于是解决SAT问题就是解决这个图是否存在independent sets of size k的问题了。</p>
+<p>最后详细的证明这样构造的图可以用来解决3-SAT问题。</p>
+<p><img src="https://i.imgur.com/DkSYTzQ.png" alt="image-20191205151230352"></p>
+<h4 id="Transitivity-of-Reductions"><a href="#Transitivity-of-Reductions" class="headerlink" title="Transitivity of Reductions"></a>Transitivity of Reductions</h4><p>$\text { If } Z \leq_{p} Y, \text { and } Y \leq_{p} X, \text { then } Z \leq_{p} X$</p>
+<p>Proof:</p>
+<p><img src="https://i.imgur.com/S9DB2o5.png" alt="image-20191205151748497"></p>
+<p><img src="https://i.imgur.com/dp48Om1.png" alt="image-20191205151807316"></p>
+<h4 id="Efficient-Certification"><a href="#Efficient-Certification" class="headerlink" title="Efficient Certification"></a>Efficient Certification</h4><p>Consider the problem as follows:</p>
+<p>The input to a computational problem will be encoded as a finite binary string s. We denote the length of a string s by $|s|$. We will identify a decision problem X with the set of strings on which the answer is “yes”. An algorithm A for a decision problem receives an input string s and returns the values “yes” or “no”, we will denote this returned value by A(s). We say that A solves the problem X if for all strings s, we have A(s)=yes if and only if $S \in X$.</p>
+<p>efficient certification简单来说就是不正面解决问题，而是找到另一个algorithm B 使得存在一个长度小于polynomial(|s|)的字符串t，满足$B(s, t)=\text { yes. }$.<img src="https://i.imgur.com/riIhdiI.png" alt="image-20191205162131190"></p>
+<p>另一种理解方式是你有一个poly-size的certificate，然后用一个poly-time的verification algorithm去验证她。</p>
+<h3 id="NP-A-class-of-problems"><a href="#NP-A-class-of-problems" class="headerlink" title="NP: A class of problems"></a>NP: A class of problems</h3><p>We define NP to be the set of all problems for which there exists an efficient certifier. Here is one thing we can observe immediately.</p>
+<p>$\mathcal{P} \subseteq \mathcal{N} \mathcal{P}$</p>
+<p><img src="https://i.imgur.com/3EaLitj.png" alt="image-20191205163545639"></p>
+<p>假设vertex cover问题有polynomial solution A。那么可以把s想象成任意一个graph被当成输进去。t可以想象成一组vertex集合的挑选。</p>
+<p>We can easily check that the problems introduced in the first two sections belong to NP: it is a matter of determining how an efficient certifier for each of them will make use of a ‘certificate’ string t.</p>
+<p>For example:</p>
+<p><img src="https://i.imgur.com/X3FUONQ.png" alt="image-20191205165749423"></p>
+<p>但是我们没有办法证明 any of these problems require more than polynomial time to solve. Indeed, we cannot prove that there is any problem in NP that does not belong to P.</p>
+<p>So we could ask a question: does P = NP<br>$$<br>\text { Is there a problem in } \mathcal{N P} \text { that does not belong to } \mathcal{P} \text { ? Does } \mathcal{P}=\mathcal{N P} ?<br>$$</p>
+<h3 id="NP-Complete-Problems"><a href="#NP-Complete-Problems" class="headerlink" title="NP-Complete Problems"></a>NP-Complete Problems</h3><p>What are the hardest problems in NP? Polynomial-time reducibility gives us a way of addressing this question and gaining insight into the structure of NP.</p>
+<p>The most natural way to define a “hardest” problem X is via the following two properties:</p>
+<p>(1) $X \in \mathcal{N}^{g}$</p>
+<p>(ii) for all $Y \in \mathcal{N} \mathcal{P}, Y \leq_{P} X$. </p>
+<p>In other words, we require that every problem in NP can be reduced to X, We will call such an X an NP-complete problem. 这里，我们一般认为，解决了难的问题，自然可以用难的问题去解决简单的问题。所以很自然的会把简单的问题reduce成难的问题的一个特例？这种理解好像是很自然的。比如A can be reduced to B,那么意思是解决了B自然可以解决A，所以自然地说B应该要比A难做。</p>
+<p><img src="https://i.imgur.com/MdwLRVU.png" alt="image-20191205172027491"></p>
+<p><strong>A curcial consequence</strong>:</p>
+<p><img src="https://i.imgur.com/621Yc34.png" alt="image-20191205172107262"></p>
+<h4 id="NP-complete-problem-example-Circuit-Satisfiability-Problem"><a href="#NP-complete-problem-example-Circuit-Satisfiability-Problem" class="headerlink" title="NP-complete problem example: Circuit Satisfiability Problem"></a>NP-complete problem example: Circuit Satisfiability Problem</h4><p><img src="https://i.imgur.com/InTh4xv.png" alt="image-20191207162307618"></p>
+<p>We are given the circuit as input, and we need to decide whether there is an assignment of values to the inputs that causes the ouput to take the value 1.</p>
+<p><strong>Circuit Satisfiability is NP-complete</strong>.</p>
+<p>Let’s try to reduce some NP problem to this circuit satisfiability problem.</p>
+<p><img src="https://i.imgur.com/repw5PT.png" alt="image-20191207162714697"></p>
+<p><img src="https://i.imgur.com/GAnpZlQ.png" alt="image-20191207162728295"></p>
+<h4 id="Proving-Further-Problems-NP-Complete"><a href="#Proving-Further-Problems-NP-Complete" class="headerlink" title="Proving Further Problems NP-Complete"></a>Proving Further Problems NP-Complete</h4><p>If Y is an NP-complete problem, and X is a problem in NP with the property that $Y \leq_{p} X$, then $X$ is NP-complete.</p>
+<h4 id="General-Strategy-for-proving-new-problems-NP-Complete"><a href="#General-Strategy-for-proving-new-problems-NP-Complete" class="headerlink" title="General Strategy for proving new problems NP-Complete"></a>General Strategy for proving new problems NP-Complete</h4><p>To show a problem is NP complete, you need to: </p>
+<p><strong>Show it in NP</strong></p>
+<p>In other words, given some information <code>C</code>, you can create a polynomial time algorithm <code>V</code> that will verify for every possible input <code>X</code> whether <code>X</code> is in your domain or not.</p>
+<p><strong>Example</strong></p>
+<p>Prove that the <em>problem of vertex covers</em> (that is, for some graph <code>G</code>, <em>does it have a vertex cover set of size <code>k</code> such that every edge in <code>G</code> has at least one vertex in the cover set</em>?) is in NP:</p>
+<ul>
+<li>our input <code>X</code> is some graph <code>G</code> and some number <code>k</code> (this is from the problem definition)</li>
+<li>Take our information <code>C</code> to be “any possible subset of vertices in graph <code>G</code> of size <code>k</code>“</li>
+<li>Then we can write an algorithm <code>V</code> that, given <code>G</code>, <code>k</code> and <code>C</code>, will return whether that set of vertices is a vertex cover for <code>G</code> or not, in <strong>polynomial time</strong>.</li>
+</ul>
+<p>Then for every graph <code>G</code>, if there exists some “possible subset of vertices in <code>G</code> of size <code>k</code>“ which is a vertex cover, then <code>G</code> is in <code>NP</code>.</p>
+<p><strong>Note</strong> that we do <strong>not</strong> need to find <code>C</code> in polynomial time. If we could, the problem would be in `P.</p>
+<p><strong>Note</strong> that algorithm <code>V</code> should work for <strong>every</strong> <code>G</code>, for some <code>C</code>. For every input there should <strong>exist</strong> information that could help us verify whether the input is in the problem domain or not. That is, there should not be an input where the information doesn’t exist.</p>
+<p><strong>Prove it is NP Hard</strong></p>
+<p>This involves getting a known NP-complete problem like <a href="https://en.wikipedia.org/wiki/Boolean_satisfiability_problem" target="_blank" rel="noopener">SAT</a>, the set of boolean expressions in the form:</p>
+<blockquote>
+<p>(A or B or C) and (D or E or F) and …</p>
+</blockquote>
+<p>where the expression is <em>satisfiable</em>, that is there exists some setting for these booleans, which makes the expression <em>true</em>.</p>
+<p>Then <strong>reduce the NP-complete problem to your problem in polynomial time</strong>.</p>
+<p>That is, given some input <code>X</code> for <code>SAT</code> (or whatever NP-complete problem you are using), create some input <code>Y</code> for your problem, such that <code>X</code> is in SAT if and only if <code>Y</code> is in your problem. The function <code>f : X -&gt; Y</code> must run in <strong>polynomial time</strong>.</p>
+<p>In the example above, the input <code>Y</code> would be the graph <code>G</code> and the size of the vertex cover <code>k</code>.</p>
+<p>For a <em>full proof</em>, you’d have to prove both:</p>
+<ul>
+<li>that <code>X</code> is in <code>SAT</code> =&gt; <code>Y</code> in your problem</li>
+<li>and <code>Y</code> in your problem =&gt; <code>X</code> in <code>SAT</code>.</li>
+</ul>
+<p><strong>marcog’s</strong> answer has a link with several other NP-complete problems you could reduce to your problem.</p>
+<p>Footnote: In step 2 (<strong>Prove it is NP-hard</strong>), reducing another NP-hard (not necessarily NP-complete) problem to the current problem will do, since NP-complete problems are a subset of NP-hard problems (that are also in NP).</p>
+<h4 id="Example-of-reduction-reduce-3-SAT-problem-to-subset-sum-problem"><a href="#Example-of-reduction-reduce-3-SAT-problem-to-subset-sum-problem" class="headerlink" title="Example of reduction: reduce 3-SAT problem to subset sum problem"></a>Example of reduction: reduce 3-SAT problem to subset sum problem</h4><ul>
+<li><p>Reduction of 3-Sat to Subset Sum:</p>
+<p>n variables $x_i$ and $m$ clauses $c_j$</p>
+</li>
+<li><p>For each variable $x_i$, construct numbers $t_i$ and $f_i$ of $n+m$ digits.</p>
+<ul>
+<li>The i-th digit of $t_i$ and $f_i$ is equal to 1.</li>
+<li>For $n+1 \leq j \leq n+m$, the j-th digit of $t_i$ is equal to 1 if $x_i$ is in clause $c_{j-n}$</li>
+<li>For $N+1 \leq j \leq n+m$, the j-th digit of $f_i$ is equal to 1 if $\bar{x_i}$ is in clause $c_{j-n}$.</li>
+<li>All other digits of $t_i$ and $f_i$ are 0.</li>
+</ul>
+</li>
+<li><p>Example:</p>
+<p><img src="https://i.imgur.com/7VrSO7T.png" alt="image-20191213175044555"></p>
+</li>
+<li><p>For each clause $c_j$, construct numbers $x_j$ and $y_j$ of n+m digits:</p>
+<ul>
+<li>The (n+j)-th digit of $x_j$ and $y_j$ is equal to 1.</li>
+<li>All other digits of $x_j$ and $y_j$ are 0.</li>
+</ul>
+<p><img src="https://i.imgur.com/X0l45NL.png" alt="image-20191213175254930"></p>
+</li>
+<li><p>Finally, construct a sum number $s$ of n+m digits:</p>
+<ul>
+<li>For $1 \leq j \leq n$, the j-th digit of s is equal to 1.</li>
+<li>For $n+1 \leq j \leq n+m$, the j-th digit of s is equal to 3.</li>
+</ul>
+</li>
+<li><p>(过于复杂，以后再看，网址是<a href="https://www.cs.mcgill.ca/~lyepre/pdf/assignment2-solutions/subsetSumNPCompleteness.pdf" target="_blank" rel="noopener">https://www.cs.mcgill.ca/~lyepre/pdf/assignment2-solutions/subsetSumNPCompleteness.pdf</a>)</p>
+</li>
+</ul>
+<p>还有一张我写的cheetsheet。</p>
+<p><img src="https://i.imgur.com/MjfCpQx.jpg" alt="image-20200722133113986"></p>
+<p><img src="https://i.imgur.com/WEa8Xk8.jpg" alt="image-20200722133048727"></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/study/" rel="tag"># study</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/07/11/basic stat copy/" rel="next" title="Statistics theory">
+                <i class="fa fa-chevron-left"></i> Statistics theory
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/07/18/basic math copy/" rel="prev" title="Some math calculation tips">
+                Some math calculation tips <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/uploads/avatar.jpg" alt="Kehui Yao">
+          <p class="site-author-name" itemprop="name">Kehui Yao</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">30</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/KEHUIYAO" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.linkedin.com/in/kehui-yao-a5b770165/" target="_blank" title="Linkedin">
+                  
+                    <i class="fa fa-fw fa-linkedin"></i>
+                  
+                  Linkedin
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/KehuiY" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Dynamic-programming"><span class="nav-number">1.</span> <span class="nav-text">Dynamic programming</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Subset-sum"><span class="nav-number">1.1.</span> <span class="nav-text">Subset sum</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Knapsack-problem"><span class="nav-number">1.2.</span> <span class="nav-text">Knapsack problem</span></a></li></ol></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#create-a-len-weights-x-max-weight-matrix-row-represents-weights-column-represents-the-current-maximum-capacity"><span class="nav-number"></span> <span class="nav-text">create a len(weights) x max_weight matrix, row represents weights, column represents the current maximum capacity</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Randomized-algorithm"><span class="nav-number">1.</span> <span class="nav-text">Randomized algorithm</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Randomized-median-finding"><span class="nav-number">1.1.</span> <span class="nav-text">Randomized median finding</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Randomized-quick-sort"><span class="nav-number">1.2.</span> <span class="nav-text">Randomized quick sort</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Rabin-Karp-string-matching-algorithm"><span class="nav-number">1.3.</span> <span class="nav-text">Rabin-Karp string matching algorithm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Analysis-of-contraction-algorithm"><span class="nav-number">1.4.</span> <span class="nav-text">Analysis of contraction algorithm</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#To-solve-the-global-minimum-cut-problem"><span class="nav-number">1.4.1.</span> <span class="nav-text">To solve the global minimum cut problem</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#The-Contraction-Algorithm"><span class="nav-number">1.4.2.</span> <span class="nav-text">The Contraction Algorithm</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Netflow-Problems"><span class="nav-number">2.</span> <span class="nav-text">Netflow Problems</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#The-Maximum-Flow-Problem-and-the-Ford-Fulkerson-Algorithm"><span class="nav-number">2.1.</span> <span class="nav-text">The Maximum-Flow Problem and the Ford-Fulkerson Algorithm</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Problem-description"><span class="nav-number">2.1.1.</span> <span class="nav-text">Problem description:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#"><span class="nav-number">2.1.2.</span> <span class="nav-text"></span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Main-theorem"><span class="nav-number">2.1.3.</span> <span class="nav-text">Main theorem</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Ford-Fulkerson-algorithm-by-example"><span class="nav-number">2.1.4.</span> <span class="nav-text">Ford Fulkerson algorithm by example</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Bipartite-Graphs-and-Matchings"><span class="nav-number">2.2.</span> <span class="nav-text">Bipartite Graphs and Matchings</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Definition-of-bipartite-graph"><span class="nav-number">2.2.1.</span> <span class="nav-text">Definition of bipartite graph</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Definition-of-matchings-and-perfect-matchings"><span class="nav-number">2.2.2.</span> <span class="nav-text">Definition of matchings and perfect matchings</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Definition-of-neighbors"><span class="nav-number">2.2.3.</span> <span class="nav-text">Definition of neighbors</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Get-a-characterization-of-when-a-bipartite-graph-has-a-perfect-matching"><span class="nav-number">2.2.4.</span> <span class="nav-text">Get a characterization of when a bipartite graph has a perfect matching</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Theorem-4-Hall’s-Marriage-Theorem"><span class="nav-number">2.2.5.</span> <span class="nav-text">Theorem 4 (Hall’s Marriage Theorem).</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Prove-that-a-k-regular-bipartite-graph-with-k-geq-1-has-a-perfect-matching"><span class="nav-number">2.2.6.</span> <span class="nav-text">Prove that a k-regular bipartite graph (with k$\geq$ 1) has a perfect matching</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Selection-and-adversary-arguments"><span class="nav-number">2.3.</span> <span class="nav-text">Selection and adversary arguments</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Lower-bound-for-finding-the-max-and-min-number-in-a-list"><span class="nav-number">2.3.1.</span> <span class="nav-text">Lower bound for finding the max and min number in a list</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Find-the-second-largest-key"><span class="nav-number">2.3.2.</span> <span class="nav-text">Find the second largest key</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Project-Selection-Problem"><span class="nav-number">2.4.</span> <span class="nav-text">Project Selection Problem</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Design-the-algorithm"><span class="nav-number">2.4.1.</span> <span class="nav-text">Design the algorithm</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Analyzing-the-algorithm"><span class="nav-number">2.4.2.</span> <span class="nav-text">Analyzing the algorithm</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Baseball-Elimination"><span class="nav-number">2.5.</span> <span class="nav-text">Baseball Elimination</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#The-Problem-description"><span class="nav-number">2.5.1.</span> <span class="nav-text">The Problem description</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Algorithm-design"><span class="nav-number">2.5.2.</span> <span class="nav-text">Algorithm design</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NP-hard-and-NP-complete-Problems"><span class="nav-number">3.</span> <span class="nav-text">NP-hard and NP-complete Problems</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Pseudo-polynomial"><span class="nav-number">3.1.</span> <span class="nav-text">Pseudo-polynomial</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reduction-via-“Gadgets”-the-satisfiability-problem"><span class="nav-number">3.2.</span> <span class="nav-text">Reduction via “Gadgets”: the satisfiability problem</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Transitivity-of-Reductions"><span class="nav-number">3.2.1.</span> <span class="nav-text">Transitivity of Reductions</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Efficient-Certification"><span class="nav-number">3.2.2.</span> <span class="nav-text">Efficient Certification</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NP-A-class-of-problems"><span class="nav-number">3.3.</span> <span class="nav-text">NP: A class of problems</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NP-Complete-Problems"><span class="nav-number">3.4.</span> <span class="nav-text">NP-Complete Problems</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#NP-complete-problem-example-Circuit-Satisfiability-Problem"><span class="nav-number">3.4.1.</span> <span class="nav-text">NP-complete problem example: Circuit Satisfiability Problem</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Proving-Further-Problems-NP-Complete"><span class="nav-number">3.4.2.</span> <span class="nav-text">Proving Further Problems NP-Complete</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#General-Strategy-for-proving-new-problems-NP-Complete"><span class="nav-number">3.4.3.</span> <span class="nav-text">General Strategy for proving new problems NP-Complete</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Example-of-reduction-reduce-3-SAT-problem-to-subset-sum-problem"><span class="nav-number">3.4.4.</span> <span class="nav-text">Example of reduction: reduce 3-SAT problem to subset sum problem</span></a></li></ol></li></ol></li></ol></li></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Kehui Yao</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+  
+
+
+  
+
+</body>
+</html>

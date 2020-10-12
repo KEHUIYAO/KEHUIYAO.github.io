@@ -1,0 +1,951 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="study,">
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0">
+
+
+
+
+
+
+<meta name="description" content="Bias/variance trade-offThe following notebook presents visual explanation about how to deal with bias/variance trade-off, which is common machine learning problem. What you will learn:  what is bias a">
+<meta name="keywords" content="study">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Xgboost bias variance trade-off and hyper-parameters tuning">
+<meta property="og:url" content="http://yoursite.com/2019/03/21/xgboost-tuning-parameters/index.html">
+<meta property="og:site_name" content="Kehui&#39;s Blog">
+<meta property="og:description" content="Bias/variance trade-offThe following notebook presents visual explanation about how to deal with bias/variance trade-off, which is common machine learning problem. What you will learn:  what is bias a">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://yoursite.com/2019/03/21/image/bias-variance.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/21/image/underfitting_overfitting.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/21/xgboost-tuning-parameters/output_13_0.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/21/xgboost-tuning-parameters/output_17_0.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/21/image/practical_xgboost_in_python_notebook_header.png">
+<meta property="og:updated_time" content="2020-07-22T18:10:12.560Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Xgboost bias variance trade-off and hyper-parameters tuning">
+<meta name="twitter:description" content="Bias/variance trade-offThe following notebook presents visual explanation about how to deal with bias/variance trade-off, which is common machine learning problem. What you will learn:  what is bias a">
+<meta name="twitter:image" content="http://yoursite.com/2019/03/21/image/bias-variance.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"always","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/03/21/xgboost-tuning-parameters/">
+
+
+
+
+
+  <title> Xgboost bias variance trade-off and hyper-parameters tuning | Kehui's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Kehui's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">For Kevin Durant</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/21/xgboost-tuning-parameters/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kehui Yao">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kehui's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Xgboost bias variance trade-off and hyper-parameters tuning
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-21T23:27:22-05:00">
+                2019-03-21
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Post modified</span>
+              
+              <time title="Post modified" itemprop="dateModified" datetime="2020-07-22T13:10:12-05:00">
+                2020-07-22
+              </time>
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="Bias-variance-trade-off"><a href="#Bias-variance-trade-off" class="headerlink" title="Bias/variance trade-off"></a>Bias/variance trade-off</h2><p>The following notebook presents visual explanation about how to deal with bias/variance trade-off, which is common machine learning problem.</p>
+<p><strong>What you will learn</strong>:</p>
+<ul>
+<li><a href="#biasvariance">what is bias and variance in terms of ML problem</a>,</li>
+<li><a href="#fitting">concept of under- and over-fitting</a>,</li>
+<li><a href="#detect">how to detect if there is a problem</a>,</li>
+<li><a href="#deal">dealing with high variance/bias</a></li>
+</ul>
+<a id="more"></a>
+<h3 id="Bias-and-variance"><a href="#Bias-and-variance" class="headerlink" title="Bias and variance"></a>Bias and variance<a name="biasvariance"></a></h3><p>There are two general types of errors made by classifiers - bias and variance errors.</p>
+<blockquote>
+<p><strong>Bias error</strong> is the overall difference between expected predictions made by the model and true values.</p>
+</blockquote>
+<blockquote>
+<p><strong>Variance error</strong> describes how much predictions for the given point vary.</p>
+</blockquote>
+<p>The desired state is when both errors are as low as possible. The graphics taken from <a href="http://scott.fortmann-roe.com/docs/BiasVariance.html" target="_blank" rel="noopener">Scott Fortmann-Roe’s blog</a> visualizes the issue really well. Imagine that the center of the target is the perfect model. We are iteratively repeating our experiment, recreating model and using it on the same data points.</p>
+<p><img src="../image/bias-variance.png" width="500px" height="500px"></p>
+<h3 id="Underfitting-and-overfitting"><a href="#Underfitting-and-overfitting" class="headerlink" title="Underfitting and overfitting"></a>Underfitting and overfitting<a name="fitting"></a></h3><p>Knowing the errors introduced with bias and variance we can proceed to how these relate to training the model. We will use the plot taken from scikit-learn <a href="http://www.astroml.org/sklearn_tutorial/practical.html" target="_blank" rel="noopener">docs</a> to help us visualize the <strong>underfitting</strong> and <strong>overfitting</strong> issues.<br><img src="../image/underfitting_overfitting.png"><br>This simple example tries to fit a polynomial regression to predict future price. It’s obious to see that for $d=1$ the model is too simple (underfits the data), and for $d=6$ is just the opposite (overfitting).</p>
+<blockquote>
+<p>For <strong>underfitting</strong> we say that model suffers from <em>high bias</em> (too simple) (low variance)</p>
+<p>For <strong>overfitting</strong> we say that model suffers from <em>high variance</em> (over-complicated, unstable) (low bias)</p>
+</blockquote>
+<h3 id="How-to-detect-it"><a href="#How-to-detect-it" class="headerlink" title="How to detect it"></a>How to detect it<a name="detect"></a></h3><p>To quantify the effects described we are going to train the model couple times for choosing different parameters value. Let’s consider that we would like to find a optimal number of trees - we don’t want the model to be very simple, but we also don’t want to over-complicate it.</p>
+<p>The plan is as follows, we will:</p>
+<ul>
+<li>generate complicated binary classification dataset,</li>
+<li>use Scikit-learn wrapper,</li>
+<li>train the model for different values of trees (<code>n_estimators)</code>) using stratified 10-fold CV,</li>
+<li>plot train/test errors</li>
+</ul>
+<p>Begin with loading required libraries and setting random seed number</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">%matplotlib inline</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">from</span> sklearn.learning_curve <span class="keyword">import</span> validation_curve</span><br><span class="line"><span class="keyword">from</span> sklearn.datasets <span class="keyword">import</span> load_svmlight_files</span><br><span class="line"><span class="keyword">from</span> sklearn.cross_validation <span class="keyword">import</span> StratifiedKFold</span><br><span class="line"><span class="keyword">from</span> sklearn.datasets <span class="keyword">import</span> make_classification</span><br><span class="line"><span class="keyword">from</span> xgboost.sklearn <span class="keyword">import</span> XGBClassifier</span><br><span class="line"><span class="keyword">from</span> scipy.sparse <span class="keyword">import</span> vstack</span><br><span class="line"></span><br><span class="line"><span class="comment"># reproducibility</span></span><br><span class="line">seed = <span class="number">123</span></span><br><span class="line">np.random.seed(seed)</span><br></pre></td></tr></table></figure>
+<p>Now generate artificial dataset</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">X, y = make_classification(n_samples=<span class="number">1000</span>, n_features=<span class="number">20</span>, n_informative=<span class="number">8</span>, n_redundant=<span class="number">3</span>, n_repeated=<span class="number">2</span>, random_state=seed)</span><br></pre></td></tr></table></figure>
+<p>We will divide into 10 stratified folds (the same distibution of labels in each fold) for testing</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cv = StratifiedKFold(y, n_folds=<span class="number">10</span>, shuffle=<span class="literal">True</span>, random_state=seed)</span><br></pre></td></tr></table></figure>
+<p>Let’s check how the number of trees influence the predictions accuracy.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">default_params = &#123;</span><br><span class="line">    <span class="string">'objective'</span>: <span class="string">'binary:logistic'</span>,</span><br><span class="line">    <span class="string">'max_depth'</span>: <span class="number">1</span>,</span><br><span class="line">    <span class="string">'learning_rate'</span>: <span class="number">0.3</span>,</span><br><span class="line">    <span class="string">'silent'</span>: <span class="number">1.0</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">n_estimators_range = np.linspace(<span class="number">1</span>, <span class="number">200</span>, <span class="number">10</span>).astype(<span class="string">'int'</span>)</span><br><span class="line"></span><br><span class="line">train_scores, test_scores = validation_curve(</span><br><span class="line">    XGBClassifier(**default_params),</span><br><span class="line">    X, y,</span><br><span class="line">    param_name = <span class="string">'n_estimators'</span>,</span><br><span class="line">    param_range = n_estimators_range,</span><br><span class="line">    cv=cv,</span><br><span class="line">    scoring=<span class="string">'accuracy'</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p>Show the validation curve plot</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">train_scores_mean = np.mean(train_scores, axis=<span class="number">1</span>)</span><br><span class="line">train_scores_std = np.std(train_scores, axis=<span class="number">1</span>)</span><br><span class="line">test_scores_mean = np.mean(test_scores, axis=<span class="number">1</span>)</span><br><span class="line">test_scores_std = np.std(test_scores, axis=<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">fig = plt.figure(figsize=(<span class="number">10</span>, <span class="number">6</span>), dpi=<span class="number">100</span>)</span><br><span class="line"></span><br><span class="line">plt.title(<span class="string">"Validation Curve with XGBoost (eta = 0.3)"</span>)</span><br><span class="line">plt.xlabel(<span class="string">"number of trees"</span>)</span><br><span class="line">plt.ylabel(<span class="string">"Accuracy"</span>)</span><br><span class="line">plt.ylim(<span class="number">0.7</span>, <span class="number">1.1</span>)</span><br><span class="line"></span><br><span class="line">plt.plot(n_estimators_range,</span><br><span class="line">             train_scores_mean,</span><br><span class="line">             label=<span class="string">"Training score"</span>,</span><br><span class="line">             color=<span class="string">"r"</span>)</span><br><span class="line"></span><br><span class="line">plt.plot(n_estimators_range,</span><br><span class="line">             test_scores_mean,</span><br><span class="line">             label=<span class="string">"Cross-validation score"</span>,</span><br><span class="line">             color=<span class="string">"g"</span>)</span><br><span class="line"></span><br><span class="line">plt.fill_between(n_estimators_range,</span><br><span class="line">                 train_scores_mean - train_scores_std,</span><br><span class="line">                 train_scores_mean + train_scores_std,</span><br><span class="line">                 alpha=<span class="number">0.2</span>, color=<span class="string">"r"</span>)</span><br><span class="line"></span><br><span class="line">plt.fill_between(n_estimators_range,</span><br><span class="line">                 test_scores_mean - test_scores_std,</span><br><span class="line">                 test_scores_mean + test_scores_std,</span><br><span class="line">                 alpha=<span class="number">0.2</span>, color=<span class="string">"g"</span>)</span><br><span class="line"></span><br><span class="line">plt.axhline(y=<span class="number">1</span>, color=<span class="string">'k'</span>, ls=<span class="string">'dashed'</span>)</span><br><span class="line"></span><br><span class="line">plt.legend(loc=<span class="string">"best"</span>)</span><br><span class="line">plt.show()</span><br><span class="line"></span><br><span class="line">i = np.argmax(test_scores_mean)</span><br><span class="line">print(<span class="string">"Best cross-validation result (&#123;0:.2f&#125;) obtained for &#123;1&#125; trees"</span>.format(test_scores_mean[i], n_estimators_range[i]))</span><br></pre></td></tr></table></figure>
+<p><img src="output_13_0.png" alt="png"></p>
+<pre><code>Best cross-validation result (0.90) obtained for 89 trees
+</code></pre><p>Looking at the plot we can draw the following conclusions:</p>
+<ul>
+<li>training score keeps growing while adding new trees, but from a certain point CV score is fixed</li>
+<li>variance is lowest, and bias is high for less than 25 trees,</li>
+<li>from about 25 trees, the variance is getting higher and while the CV score bias is holding steady (there is no point for adding extra trees / complexity)</li>
+<li>we can see that the model is quite stable keeping variance fixed when increasing it’s complexity</li>
+</ul>
+<p>We can assume that the trade-off for our model will be met at <code>n_estimators = 50</code>. The variance is still to big.</p>
+<h3 id="What-we-can-do"><a href="#What-we-can-do" class="headerlink" title="What we can do?"></a>What we can do?<a name="deal"></a></h3><h3 id="Dealing-with-high-variance"><a href="#Dealing-with-high-variance" class="headerlink" title="Dealing with high variance"></a>Dealing with high variance</h3><p>If model is too complex try:</p>
+<ul>
+<li>using less features (ie. feature selection),</li>
+<li>using more training samples (ie. artificially generated),</li>
+<li>increasing regularization (add penalties for extra complexity)</li>
+</ul>
+<p>In XGBoost you can try to:</p>
+<ul>
+<li>reduce depth of each tree (<code>max_depth</code>),</li>
+<li>increase <code>min_child_weight</code> parameter,</li>
+<li>increase <code>gamma</code> parameter,</li>
+<li>add more randomness using <code>subsample</code>, <code>colsample_bytree</code> parameters,</li>
+<li>increase <code>lambda</code> and <code>alpha</code> regularization parameters</li>
+</ul>
+<h3 id="Dealing-with-high-bias"><a href="#Dealing-with-high-bias" class="headerlink" title="Dealing with high bias"></a>Dealing with high bias</h3><p>If model is too simple:</p>
+<ul>
+<li>add more features (ie. better feature engineering),</li>
+<li>more sophisticated model</li>
+<li>decrease regularization</li>
+</ul>
+<p>In XGBoost you can do it by:</p>
+<ul>
+<li>increase depth of each tree (<code>max_depth</code>),</li>
+<li>decrease <code>min_child_weight</code> parameter,</li>
+<li>decrease <code>gamma</code> parameter,</li>
+<li>decrease <code>lambda</code> and <code>alpha</code> regularization parameters</li>
+</ul>
+<p>Let’s try to tweak a parameters a little bit. We are going to add some randomness - each tree we will use 70% randomly chosen samples and 60% randomly chosen features. This should help to reduce a variance. To decrease the bias (bigger accuracy) try adding an extra level to each tree.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">default_params = &#123;</span><br><span class="line">    <span class="string">'objective'</span>: <span class="string">'binary:logistic'</span>,</span><br><span class="line">    <span class="string">'max_depth'</span>: <span class="number">2</span>, <span class="comment"># changed</span></span><br><span class="line">    <span class="string">'learning_rate'</span>: <span class="number">0.3</span>,</span><br><span class="line">    <span class="string">'silent'</span>: <span class="number">1.0</span>,</span><br><span class="line">    <span class="string">'colsample_bytree'</span>: <span class="number">0.6</span>, <span class="comment"># added</span></span><br><span class="line">    <span class="string">'subsample'</span>: <span class="number">0.7</span> <span class="comment"># added</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">n_estimators_range = np.linspace(<span class="number">1</span>, <span class="number">200</span>, <span class="number">10</span>).astype(<span class="string">'int'</span>)</span><br><span class="line"></span><br><span class="line">train_scores, test_scores = validation_curve(</span><br><span class="line">    XGBClassifier(**default_params),</span><br><span class="line">    X, y,</span><br><span class="line">    param_name = <span class="string">'n_estimators'</span>,</span><br><span class="line">    param_range = n_estimators_range,</span><br><span class="line">    cv=cv,</span><br><span class="line">    scoring=<span class="string">'accuracy'</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">train_scores_mean = np.mean(train_scores, axis=<span class="number">1</span>)</span><br><span class="line">train_scores_std = np.std(train_scores, axis=<span class="number">1</span>)</span><br><span class="line">test_scores_mean = np.mean(test_scores, axis=<span class="number">1</span>)</span><br><span class="line">test_scores_std = np.std(test_scores, axis=<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">fig = plt.figure(figsize=(<span class="number">10</span>, <span class="number">6</span>), dpi=<span class="number">100</span>)</span><br><span class="line"></span><br><span class="line">plt.title(<span class="string">"Validation Curve with XGBoost (eta = 0.3)"</span>)</span><br><span class="line">plt.xlabel(<span class="string">"number of trees"</span>)</span><br><span class="line">plt.ylabel(<span class="string">"Accuracy"</span>)</span><br><span class="line">plt.ylim(<span class="number">0.7</span>, <span class="number">1.1</span>)</span><br><span class="line"></span><br><span class="line">plt.plot(n_estimators_range,</span><br><span class="line">             train_scores_mean,</span><br><span class="line">             label=<span class="string">"Training score"</span>,</span><br><span class="line">             color=<span class="string">"r"</span>)</span><br><span class="line"></span><br><span class="line">plt.plot(n_estimators_range,</span><br><span class="line">             test_scores_mean,</span><br><span class="line">             label=<span class="string">"Cross-validation score"</span>,</span><br><span class="line">             color=<span class="string">"g"</span>)</span><br><span class="line"></span><br><span class="line">plt.fill_between(n_estimators_range,</span><br><span class="line">                 train_scores_mean - train_scores_std,</span><br><span class="line">                 train_scores_mean + train_scores_std,</span><br><span class="line">                 alpha=<span class="number">0.2</span>, color=<span class="string">"r"</span>)</span><br><span class="line"></span><br><span class="line">plt.fill_between(n_estimators_range,</span><br><span class="line">                 test_scores_mean - test_scores_std,</span><br><span class="line">                 test_scores_mean + test_scores_std,</span><br><span class="line">                 alpha=<span class="number">0.2</span>, color=<span class="string">"g"</span>)</span><br><span class="line"></span><br><span class="line">plt.axhline(y=<span class="number">1</span>, color=<span class="string">'k'</span>, ls=<span class="string">'dashed'</span>)</span><br><span class="line"></span><br><span class="line">plt.legend(loc=<span class="string">"best"</span>)</span><br><span class="line">plt.show()</span><br><span class="line"></span><br><span class="line">i = np.argmax(test_scores_mean)</span><br><span class="line">print(<span class="string">"Best cross-validation result (&#123;0:.2f&#125;) obtained for &#123;1&#125; trees"</span>.format(test_scores_mean[i], n_estimators_range[i]))</span><br></pre></td></tr></table></figure>
+<p><img src="output_17_0.png" alt="png"></p>
+<pre><code>Best cross-validation result (0.92) obtained for 133 trees
+</code></pre><p>We have obtained slightly less variance and decreased bias.</p>
+<p><img style="width:100%" src="../image/practical_xgboost_in_python_notebook_header.png"></p>
+<h2 id="Hyper-parameter-tuning"><a href="#Hyper-parameter-tuning" class="headerlink" title="Hyper-parameter tuning"></a>Hyper-parameter tuning</h2><p>As you know there are plenty of tunable parameters. Each one results in different output. The question is which combination results in best output.</p>
+<p>The following notebook will show you how to use Scikit-learn modules for figuring out the best parameters for your  models.</p>
+<p><strong>What’s included:</strong></p>
+<ul>
+<li><a href="#data">data preparation</a>,</li>
+<li><a href="#grid">finding best hyper-parameters using grid-search</a>,</li>
+<li><a href="#rgrid">finding best hyper-parameters using randomized grid-search<a></a></a></li>
+</ul>
+<h3 id="Prepare-data"><a href="#Prepare-data" class="headerlink" title="Prepare data"></a>Prepare data<a name="data"></a></h3><p>Let’s begin with loading all required libraries in one place and setting seed number for reproducibility.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> xgboost.sklearn <span class="keyword">import</span> XGBClassifier</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> sklearn.grid_search <span class="keyword">import</span> GridSearchCV, RandomizedSearchCV</span><br><span class="line"><span class="keyword">from</span> sklearn.datasets <span class="keyword">import</span> make_classification</span><br><span class="line"><span class="keyword">from</span> sklearn.cross_validation <span class="keyword">import</span> StratifiedKFold</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> scipy.stats <span class="keyword">import</span> randint, uniform</span><br><span class="line"></span><br><span class="line"><span class="comment"># reproducibility</span></span><br><span class="line">seed = <span class="number">342</span></span><br><span class="line">np.random.seed(seed)</span><br></pre></td></tr></table></figure>
+<p>Generate artificial dataset:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">X, y = make_classification(n_samples=<span class="number">1000</span>, n_features=<span class="number">20</span>, n_informative=<span class="number">8</span>, n_redundant=<span class="number">3</span>, n_repeated=<span class="number">2</span>, random_state=seed)</span><br></pre></td></tr></table></figure>
+<p>Define cross-validation strategy for testing. Let’s use <code>StratifiedKFold</code> which guarantees that target label is equally distributed across each fold:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cv = StratifiedKFold(y, n_folds=<span class="number">10</span>, shuffle=<span class="literal">True</span>, random_state=seed)</span><br></pre></td></tr></table></figure>
+<h3 id="Grid-Search"><a href="#Grid-Search" class="headerlink" title="Grid-Search"></a>Grid-Search<a name="grid"></a></h3><p>In grid-search we start by defining a dictionary holding possible parameter values we want to test. <strong>All</strong> combinations will be evaluted.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">params_grid = &#123;</span><br><span class="line">    <span class="string">'max_depth'</span>: [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>],</span><br><span class="line">    <span class="string">'n_estimators'</span>: [<span class="number">5</span>, <span class="number">10</span>, <span class="number">25</span>, <span class="number">50</span>],</span><br><span class="line">    <span class="string">'learning_rate'</span>: np.linspace(<span class="number">1e-16</span>, <span class="number">1</span>, <span class="number">3</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Add a dictionary for fixed parameters.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">params_fixed = &#123;</span><br><span class="line">    <span class="string">'objective'</span>: <span class="string">'binary:logistic'</span>,</span><br><span class="line">    <span class="string">'silent'</span>: <span class="number">1</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Create a <code>GridSearchCV</code> estimator. We will be looking for combination giving the best accuracy.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">bst_grid = GridSearchCV(</span><br><span class="line">    estimator=XGBClassifier(**params_fixed, seed=seed),</span><br><span class="line">    param_grid=params_grid,</span><br><span class="line">    cv=cv,</span><br><span class="line">    scoring=<span class="string">'accuracy'</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p>Before running the calculations notice that $3<em>4</em>3*10=360$ models will be created to test all combinations. You should always have rough estimations about what is going to happen.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bst_grid.fit(X, y)</span><br></pre></td></tr></table></figure>
+<pre><code>GridSearchCV(cv=sklearn.cross_validation.StratifiedKFold(labels=[0 1 ..., 1 1], n_folds=10, shuffle=True, random_state=342),
+       error_score=&apos;raise&apos;,
+       estimator=XGBClassifier(base_score=0.5, colsample_bylevel=1, colsample_bytree=1,
+       gamma=0, learning_rate=0.1, max_delta_step=0, max_depth=3,
+       min_child_weight=1, missing=None, n_estimators=100, nthread=-1,
+       objective=&apos;binary:logistic&apos;, reg_alpha=0, reg_lambda=1,
+       scale_pos_weight=1, seed=342, silent=1, subsample=1),
+       fit_params={}, iid=True, n_jobs=1,
+       param_grid={&apos;n_estimators&apos;: [5, 10, 25, 50], &apos;learning_rate&apos;: array([  1.00000e-16,   5.00000e-01,   1.00000e+00]), &apos;max_depth&apos;: [1, 2, 3]},
+       pre_dispatch=&apos;2*n_jobs&apos;, refit=True, scoring=&apos;accuracy&apos;, verbose=0)
+</code></pre><p>Now, we can look at all obtained scores, and try to manually see what matters and what not. A quick glance looks that the largeer <code>n_estimators</code> then the accuracy is higher.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bst_grid.grid_scores_</span><br></pre></td></tr></table></figure>
+<pre><code>[mean: 0.49800, std: 0.00245, params: {&apos;learning_rate&apos;: 9.9999999999999998e-17, &apos;n_estimators&apos;: 5, &apos;max_depth&apos;: 1},
+ mean: 0.49800, std: 0.00245, params: {&apos;learning_rate&apos;: 9.9999999999999998e-17, &apos;n_estimators&apos;: 10, &apos;max_depth&apos;: 1},
+ mean: 0.49800, std: 0.00245, params: {&apos;learning_rate&apos;: 9.9999999999999998e-17, &apos;n_estimators&apos;: 25, &apos;max_depth&apos;: 1},
+ mean: 0.49800, std: 0.00245, params: {&apos;learning_rate&apos;: 9.9999999999999998e-17, &apos;n_estimators&apos;: 50, &apos;max_depth&apos;: 1},
+ mean: 0.49800, std: 0.00245, params: {&apos;learning_rate&apos;: 9.9999999999999998e-17, &apos;n_estimators&apos;: 5, &apos;max_depth&apos;: 2},
+ mean: 0.49800, std: 0.00245, params: {&apos;learning_rate&apos;: 9.9999999999999998e-17, &apos;n_estimators&apos;: 10, &apos;max_depth&apos;: 2},
+ mean: 0.49800, std: 0.00245, params: {&apos;learning_rate&apos;: 9.9999999999999998e-17, &apos;n_estimators&apos;: 25, &apos;max_depth&apos;: 2},
+ mean: 0.49800, std: 0.00245, params: {&apos;learning_rate&apos;: 9.9999999999999998e-17, &apos;n_estimators&apos;: 50, &apos;max_depth&apos;: 2},
+ mean: 0.49800, std: 0.00245, params: {&apos;learning_rate&apos;: 9.9999999999999998e-17, &apos;n_estimators&apos;: 5, &apos;max_depth&apos;: 3},
+ mean: 0.49800, std: 0.00245, params: {&apos;learning_rate&apos;: 9.9999999999999998e-17, &apos;n_estimators&apos;: 10, &apos;max_depth&apos;: 3},
+ mean: 0.49800, std: 0.00245, params: {&apos;learning_rate&apos;: 9.9999999999999998e-17, &apos;n_estimators&apos;: 25, &apos;max_depth&apos;: 3},
+ mean: 0.49800, std: 0.00245, params: {&apos;learning_rate&apos;: 9.9999999999999998e-17, &apos;n_estimators&apos;: 50, &apos;max_depth&apos;: 3},
+ mean: 0.84100, std: 0.03515, params: {&apos;learning_rate&apos;: 0.5, &apos;n_estimators&apos;: 5, &apos;max_depth&apos;: 1},
+ mean: 0.87300, std: 0.03374, params: {&apos;learning_rate&apos;: 0.5, &apos;n_estimators&apos;: 10, &apos;max_depth&apos;: 1},
+ mean: 0.89200, std: 0.03375, params: {&apos;learning_rate&apos;: 0.5, &apos;n_estimators&apos;: 25, &apos;max_depth&apos;: 1},
+ mean: 0.90200, std: 0.03262, params: {&apos;learning_rate&apos;: 0.5, &apos;n_estimators&apos;: 50, &apos;max_depth&apos;: 1},
+ mean: 0.86400, std: 0.04665, params: {&apos;learning_rate&apos;: 0.5, &apos;n_estimators&apos;: 5, &apos;max_depth&apos;: 2},
+ mean: 0.89400, std: 0.04189, params: {&apos;learning_rate&apos;: 0.5, &apos;n_estimators&apos;: 10, &apos;max_depth&apos;: 2},
+ mean: 0.92200, std: 0.02584, params: {&apos;learning_rate&apos;: 0.5, &apos;n_estimators&apos;: 25, &apos;max_depth&apos;: 2},
+ mean: 0.92000, std: 0.02233, params: {&apos;learning_rate&apos;: 0.5, &apos;n_estimators&apos;: 50, &apos;max_depth&apos;: 2},
+ mean: 0.89700, std: 0.03904, params: {&apos;learning_rate&apos;: 0.5, &apos;n_estimators&apos;: 5, &apos;max_depth&apos;: 3},
+ mean: 0.92000, std: 0.02864, params: {&apos;learning_rate&apos;: 0.5, &apos;n_estimators&apos;: 10, &apos;max_depth&apos;: 3},
+ mean: 0.92300, std: 0.02193, params: {&apos;learning_rate&apos;: 0.5, &apos;n_estimators&apos;: 25, &apos;max_depth&apos;: 3},
+ mean: 0.92400, std: 0.02255, params: {&apos;learning_rate&apos;: 0.5, &apos;n_estimators&apos;: 50, &apos;max_depth&apos;: 3},
+ mean: 0.83500, std: 0.04939, params: {&apos;learning_rate&apos;: 1.0, &apos;n_estimators&apos;: 5, &apos;max_depth&apos;: 1},
+ mean: 0.86800, std: 0.03386, params: {&apos;learning_rate&apos;: 1.0, &apos;n_estimators&apos;: 10, &apos;max_depth&apos;: 1},
+ mean: 0.89500, std: 0.02720, params: {&apos;learning_rate&apos;: 1.0, &apos;n_estimators&apos;: 25, &apos;max_depth&apos;: 1},
+ mean: 0.90500, std: 0.02783, params: {&apos;learning_rate&apos;: 1.0, &apos;n_estimators&apos;: 50, &apos;max_depth&apos;: 1},
+ mean: 0.87800, std: 0.03342, params: {&apos;learning_rate&apos;: 1.0, &apos;n_estimators&apos;: 5, &apos;max_depth&apos;: 2},
+ mean: 0.90800, std: 0.04261, params: {&apos;learning_rate&apos;: 1.0, &apos;n_estimators&apos;: 10, &apos;max_depth&apos;: 2},
+ mean: 0.91000, std: 0.03632, params: {&apos;learning_rate&apos;: 1.0, &apos;n_estimators&apos;: 25, &apos;max_depth&apos;: 2},
+ mean: 0.91300, std: 0.02449, params: {&apos;learning_rate&apos;: 1.0, &apos;n_estimators&apos;: 50, &apos;max_depth&apos;: 2},
+ mean: 0.90500, std: 0.03112, params: {&apos;learning_rate&apos;: 1.0, &apos;n_estimators&apos;: 5, &apos;max_depth&apos;: 3},
+ mean: 0.91700, std: 0.02729, params: {&apos;learning_rate&apos;: 1.0, &apos;n_estimators&apos;: 10, &apos;max_depth&apos;: 3},
+ mean: 0.92700, std: 0.03342, params: {&apos;learning_rate&apos;: 1.0, &apos;n_estimators&apos;: 25, &apos;max_depth&apos;: 3},
+ mean: 0.93300, std: 0.02581, params: {&apos;learning_rate&apos;: 1.0, &apos;n_estimators&apos;: 50, &apos;max_depth&apos;: 3}]
+</code></pre><p>If there are many results, we can filter them manually to get the best combination</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">"Best accuracy obtained: &#123;0&#125;"</span>.format(bst_grid.best_score_))</span><br><span class="line">print(<span class="string">"Parameters:"</span>)</span><br><span class="line"><span class="keyword">for</span> key, value <span class="keyword">in</span> bst_grid.best_params_.items():</span><br><span class="line">    print(<span class="string">"\t&#123;&#125;: &#123;&#125;"</span>.format(key, value))</span><br></pre></td></tr></table></figure>
+<pre><code>Best accuracy obtained: 0.933
+Parameters:
+    learning_rate: 1.0
+    n_estimators: 50
+    max_depth: 3
+</code></pre><p>Looking for best parameters is an iterative process. You should start with coarsed-granularity and move to to more detailed values.</p>
+<h3 id="Randomized-Grid-Search"><a href="#Randomized-Grid-Search" class="headerlink" title="Randomized Grid-Search"></a>Randomized Grid-Search<a name="rgrid"></a></h3><p>When the number of parameters and their values is getting big traditional grid-search approach quickly becomes ineffective. A possible solution might be to randomly pick certain parameters from their distribution. While it’s not an exhaustive solution, it’s worth giving a shot.</p>
+<p>Create a parameters distribution dictionary:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">params_dist_grid = &#123;</span><br><span class="line">    <span class="string">'max_depth'</span>: [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>],</span><br><span class="line">    <span class="string">'gamma'</span>: [<span class="number">0</span>, <span class="number">0.5</span>, <span class="number">1</span>],</span><br><span class="line">    <span class="string">'n_estimators'</span>: randint(<span class="number">1</span>, <span class="number">1001</span>), <span class="comment"># uniform discrete random distribution</span></span><br><span class="line">    <span class="string">'learning_rate'</span>: uniform(), <span class="comment"># gaussian distribution</span></span><br><span class="line">    <span class="string">'subsample'</span>: uniform(), <span class="comment"># gaussian distribution</span></span><br><span class="line">    <span class="string">'colsample_bytree'</span>: uniform() <span class="comment"># gaussian distribution</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Initialize <code>RandomizedSearchCV</code> to <strong>randomly pick 10 combinations of parameters</strong>. With this approach you can easily control the number of tested models.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">rs_grid = RandomizedSearchCV(</span><br><span class="line">    estimator=XGBClassifier(**params_fixed, seed=seed),</span><br><span class="line">    param_distributions=params_dist_grid,</span><br><span class="line">    n_iter=<span class="number">10</span>,</span><br><span class="line">    cv=cv,</span><br><span class="line">    scoring=<span class="string">'accuracy'</span>,</span><br><span class="line">    random_state=seed</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p>Fit the classifier:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rs_grid.fit(X, y)</span><br></pre></td></tr></table></figure>
+<pre><code>RandomizedSearchCV(cv=sklearn.cross_validation.StratifiedKFold(labels=[0 1 ..., 1 1], n_folds=10, shuffle=True, random_state=342),
+          error_score=&apos;raise&apos;,
+          estimator=XGBClassifier(base_score=0.5, colsample_bylevel=1, colsample_bytree=1,
+       gamma=0, learning_rate=0.1, max_delta_step=0, max_depth=3,
+       min_child_weight=1, missing=None, n_estimators=100, nthread=-1,
+       objective=&apos;binary:logistic&apos;, reg_alpha=0, reg_lambda=1,
+       scale_pos_weight=1, seed=342, silent=1, subsample=1),
+          fit_params={}, iid=True, n_iter=10, n_jobs=1,
+          param_distributions={&apos;subsample&apos;: &lt;scipy.stats._distn_infrastructure.rv_frozen object at 0x7ff81c63b400&gt;, &apos;n_estimators&apos;: &lt;scipy.stats._distn_infrastructure.rv_frozen object at 0x7ff827da40f0&gt;, &apos;gamma&apos;: [0, 0.5, 1], &apos;colsample_bytree&apos;: &lt;scipy.stats._distn_infrastructure.rv_frozen object at 0x7ff81c63b748&gt;, &apos;learning_rate&apos;: &lt;scipy.stats._distn_infrastructure.rv_frozen object at 0x7ff84c690160&gt;, &apos;max_depth&apos;: [1, 2, 3, 4]},
+          pre_dispatch=&apos;2*n_jobs&apos;, random_state=342, refit=True,
+          scoring=&apos;accuracy&apos;, verbose=0)
+</code></pre><p>One more time take a look at choosen parameters and their accuracy score:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rs_grid.grid_scores_</span><br></pre></td></tr></table></figure>
+<pre><code>[mean: 0.80200, std: 0.02403, params: {&apos;subsample&apos;: 0.11676744056370758, &apos;n_estimators&apos;: 492, &apos;gamma&apos;: 0, &apos;colsample_bytree&apos;: 0.065034396841929132, &apos;learning_rate&apos;: 0.82231421953113004, &apos;max_depth&apos;: 3},
+ mean: 0.90800, std: 0.02534, params: {&apos;subsample&apos;: 0.4325346125891868, &apos;n_estimators&apos;: 689, &apos;gamma&apos;: 1, &apos;colsample_bytree&apos;: 0.11848249237448605, &apos;learning_rate&apos;: 0.13214054942810016, &apos;max_depth&apos;: 1},
+ mean: 0.86400, std: 0.03584, params: {&apos;subsample&apos;: 0.15239319471904489, &apos;n_estimators&apos;: 392, &apos;gamma&apos;: 0, &apos;colsample_bytree&apos;: 0.37621772642449514, &apos;learning_rate&apos;: 0.61087022642994204, &apos;max_depth&apos;: 4},
+ mean: 0.90100, std: 0.02794, params: {&apos;subsample&apos;: 0.70993001900730734, &apos;n_estimators&apos;: 574, &apos;gamma&apos;: 1, &apos;colsample_bytree&apos;: 0.20992824607318106, &apos;learning_rate&apos;: 0.40898494335099522, &apos;max_depth&apos;: 1},
+ mean: 0.91200, std: 0.02440, params: {&apos;subsample&apos;: 0.93610608633544701, &apos;n_estimators&apos;: 116, &apos;gamma&apos;: 1, &apos;colsample_bytree&apos;: 0.22187963515640408, &apos;learning_rate&apos;: 0.82924717948414195, &apos;max_depth&apos;: 2},
+ mean: 0.92900, std: 0.01577, params: {&apos;subsample&apos;: 0.76526283302535481, &apos;n_estimators&apos;: 281, &apos;gamma&apos;: 0, &apos;colsample_bytree&apos;: 0.80580143163765727, &apos;learning_rate&apos;: 0.46363095388213049, &apos;max_depth&apos;: 4},
+ mean: 0.89900, std: 0.03200, params: {&apos;subsample&apos;: 0.1047221390561941, &apos;n_estimators&apos;: 563, &apos;gamma&apos;: 1, &apos;colsample_bytree&apos;: 0.4649668429588838, &apos;learning_rate&apos;: 0.0056355243866283988, &apos;max_depth&apos;: 4},
+ mean: 0.89300, std: 0.02510, params: {&apos;subsample&apos;: 0.70326840897694187, &apos;n_estimators&apos;: 918, &apos;gamma&apos;: 0.5, &apos;colsample_bytree&apos;: 0.50136727776346701, &apos;learning_rate&apos;: 0.32309692902992948, &apos;max_depth&apos;: 1},
+ mean: 0.90300, std: 0.03573, params: {&apos;subsample&apos;: 0.40219949856580106, &apos;n_estimators&apos;: 665, &apos;gamma&apos;: 1, &apos;colsample_bytree&apos;: 0.32232842572609355, &apos;learning_rate&apos;: 0.87857246352479834, &apos;max_depth&apos;: 4},
+ mean: 0.88900, std: 0.02604, params: {&apos;subsample&apos;: 0.18284845802969663, &apos;n_estimators&apos;: 771, &apos;gamma&apos;: 1, &apos;colsample_bytree&apos;: 0.65705813574097693, &apos;learning_rate&apos;: 0.44206350002617856, &apos;max_depth&apos;: 3}]
+</code></pre><p>There are also some handy properties allowing to quickly analyze best estimator, parameters and obtained score:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rs_grid.best_estimator_</span><br></pre></td></tr></table></figure>
+<pre><code>XGBClassifier(base_score=0.5, colsample_bylevel=1,
+       colsample_bytree=0.80580143163765727, gamma=0,
+       learning_rate=0.46363095388213049, max_delta_step=0, max_depth=4,
+       min_child_weight=1, missing=None, n_estimators=281, nthread=-1,
+       objective=&apos;binary:logistic&apos;, reg_alpha=0, reg_lambda=1,
+       scale_pos_weight=1, seed=342, silent=1,
+       subsample=0.76526283302535481)
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rs_grid.best_params_</span><br></pre></td></tr></table></figure>
+<pre><code>{&apos;colsample_bytree&apos;: 0.80580143163765727,
+ &apos;gamma&apos;: 0,
+ &apos;learning_rate&apos;: 0.46363095388213049,
+ &apos;max_depth&apos;: 4,
+ &apos;n_estimators&apos;: 281,
+ &apos;subsample&apos;: 0.76526283302535481}
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rs_grid.best_score_</span><br></pre></td></tr></table></figure>
+<pre><code>0.92900000000000005
+</code></pre>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/study/" rel="tag"># study</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/03/21/linux-command-tip/" rel="next" title="Linux command tips">
+                <i class="fa fa-chevron-left"></i> Linux command tips
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/03/23/xgboost-variable-selection/" rel="prev" title="Xgboost variable selection">
+                Xgboost variable selection <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/uploads/avatar.jpg" alt="Kehui Yao">
+          <p class="site-author-name" itemprop="name">Kehui Yao</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">30</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/KEHUIYAO" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.linkedin.com/in/kehui-yao-a5b770165/" target="_blank" title="Linkedin">
+                  
+                    <i class="fa fa-fw fa-linkedin"></i>
+                  
+                  Linkedin
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/KehuiY" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Bias-variance-trade-off"><span class="nav-number">1.</span> <span class="nav-text">Bias/variance trade-off</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Bias-and-variance"><span class="nav-number">1.1.</span> <span class="nav-text">Bias and variance</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Underfitting-and-overfitting"><span class="nav-number">1.2.</span> <span class="nav-text">Underfitting and overfitting</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#How-to-detect-it"><span class="nav-number">1.3.</span> <span class="nav-text">How to detect it</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#What-we-can-do"><span class="nav-number">1.4.</span> <span class="nav-text">What we can do?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Dealing-with-high-variance"><span class="nav-number">1.5.</span> <span class="nav-text">Dealing with high variance</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Dealing-with-high-bias"><span class="nav-number">1.6.</span> <span class="nav-text">Dealing with high bias</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hyper-parameter-tuning"><span class="nav-number">2.</span> <span class="nav-text">Hyper-parameter tuning</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Prepare-data"><span class="nav-number">2.1.</span> <span class="nav-text">Prepare data</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Grid-Search"><span class="nav-number">2.2.</span> <span class="nav-text">Grid-Search</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Randomized-Grid-Search"><span class="nav-number">2.3.</span> <span class="nav-text">Randomized Grid-Search</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Kehui Yao</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+  
+
+
+  
+
+</body>
+</html>

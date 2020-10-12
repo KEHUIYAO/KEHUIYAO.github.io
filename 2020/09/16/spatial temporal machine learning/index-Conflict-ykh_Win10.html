@@ -1,0 +1,823 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="study,">
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0">
+
+
+
+
+
+
+<meta name="description" content="Comparison of Deep Neural Networks and Deep Hierarchical Models for Spatio-Temporal DataPaper written by Senzhang Wang, Jiannong Cao, Fellow, IEEE, Philip S. Yu, Fellow, IEEE Spatio-temporal data mini">
+<meta name="keywords" content="study">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Spatial temporal machine learning">
+<meta property="og:url" content="http://yoursite.com/2020/09/16/spatial temporal machine learning/index.html">
+<meta property="og:site_name" content="Kehui&#39;s Blog">
+<meta property="og:description" content="Comparison of Deep Neural Networks and Deep Hierarchical Models for Spatio-Temporal DataPaper written by Senzhang Wang, Jiannong Cao, Fellow, IEEE, Philip S. Yu, Fellow, IEEE Spatio-temporal data mini">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://i.imgur.com/TjeVOvz.png">
+<meta property="og:image" content="https://i.imgur.com/rJHUeiB.png">
+<meta property="og:image" content="https://i.imgur.com/PMlEuVu.png">
+<meta property="og:image" content="https://i.imgur.com/B4o0zgl.png">
+<meta property="og:image" content="https://i.imgur.com/oeu7v9E.png">
+<meta property="og:image" content="https://i.imgur.com/vIZEQJb.png">
+<meta property="og:updated_time" content="2020-09-20T18:07:59.836Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Spatial temporal machine learning">
+<meta name="twitter:description" content="Comparison of Deep Neural Networks and Deep Hierarchical Models for Spatio-Temporal DataPaper written by Senzhang Wang, Jiannong Cao, Fellow, IEEE, Philip S. Yu, Fellow, IEEE Spatio-temporal data mini">
+<meta name="twitter:image" content="https://i.imgur.com/TjeVOvz.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"always","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2020/09/16/spatial temporal machine learning/">
+
+
+
+
+
+  <title> Spatial temporal machine learning | Kehui's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Kehui's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">For Kevin Durant</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/09/16/spatial temporal machine learning/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kehui Yao">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kehui's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Spatial temporal machine learning
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-09-16T00:00:00-05:00">
+                2020-09-16
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Post modified</span>
+              
+              <time title="Post modified" itemprop="dateModified" datetime="2020-09-20T13:07:59-05:00">
+                2020-09-20
+              </time>
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="Comparison-of-Deep-Neural-Networks-and-Deep-Hierarchical-Models-for-Spatio-Temporal-Data"><a href="#Comparison-of-Deep-Neural-Networks-and-Deep-Hierarchical-Models-for-Spatio-Temporal-Data" class="headerlink" title="Comparison of Deep Neural Networks and Deep Hierarchical Models for Spatio-Temporal Data"></a>Comparison of Deep Neural Networks and Deep Hierarchical Models for Spatio-Temporal Data</h3><p>Paper written by Senzhang Wang, Jiannong Cao, Fellow, IEEE, Philip S. Yu, Fellow, IEEE</p>
+<h4 id="Spatio-temporal-data-mining-is-becoming-growingly-important"><a href="#Spatio-temporal-data-mining-is-becoming-growingly-important" class="headerlink" title="Spatio-temporal data mining is becoming growingly important"></a>Spatio-temporal data mining is becoming growingly important</h4><p>It has broad applications in various domains including </p>
+<ul>
+<li>environment and climate (wind prediction and precipitation forecasting)</li>
+<li>public safety (crime prediction)</li>
+<li>intelligent transportation (traffic flow prediction)</li>
+<li>human mobility</li>
+</ul>
+<h4 id="Why-traditional-data-mining-skills-perform-poorly"><a href="#Why-traditional-data-mining-skills-perform-poorly" class="headerlink" title="Why traditional data mining skills perform poorly"></a>Why traditional data mining skills perform poorly</h4><ul>
+<li><p>ST data are in continuous space</p>
+</li>
+<li><p>Has both spatial and temporal properties</p>
+</li>
+<li><p>Not independently generated</p>
+</li>
+<li><p>Traditional methods rely heavily on feature engineering. Hard to process natural ST data in their raw form.</p>
+</li>
+<li><p>Compared with traditional methods, the advantages of deep leaning models for STDM are as follows:</p>
+<ul>
+<li><p>Automatic feature representation learning</p>
+<ul>
+<li>Do not require hand-crafted features</li>
+<li>The spatial proximity and the long-term temporal correlations are complex and hard to be captured.</li>
+<li>With CNN and RNN, these can be automatically learned from the raw data directly.</li>
+</ul>
+</li>
+<li><p>Powerful function approximation ability</p>
+</li>
+</ul>
+</li>
+</ul>
+<a id="more"></a>
+<h4 id="Categorization-of-spatio-temporal-data"><a href="#Categorization-of-spatio-temporal-data" class="headerlink" title="Categorization of spatio-temporal data"></a>Categorization of spatio-temporal data</h4><p>Data types:</p>
+<ul>
+<li>Event data: crime data </li>
+<li>Trajectory data: gps, taxi</li>
+<li>Point reference data</li>
+<li>Raster data: air quality pm 2..5</li>
+<li>Video: can be thought as raster data</li>
+</ul>
+<p>Data representations: (different deep learning models require different data representations as input)</p>
+<ul>
+<li>Sequence </li>
+<li>Graph</li>
+<li>Matrix: facilitate the utilization of CNN model</li>
+<li>Tensor</li>
+</ul>
+<h4 id="Preliminary-of-Deep-learning-models"><a href="#Preliminary-of-Deep-learning-models" class="headerlink" title="Preliminary of Deep learning models"></a>Preliminary of Deep learning models</h4><ul>
+<li><p>RBM: restricted boltzmamnn machines.</p>
+<p><img src="https://i.imgur.com/TjeVOvz.png" alt="image-20200920110332022"></p>
+</li>
+</ul>
+<ul>
+<li><p>CNN: convolutional neural networks</p>
+<p><img src="https://i.imgur.com/rJHUeiB.png" alt="image-20200920110553106"></p>
+</li>
+<li><p>GraphCNN: generalize CNN to graph structured data.</p>
+</li>
+<li><p>RNN and LSTM:</p>
+<p>RNN is designed to recognize the sequential characteristics and use patterns to predict the next likely scenario. They are widely used in the applications of speech recognition and natural language processing.</p>
+</li>
+<li><p>Seq2Seq:</p>
+<p><img src="https://i.imgur.com/PMlEuVu.png" alt="image-20200920123831792"></p>
+</li>
+<li><p>Autoencoder and stacked AE:</p>
+<p><img src="https://i.imgur.com/B4o0zgl.png" alt="image-20200920123924475"></p>
+</li>
+</ul>
+<p><img src="https://i.imgur.com/oeu7v9E.png" alt="image-20200920124022208"></p>
+<h4 id="Framework"><a href="#Framework" class="headerlink" title="Framework"></a>Framework</h4><p><img src="https://i.imgur.com/vIZEQJb.png" alt="image-20200920124313551"></p>
+<ul>
+<li>Raw ST data will first be represented as a particular data format to fit the deep learning model.</li>
+<li>RNN and LSTM models are good at handling sequence data with short-term or long-term temporal correlation, while CNN models are effective to capture the spatial correlation in the image like matrices.</li>
+</ul>
+<h4 id="ST-data-preprocessing"><a href="#ST-data-preprocessing" class="headerlink" title="ST data preprocessing"></a>ST data preprocessing</h4><ul>
+<li>Usually one type of ST data instance corresponds to one typical data representations.</li>
+<li>Trajectory and time series data can naturally be represented as sequence data.</li>
+<li>Spatial map can be represented as a 2D matrix.</li>
+<li>ST raster can be represented as a 2D matrix or 3D tensor</li>
+<li>Trajectory data can also be represented as a matrix to apply CNN. For example, a city is first partitioned into grid cell regions. Then the ST field can be modeled as a matrix with each cell region representing an entry. If a trajectory paths over the cell region, the corresponding entry value is set to 1; otherwise, set to 0.</li>
+<li>Spatial map is sometimes represented as a graph</li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/study/" rel="tag"># study</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/09/13/短途旅行/" rel="next" title="短途旅行">
+                <i class="fa fa-chevron-left"></i> 短途旅行
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/09/16/deep learning theory/" rel="prev" title="Deep learning theory">
+                Deep learning theory <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/uploads/avatar.jpg" alt="Kehui Yao">
+          <p class="site-author-name" itemprop="name">Kehui Yao</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">30</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/KEHUIYAO" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.linkedin.com/in/kehui-yao-a5b770165/" target="_blank" title="Linkedin">
+                  
+                    <i class="fa fa-fw fa-linkedin"></i>
+                  
+                  Linkedin
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/KehuiY" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Comparison-of-Deep-Neural-Networks-and-Deep-Hierarchical-Models-for-Spatio-Temporal-Data"><span class="nav-number">1.</span> <span class="nav-text">Comparison of Deep Neural Networks and Deep Hierarchical Models for Spatio-Temporal Data</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Spatio-temporal-data-mining-is-becoming-growingly-important"><span class="nav-number">1.1.</span> <span class="nav-text">Spatio-temporal data mining is becoming growingly important</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Why-traditional-data-mining-skills-perform-poorly"><span class="nav-number">1.2.</span> <span class="nav-text">Why traditional data mining skills perform poorly</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Categorization-of-spatio-temporal-data"><span class="nav-number">1.3.</span> <span class="nav-text">Categorization of spatio-temporal data</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Preliminary-of-Deep-learning-models"><span class="nav-number">1.4.</span> <span class="nav-text">Preliminary of Deep learning models</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Framework"><span class="nav-number">1.5.</span> <span class="nav-text">Framework</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ST-data-preprocessing"><span class="nav-number">1.6.</span> <span class="nav-text">ST data preprocessing</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Kehui Yao</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+  
+
+
+  
+
+</body>
+</html>

@@ -1,0 +1,1016 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="study,">
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0">
+
+
+
+
+
+
+<meta name="description" content="The procedure using sample correlation to derive the F-test">
+<meta name="keywords" content="study">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Regression analysis">
+<meta property="og:url" content="http://yoursite.com/2020/07/24/Tips for regression analysis/index.html">
+<meta property="og:site_name" content="Kehui&#39;s Blog">
+<meta property="og:description" content="The procedure using sample correlation to derive the F-test">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://i.imgur.com/sDSt3E1.png">
+<meta property="og:image" content="https://i.imgur.com/dXztn7y.png">
+<meta property="og:image" content="https://i.imgur.com/rtJy51j.png">
+<meta property="og:image" content="https://i.imgur.com/HVtFg0J.png">
+<meta property="og:image" content="https://i.imgur.com/DRO1ryC.png">
+<meta property="og:image" content="https://i.imgur.com/haPKn84.png">
+<meta property="og:image" content="https://i.imgur.com/FmhLOZ9.png">
+<meta property="og:image" content="https://i.imgur.com/Avg09rC.png">
+<meta property="og:image" content="https://i.imgur.com/sXupvcS.png">
+<meta property="og:image" content="https://i.imgur.com/tnv9Zm4.png">
+<meta property="og:image" content="https://i.imgur.com/jjZymIN.png">
+<meta property="og:image" content="https://i.imgur.com/TVLETaa.png">
+<meta property="og:image" content="https://i.imgur.com/h50N6Ab.jpg">
+<meta property="og:image" content="https://i.imgur.com/UVrOldS.jpg">
+<meta property="og:image" content="https://i.imgur.com/5v1F7NG.jpg">
+<meta property="og:image" content="https://i.imgur.com/ZKHNnvp.png">
+<meta property="og:image" content="https://i.imgur.com/64ElJLG.jpg">
+<meta property="og:image" content="https://i.imgur.com/mXmsFj5.png">
+<meta property="og:image" content="https://i.imgur.com/Nx1wZm2.png">
+<meta property="og:image" content="https://i.imgur.com/5mDh6Ab.png">
+<meta property="og:image" content="https://i.imgur.com/3HOtSrR.png">
+<meta property="og:image" content="https://i.imgur.com/AcWDLGB.png">
+<meta property="og:image" content="https://i.imgur.com/KoZiGO0.png">
+<meta property="og:image" content="https://i.imgur.com/F39FsmX.png">
+<meta property="og:image" content="https://i.imgur.com/7YWUTX2.png">
+<meta property="og:image" content="https://i.imgur.com/s4UIqOj.png">
+<meta property="og:image" content="https://i.imgur.com/bdyMRg3.png">
+<meta property="og:image" content="https://i.imgur.com/BIyCp4V.jpg">
+<meta property="og:image" content="https://i.imgur.com/hso4MiW.png">
+<meta property="og:image" content="https://i.imgur.com/3AU4B6p.png">
+<meta property="og:image" content="https://i.imgur.com/iqVSqPO.png">
+<meta property="og:image" content="https://i.imgur.com/oxBSHey.png">
+<meta property="og:image" content="https://i.imgur.com/WY6ra5l.png">
+<meta property="og:image" content="https://i.imgur.com/kMorHQC.png">
+<meta property="og:image" content="https://i.imgur.com/j2nxAPk.png">
+<meta property="og:image" content="https://i.imgur.com/4S1KpL9.png">
+<meta property="og:image" content="https://i.imgur.com/wUNLcKx.png">
+<meta property="og:image" content="https://i.imgur.com/voMEodX.png">
+<meta property="og:image" content="https://i.imgur.com/RPe2DG8.png">
+<meta property="og:image" content="https://i.imgur.com/Ea5qKKB.png">
+<meta property="og:image" content="https://i.imgur.com/utAZdFY.png">
+<meta property="og:image" content="https://i.imgur.com/RaEah3m.png">
+<meta property="og:image" content="https://i.imgur.com/KNFBJTW.png">
+<meta property="og:image" content="https://i.imgur.com/0dLOfR8.png">
+<meta property="og:image" content="https://i.imgur.com/44MkBua.png">
+<meta property="og:image" content="https://i.imgur.com/2WiwKJH.png">
+<meta property="og:image" content="https://i.imgur.com/5ENz0d7.png">
+<meta property="og:image" content="https://i.imgur.com/Jojkvmb.png">
+<meta property="og:image" content="https://i.imgur.com/rGEz1Js.png">
+<meta property="og:image" content="https://i.imgur.com/pkwEFyc.png">
+<meta property="og:image" content="https://i.imgur.com/PJiGC48.png">
+<meta property="og:image" content="https://i.imgur.com/XRaqDbJ.png">
+<meta property="og:image" content="https://i.imgur.com/ZobHFuQ.png">
+<meta property="og:image" content="https://i.imgur.com/lzyU2P6.png">
+<meta property="og:image" content="https://i.imgur.com/z3hxmKW.png">
+<meta property="og:image" content="https://i.imgur.com/kArCwFa.png">
+<meta property="og:image" content="https://i.imgur.com/n86mNCE.png">
+<meta property="og:image" content="https://i.imgur.com/TZkVMrK.png">
+<meta property="og:image" content="https://i.imgur.com/UVaMqXT.png">
+<meta property="og:image" content="https://i.imgur.com/FbdNmtb.png">
+<meta property="og:image" content="https://i.imgur.com/oR20lTK.png">
+<meta property="og:image" content="https://i.imgur.com/2X0ssJt.png">
+<meta property="og:image" content="https://i.imgur.com/4wYR6Dn.png">
+<meta property="og:image" content="https://i.imgur.com/2iHL4zE.png">
+<meta property="og:image" content="https://i.imgur.com/rHFKWuS.png">
+<meta property="og:image" content="https://i.imgur.com/c8NY0Lj.png">
+<meta property="og:image" content="https://i.imgur.com/SbPbU3b.png">
+<meta property="og:image" content="https://i.imgur.com/Bz2nAVd.png">
+<meta property="og:image" content="https://i.imgur.com/plsp49B.png">
+<meta property="og:image" content="https://i.imgur.com/8Fq9hFy.png">
+<meta property="og:image" content="https://i.imgur.com/mRIziEB.png">
+<meta property="og:image" content="https://i.imgur.com/xgqI0Rl.png">
+<meta property="og:image" content="https://i.imgur.com/rT6Vaej.png">
+<meta property="og:image" content="https://i.imgur.com/2hLT1to.jpg">
+<meta property="og:image" content="https://i.imgur.com/sFFrJ1C.png">
+<meta property="og:image" content="https://i.imgur.com/iH6xNS0.png">
+<meta property="og:image" content="https://i.imgur.com/J6GUfVj.png">
+<meta property="og:image" content="https://i.imgur.com/vMVBDOs.png">
+<meta property="og:image" content="https://i.imgur.com/ZYqo2EY.png">
+<meta property="og:image" content="https://i.imgur.com/ltinqIn.png">
+<meta property="og:image" content="https://i.imgur.com/F3jNAAX.png">
+<meta property="og:image" content="https://i.imgur.com/3p1BOE5.png">
+<meta property="og:image" content="https://i.imgur.com/kJQpAQx.png">
+<meta property="og:image" content="https://i.imgur.com/YLONhiC.png">
+<meta property="og:image" content="https://i.imgur.com/jMveHnj.png">
+<meta property="og:image" content="https://i.imgur.com/FOzJF8i.png">
+<meta property="og:image" content="https://i.imgur.com/XeEded1.png">
+<meta property="og:image" content="https://i.imgur.com/Ue7DZlr.png">
+<meta property="og:image" content="https://i.imgur.com/ndlZ8ff.png">
+<meta property="og:image" content="https://i.imgur.com/O18OjGH.png">
+<meta property="og:image" content="https://i.imgur.com/nGRT9KS.png">
+<meta property="og:image" content="https://i.imgur.com/TXjkxsg.png">
+<meta property="og:image" content="https://i.imgur.com/EHUfZw1.png">
+<meta property="og:image" content="https://i.imgur.com/u19Kokc.png">
+<meta property="og:image" content="https://i.imgur.com/qafhwVN.png">
+<meta property="og:image" content="https://i.imgur.com/wfl7yZ3.png">
+<meta property="og:image" content="https://i.imgur.com/bnxIC02.png">
+<meta property="og:image" content="https://i.imgur.com/Db3qBp9.png">
+<meta property="og:image" content="https://i.imgur.com/rAJAvVE.png">
+<meta property="og:updated_time" content="2020-08-21T21:36:36.125Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Regression analysis">
+<meta name="twitter:description" content="The procedure using sample correlation to derive the F-test">
+<meta name="twitter:image" content="https://i.imgur.com/sDSt3E1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"always","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2020/07/24/Tips for regression analysis/">
+
+
+
+
+
+  <title> Regression analysis | Kehui's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Kehui's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">For Kevin Durant</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/24/Tips for regression analysis/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kehui Yao">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kehui's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Regression analysis
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-07-24T00:29:15-05:00">
+                2020-07-24
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Post modified</span>
+              
+              <time title="Post modified" itemprop="dateModified" datetime="2020-08-21T16:36:36-05:00">
+                2020-08-21
+              </time>
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="The-procedure-using-sample-correlation-to-derive-the-F-test"><a href="#The-procedure-using-sample-correlation-to-derive-the-F-test" class="headerlink" title="The procedure using sample correlation to derive the F-test"></a>The procedure using sample correlation to derive the F-test</h4><p><img src="https://i.imgur.com/sDSt3E1.png" alt="image-20200724095612281"></p>
+<p><img src="https://i.imgur.com/dXztn7y.png" alt="image-20200724095709817"></p>
+<p><img src="https://i.imgur.com/rtJy51j.png" alt="image-20200724095748636"></p>
+<p><img src="https://i.imgur.com/HVtFg0J.png" alt="image-20200724095839261"></p>
+<p><img src="https://i.imgur.com/DRO1ryC.png" alt="image-20200724100254921"></p>
+<a id="more"></a>
+<p>Consider multivariate regression:</p>
+<p>First, we know from straight line that:</p>
+<p><img src="https://i.imgur.com/haPKn84.png" alt="image-20200724100759557"></p>
+<p>This actually follows from <img src="https://i.imgur.com/FmhLOZ9.png" alt="image-20200724101057390"></p>
+<p>Since:</p>
+<p><img src="https://i.imgur.com/Avg09rC.png" alt="image-20200724101119199"></p>
+<p><img src="https://i.imgur.com/sXupvcS.png" alt="image-20200724101227326"></p>
+<p><img src="https://i.imgur.com/tnv9Zm4.png" alt="image-20200724101343958"></p>
+<p><img src="https://i.imgur.com/jjZymIN.png" alt="image-20200724101426603"></p>
+<p>（这个公式最后一个等号有个typo）</p>
+<p>Example problem:</p>
+<p><img src="https://i.imgur.com/TVLETaa.png" alt="image-20200801114722402"></p>
+<p><img src="https://i.imgur.com/h50N6Ab.jpg" alt="image-20200801114804087"></p>
+<h4 id="Method-of-Orthogonal-Projections"><a href="#Method-of-Orthogonal-Projections" class="headerlink" title="Method of Orthogonal Projections"></a>Method of Orthogonal Projections</h4><p><img src="https://i.imgur.com/UVrOldS.jpg" alt="image-20200724112434521"></p>
+<p>#### </p>
+<h4 id="Method-of-Lagrange-Multipliers"><a href="#Method-of-Lagrange-Multipliers" class="headerlink" title="Method of Lagrange Multipliers"></a>Method of Lagrange Multipliers</h4><p><img src="https://i.imgur.com/5v1F7NG.jpg" alt="image-20200724112535112"></p>
+<h4 id="Regression-with-orthogonal-predicted-variables"><a href="#Regression-with-orthogonal-predicted-variables" class="headerlink" title="Regression with orthogonal predicted variables"></a>Regression with orthogonal predicted variables</h4><p><img src="https://i.imgur.com/ZKHNnvp.png" alt="image-20200821163434067"></p>
+<p><img src="https://i.imgur.com/64ElJLG.jpg" alt="image-20200821163555801"></p>
+<h4 id="Regression-hypothesis-testing"><a href="#Regression-hypothesis-testing" class="headerlink" title="Regression hypothesis testing"></a>Regression hypothesis testing</h4><p><img src="https://i.imgur.com/mXmsFj5.png" alt="image-20200731170414678"></p>
+<h4 id="Matrix-algebra-cheatsheet"><a href="#Matrix-algebra-cheatsheet" class="headerlink" title="Matrix algebra cheatsheet"></a>Matrix algebra cheatsheet</h4><p><img src="https://i.imgur.com/Nx1wZm2.png" alt="image-20200803121119795"></p>
+<p><img src="https://i.imgur.com/5mDh6Ab.png" alt="image-20200724112836837"></p>
+<p><img src="https://i.imgur.com/3HOtSrR.png" alt="image-20200724112905348"></p>
+<p><img src="https://i.imgur.com/AcWDLGB.png" alt="image-20200724112932964"></p>
+<h4 id="Diagonostic-tools-and-model-selection"><a href="#Diagonostic-tools-and-model-selection" class="headerlink" title="Diagonostic tools and model selection"></a>Diagonostic tools and model selection</h4><p><img src="https://i.imgur.com/KoZiGO0.png" alt="image-20200724115351328"></p>
+<p><img src="https://i.imgur.com/F39FsmX.png" alt="image-20200724115619202"></p>
+<p><img src="https://i.imgur.com/7YWUTX2.png" alt="image-20200724115736215"></p>
+<p><img src="https://i.imgur.com/s4UIqOj.png" alt="image-20200724120914749"></p>
+<p><img src="https://i.imgur.com/bdyMRg3.png" alt="image-20200724121158962"></p>
+<h4 id="High-leverage-point-will-cover-the-evidence-of-an-outlier"><a href="#High-leverage-point-will-cover-the-evidence-of-an-outlier" class="headerlink" title="High leverage point will cover the evidence of an outlier"></a>High leverage point will cover the evidence of an outlier</h4><p><img src="https://i.imgur.com/BIyCp4V.jpg" alt="image-20200724143822312"></p>
+<p><img src="https://i.imgur.com/hso4MiW.png" alt="image-20200724161616216"></p>
+<h4 id="Straight-line-regression-的一些结论"><a href="#Straight-line-regression-的一些结论" class="headerlink" title="Straight line regression 的一些结论"></a>Straight line regression 的一些结论</h4><p><img src="https://i.imgur.com/3AU4B6p.png" alt="image-20200801123251530"></p>
+<h4 id="Straight-line-prediction-interval-and-band"><a href="#Straight-line-prediction-interval-and-band" class="headerlink" title="Straight line prediction interval and band"></a>Straight line prediction interval and band</h4><p><img src="https://i.imgur.com/iqVSqPO.png" alt></p>
+<p><img src="https://i.imgur.com/oxBSHey.png" alt="image-20200801124028820"></p>
+<p><img src="https://i.imgur.com/WY6ra5l.png" alt="image-20200801124506253"></p>
+<h4 id="Introducing-new-explanatory-variables"><a href="#Introducing-new-explanatory-variables" class="headerlink" title="Introducing new explanatory variables"></a>Introducing new explanatory variables</h4><p><img src="https://i.imgur.com/kMorHQC.png" alt="image-20200724144120271"></p>
+<h4 id="Key-step-to-prove-this-theorem-is-by-orthogonalizing-the-model"><a href="#Key-step-to-prove-this-theorem-is-by-orthogonalizing-the-model" class="headerlink" title="Key step to prove this theorem is by orthogonalizing the model."></a>Key step to prove this theorem is by orthogonalizing the model.</h4><p><img src="https://i.imgur.com/j2nxAPk.png" alt="image-20200724145003721"></p>
+<p><span id="jump1"> </span></p>
+<p><img src="https://i.imgur.com/4S1KpL9.png" alt="image-20200731154849741"></p>
+<p><img src="https://i.imgur.com/wUNLcKx.png" alt="image-20200731154856114"></p>
+<h4 id="Generalized-least-square"><a href="#Generalized-least-square" class="headerlink" title="Generalized least square"></a>Generalized least square</h4><p><img src="https://i.imgur.com/voMEodX.png" alt="image-20200724161429976"></p>
+<h4 id="High-leverage-points"><a href="#High-leverage-points" class="headerlink" title="High leverage points"></a>High leverage points</h4><p><img src="https://i.imgur.com/RPe2DG8.png" alt="image-20200724161912695"></p>
+<h4 id="DFFITS"><a href="#DFFITS" class="headerlink" title="DFFITS"></a>DFFITS</h4><p><img src="https://i.imgur.com/Ea5qKKB.png" alt="image-20200731171804285"></p>
+<h4 id="Cook’s-distance"><a href="#Cook’s-distance" class="headerlink" title="Cook’s distance"></a>Cook’s distance</h4><p><img src="https://i.imgur.com/utAZdFY.png" alt="image-20200731171839367"></p>
+<h4 id="Design-matrix-of-less-than-full-rank"><a href="#Design-matrix-of-less-than-full-rank" class="headerlink" title="Design matrix of less than full rank"></a>Design matrix of less than full rank</h4><p><img src="https://i.imgur.com/RaEah3m.png" alt="image-20200724162107512"></p>
+<p><img src="https://i.imgur.com/KNFBJTW.png" alt="image-20200724162124714"></p>
+<p>There are two ways to solve this. One is to drop some variables like $\alpha_1$ and $\gamma_1$,  since we cannot estimate so many variables. Another is to expand the design matrix like this.</p>
+<p><img src="https://i.imgur.com/0dLOfR8.png" alt="image-20200724162232272"></p>
+<p>Notice that it we add two more observations in our data and our goal is to enforce that $\alpha_1+\alpha_2 = 0$ and $\beta_1+\beta_2 = 0$. The estimated coefficient using the expanded design matrix will satifsy the two constraints. Why this works?</p>
+<p>Intuitively, now we have n+2 data points, and we can do as better as we have done for the first n-1 points by having the two constraints and make the error in the remaining 2 data points to be zero.</p>
+<p>Put it in another way. Previously, you need to think how to take values of $\alpha_1-\alpha_2$ to make the error smallest, now, we want as well minimize the error due to the last two obeservations and luckily we find we can solve them explicitly to reduce the error to 0.</p>
+<h4 id="multicollinearity-in-regression"><a href="#multicollinearity-in-regression" class="headerlink" title="multicollinearity in regression"></a>multicollinearity in regression</h4><p>Suppose you are fitting a regression model with two highly correlated explanatory variables. When you fit it use simple linear regression model:</p>
+<p><img src="https://i.imgur.com/44MkBua.png" alt="image-20200723120043056"></p>
+<p>We can see both term are not significant. But if we fit them separately, we can find:</p>
+<p><img src="https://i.imgur.com/2WiwKJH.png" alt="image-20200723120224941"></p>
+<p><img src="https://i.imgur.com/5ENz0d7.png" alt="image-20200723120237788"></p>
+<p>both terms appear significant.</p>
+<p>Intuitively, when we test if a term is significant or not, our null hypothesis is setting the coefficient before that variable to be 0 and refit the model to see whether the model performs worse or not. If the model performs very bad, we can conclude that variable is very important. But in our situation. two variables are  highly correlated, no matter which one you remove, the other one can still explain the response quite well, so if we include both in the model, both terms appear insignificant.</p>
+<h4 id="Assumption-on-error-term"><a href="#Assumption-on-error-term" class="headerlink" title="Assumption on error term"></a>Assumption on error term</h4><p><img src="https://i.imgur.com/Jojkvmb.png" alt="image-20200725231230718"></p>
+<p>Some properties:</p>
+<ul>
+<li><p>under A2, an unbiased estimator of $\sigma^2$ is $|Y-X \widehat{\beta}|^{2} /(n-p)$</p>
+</li>
+<li><p>The LSE and the residual vector is always uncorrelated.<img src="https://i.imgur.com/rGEz1Js.png" alt="image-20200726123518105"></p>
+</li>
+<li><p>Under A3, <img src="https://i.imgur.com/pkwEFyc.png" alt="image-20200726123633868"></p>
+<p><img src="https://i.imgur.com/PJiGC48.png" alt="image-20200726123817182"></p>
+<p><img src="https://i.imgur.com/XRaqDbJ.png" alt="image-20200726124323727"></p>
+<p><img src="https://i.imgur.com/ZobHFuQ.png" alt="image-20200726125305977"></p>
+<p><img src="https://i.imgur.com/lzyU2P6.png" alt="image-20200726125413047"></p>
+</li>
+</ul>
+<p>  #### </p>
+<h4 id="Fisher-information-of-the-regression-parameters"><a href="#Fisher-information-of-the-regression-parameters" class="headerlink" title="Fisher information of the regression parameters"></a>Fisher information of the regression parameters</h4><p><img src="https://i.imgur.com/z3hxmKW.png" alt="image-20200726125805019"></p>
+<p><img src="https://i.imgur.com/kArCwFa.png" alt="image-20200726125910295"></p>
+<h4 id="Weighted-least-squares-estimators"><a href="#Weighted-least-squares-estimators" class="headerlink" title="Weighted least squares estimators"></a>Weighted least squares estimators</h4><p><img src="https://i.imgur.com/n86mNCE.png" alt="image-20200726130031685"></p>
+<p><img src="https://i.imgur.com/TZkVMrK.png" alt="image-20200726130113223"></p>
+<p><img src="https://i.imgur.com/UVaMqXT.png" alt="image-20200726130244327"></p>
+<p><img src="https://i.imgur.com/FbdNmtb.png" alt="image-20200726130439241"></p>
+<p><img src="https://i.imgur.com/oR20lTK.png" alt="image-20200726130836578"></p>
+<h4 id="Gauss-Markov-Theorem"><a href="#Gauss-Markov-Theorem" class="headerlink" title="Gauss-Markov Theorem"></a>Gauss-Markov Theorem</h4><p><img src="https://i.imgur.com/2X0ssJt.png" alt="image-20200725231943193"></p>
+<p><img src="https://i.imgur.com/4wYR6Dn.png" alt="image-20200725232208118"></p>
+<p><img src="https://i.imgur.com/2iHL4zE.png" alt="image-20200725232728681"></p>
+<p><img src="https://i.imgur.com/rHFKWuS.png" alt="image-20200726121852175"></p>
+<h4 id="Random-effect-model"><a href="#Random-effect-model" class="headerlink" title="Random effect model"></a>Random effect model</h4><p><img src="https://i.imgur.com/c8NY0Lj.png" alt="image-20200726153913176"></p>
+<p><img src="https://i.imgur.com/SbPbU3b.png" alt="image-20200726153932656"></p>
+<p><img src="https://i.imgur.com/Bz2nAVd.png" alt="image-20200726154628814"></p>
+<p><img src="https://i.imgur.com/plsp49B.png" alt="image-20200726154713970"></p>
+<h4 id="The-restricted-maximum-likelihood-estimators"><a href="#The-restricted-maximum-likelihood-estimators" class="headerlink" title="The restricted maximum likelihood estimators"></a>The restricted maximum likelihood estimators</h4><p><img src="https://i.imgur.com/8Fq9hFy.png" alt="image-20200726171546822"></p>
+<p><img src="https://i.imgur.com/mRIziEB.png" alt="image-20200726171609879"></p>
+<p><img src="https://i.imgur.com/xgqI0Rl.png" alt="image-20200726171627277"></p>
+<p><img src="https://i.imgur.com/rT6Vaej.png" alt="image-20200726171645670"></p>
+<h4 id="Qualify-exam-2019"><a href="#Qualify-exam-2019" class="headerlink" title="Qualify exam 2019"></a>Qualify exam 2019</h4><p><img src="https://i.imgur.com/2hLT1to.jpg" alt="image-20200731151925352"></p>
+<ul>
+<li>(a) 问是test linear combination，用F test 或者t test，F test 分子上是RSSH  - RSS, 分母是$S^2$。</li>
+<li>(b) 问要知道$Y_{n+1}$和$\hat{Y}$ 是独立的，方差是他们各自方差之和。</li>
+<li>(c)问我们根据(b)问可以推得$Y_{n+1}$的分布。</li>
+<li>(d)问是add more explanatory variables 的问题，残差可以用$(I_n - P)X$写出。</li>
+<li>(e)问用的公式是<a href="#Introducing new explanatory variables">这个</a>。</li>
+</ul>
+<h4 id="Qualify-exam-2018"><a href="#Qualify-exam-2018" class="headerlink" title="Qualify exam 2018"></a>Qualify exam 2018</h4><p><img src="https://i.imgur.com/sFFrJ1C.png" alt="image-20200731164305582"></p>
+<p><img src="https://i.imgur.com/iH6xNS0.png" alt="image-20200731171234105"></p>
+<ul>
+<li>(a)问用到了 regression with orthogonal predicted variables</li>
+<li><p>(b)问用到了展开$(Y-X\hat{\beta})’(Y-X\hat{\beta})$</p>
+</li>
+<li><p>(c)问refer to <a href="#Regression hypothesis testing">这里</a></p>
+</li>
+<li>(d)问用(a)问的结论，因为X1 和 X2是orthogonal。</li>
+<li>H indicates leverage, residual indicates outliers and <a href="#DFFITS">DFFITS</a> indicates the influential point.</li>
+</ul>
+<p><img src="https://i.imgur.com/J6GUfVj.png" alt="image-20200806134726081"></p>
+<h4 id="Qualify-exam-2017"><a href="#Qualify-exam-2017" class="headerlink" title="Qualify exam 2017"></a>Qualify exam 2017</h4><p><img src="https://i.imgur.com/vMVBDOs.png" alt="image-20200731172320912"></p>
+<p><img src="https://i.imgur.com/ZYqo2EY.png" alt="image-20200731172341033"></p>
+<ul>
+<li><p>(a)问这里要test $\beta_1 = 0$, 这里我们只有sample correlation information。we refer to <a href="#The procedure using sample correlation to derive the F-test">here</a></p>
+</li>
+<li><p>基本思路是$ r^2 = R^2 = \frac{RSS_{H_0}-RSS}{RSS_{H_0}}$</p>
+</li>
+<li><p>(b)问model diagnostic的基本步骤是independence, constant variance, and normality.</p>
+</li>
+<li><p>(e)问ncp的计算方法：</p>
+<p>$Y \sim N(\mu,\sigma^2)$ , $(\frac{Y-\mu}{\sigma})^2 \sim \chi_1(a)$, $a = \mu^2/ \sigma^2$</p>
+</li>
+</ul>
+<h4 id="Qualify-exam-2016"><a href="#Qualify-exam-2016" class="headerlink" title="Qualify exam 2016"></a>Qualify exam 2016</h4><p><img src="https://i.imgur.com/ltinqIn.png" alt="image-20200801112848977"></p>
+<ul>
+<li>(f) 问如果不想重新算一遍的话，可以记一下<img src="https://i.imgur.com/F3jNAAX.png" alt="image-20200801113130976"></li>
+</ul>
+<h4 id="Qualify-exam-2012"><a href="#Qualify-exam-2012" class="headerlink" title="Qualify exam 2012"></a>Qualify exam 2012</h4><p><img src="https://i.imgur.com/3p1BOE5.png" alt="image-20200802215858749"></p>
+<p><img src="https://i.imgur.com/kJQpAQx.png" alt="image-20200802215923477"></p>
+<p><img src="https://i.imgur.com/YLONhiC.png" alt="image-20200802215953516"></p>
+<p><img src="https://i.imgur.com/jMveHnj.png" alt="image-20200802220004742"></p>
+<ul>
+<li><p>(a): the design matrix are highly correlated, so if our hypothesis is $\beta_1 = 0$ or $\beta_2 = 0$, under these hypothesis, the model will both be a perfect fit. So both $\beta_1$ and $\beta_2$ are not significant. $\beta_0$ Is significant. To calculate the coefficients, just use do LSE.</p>
+</li>
+<li><p>(b) i. Due to multicollinearity.</p>
+</li>
+</ul>
+<h4 id="Qualify-exam-2013"><a href="#Qualify-exam-2013" class="headerlink" title="Qualify exam 2013"></a>Qualify exam 2013</h4><p><img src="https://i.imgur.com/FOzJF8i.png" alt="image-20200802220741583"></p>
+<p><img src="https://i.imgur.com/XeEded1.png" alt="image-20200802220747796"></p>
+<ul>
+<li>(a) MLE of $\beta$ is the same as LSE, and MLE of $\sigma^2$ is $Y^{‘}NY / n$, </li>
+<li>(c),(d): larger power means smaller variance of $\hat{\beta}$.</li>
+</ul>
+<p><img src="https://i.imgur.com/Ue7DZlr.png" alt="image-20200802222103297"></p>
+<ul>
+<li>(c): use</li>
+</ul>
+<p>  <img src="https://i.imgur.com/ndlZ8ff.png" alt="image-20200802222214145"></p>
+<p>  (e): To minimize C(k,$\lambda$), we could first do C(k+1,$\lambda$)-C(k,$\lambda$), if &lt;0, continue. Then we can find  C(k+1,$\lambda$)-C(k,$\lambda$) is exactly $Z_i-\ \lambda$。Then $\hat{k}$ will be some kind of change point.</p>
+<h4 id="Qualify-exam-2014"><a href="#Qualify-exam-2014" class="headerlink" title="Qualify exam 2014"></a>Qualify exam 2014</h4><p><img src="https://i.imgur.com/O18OjGH.png" alt="image-20200805230047939"></p>
+<p><img src="https://i.imgur.com/nGRT9KS.png" alt="image-20200805230106293"></p>
+<p><img src="https://i.imgur.com/TXjkxsg.png" alt="image-20200805230120784"></p>
+<p><img src="https://i.imgur.com/EHUfZw1.png" alt="image-20200805230133478"></p>
+<p><img src="https://i.imgur.com/u19Kokc.png" alt="image-20200805230148250"></p>
+<p><img src="https://i.imgur.com/qafhwVN.png" alt="image-20200805230202657"></p>
+<ul>
+<li>(a),(b): add sum to zero constraint.</li>
+<li>(c): fisher-lsd test</li>
+<li>(d) use F = (RSSH0 - RSS) / RSS to test main effect and also interaction effect</li>
+<li>(e): no, the condition that F test can be used is that the numerator chi square random variable is independent of the denominator’s chi square random variable. The pair like trt and trt+bWeight can form a F test, since RSSH0 - RSS / RSS is a F distribution. But other pairs like trt and bWeight can not achieve this.</li>
+<li>(g): it is a prediction of a new sample, the variance should be $x\hat{\sigma^2}(X^{‘}X^{-1})x^{‘}$</li>
+<li>(h): see if there is multicollinearity</li>
+</ul>
+<h4 id="Qualify-exam-2015"><a href="#Qualify-exam-2015" class="headerlink" title="Qualify exam 2015"></a>Qualify exam 2015</h4><p><img src="https://i.imgur.com/wfl7yZ3.png" alt="image-20200807222939655"></p>
+<ul>
+<li><p>(a): 这里需要一些技巧构造X,需要对参数就行一些reparamization。</p>
+<p>这里先固定住第一第二第四列，然后求第三列让他和其余列全部正交。</p>
+<p><img src="https://i.imgur.com/bnxIC02.png" alt="image-20200808142212377"></p>
+</li>
+</ul>
+<ul>
+<li>(c): 死算，用orthogonal的性质消去一些项。</li>
+</ul>
+<h4 id="QE-sample-1"><a href="#QE-sample-1" class="headerlink" title="QE sample 1"></a>QE sample 1</h4><p><img src="https://i.imgur.com/Db3qBp9.png" alt="image-20200817000356393"></p>
+<h4 id="QE-sample-2"><a href="#QE-sample-2" class="headerlink" title="QE sample 2"></a>QE sample 2</h4><p><img src="https://i.imgur.com/rAJAvVE.png" alt="image-20200817000455307"></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/study/" rel="tag"># study</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/07/22/mactip/" rel="next" title="Mac优秀软件以及快捷键分享">
+                <i class="fa fa-chevron-left"></i> Mac优秀软件以及快捷键分享
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/07/28/design and experiments tips/" rel="prev" title="Design and experiments">
+                Design and experiments <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/uploads/avatar.jpg" alt="Kehui Yao">
+          <p class="site-author-name" itemprop="name">Kehui Yao</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">30</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/KEHUIYAO" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.linkedin.com/in/kehui-yao-a5b770165/" target="_blank" title="Linkedin">
+                  
+                    <i class="fa fa-fw fa-linkedin"></i>
+                  
+                  Linkedin
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/KehuiY" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#The-procedure-using-sample-correlation-to-derive-the-F-test"><span class="nav-number">1.</span> <span class="nav-text">The procedure using sample correlation to derive the F-test</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Method-of-Orthogonal-Projections"><span class="nav-number">2.</span> <span class="nav-text">Method of Orthogonal Projections</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Method-of-Lagrange-Multipliers"><span class="nav-number">3.</span> <span class="nav-text">Method of Lagrange Multipliers</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Regression-with-orthogonal-predicted-variables"><span class="nav-number">4.</span> <span class="nav-text">Regression with orthogonal predicted variables</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Regression-hypothesis-testing"><span class="nav-number">5.</span> <span class="nav-text">Regression hypothesis testing</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Matrix-algebra-cheatsheet"><span class="nav-number">6.</span> <span class="nav-text">Matrix algebra cheatsheet</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Diagonostic-tools-and-model-selection"><span class="nav-number">7.</span> <span class="nav-text">Diagonostic tools and model selection</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#High-leverage-point-will-cover-the-evidence-of-an-outlier"><span class="nav-number">8.</span> <span class="nav-text">High leverage point will cover the evidence of an outlier</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Straight-line-regression-的一些结论"><span class="nav-number">9.</span> <span class="nav-text">Straight line regression 的一些结论</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Straight-line-prediction-interval-and-band"><span class="nav-number">10.</span> <span class="nav-text">Straight line prediction interval and band</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Introducing-new-explanatory-variables"><span class="nav-number">11.</span> <span class="nav-text">Introducing new explanatory variables</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Key-step-to-prove-this-theorem-is-by-orthogonalizing-the-model"><span class="nav-number">12.</span> <span class="nav-text">Key step to prove this theorem is by orthogonalizing the model.</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Generalized-least-square"><span class="nav-number">13.</span> <span class="nav-text">Generalized least square</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#High-leverage-points"><span class="nav-number">14.</span> <span class="nav-text">High leverage points</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#DFFITS"><span class="nav-number">15.</span> <span class="nav-text">DFFITS</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Cook’s-distance"><span class="nav-number">16.</span> <span class="nav-text">Cook’s distance</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Design-matrix-of-less-than-full-rank"><span class="nav-number">17.</span> <span class="nav-text">Design matrix of less than full rank</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#multicollinearity-in-regression"><span class="nav-number">18.</span> <span class="nav-text">multicollinearity in regression</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Assumption-on-error-term"><span class="nav-number">19.</span> <span class="nav-text">Assumption on error term</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Fisher-information-of-the-regression-parameters"><span class="nav-number">20.</span> <span class="nav-text">Fisher information of the regression parameters</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Weighted-least-squares-estimators"><span class="nav-number">21.</span> <span class="nav-text">Weighted least squares estimators</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Gauss-Markov-Theorem"><span class="nav-number">22.</span> <span class="nav-text">Gauss-Markov Theorem</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Random-effect-model"><span class="nav-number">23.</span> <span class="nav-text">Random effect model</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#The-restricted-maximum-likelihood-estimators"><span class="nav-number">24.</span> <span class="nav-text">The restricted maximum likelihood estimators</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Qualify-exam-2019"><span class="nav-number">25.</span> <span class="nav-text">Qualify exam 2019</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Qualify-exam-2018"><span class="nav-number">26.</span> <span class="nav-text">Qualify exam 2018</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Qualify-exam-2017"><span class="nav-number">27.</span> <span class="nav-text">Qualify exam 2017</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Qualify-exam-2016"><span class="nav-number">28.</span> <span class="nav-text">Qualify exam 2016</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Qualify-exam-2012"><span class="nav-number">29.</span> <span class="nav-text">Qualify exam 2012</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Qualify-exam-2013"><span class="nav-number">30.</span> <span class="nav-text">Qualify exam 2013</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Qualify-exam-2014"><span class="nav-number">31.</span> <span class="nav-text">Qualify exam 2014</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Qualify-exam-2015"><span class="nav-number">32.</span> <span class="nav-text">Qualify exam 2015</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#QE-sample-1"><span class="nav-number">33.</span> <span class="nav-text">QE sample 1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#QE-sample-2"><span class="nav-number">34.</span> <span class="nav-text">QE sample 2</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Kehui Yao</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+  
+
+
+  
+
+</body>
+</html>

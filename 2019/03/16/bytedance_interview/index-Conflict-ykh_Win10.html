@@ -1,0 +1,767 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="study,">
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0">
+
+
+
+
+
+
+<meta name="description" content="P1Problem description:总共有1024元，买一件价格为N元的商品，N为1到1024间的整数。找零都以硬币形式给出，可能值为1元，4元，16元，64元。问最少找零硬币数。 Soution:典型的递归问题。  python code:  123456789101112def how_many_coins(x):    if x==0:        return 0    if x">
+<meta name="keywords" content="study">
+<meta property="og:type" content="article">
+<meta property="og:title" content="字节跳动春招算法四道编程题">
+<meta property="og:url" content="http://yoursite.com/2019/03/16/bytedance_interview/index.html">
+<meta property="og:site_name" content="Kehui&#39;s Blog">
+<meta property="og:description" content="P1Problem description:总共有1024元，买一件价格为N元的商品，N为1到1024间的整数。找零都以硬币形式给出，可能值为1元，4元，16元，64元。问最少找零硬币数。 Soution:典型的递归问题。  python code:  123456789101112def how_many_coins(x):    if x==0:        return 0    if x">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2020-07-22T18:09:46.901Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="字节跳动春招算法四道编程题">
+<meta name="twitter:description" content="P1Problem description:总共有1024元，买一件价格为N元的商品，N为1到1024间的整数。找零都以硬币形式给出，可能值为1元，4元，16元，64元。问最少找零硬币数。 Soution:典型的递归问题。  python code:  123456789101112def how_many_coins(x):    if x==0:        return 0    if x">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"always","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/03/16/bytedance_interview/">
+
+
+
+
+
+  <title> 字节跳动春招算法四道编程题 | Kehui's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Kehui's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">For Kevin Durant</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/16/bytedance_interview/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kehui Yao">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kehui's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                字节跳动春招算法四道编程题
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-16T22:25:12-05:00">
+                2019-03-16
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Post modified</span>
+              
+              <time title="Post modified" itemprop="dateModified" datetime="2020-07-22T13:09:46-05:00">
+                2020-07-22
+              </time>
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="P1"><a href="#P1" class="headerlink" title="P1"></a>P1</h2><h3 id="Problem-description"><a href="#Problem-description" class="headerlink" title="Problem description:"></a>Problem description:</h3><p>总共有1024元，买一件价格为N元的商品，N为1到1024间的整数。<br>找零都以硬币形式给出，可能值为1元，4元，16元，64元。问最少找零硬币数。</p>
+<h3 id="Soution"><a href="#Soution" class="headerlink" title="Soution:"></a>Soution:</h3><p>典型的递归问题。</p>
+<blockquote>
+<p>python code:</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">how_many_coins</span><span class="params">(x)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> x==<span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">    <span class="keyword">if</span> x&gt;=<span class="number">64</span>:</span><br><span class="line">        <span class="keyword">return</span> how_many_coins(x<span class="number">-64</span>)+<span class="number">1</span></span><br><span class="line">    <span class="keyword">if</span> x&gt;=<span class="number">16</span>:</span><br><span class="line">        <span class="keyword">return</span> how_many_coins(x<span class="number">-16</span>)+<span class="number">1</span></span><br><span class="line">    <span class="keyword">if</span> x&gt;=<span class="number">4</span>:</span><br><span class="line">        <span class="keyword">return</span> how_many_coins(x<span class="number">-4</span>)+<span class="number">1</span></span><br><span class="line">    <span class="keyword">if</span> x&gt;=<span class="number">1</span>:</span><br><span class="line">        <span class="keyword">return</span> how_many_coins(x<span class="number">-1</span>)+<span class="number">1</span></span><br><span class="line">how_many_coins(<span class="number">65</span>)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>output:</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h2 id="P2"><a href="#P2" class="headerlink" title="P2"></a>P2</h2><h3 id="Problem-description-1"><a href="#Problem-description-1" class="headerlink" title="Problem description:"></a>Problem description:</h3><p>给定一字符串，对其做如下修改: 若出现AABB, 修改为AAB；若出现连续三个或以上的A，比如AAA，修改为AA；算法从前向后匹配，譬如碰到AABBCC，就改为AABCC。</p>
+<h3 id="Solution"><a href="#Solution" class="headerlink" title="Solution:"></a>Solution:</h3><p>对一个字符串从前往后搜索，并维护一个至多有两个元素的字典。算法复杂度为O(n)。</p>
+<blockquote>
+<p>python code:</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">correct</span><span class="params">(x)</span>:</span></span><br><span class="line">    res=&#123;&#125;</span><br><span class="line">    y=[]</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> x:</span><br><span class="line">        <span class="keyword">if</span> len(res)==<span class="number">0</span>:</span><br><span class="line">            y.append(i)</span><br><span class="line">            res[i]=<span class="number">1</span></span><br><span class="line">        <span class="keyword">elif</span> len(res)==<span class="number">1</span>:</span><br><span class="line">            <span class="keyword">if</span> i <span class="keyword">in</span> res:</span><br><span class="line">                <span class="keyword">if</span> res[i]&lt;<span class="number">2</span>:</span><br><span class="line">                    y.append(i)</span><br><span class="line">                    res[i]=<span class="number">2</span></span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    <span class="keyword">continue</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">if</span> list(res.values())[<span class="number">0</span>]==<span class="number">1</span>:</span><br><span class="line">                    res=&#123;&#125;</span><br><span class="line">                    res[i]=<span class="number">1</span></span><br><span class="line">                    y.append(i)</span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    res[i]=<span class="number">1</span></span><br><span class="line">                    y.append(i)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            key=list(res.keys())</span><br><span class="line">            <span class="keyword">if</span> i <span class="keyword">in</span> res:</span><br><span class="line">                <span class="keyword">if</span> i==key[<span class="number">1</span>]:</span><br><span class="line">                    <span class="keyword">continue</span></span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    y.append(i)</span><br><span class="line">                    res=&#123;&#125;</span><br><span class="line">                    res[i]=<span class="number">1</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                y.append(i)</span><br><span class="line">                res=&#123;&#125;</span><br><span class="line">                res[i]=<span class="number">1</span>          </span><br><span class="line">    <span class="keyword">return</span> <span class="string">""</span>.join(y)</span><br><span class="line"></span><br><span class="line">a=[<span class="string">"aabb"</span>,<span class="string">"aaa"</span>,<span class="string">"aabbcc"</span>]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(len(a)):</span><br><span class="line">    print(correct(a[i]))</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>output:</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">aab</span><br><span class="line">aa</span><br><span class="line">aabcc</span><br></pre></td></tr></table></figure>
+<h2 id="P3"><a href="#P3" class="headerlink" title="P3"></a>P3</h2><h3 id="Problem-description-2"><a href="#Problem-description-2" class="headerlink" title="Problem description:"></a>Problem description:</h3><p>n个人围坐成一个圈，每个人都被分配了一个数字，现在给所有人分发礼物，分礼物时要满足如下条件：如果某人分配到的数字大于他左手边的人，那么他得到的礼物必须也比他左手边的人得到的礼物多；同理右手边也一样。已知每人至少能拿到一件礼物，问最少需要分配的礼物总数。</p>
+<h3 id="Solution-1"><a href="#Solution-1" class="headerlink" title="Solution:"></a>Solution:</h3><p>首先给所有人一个礼物，然后从分配到最小的数字的人开始，顺时针扫一遍，按题目要求更新每个人的礼物数。然后逆时针扫一遍，在顺时针扫完一遍的基础上更新每个人的礼物数，算法复杂度为O(n)。</p>
+<blockquote>
+<p>python code:</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">minPrize</span><span class="params">(num, scores)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> num == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">    res = [<span class="number">1</span>] * num</span><br><span class="line">    index = scores.index(min(scores))</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>, num - <span class="number">1</span>):</span><br><span class="line">        <span class="keyword">if</span> scores[(index + i + <span class="number">1</span>)%num] &gt; scores[(index + i)%num]:</span><br><span class="line">            res[(index + i + <span class="number">1</span>) %num] = res[(index + i) %num] + <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>, num - <span class="number">1</span>):</span><br><span class="line">        <span class="keyword">if</span> scores[(index - i - <span class="number">1</span>)%num] &gt; scores[(index - i) % num]:</span><br><span class="line">            res[(index - i - <span class="number">1</span>)%num] = max(res[(index - i - <span class="number">1</span>)%num], res[(index - i) % num] + <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> sum(res)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">num = <span class="number">4</span></span><br><span class="line">scores = [<span class="number">1</span>,<span class="number">3</span>,<span class="number">3</span>,<span class="number">4</span>]</span><br><span class="line">res = minPrize(num, scores)</span><br><span class="line">print(res)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>output:</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">6</span><br></pre></td></tr></table></figure>
+<h2 id="P4"><a href="#P4" class="headerlink" title="P4"></a>P4</h2><h3 id="Problem-description-3"><a href="#Problem-description-3" class="headerlink" title="Problem description:"></a>Problem description:</h3><p>有M根绳子，长度由一个M个元素的列表给出，要把这M根绳子切成N段等长为L的绳子，问L的最大值。</p>
+<h3 id="Solution-2"><a href="#Solution-2" class="headerlink" title="Solution:"></a>Solution:</h3><p>这道题比较难。感谢狂魔提供的解题思路。需要用到一个前提假设：即最长的那根绳子切的段数不得少于比它短的绳子。为此我们维护一个M元数组，数组的每一项表示该绳子被使用的段数。举个例子，M=[2，4]，N=3。此时凭直觉给出答案L=2。具体实现方法是把长度为4的绳子且为两段，长度为2的绳子不动。在这个例子中，我们首先降序sort这个M元的列表，得到M’=[4，2]，然后建立一个长度为M的新列表K，新列表的第i个元素表示M’[i]这条绳子被利用了多少段，这里，K=[2，1]。有了这个思路以后，我们只需要穷举所有可能的绳子切割方法，并计算出每一种方法L的值，再从所有方法中挑出最大的L即可。</p>
+<blockquote>
+<p>python code:</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># permute function can generate all possible combinations of cutting max_len ropes into N ropes.</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">permute</span><span class="params">(N,max_len)</span>:</span>  </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">helper</span><span class="params">(N,max_len,thres)</span>:</span></span><br><span class="line">        res=[]</span><br><span class="line">        <span class="keyword">if</span> max_len==<span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span> [[]]</span><br><span class="line">        i=min(thres,N)</span><br><span class="line">        <span class="keyword">while</span> i&gt;=N/max_len:</span><br><span class="line">            temp=helper(N-i,max_len<span class="number">-1</span>,i)</span><br><span class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> temp:</span><br><span class="line">                res.append([i]+j)</span><br><span class="line">            i-=<span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> res</span><br><span class="line">    <span class="keyword">return</span> helper(N,max_len,N)</span><br><span class="line">permute(<span class="number">5</span>,<span class="number">4</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># output</span></span><br><span class="line">[[<span class="number">5</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>],</span><br><span class="line"> [<span class="number">4</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>],</span><br><span class="line"> [<span class="number">3</span>, <span class="number">2</span>, <span class="number">0</span>, <span class="number">0</span>],</span><br><span class="line"> [<span class="number">3</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">0</span>],</span><br><span class="line"> [<span class="number">2</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">0</span>],</span><br><span class="line"> [<span class="number">2</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>]]</span><br><span class="line"></span><br><span class="line"><span class="comment"># calculate L for each combinations</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">calculate_L</span><span class="params">(method:list,mPrime:list)</span>:</span></span><br><span class="line">  res=[]</span><br><span class="line">  <span class="keyword">for</span> i <span class="keyword">in</span> range(len(method)):</span><br><span class="line">    <span class="keyword">if</span> method[i]==<span class="number">0</span>:</span><br><span class="line">      res.append(mPrime[i])</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">      res.append(mPrime[i]/method[i])</span><br><span class="line">  <span class="keyword">return</span> min(res)</span><br><span class="line">calculate_L([<span class="number">2</span>,<span class="number">1</span>],[<span class="number">5</span>,<span class="number">4</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># output</span></span><br><span class="line"><span class="number">2.5</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># main</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">(M,N)</span>:</span></span><br><span class="line">  mPrime=sorted(M,reverse=<span class="literal">True</span>)</span><br><span class="line">  res=[]</span><br><span class="line">  methodList=permute(N,len(M))</span><br><span class="line">  <span class="keyword">for</span> i <span class="keyword">in</span> methodList:</span><br><span class="line">    res.append(calculate_L(i,mPrime))</span><br><span class="line">  <span class="keyword">return</span> max(res)</span><br><span class="line"></span><br><span class="line">  print(main([<span class="number">4</span>,<span class="number">2</span>],<span class="number">3</span>))</span><br><span class="line">  print(main([<span class="number">4</span>,<span class="number">3</span>],<span class="number">2</span>))</span><br><span class="line">  print(main([<span class="number">1</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">2</span>],<span class="number">4</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># output</span></span><br><span class="line"><span class="number">2.0</span></span><br><span class="line"><span class="number">3.0</span></span><br><span class="line"><span class="number">1.0</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/study/" rel="tag"># study</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/03/18/question/" rel="prev" title="Data science interview questions">
+                Data science interview questions <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/uploads/avatar.jpg" alt="Kehui Yao">
+          <p class="site-author-name" itemprop="name">Kehui Yao</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">30</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/KEHUIYAO" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.linkedin.com/in/kehui-yao-a5b770165/" target="_blank" title="Linkedin">
+                  
+                    <i class="fa fa-fw fa-linkedin"></i>
+                  
+                  Linkedin
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/KehuiY" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#P1"><span class="nav-number">1.</span> <span class="nav-text">P1</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Problem-description"><span class="nav-number">1.1.</span> <span class="nav-text">Problem description:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Soution"><span class="nav-number">1.2.</span> <span class="nav-text">Soution:</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#P2"><span class="nav-number">2.</span> <span class="nav-text">P2</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Problem-description-1"><span class="nav-number">2.1.</span> <span class="nav-text">Problem description:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Solution"><span class="nav-number">2.2.</span> <span class="nav-text">Solution:</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#P3"><span class="nav-number">3.</span> <span class="nav-text">P3</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Problem-description-2"><span class="nav-number">3.1.</span> <span class="nav-text">Problem description:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Solution-1"><span class="nav-number">3.2.</span> <span class="nav-text">Solution:</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#P4"><span class="nav-number">4.</span> <span class="nav-text">P4</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Problem-description-3"><span class="nav-number">4.1.</span> <span class="nav-text">Problem description:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Solution-2"><span class="nav-number">4.2.</span> <span class="nav-text">Solution:</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Kehui Yao</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+  
+
+
+  
+
+</body>
+</html>

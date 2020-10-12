@@ -1,0 +1,878 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="study,">
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0">
+
+
+
+
+
+
+<meta name="description" content="Type of studyWhat is epidemiology Epidemiology is a study of identifying the association between exposures (cause, risk factors) and disease outcome in speciﬁc human population, and the application of">
+<meta name="keywords" content="study">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Statistical methods for epidemiology">
+<meta property="og:url" content="http://yoursite.com/2020/09/16/Statistical methods for epidemiology/index.html">
+<meta property="og:site_name" content="Kehui&#39;s Blog">
+<meta property="og:description" content="Type of studyWhat is epidemiology Epidemiology is a study of identifying the association between exposures (cause, risk factors) and disease outcome in speciﬁc human population, and the application of">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://i.imgur.com/f8OHkpm.png">
+<meta property="og:image" content="https://i.imgur.com/KYAeQMM.png">
+<meta property="og:image" content="https://i.imgur.com/BC2e8gC.png">
+<meta property="og:image" content="https://i.imgur.com/SPEvZNP.png">
+<meta property="og:image" content="https://i.imgur.com/hhGVBlY.png">
+<meta property="og:image" content="https://i.imgur.com/amZWUSg.png">
+<meta property="og:image" content="https://i.imgur.com/emD69fi.png">
+<meta property="og:image" content="https://i.imgur.com/50Yv2L0.png">
+<meta property="og:image" content="https://i.imgur.com/2DnyYqM.png">
+<meta property="og:image" content="https://i.imgur.com/BcQQ3lH.png">
+<meta property="og:image" content="https://i.imgur.com/4lxDPol.png">
+<meta property="og:image" content="https://i.imgur.com/EHrxaO8.png">
+<meta property="og:image" content="https://i.imgur.com/gNcxiX2.png">
+<meta property="og:image" content="https://i.imgur.com/s6pDIDf.png">
+<meta property="og:image" content="https://i.imgur.com/kItfBzo.png">
+<meta property="og:image" content="https://i.imgur.com/vYzPXTh.png">
+<meta property="og:updated_time" content="2020-09-22T22:34:30.867Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Statistical methods for epidemiology">
+<meta name="twitter:description" content="Type of studyWhat is epidemiology Epidemiology is a study of identifying the association between exposures (cause, risk factors) and disease outcome in speciﬁc human population, and the application of">
+<meta name="twitter:image" content="https://i.imgur.com/f8OHkpm.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"always","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2020/09/16/Statistical methods for epidemiology/">
+
+
+
+
+
+  <title> Statistical methods for epidemiology | Kehui's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Kehui's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">For Kevin Durant</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/09/16/Statistical methods for epidemiology/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kehui Yao">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kehui's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Statistical methods for epidemiology
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-09-16T00:00:00-05:00">
+                2020-09-16
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Post modified</span>
+              
+              <time title="Post modified" itemprop="dateModified" datetime="2020-09-22T17:34:30-05:00">
+                2020-09-22
+              </time>
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="Type-of-study"><a href="#Type-of-study" class="headerlink" title="Type of study"></a>Type of study</h3><h4 id="What-is-epidemiology"><a href="#What-is-epidemiology" class="headerlink" title="What is epidemiology"></a>What is epidemiology</h4><ul>
+<li>Epidemiology is a study of identifying the association between exposures (cause, risk factors) and disease outcome in speciﬁc human population, and the application of this study to control health problems.</li>
+</ul>
+<h4 id="Type-of-research-studies"><a href="#Type-of-research-studies" class="headerlink" title="Type of research studies"></a>Type of research studies</h4><ul>
+<li><p>Sample survey</p>
+<ul>
+<li>Health interview surveys</li>
+</ul>
+</li>
+<li><p>Epidemiological studies</p>
+<ul>
+<li><p>Observational, not experimental</p>
+</li>
+<li><p>Case-control studies: association between current disease and past exposure</p>
+<ul>
+<li>A group of subjects who had lung cancer and a group of people who did not have lung cancer patients were included in the study, and they were <strong>interviewed</strong> about their smoking habits <strong>in the past</strong>.</li>
+</ul>
+</li>
+<li><p>Prospective cohort studies: association between current exposure and subsequent development of disease.</p>
+<ul>
+<li>Invite a group of subjects to complete a short questionnaire about their smoking habits, then all of these respondents were then followed up.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>Clinical trials</p>
+<ul>
+<li>experimental</li>
+</ul>
+</li>
+</ul>
+<a id="more"></a>
+<h3 id="Measures-of-Disease-Occurrence"><a href="#Measures-of-Disease-Occurrence" class="headerlink" title="Measures of Disease Occurrence"></a>Measures of Disease Occurrence</h3><h4 id="Two-measures"><a href="#Two-measures" class="headerlink" title="Two measures"></a>Two measures</h4><ul>
+<li>prevalence of disease<ul>
+<li>Disease proportion of subjects in population</li>
+</ul>
+</li>
+<li>Incidence of disease<ul>
+<li>the rate that new disease cases arise</li>
+</ul>
+</li>
+</ul>
+<h4 id="Point-prevalence-incidence-Proportion-and-incidence-rate"><a href="#Point-prevalence-incidence-Proportion-and-incidence-rate" class="headerlink" title="Point prevalence, incidence Proportion and incidence rate"></a>Point prevalence, incidence Proportion and incidence rate</h4><ul>
+<li><p>Point prevalence</p>
+<p><img src="https://i.imgur.com/f8OHkpm.png" alt="image-20200917132358248"></p>
+</li>
+<li><p>Incidence proportion</p>
+<p><img src="https://i.imgur.com/KYAeQMM.png" alt="image-20200917132443787"></p>
+</li>
+</ul>
+<ul>
+<li><p>Incidence Rates</p>
+<p><img src="https://i.imgur.com/BC2e8gC.png" alt="image-20200917132739988"></p>
+</li>
+<li><p>Difference between incidence proportion and incidence rate:</p>
+<p>The definition of an incidence proportion assumes a closed population. That is no new subjects at risk are allowed to enter. This restriction is relaxed when using an incidence rate.</p>
+</li>
+</ul>
+<h4 id="Instantaneous-Rate-lambda-t"><a href="#Instantaneous-Rate-lambda-t" class="headerlink" title="Instantaneous Rate $\lambda(t)$"></a>Instantaneous Rate $\lambda(t)$</h4><ul>
+<li><p>Why we need this measure?</p>
+<p>The disease development changes substantially in a certain time interval. In order to catch the dynamic pattern, we need to consider the incidence rate in a short interval.</p>
+</li>
+<li><p>It is also called force of mortality in actuarial science and hazard rate in survival analysis</p>
+</li>
+<li><p>Let $P(t)$ be the probability that the subjects acquires disease prior to time t. $\lambda(t)$Is a conditional probability <img src="https://i.imgur.com/SPEvZNP.png" alt="image-20200917133911569"></p>
+</li>
+<li><p>The cumulative hazard rate is defined as:</p>
+<p><img src="https://i.imgur.com/hhGVBlY.png" alt="image-20200917134106492"></p>
+</li>
+<li><p>From $\lambda(t) = -dlog(1-P(t))/dt$, we get <img src="https://i.imgur.com/amZWUSg.png" alt="image-20200917134432708"></p>
+</li>
+<li><p>Important special case:</p>
+<ul>
+<li><p>$\lambda(t) = \lambda$ Is a constant,<img src="https://i.imgur.com/emD69fi.png" alt="image-20200917134605946"></p>
+<p>This is  the exponential distribution</p>
+</li>
+<li><p>Suppose we have a group of subjects I = 1,2,…,n, we know the death time of them. How can we estimate $\lambda$?</p>
+<p><img src="https://i.imgur.com/50Yv2L0.png" alt="image-20200917135136325"></p>
+</li>
+</ul>
+<p>Do MLE, we can get <img src="https://i.imgur.com/2DnyYqM.png" alt="image-20200917135157986"></p>
+<pre><code>- If we do not observer all subjects to fail then the likelihood for those subjects is simply the probability of reaching time Ti without failing which is 1-P(Ti)
+- ![image-20200917135506280](https://i.imgur.com/2I6Zaiv.png)
+</code></pre></li>
+</ul>
+<h3 id="Review-of-basic-statistical-theory"><a href="#Review-of-basic-statistical-theory" class="headerlink" title="Review of basic statistical theory"></a>Review of basic statistical theory</h3><p>Details can be seen in my another blog: statistics theory.</p>
+<h3 id="Measures-of-Disease-exposure-association"><a href="#Measures-of-Disease-exposure-association" class="headerlink" title="Measures of Disease exposure association"></a>Measures of Disease exposure association</h3><h4 id="Notation"><a href="#Notation" class="headerlink" title="Notation"></a>Notation</h4><ul>
+<li>D: disease occurs</li>
+<li>$\bar{D}$: disease does not occur</li>
+<li>E: exposed to a certain risk factor</li>
+<li>$\bar{E}$: not exposed to a certain risk factor</li>
+<li><img src="https://i.imgur.com/BcQQ3lH.png" alt="image-20200918140438656"></li>
+</ul>
+<h4 id="Excess-Risk"><a href="#Excess-Risk" class="headerlink" title="Excess Risk"></a>Excess Risk</h4><ul>
+<li><p>Excess risk (ER) for disease D associated with exposure E is defined as </p>
+<p><img src="https://i.imgur.com/4lxDPol.png" alt="image-20200918141002263"></p>
+</li>
+<li><p>ER is also called risk difference</p>
+</li>
+<li><p>ER = 0: no association</p>
+</li>
+<li><p>ER&gt;0: exposure increases the risk of disease</p>
+</li>
+<li><p>ER&lt;0: exposure decrease the risk of disease</p>
+</li>
+</ul>
+<h4 id="Relative-Risk"><a href="#Relative-Risk" class="headerlink" title="Relative Risk"></a>Relative Risk</h4><ul>
+<li><p><img src="https://i.imgur.com/EHrxaO8.png" alt="image-20200918144955329"></p>
+</li>
+<li><p><img src="https://i.imgur.com/gNcxiX2.png" alt="image-20200918145042170"></p>
+</li>
+</ul>
+<h4 id="Odds-Ratio"><a href="#Odds-Ratio" class="headerlink" title="Odds Ratio"></a>Odds Ratio</h4><ul>
+<li><p>The odds of disease D is defined to be:</p>
+<p><img src="https://i.imgur.com/s6pDIDf.png" alt="image-20200918145457547"></p>
+</li>
+<li><p>Odds ratio for disease D associated with exposure E is defined as:</p>
+<p><img src="https://i.imgur.com/kItfBzo.png" alt="image-20200918145540775"></p>
+</li>
+<li><p>OR = 1, OR&gt;1, OR&lt;1</p>
+</li>
+<li><p>OR is symmetric in the role of D and E:</p>
+<p><img src="https://i.imgur.com/vYzPXTh.png" alt="image-20200918145639212"></p>
+</li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/study/" rel="tag"># study</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/09/16/deep learning theory/" rel="next" title="Deep learning theory">
+                <i class="fa fa-chevron-left"></i> Deep learning theory
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/09/22/日记/" rel="prev" title="日记">
+                日记 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/uploads/avatar.jpg" alt="Kehui Yao">
+          <p class="site-author-name" itemprop="name">Kehui Yao</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">30</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/KEHUIYAO" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.linkedin.com/in/kehui-yao-a5b770165/" target="_blank" title="Linkedin">
+                  
+                    <i class="fa fa-fw fa-linkedin"></i>
+                  
+                  Linkedin
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/KehuiY" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Type-of-study"><span class="nav-number">1.</span> <span class="nav-text">Type of study</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#What-is-epidemiology"><span class="nav-number">1.1.</span> <span class="nav-text">What is epidemiology</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Type-of-research-studies"><span class="nav-number">1.2.</span> <span class="nav-text">Type of research studies</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Measures-of-Disease-Occurrence"><span class="nav-number">2.</span> <span class="nav-text">Measures of Disease Occurrence</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Two-measures"><span class="nav-number">2.1.</span> <span class="nav-text">Two measures</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Point-prevalence-incidence-Proportion-and-incidence-rate"><span class="nav-number">2.2.</span> <span class="nav-text">Point prevalence, incidence Proportion and incidence rate</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Instantaneous-Rate-lambda-t"><span class="nav-number">2.3.</span> <span class="nav-text">Instantaneous Rate $\lambda(t)$</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Review-of-basic-statistical-theory"><span class="nav-number">3.</span> <span class="nav-text">Review of basic statistical theory</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Measures-of-Disease-exposure-association"><span class="nav-number">4.</span> <span class="nav-text">Measures of Disease exposure association</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Notation"><span class="nav-number">4.1.</span> <span class="nav-text">Notation</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Excess-Risk"><span class="nav-number">4.2.</span> <span class="nav-text">Excess Risk</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Relative-Risk"><span class="nav-number">4.3.</span> <span class="nav-text">Relative Risk</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Odds-Ratio"><span class="nav-number">4.4.</span> <span class="nav-text">Odds Ratio</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Kehui Yao</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+  
+
+
+  
+
+</body>
+</html>
