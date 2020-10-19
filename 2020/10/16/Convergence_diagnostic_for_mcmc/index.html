@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css">
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="study,">
 
 
 
@@ -87,13 +87,20 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="Kehui&#39;s Blog">
-<meta property="og:url" content="http://yoursite.com/archives/2019/07/index.html">
+<meta name="description" content="Cannot prove convergenceAt best, you fail to prove a failure to converge What should we do Run chains longer than you think you need to Compute several Markov chains initialized with significantly dif">
+<meta name="keywords" content="study">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Convergence diagnostic for MCMC">
+<meta property="og:url" content="http://yoursite.com/2020/10/16/Convergence_diagnostic_for_mcmc/index.html">
 <meta property="og:site_name" content="Kehui&#39;s Blog">
+<meta property="og:description" content="Cannot prove convergenceAt best, you fail to prove a failure to converge What should we do Run chains longer than you think you need to Compute several Markov chains initialized with significantly dif">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="https://i.imgur.com/gVBkaSH.png">
+<meta property="og:updated_time" content="2020-10-19T18:44:51.193Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Kehui&#39;s Blog">
+<meta name="twitter:title" content="Convergence diagnostic for MCMC">
+<meta name="twitter:description" content="Cannot prove convergenceAt best, you fail to prove a failure to converge What should we do Run chains longer than you think you need to Compute several Markov chains initialized with significantly dif">
+<meta name="twitter:image" content="https://i.imgur.com/gVBkaSH.png">
 
 
 
@@ -121,13 +128,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/archives/2019/07/">
+  <link rel="canonical" href="http://yoursite.com/2020/10/16/Convergence_diagnostic_for_mcmc/">
 
 
 
 
 
-  <title> Archive | Kehui's Blog </title>
+  <title> Convergence diagnostic for MCMC | Kehui's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="default">
@@ -152,7 +159,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  page-archive  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -236,63 +243,177 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-    <span class="archive-page-counter">
-      
-      
-       
-      
-      OK! 33 posts in total. Keep on posting.
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/10/16/Convergence_diagnostic_for_mcmc/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kehui Yao">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kehui's Blog">
     </span>
 
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Convergence diagnostic for MCMC
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-10-16T00:00:00-05:00">
+                2020-10-16
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Post modified</span>
+              
+              <time title="Post modified" itemprop="dateModified" datetime="2020-10-19T13:44:51-05:00">
+                2020-10-19
+              </time>
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
 
       
       
-      
 
+      
+        <h4 id="Cannot-prove-convergence"><a href="#Cannot-prove-convergence" class="headerlink" title="Cannot prove convergence"></a>Cannot prove convergence</h4><p>At best, you fail to prove a failure to converge</p>
+<h4 id="What-should-we-do"><a href="#What-should-we-do" class="headerlink" title="What should we do"></a>What should we do</h4><ul>
+<li>Run chains longer than you think you need to</li>
+<li>Compute several Markov chains initialized with significantly different initial states</li>
+<li>Look at your Markov chains yourself<ul>
+<li>Trace plots</li>
+<li>Marginal joint densities</li>
+</ul>
+</li>
+</ul>
+<h4 id="What-warning-signs-should-I-be-looking-for"><a href="#What-warning-signs-should-I-be-looking-for" class="headerlink" title="What warning signs should I be looking for"></a>What warning signs should I be looking for</h4><ul>
+<li>Poor mixing</li>
+<li>Low/high acceptance rates</li>
+<li>Strongly correlated parameters</li>
+</ul>
+<h4 id="Getting-more-quantitative"><a href="#Getting-more-quantitative" class="headerlink" title="Getting more quantitative"></a>Getting more quantitative</h4><p><img src="https://i.imgur.com/gVBkaSH.png" alt="image-20201019134146834"></p>
+
+      
+    </div>
+
+    <div>
       
         
-        <div class="collection-title">
-          <h2 class="archive-year motion-element" id="archive-year-2019">2019</h2>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/study/" rel="tag"># study</a>
+          
         </div>
       
+
+      
+        
       
 
       
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/09/27/Echo state network-Conflict-ykh_Win10/" rel="next" title>
+                <i class="fa fa-chevron-left"></i> 
+              </a>
+            
+          </div>
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+          <span class="post-nav-divider"></span>
 
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2019/07/11/basic stat copy/" itemprop="url">
-              
-                <span itemprop="name">Statistics theory</span>
-              
-            </a>
-        
-      </h1>
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-07-11T00:29:15-05:00" content="2019-07-11">
-          07-11
-        </time>
-      </div>
-
-    </header>
+      
+      
+    </footer>
   </article>
 
 
 
-    
-
-  </section>
-
-  
-
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
           
           </div>
@@ -300,6 +421,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -319,8 +444,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image" src="/uploads/avatar.jpg" alt="Kehui Yao">
           <p class="site-author-name" itemprop="name">Kehui Yao</p>
@@ -398,6 +532,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Cannot-prove-convergence"><span class="nav-number">1.</span> <span class="nav-text">Cannot prove convergence</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#What-should-we-do"><span class="nav-number">2.</span> <span class="nav-text">What should we do</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#What-warning-signs-should-I-be-looking-for"><span class="nav-number">3.</span> <span class="nav-text">What warning signs should I be looking for</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Getting-more-quantitative"><span class="nav-number">4.</span> <span class="nav-text">Getting more quantitative</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -515,11 +665,9 @@
 
 
   
-  
-    <script type="text/javascript" id="motion.page.archive">
-      $('.archive-year').velocity('transition.slideLeftIn');
-    </script>
-  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
 
 
   

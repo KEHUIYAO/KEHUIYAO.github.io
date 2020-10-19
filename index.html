@@ -248,7 +248,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/10/11/nasa/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/10/16/Convergence_diagnostic_for_mcmc/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Kehui Yao">
@@ -270,8 +270,8 @@
             
               
                 
-                <a class="post-title-link" href="/2020/10/11/nasa/" itemprop="url">
-                  Untitled
+                <a class="post-title-link" href="/2020/10/16/Convergence_diagnostic_for_mcmc/" itemprop="url">
+                  Convergence diagnostic for MCMC
                 </a>
               
             
@@ -287,8 +287,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-10-11T15:08:53-05:00">
-                2020-10-11
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-10-16T00:00:00-05:00">
+                2020-10-16
               </time>
             
 
@@ -303,8 +303,8 @@
               
                 <span class="post-meta-item-text">Post modified</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2020-10-11T15:08:53-05:00">
-                2020-10-11
+              <time title="Post modified" itemprop="dateModified" datetime="2020-10-19T13:44:51-05:00">
+                2020-10-19
               </time>
             
           </span>
@@ -337,22 +337,22 @@
       
         
           
-            <p><img src="https://i.imgur.com/SjEYXfD.png" alt="image-20201007002245909"></p>
-<p><img src="https://i.imgur.com/xoOuNfC.png" alt="image-20201007002402240"></p>
-<p><img src="https://i.imgur.com/Qrav7qV.png" alt="image-20201007002450756"></p>
-<p><img src="https://i.imgur.com/Z9uKt1M.png" alt="image-20201007002814038"></p>
-<p><img src="https://i.imgur.com/0WKmDWb.png" alt="image-20201007002855612"></p>
-<p><img src="https://i.imgur.com/8jlbeg2.png" alt="image-20201007002917344"></p>
-<p><img src="https://i.imgur.com/IE35RMB.png" alt="image-20201007003401973"></p>
-<p><img src="https://i.imgur.com/2RgFvvm.png" alt="image-20201007003506321"></p>
-<p><img src="https://i.imgur.com/pj7fuZO.png" alt="image-20201007003412903"></p>
-<p><img src="https://i.imgur.com/m0sQzxF.png" alt="image-20201007004330510"></p>
-<p><img src="https://i.imgur.com/cIjDK0l.png" alt="image-20201007004341010"></p>
-<p><img src="https://i.imgur.com/bvOtiRv.png" alt="image-20201007094603155"></p>
-<p><img src="https://i.imgur.com/8AH7DdF.png" alt="image-20201007094625353"></p>
-<p>Nloglik_blk里面W是定死的，调用这个function的时候不能改W。</p>
-<p>Nloglik_blk里面用了global variable Q，和W有关，改了W以后还得在外面改完Q再调用这个function，否则等于没改。</p>
-<p>我的建议是把扰动施加在W_diag上，这样可以用misspecified的W_diag作eigen decomposition得到新的Q，这样Nloglik_blk就可以套上去继续算下去。。。不知道想法对不对.</p>
+            <h4 id="Cannot-prove-convergence"><a href="#Cannot-prove-convergence" class="headerlink" title="Cannot prove convergence"></a>Cannot prove convergence</h4><p>At best, you fail to prove a failure to converge</p>
+<h4 id="What-should-we-do"><a href="#What-should-we-do" class="headerlink" title="What should we do"></a>What should we do</h4><ul>
+<li>Run chains longer than you think you need to</li>
+<li>Compute several Markov chains initialized with significantly different initial states</li>
+<li>Look at your Markov chains yourself<ul>
+<li>Trace plots</li>
+<li>Marginal joint densities</li>
+</ul>
+</li>
+</ul>
+<h4 id="What-warning-signs-should-I-be-looking-for"><a href="#What-warning-signs-should-I-be-looking-for" class="headerlink" title="What warning signs should I be looking for"></a>What warning signs should I be looking for</h4><ul>
+<li>Poor mixing</li>
+<li>Low/high acceptance rates</li>
+<li>Strongly correlated parameters</li>
+</ul>
+<h4 id="Getting-more-quantitative"><a href="#Getting-more-quantitative" class="headerlink" title="Getting more quantitative"></a>Getting more quantitative</h4><p><img src="https://i.imgur.com/gVBkaSH.png" alt="image-20201019134146834"></p>
 
           
         
@@ -393,7 +393,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/10/07/tensorflow学习笔记/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/09/27/Echo state network-Conflict-ykh_Win10/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Kehui Yao">
@@ -415,137 +415,7 @@
             
               
                 
-                <a class="post-title-link" href="/2020/10/07/tensorflow学习笔记/" itemprop="url">
-                  Untitled
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-10-07T22:08:59-05:00">
-                2020-10-07
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Post modified</span>
-              
-              <time title="Post modified" itemprop="dateModified" datetime="2020-10-08T09:32:56-05:00">
-                2020-10-08
-              </time>
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="貌似可以自动算gradient"><a href="#貌似可以自动算gradient" class="headerlink" title="貌似可以自动算gradient"></a>貌似可以自动算gradient</h4><p><a href="https://www.tensorflow.org/guide/autodiff" target="_blank" rel="noopener">https://www.tensorflow.org/guide/autodiff</a></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/09/27/Echo state network/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Kehui Yao">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Kehui's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2020/09/27/Echo state network/" itemprop="url">
+                <a class="post-title-link" href="/2020/09/27/Echo state network-Conflict-ykh_Win10/" itemprop="url">
                   Untitled
                 </a>
               
@@ -929,6 +799,170 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/09/16/spatial temporal machine learning/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kehui Yao">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kehui's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2020/09/16/spatial temporal machine learning/" itemprop="url">
+                  Spatial temporal machine learning
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-09-16T00:00:00-05:00">
+                2020-09-16
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Post modified</span>
+              
+              <time title="Post modified" itemprop="dateModified" datetime="2020-09-20T13:07:59-05:00">
+                2020-09-20
+              </time>
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h3 id="Comparison-of-Deep-Neural-Networks-and-Deep-Hierarchical-Models-for-Spatio-Temporal-Data"><a href="#Comparison-of-Deep-Neural-Networks-and-Deep-Hierarchical-Models-for-Spatio-Temporal-Data" class="headerlink" title="Comparison of Deep Neural Networks and Deep Hierarchical Models for Spatio-Temporal Data"></a>Comparison of Deep Neural Networks and Deep Hierarchical Models for Spatio-Temporal Data</h3><p>Paper written by Senzhang Wang, Jiannong Cao, Fellow, IEEE, Philip S. Yu, Fellow, IEEE</p>
+<h4 id="Spatio-temporal-data-mining-is-becoming-growingly-important"><a href="#Spatio-temporal-data-mining-is-becoming-growingly-important" class="headerlink" title="Spatio-temporal data mining is becoming growingly important"></a>Spatio-temporal data mining is becoming growingly important</h4><p>It has broad applications in various domains including </p>
+<ul>
+<li>environment and climate (wind prediction and precipitation forecasting)</li>
+<li>public safety (crime prediction)</li>
+<li>intelligent transportation (traffic flow prediction)</li>
+<li>human mobility</li>
+</ul>
+<h4 id="Why-traditional-data-mining-skills-perform-poorly"><a href="#Why-traditional-data-mining-skills-perform-poorly" class="headerlink" title="Why traditional data mining skills perform poorly"></a>Why traditional data mining skills perform poorly</h4><ul>
+<li><p>ST data are in continuous space</p>
+</li>
+<li><p>Has both spatial and temporal properties</p>
+</li>
+<li><p>Not independently generated</p>
+</li>
+<li><p>Traditional methods rely heavily on feature engineering. Hard to process natural ST data in their raw form.</p>
+</li>
+<li><p>Compared with traditional methods, the advantages of deep leaning models for STDM are as follows:</p>
+<ul>
+<li><p>Automatic feature representation learning</p>
+<ul>
+<li>Do not require hand-crafted features</li>
+<li>The spatial proximity and the long-term temporal correlations are complex and hard to be captured.</li>
+<li>With CNN and RNN, these can be automatically learned from the raw data directly.</li>
+</ul>
+</li>
+<li><p>Powerful function approximation ability</p>
+</li>
+</ul>
+</li>
+</ul>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2020/09/16/spatial temporal machine learning/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/09/16/Statistical methods for epidemiology/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1053,170 +1087,6 @@
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2020/09/16/Statistical methods for epidemiology/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/09/16/spatial temporal machine learning/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Kehui Yao">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Kehui's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2020/09/16/spatial temporal machine learning/" itemprop="url">
-                  Spatial temporal machine learning
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-09-16T00:00:00-05:00">
-                2020-09-16
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Post modified</span>
-              
-              <time title="Post modified" itemprop="dateModified" datetime="2020-09-20T13:07:59-05:00">
-                2020-09-20
-              </time>
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h3 id="Comparison-of-Deep-Neural-Networks-and-Deep-Hierarchical-Models-for-Spatio-Temporal-Data"><a href="#Comparison-of-Deep-Neural-Networks-and-Deep-Hierarchical-Models-for-Spatio-Temporal-Data" class="headerlink" title="Comparison of Deep Neural Networks and Deep Hierarchical Models for Spatio-Temporal Data"></a>Comparison of Deep Neural Networks and Deep Hierarchical Models for Spatio-Temporal Data</h3><p>Paper written by Senzhang Wang, Jiannong Cao, Fellow, IEEE, Philip S. Yu, Fellow, IEEE</p>
-<h4 id="Spatio-temporal-data-mining-is-becoming-growingly-important"><a href="#Spatio-temporal-data-mining-is-becoming-growingly-important" class="headerlink" title="Spatio-temporal data mining is becoming growingly important"></a>Spatio-temporal data mining is becoming growingly important</h4><p>It has broad applications in various domains including </p>
-<ul>
-<li>environment and climate (wind prediction and precipitation forecasting)</li>
-<li>public safety (crime prediction)</li>
-<li>intelligent transportation (traffic flow prediction)</li>
-<li>human mobility</li>
-</ul>
-<h4 id="Why-traditional-data-mining-skills-perform-poorly"><a href="#Why-traditional-data-mining-skills-perform-poorly" class="headerlink" title="Why traditional data mining skills perform poorly"></a>Why traditional data mining skills perform poorly</h4><ul>
-<li><p>ST data are in continuous space</p>
-</li>
-<li><p>Has both spatial and temporal properties</p>
-</li>
-<li><p>Not independently generated</p>
-</li>
-<li><p>Traditional methods rely heavily on feature engineering. Hard to process natural ST data in their raw form.</p>
-</li>
-<li><p>Compared with traditional methods, the advantages of deep leaning models for STDM are as follows:</p>
-<ul>
-<li><p>Automatic feature representation learning</p>
-<ul>
-<li>Do not require hand-crafted features</li>
-<li>The spatial proximity and the long-term temporal correlations are complex and hard to be captured.</li>
-<li>With CNN and RNN, these can be automatically learned from the raw data directly.</li>
-</ul>
-</li>
-<li><p>Powerful function approximation ability</p>
-</li>
-</ul>
-</li>
-</ul>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2020/09/16/spatial temporal machine learning/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -1664,6 +1534,144 @@
 
 
     
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/24/Tips for regression analysis/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kehui Yao">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kehui's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2020/07/24/Tips for regression analysis/" itemprop="url">
+                  Regression analysis
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-07-24T00:29:15-05:00">
+                2020-07-24
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Post modified</span>
+              
+              <time title="Post modified" itemprop="dateModified" datetime="2020-08-21T16:36:36-05:00">
+                2020-08-21
+              </time>
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h4 id="The-procedure-using-sample-correlation-to-derive-the-F-test"><a href="#The-procedure-using-sample-correlation-to-derive-the-F-test" class="headerlink" title="The procedure using sample correlation to derive the F-test"></a>The procedure using sample correlation to derive the F-test</h4><p><img src="https://i.imgur.com/sDSt3E1.png" alt="image-20200724095612281"></p>
+<p><img src="https://i.imgur.com/dXztn7y.png" alt="image-20200724095709817"></p>
+<p><img src="https://i.imgur.com/rtJy51j.png" alt="image-20200724095748636"></p>
+<p><img src="https://i.imgur.com/HVtFg0J.png" alt="image-20200724095839261"></p>
+<p><img src="https://i.imgur.com/DRO1ryC.png" alt="image-20200724100254921"></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2020/07/24/Tips for regression analysis/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
   </section>
 
   
@@ -1711,7 +1719,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">34</span>
+                <span class="site-state-item-count">33</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
