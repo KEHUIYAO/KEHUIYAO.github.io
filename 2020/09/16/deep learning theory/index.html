@@ -161,7 +161,30 @@
 <meta property="og:image" content="https://i.imgur.com/LNCucfD.png">
 <meta property="og:image" content="https://i.imgur.com/sPcQhSt.png">
 <meta property="og:image" content="https://i.imgur.com/RG4CQJq.png">
-<meta property="og:updated_time" content="2020-10-12T02:35:19.133Z">
+<meta property="og:image" content="https://i.imgur.com/Ci2Gzg4.png">
+<meta property="og:image" content="https://i.imgur.com/Mkuzumt.png">
+<meta property="og:image" content="https://i.imgur.com/N1nT0jm.png">
+<meta property="og:image" content="https://i.imgur.com/CQgd3he.png">
+<meta property="og:image" content="https://i.imgur.com/DyaQOFL.png">
+<meta property="og:image" content="https://i.imgur.com/CS1gR9O.png">
+<meta property="og:image" content="https://i.imgur.com/RvrEGcO.png">
+<meta property="og:image" content="https://i.imgur.com/llvN3WF.png">
+<meta property="og:image" content="https://i.imgur.com/6gGCQ9U.png">
+<meta property="og:image" content="https://i.imgur.com/AN9Y6R3.png">
+<meta property="og:image" content="https://i.imgur.com/7lvbXEg.png">
+<meta property="og:image" content="https://i.imgur.com/I9CM7hB.png">
+<meta property="og:image" content="https://i.imgur.com/L9gKlOh.png">
+<meta property="og:image" content="https://i.imgur.com/zu2FsNM.png">
+<meta property="og:image" content="https://i.imgur.com/7MlCgEO.png">
+<meta property="og:image" content="https://i.imgur.com/Lg8lXHr.png">
+<meta property="og:image" content="https://i.imgur.com/kXcRG9b.png">
+<meta property="og:image" content="https://i.imgur.com/V3Asy3o.png">
+<meta property="og:image" content="https://i.imgur.com/674f8WQ.png">
+<meta property="og:image" content="https://i.imgur.com/nPI70Gx.png">
+<meta property="og:image" content="https://i.imgur.com/MJxcoML.png">
+<meta property="og:image" content="https://i.imgur.com/3kOwB08.png">
+<meta property="og:image" content="https://i.imgur.com/naDAsF7.png">
+<meta property="og:updated_time" content="2020-11-01T06:14:00.623Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Deep learning theory">
 <meta name="twitter:description" content="Numerical computationDirectional derivative The directional derivative in direction $\mu$ (a unit vector) is the slope of he function f in direction u. Formally, it is the derivative of the function $">
@@ -370,8 +393,8 @@
               
                 <span class="post-meta-item-text">Post modified</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2020-10-11T21:35:19-05:00">
-                2020-10-11
+              <time title="Post modified" itemprop="dateModified" datetime="2020-11-01T01:14:00-05:00">
+                2020-11-01
               </time>
             
           </span>
@@ -931,7 +954,145 @@
 </ul>
 </li>
 </ul>
-
+<h3 id="Sequence-Modeling-Recurrent-and-Recursive-Nets"><a href="#Sequence-Modeling-Recurrent-and-Recursive-Nets" class="headerlink" title="Sequence Modeling : Recurrent and Recursive Nets"></a>Sequence Modeling : Recurrent and Recursive Nets</h3><h4 id="Unfolding-computational-graphs"><a href="#Unfolding-computational-graphs" class="headerlink" title="Unfolding computational graphs"></a>Unfolding computational graphs</h4><h4 id="Recurrent-Neural-Network"><a href="#Recurrent-Neural-Network" class="headerlink" title="Recurrent Neural Network"></a>Recurrent Neural Network</h4><ul>
+<li><p>Some examples of important design patterns for RNN:</p>
+<ul>
+<li><p>Recurrent networks that produce an output at each time step and have recurrent connections between hidden units.</p>
+<p><img src="https://i.imgur.com/Ci2Gzg4.png" alt="image-20201031140518476"></p>
+</li>
+<li><p>Recurrent networks that produce an output at each time step and have recurrent connections only from the output at one time step to the hidden units at the next time step.</p>
+<p><img src="https://i.imgur.com/Mkuzumt.png" alt="image-20201031140637711"></p>
+</li>
+<li><p>Recurrent networks with recurrent connections between hidden units, that read an entire sequence and then produce a single output.</p>
+<p><img src="https://i.imgur.com/N1nT0jm.png" alt="image-20201031140724539"></p>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>Forward propagation equations for the RNN in figure 10.3</p>
+<ul>
+<li><p>We assume the hyperbolic tangent activation function</p>
+</li>
+<li><p>Apply softmax operation to obtain $\hat{y}$, which is a normalized probabilities over the output.</p>
+</li>
+<li><p>Begin with a specification of the initial state $h^{0}$. Then from t = 1 to t = $\tau$, we apply the following update equations:</p>
+<p><img src="https://i.imgur.com/CQgd3he.png" alt="image-20201031141618907"></p>
+</li>
+<li><p>If this is an example of a recurrent network that maps an input sequence to an output sequence of the same length. The total loss for a given sequence of x values paired with a sequence of y values would then be just the sum of the losses over all the time steps.</p>
+<p><img src="https://i.imgur.com/DyaQOFL.png" alt="image-20201031141952841"></p>
+</li>
+<li><p>Procedure:</p>
+<ul>
+<li><p>We start the recursion with the nodes immediately preceding the final loss<img src="https://i.imgur.com/CS1gR9O.png" alt="image-20201031161603086"></p>
+</li>
+<li><p>Then <img src="https://i.imgur.com/RvrEGcO.png" alt="image-20201031161709728"></p>
+</li>
+<li><p><img src="https://i.imgur.com/llvN3WF.png" alt="image-20201031162042560"></p>
+</li>
+<li><p><img src="https://i.imgur.com/6gGCQ9U.png" alt="image-20201031162204809"></p>
+<p><img src="https://i.imgur.com/AN9Y6R3.png" alt="image-20201031162258051"></p>
+</li>
+<li><p>Once the gradients on the internal nodes of the computational graph are obtained, we can obtain the gradients on the parameter nodes. </p>
+</li>
+<li><p>However, the <img src="https://i.imgur.com/7lvbXEg.png" alt="image-20201031162824096"> operator used in calculus takes into account the contribution of W to the value of f due to all edges in the computational graph. To resolve this ambiguity, we introduce dummy variables $W^{(t)}$ that are defined to be copies of W but with each used at time step t.</p>
+<p><img src="https://i.imgur.com/I9CM7hB.png" alt="image-20201031163000377"></p>
+</li>
+<li></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Teacher Forcing and Networks with Output Recurrence: basically used for figure 10.4</p>
+<ul>
+<li><p>The network with recurrent connections only from the output figure 10.4 is less powerful </p>
+<ul>
+<li>Because it lacks hidden-to-hidden recurrent connections. </li>
+<li>it requires that the output units capture all of the information about  the past that the network will use to predict the future. </li>
+<li>Because the output units are trained to match the training set targets, they are unlikely to capture the necessary information about the past history of the input.</li>
+</ul>
+</li>
+<li><p>The advantage of eliminating hidden-to-hidden recurrence is that</p>
+<ul>
+<li>For any loss function based on comparing the prediction at time t to the training target at time t, all the time steps are decoupled.</li>
+<li>Training can then be parallelized, with the gradient for each step t computed in isolation.</li>
+<li>There is no need to compute the output for the previous time step first, because the training set provides the ideal value of that output.</li>
+</ul>
+</li>
+<li><p>Models that have recurrent connections from their outputs leading back into the model may be trained with teacher forcing.</p>
+<ul>
+<li><p>When training, using training set $y^{(t)}$ instead of $o^{(t)}$.</p>
+</li>
+<li><p>When testing, using model’s output $o^{(t)}$</p>
+<p><img src="https://i.imgur.com/L9gKlOh.png" alt="image-20201031160155862"></p>
+</li>
+</ul>
+</li>
+<li><p>Teacher forcing is originally motivated by avoiding back-propagation through time.</p>
+</li>
+<li>The disadvantage of teacher forcing arises when the model is deployed, e.g we feed the output back into the model, the network will see quite different  inputs from training time. One way to mitigate the problem is to train with both teacher-forced inputs and with free-running inputs, for example by predicting the correct target a number of steps in the future through the unfolded recurrent output-to-input paths.</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>Recurrent Networks as directed graphical models</p>
+<ul>
+<li>Let us consider a sequence of data points Y. The joint distribution of these observations: <img src="https://i.imgur.com/zu2FsNM.png" alt="image-20201031193555416"></li>
+<li>The negative log-likelihood of a set of values  according to such a model is </li>
+<li>It is common to make the Markov assumption that the graphical model should only contain edges from <img src="https://i.imgur.com/7MlCgEO.png" alt="image-20201031193738167">, however, in some cases, we believe that the distribution over $y^{(t)}$ depends on a value of $y^{(i)}$ from the distant past.</li>
+<li>Let us consider the case where the RNN models only a sequence of scalar random variables Y , with no additional inputs x. The RNN then defines a directed graphical model over the y variables. </li>
+<li>To model such relationship, we do feed the actual y values back into the network, so the directed graphical model contains edges from all $y^{(i)}$ values in the past to the current $y^{(t)}$ value.</li>
+</ul>
+<p><img src="https://i.imgur.com/Lg8lXHr.png" alt="image-20201031193619822"></p>
+<ul>
+<li><p>One way to interpret an RNN as a graphical model is to view the RNN as a complete graph, able to represent direct dependencies between any pair of y.</p>
+<p><img src="https://i.imgur.com/kXcRG9b.png" alt="image-20201031193254077"></p>
+</li>
+<li><p>If we consider the graphical model structure of RNN that results from regarding the hidden units $h^{(t)}$ as random variables. It is actually a very efficient way of parametrization.<img src="https://i.imgur.com/V3Asy3o.png" alt="image-20201031194223207"></p>
+</li>
+<li><p>The price RNN pay for their reduced number of parameters is that optimizing the parameters may be difficult.</p>
+</li>
+<li><p>To complete the view of an RNN as a graphical model, we must describe how to draw samples from the model</p>
+<ul>
+<li>We need to sample from the conditional distribution at each time step</li>
+<li>The RNN must have some mechanism for determining the length of the sequence, List some as follows:<ul>
+<li>By adding a special symbol corresponding to the end of a sequence. When the symbol is generated, the sampling process stops</li>
+<li>Introduce an extra Bernoulli output to the model that represents the decision to either continue generation or halt generation at each tie step</li>
+<li>Add an extra output to the model that predicts the integer $\tau$ itself.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>Modeling Sequences Conditioned on Context with RNNs</p>
+<ul>
+<li>Previously, we have discussed RNNs that take a sequence of vectors $x^{(t)}$ for $t = 1,\ldots,\tau$ as input. Another option is to take only a single vector x as input. A first and most common approach is illustrated in figure 10.9</li>
+</ul>
+<p><img src="https://i.imgur.com/674f8WQ.png" alt="image-20201031230608446"></p>
+<ul>
+<li>Rather than receiving only a single vector x as input, the RNN may receive a sequence of vectors $x^{(t)}$ as input. The RNN described in equation 10.8 corresponds to a conditional distribution <img src="https://i.imgur.com/nPI70Gx.png" alt="image-20201031230947048"> that makes a conditional independence assumption that this distribution factorizes as </li>
+</ul>
+</li>
+</ul>
+<p><img src="https://i.imgur.com/MJxcoML.png" alt="image-20201031231020288"></p>
+<p>​             To remove the conditional independence assumption, we can add connections from the output at time t to the hidden unit at time t+1, as shown in              figure 10.10. The model can then represent arbitrary probability distributions over the y sequence.</p>
+<p><img src="https://i.imgur.com/3kOwB08.png" alt="image-20201031231323603"></p>
+<ul>
+<li>The model described in Figure 10.10 still has one restriction, which is that the length of both sequences must be the same.</li>
+</ul>
+<h4 id="Bidirectional-RNNs"><a href="#Bidirectional-RNNs" class="headerlink" title="Bidirectional RNNs"></a>Bidirectional RNNs</h4><ul>
+<li><p>Bidirectional RNNs combine an RNN that moves forward through time beginning from the start of the sequence with another RNN that moves backward through time beginning from the end of the sequence. See Figure 10.11</p>
+<p><img src="https://i.imgur.com/naDAsF7.png" alt="image-20201101010842484"></p>
+</li>
+</ul>
+<ul>
+<li>The idea can be naturally extended to 2-dimensional input, such as images, by having four RNNs, each one going in one of the four directions: up, down, left , right.</li>
+<li>Application: speech recognition, handwriting recognition, bioinformatics</li>
+</ul>
+<h4 id="Encoder-decoder-sequence-to-sequence-architectures"><a href="#Encoder-decoder-sequence-to-sequence-architectures" class="headerlink" title="Encoder-decoder sequence-to-sequence architectures"></a>Encoder-decoder sequence-to-sequence architectures</h4>
       
     </div>
 
@@ -977,8 +1138,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2020/09/22/日记/" rel="prev" title="日记">
-                日记 <i class="fa fa-chevron-right"></i>
+              <a href="/2020/09/16/Statistical methods for epidemiology/" rel="prev" title="Statistical methods for epidemiology">
+                Statistical methods for epidemiology <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -1049,7 +1210,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">33</span>
+                <span class="site-state-item-count">34</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -1124,7 +1285,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Numerical-computation"><span class="nav-number">1.</span> <span class="nav-text">Numerical computation</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Directional-derivative"><span class="nav-number">1.1.</span> <span class="nav-text">Directional derivative</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Choose-step-size-in-different-ways"><span class="nav-number">1.2.</span> <span class="nav-text">Choose step  size in different ways</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Beyond-the-gradient-Jacobian-and-Hessian-Matrices"><span class="nav-number">2.</span> <span class="nav-text">Beyond the gradient: Jacobian and Hessian Matrices</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Condition-number-of-the-Hessian-matrix"><span class="nav-number">2.1.</span> <span class="nav-text">Condition number of the Hessian matrix</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Newton’s-method"><span class="nav-number">2.2.</span> <span class="nav-text">Newton’s method</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Numerical-Precision-a-deep-earning-super-kill"><span class="nav-number">2.3.</span> <span class="nav-text">Numerical Precision: a deep earning super kill</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Machine-learning-basics"><span class="nav-number">3.</span> <span class="nav-text">Machine learning basics</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Different-tasks-of-machine-learning"><span class="nav-number">3.1.</span> <span class="nav-text">Different tasks of machine learning</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#The-performance-measure-P"><span class="nav-number">3.2.</span> <span class="nav-text">The performance measure P</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#The-experience-E"><span class="nav-number">3.3.</span> <span class="nav-text">The experience E</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Generalization"><span class="nav-number">3.4.</span> <span class="nav-text">Generalization</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Occam’s-razor"><span class="nav-number">3.5.</span> <span class="nav-text">Occam’s razor</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Vapnik-Chervonenkis-dimension"><span class="nav-number">3.6.</span> <span class="nav-text">Vapnik-Chervonenkis dimension</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Regularization"><span class="nav-number">3.7.</span> <span class="nav-text">Regularization</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Validation-set-and-hyperparameters"><span class="nav-number">3.8.</span> <span class="nav-text">Validation set and hyperparameters</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Statistics-theory-basic"><span class="nav-number">3.9.</span> <span class="nav-text">Statistics theory basic</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Maximum-likelihood-estimation"><span class="nav-number">3.10.</span> <span class="nav-text">Maximum likelihood estimation</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Stochastic-gradient-descent"><span class="nav-number">3.11.</span> <span class="nav-text">Stochastic gradient descent</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Challenges-motivating-deep-learning"><span class="nav-number">3.12.</span> <span class="nav-text">Challenges motivating deep learning</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Local-constancy-and-smoothness-regularization"><span class="nav-number">3.13.</span> <span class="nav-text">Local constancy and smoothness regularization</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Manifold-learning"><span class="nav-number">3.14.</span> <span class="nav-text">Manifold learning</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deep-Feedforward-Networks"><span class="nav-number">4.</span> <span class="nav-text">Deep Feedforward Networks</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Computational-graph-and-backpropagation"><span class="nav-number">4.1.</span> <span class="nav-text">Computational graph and backpropagation</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Learn-conditional-statistics"><span class="nav-number">4.2.</span> <span class="nav-text">Learn conditional statistics</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Sigmoid-units-for-Bernoulli-Output-distribution"><span class="nav-number">4.3.</span> <span class="nav-text">Sigmoid units for Bernoulli Output distribution:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Softmax-units-for-multinoulli-output-distributions"><span class="nav-number">4.4.</span> <span class="nav-text">Softmax units for multinoulli output distributions</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Regularization-for-deep-learning"><span class="nav-number">5.</span> <span class="nav-text">Regularization for deep learning</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#L2-normalization"><span class="nav-number">5.1.</span> <span class="nav-text">L2 normalization</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#L1-regularization"><span class="nav-number">5.2.</span> <span class="nav-text">L1 regularization</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Dataset-Augmentation"><span class="nav-number">5.3.</span> <span class="nav-text">Dataset Augmentation</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Semi-supervised-learning"><span class="nav-number">5.4.</span> <span class="nav-text">Semi-supervised learning</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Multitask-learning"><span class="nav-number">5.5.</span> <span class="nav-text">Multitask learning</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Early-stopping"><span class="nav-number">5.6.</span> <span class="nav-text">Early stopping</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#parameter-sharing"><span class="nav-number">5.7.</span> <span class="nav-text">parameter sharing</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Dropout"><span class="nav-number">5.8.</span> <span class="nav-text">Dropout</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Sparse-Representations"><span class="nav-number">5.9.</span> <span class="nav-text">Sparse Representations</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Bagging-and-other-ensemble-methods"><span class="nav-number">5.10.</span> <span class="nav-text">Bagging and other ensemble methods</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Adversarial-Training"><span class="nav-number">5.11.</span> <span class="nav-text">Adversarial Training</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deep-learning-training-tips"><span class="nav-number">6.</span> <span class="nav-text">Deep learning training tips</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#testing-the-result-on-training-data-set"><span class="nav-number">6.1.</span> <span class="nav-text">testing the result on training data set</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Vanishing-gradient-problem"><span class="nav-number">6.2.</span> <span class="nav-text">Vanishing gradient problem</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Adaptive-learning-rate"><span class="nav-number">6.3.</span> <span class="nav-text">Adaptive learning rate</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Hard-to-find-optimal-network-parameters"><span class="nav-number">6.4.</span> <span class="nav-text">Hard to find optimal network parameters</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Momentum"><span class="nav-number">6.5.</span> <span class="nav-text">Momentum</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Adam"><span class="nav-number">6.6.</span> <span class="nav-text">Adam</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Regularization-1"><span class="nav-number">6.7.</span> <span class="nav-text">Regularization</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Early-stopping-1"><span class="nav-number">6.8.</span> <span class="nav-text">Early stopping</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Dropout-1"><span class="nav-number">6.9.</span> <span class="nav-text">Dropout</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Numerical-computation"><span class="nav-number">1.</span> <span class="nav-text">Numerical computation</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Directional-derivative"><span class="nav-number">1.1.</span> <span class="nav-text">Directional derivative</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Choose-step-size-in-different-ways"><span class="nav-number">1.2.</span> <span class="nav-text">Choose step  size in different ways</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Beyond-the-gradient-Jacobian-and-Hessian-Matrices"><span class="nav-number">2.</span> <span class="nav-text">Beyond the gradient: Jacobian and Hessian Matrices</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Condition-number-of-the-Hessian-matrix"><span class="nav-number">2.1.</span> <span class="nav-text">Condition number of the Hessian matrix</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Newton’s-method"><span class="nav-number">2.2.</span> <span class="nav-text">Newton’s method</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Numerical-Precision-a-deep-earning-super-kill"><span class="nav-number">2.3.</span> <span class="nav-text">Numerical Precision: a deep earning super kill</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Machine-learning-basics"><span class="nav-number">3.</span> <span class="nav-text">Machine learning basics</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Different-tasks-of-machine-learning"><span class="nav-number">3.1.</span> <span class="nav-text">Different tasks of machine learning</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#The-performance-measure-P"><span class="nav-number">3.2.</span> <span class="nav-text">The performance measure P</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#The-experience-E"><span class="nav-number">3.3.</span> <span class="nav-text">The experience E</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Generalization"><span class="nav-number">3.4.</span> <span class="nav-text">Generalization</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Occam’s-razor"><span class="nav-number">3.5.</span> <span class="nav-text">Occam’s razor</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Vapnik-Chervonenkis-dimension"><span class="nav-number">3.6.</span> <span class="nav-text">Vapnik-Chervonenkis dimension</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Regularization"><span class="nav-number">3.7.</span> <span class="nav-text">Regularization</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Validation-set-and-hyperparameters"><span class="nav-number">3.8.</span> <span class="nav-text">Validation set and hyperparameters</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Statistics-theory-basic"><span class="nav-number">3.9.</span> <span class="nav-text">Statistics theory basic</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Maximum-likelihood-estimation"><span class="nav-number">3.10.</span> <span class="nav-text">Maximum likelihood estimation</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Stochastic-gradient-descent"><span class="nav-number">3.11.</span> <span class="nav-text">Stochastic gradient descent</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Challenges-motivating-deep-learning"><span class="nav-number">3.12.</span> <span class="nav-text">Challenges motivating deep learning</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Local-constancy-and-smoothness-regularization"><span class="nav-number">3.13.</span> <span class="nav-text">Local constancy and smoothness regularization</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Manifold-learning"><span class="nav-number">3.14.</span> <span class="nav-text">Manifold learning</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deep-Feedforward-Networks"><span class="nav-number">4.</span> <span class="nav-text">Deep Feedforward Networks</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Computational-graph-and-backpropagation"><span class="nav-number">4.1.</span> <span class="nav-text">Computational graph and backpropagation</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Learn-conditional-statistics"><span class="nav-number">4.2.</span> <span class="nav-text">Learn conditional statistics</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Sigmoid-units-for-Bernoulli-Output-distribution"><span class="nav-number">4.3.</span> <span class="nav-text">Sigmoid units for Bernoulli Output distribution:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Softmax-units-for-multinoulli-output-distributions"><span class="nav-number">4.4.</span> <span class="nav-text">Softmax units for multinoulli output distributions</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Regularization-for-deep-learning"><span class="nav-number">5.</span> <span class="nav-text">Regularization for deep learning</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#L2-normalization"><span class="nav-number">5.1.</span> <span class="nav-text">L2 normalization</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#L1-regularization"><span class="nav-number">5.2.</span> <span class="nav-text">L1 regularization</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Dataset-Augmentation"><span class="nav-number">5.3.</span> <span class="nav-text">Dataset Augmentation</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Semi-supervised-learning"><span class="nav-number">5.4.</span> <span class="nav-text">Semi-supervised learning</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Multitask-learning"><span class="nav-number">5.5.</span> <span class="nav-text">Multitask learning</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Early-stopping"><span class="nav-number">5.6.</span> <span class="nav-text">Early stopping</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#parameter-sharing"><span class="nav-number">5.7.</span> <span class="nav-text">parameter sharing</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Dropout"><span class="nav-number">5.8.</span> <span class="nav-text">Dropout</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Sparse-Representations"><span class="nav-number">5.9.</span> <span class="nav-text">Sparse Representations</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Bagging-and-other-ensemble-methods"><span class="nav-number">5.10.</span> <span class="nav-text">Bagging and other ensemble methods</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Adversarial-Training"><span class="nav-number">5.11.</span> <span class="nav-text">Adversarial Training</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deep-learning-training-tips"><span class="nav-number">6.</span> <span class="nav-text">Deep learning training tips</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#testing-the-result-on-training-data-set"><span class="nav-number">6.1.</span> <span class="nav-text">testing the result on training data set</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Vanishing-gradient-problem"><span class="nav-number">6.2.</span> <span class="nav-text">Vanishing gradient problem</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Adaptive-learning-rate"><span class="nav-number">6.3.</span> <span class="nav-text">Adaptive learning rate</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Hard-to-find-optimal-network-parameters"><span class="nav-number">6.4.</span> <span class="nav-text">Hard to find optimal network parameters</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Momentum"><span class="nav-number">6.5.</span> <span class="nav-text">Momentum</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Adam"><span class="nav-number">6.6.</span> <span class="nav-text">Adam</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Regularization-1"><span class="nav-number">6.7.</span> <span class="nav-text">Regularization</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Early-stopping-1"><span class="nav-number">6.8.</span> <span class="nav-text">Early stopping</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Dropout-1"><span class="nav-number">6.9.</span> <span class="nav-text">Dropout</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Sequence-Modeling-Recurrent-and-Recursive-Nets"><span class="nav-number">7.</span> <span class="nav-text">Sequence Modeling : Recurrent and Recursive Nets</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Unfolding-computational-graphs"><span class="nav-number">7.1.</span> <span class="nav-text">Unfolding computational graphs</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Recurrent-Neural-Network"><span class="nav-number">7.2.</span> <span class="nav-text">Recurrent Neural Network</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Bidirectional-RNNs"><span class="nav-number">7.3.</span> <span class="nav-text">Bidirectional RNNs</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Encoder-decoder-sequence-to-sequence-architectures"><span class="nav-number">7.4.</span> <span class="nav-text">Encoder-decoder sequence-to-sequence architectures</span></a></li></ol></li></ol></div>
             
 
           </div>

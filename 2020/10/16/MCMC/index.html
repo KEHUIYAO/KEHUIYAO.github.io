@@ -87,25 +87,21 @@
 
 
 
-<meta name="description" content="Comparison of Deep Neural Networks and Deep Hierarchical Models for Spatio-Temporal DataPaper written by Senzhang Wang, Jiannong Cao, Fellow, IEEE, Philip S. Yu, Fellow, IEEE Spatio-temporal data mini">
+<meta name="description" content="Posterior simulationDirect approximation Draw a set of candidate $\theta$ and evaluate $p(\theta)$. Draw a set of points from $U(0,1)$ and use inverse cdf method to draw $\theta$, and these samples se">
 <meta name="keywords" content="study">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Spatial temporal machine learning">
-<meta property="og:url" content="http://yoursite.com/2020/09/16/spatial temporal machine learning/index.html">
+<meta property="og:title" content="MCMC">
+<meta property="og:url" content="http://yoursite.com/2020/10/16/MCMC/index.html">
 <meta property="og:site_name" content="Kehui&#39;s Blog">
-<meta property="og:description" content="Comparison of Deep Neural Networks and Deep Hierarchical Models for Spatio-Temporal DataPaper written by Senzhang Wang, Jiannong Cao, Fellow, IEEE, Philip S. Yu, Fellow, IEEE Spatio-temporal data mini">
+<meta property="og:description" content="Posterior simulationDirect approximation Draw a set of candidate $\theta$ and evaluate $p(\theta)$. Draw a set of points from $U(0,1)$ and use inverse cdf method to draw $\theta$, and these samples se">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://i.imgur.com/TjeVOvz.png">
-<meta property="og:image" content="https://i.imgur.com/rJHUeiB.png">
-<meta property="og:image" content="https://i.imgur.com/PMlEuVu.png">
-<meta property="og:image" content="https://i.imgur.com/B4o0zgl.png">
-<meta property="og:image" content="https://i.imgur.com/oeu7v9E.png">
-<meta property="og:image" content="https://i.imgur.com/vIZEQJb.png">
-<meta property="og:updated_time" content="2020-09-20T18:07:59.836Z">
+<meta property="og:image" content="https://i.imgur.com/CeddUnu.png">
+<meta property="og:image" content="https://i.imgur.com/gVBkaSH.png">
+<meta property="og:updated_time" content="2020-10-20T20:00:14.154Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Spatial temporal machine learning">
-<meta name="twitter:description" content="Comparison of Deep Neural Networks and Deep Hierarchical Models for Spatio-Temporal DataPaper written by Senzhang Wang, Jiannong Cao, Fellow, IEEE, Philip S. Yu, Fellow, IEEE Spatio-temporal data mini">
-<meta name="twitter:image" content="https://i.imgur.com/TjeVOvz.png">
+<meta name="twitter:title" content="MCMC">
+<meta name="twitter:description" content="Posterior simulationDirect approximation Draw a set of candidate $\theta$ and evaluate $p(\theta)$. Draw a set of points from $U(0,1)$ and use inverse cdf method to draw $\theta$, and these samples se">
+<meta name="twitter:image" content="https://i.imgur.com/CeddUnu.png">
 
 
 
@@ -133,13 +129,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2020/09/16/spatial temporal machine learning/">
+  <link rel="canonical" href="http://yoursite.com/2020/10/16/MCMC/">
 
 
 
 
 
-  <title> Spatial temporal machine learning | Kehui's Blog </title>
+  <title> MCMC | Kehui's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="default">
@@ -258,7 +254,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/09/16/spatial temporal machine learning/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/10/16/MCMC/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Kehui Yao">
@@ -279,7 +275,7 @@
             
             
               
-                Spatial temporal machine learning
+                MCMC
               
             
           </h1>
@@ -294,8 +290,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-09-16T00:00:00-05:00">
-                2020-09-16
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-10-16T00:00:00-05:00">
+                2020-10-16
               </time>
             
 
@@ -310,8 +306,8 @@
               
                 <span class="post-meta-item-text">Post modified</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2020-09-20T13:07:59-05:00">
-                2020-09-20
+              <time title="Post modified" itemprop="dateModified" datetime="2020-10-20T15:00:14-05:00">
+                2020-10-20
               </time>
             
           </span>
@@ -342,88 +338,32 @@
       
 
       
-        <h3 id="Comparison-of-Deep-Neural-Networks-and-Deep-Hierarchical-Models-for-Spatio-Temporal-Data"><a href="#Comparison-of-Deep-Neural-Networks-and-Deep-Hierarchical-Models-for-Spatio-Temporal-Data" class="headerlink" title="Comparison of Deep Neural Networks and Deep Hierarchical Models for Spatio-Temporal Data"></a>Comparison of Deep Neural Networks and Deep Hierarchical Models for Spatio-Temporal Data</h3><p>Paper written by Senzhang Wang, Jiannong Cao, Fellow, IEEE, Philip S. Yu, Fellow, IEEE</p>
-<h4 id="Spatio-temporal-data-mining-is-becoming-growingly-important"><a href="#Spatio-temporal-data-mining-is-becoming-growingly-important" class="headerlink" title="Spatio-temporal data mining is becoming growingly important"></a>Spatio-temporal data mining is becoming growingly important</h4><p>It has broad applications in various domains including </p>
-<ul>
-<li>environment and climate (wind prediction and precipitation forecasting)</li>
-<li>public safety (crime prediction)</li>
-<li>intelligent transportation (traffic flow prediction)</li>
-<li>human mobility</li>
+        <h3 id="Posterior-simulation"><a href="#Posterior-simulation" class="headerlink" title="Posterior simulation"></a>Posterior simulation</h3><h4 id="Direct-approximation"><a href="#Direct-approximation" class="headerlink" title="Direct approximation"></a>Direct approximation</h4><ul>
+<li>Draw a set of candidate $\theta$ and evaluate $p(\theta)$.</li>
+<li>Draw a set of points from $U(0,1)$ and use inverse cdf method to draw $\theta$, and these samples serve as posterior samples of $\theta$.</li>
 </ul>
-<h4 id="Why-traditional-data-mining-skills-perform-poorly"><a href="#Why-traditional-data-mining-skills-perform-poorly" class="headerlink" title="Why traditional data mining skills perform poorly"></a>Why traditional data mining skills perform poorly</h4><ul>
-<li><p>ST data are in continuous space</p>
-</li>
-<li><p>Has both spatial and temporal properties</p>
-</li>
-<li><p>Not independently generated</p>
-</li>
-<li><p>Traditional methods rely heavily on feature engineering. Hard to process natural ST data in their raw form.</p>
-</li>
-<li><p>Compared with traditional methods, the advantages of deep leaning models for STDM are as follows:</p>
-<ul>
-<li><p>Automatic feature representation learning</p>
-<ul>
-<li>Do not require hand-crafted features</li>
-<li>The spatial proximity and the long-term temporal correlations are complex and hard to be captured.</li>
-<li>With CNN and RNN, these can be automatically learned from the raw data directly.</li>
+<h4 id="Rejection-sampling"><a href="#Rejection-sampling" class="headerlink" title="Rejection sampling"></a>Rejection sampling</h4><ul>
+<li><img src="https://i.imgur.com/CeddUnu.png" alt="image-20201020114405609"></li>
 </ul>
-</li>
-<li><p>Powerful function approximation ability</p>
-</li>
+<h4 id="Gibbs-sampling"><a href="#Gibbs-sampling" class="headerlink" title="Gibbs sampling"></a>Gibbs sampling</h4><h4 id="Metropolis-and-Metropolis-Hasting-algorithms"><a href="#Metropolis-and-Metropolis-Hasting-algorithms" class="headerlink" title="Metropolis and Metropolis-Hasting algorithms"></a>Metropolis and Metropolis-Hasting algorithms</h4><h4 id="Combining-Gibbs-and-metropolis"><a href="#Combining-Gibbs-and-metropolis" class="headerlink" title="Combining Gibbs and metropolis"></a>Combining Gibbs and metropolis</h4><h3 id="Nimble-building-and-compiling-the-mcmc"><a href="#Nimble-building-and-compiling-the-mcmc" class="headerlink" title="Nimble building and compiling the mcmc"></a>Nimble building and compiling the mcmc</h3><h4 id="Default-assignment-of-sampler-algorithms"><a href="#Default-assignment-of-sampler-algorithms" class="headerlink" title="Default assignment of sampler algorithms"></a>Default assignment of sampler algorithms</h4><h4 id="Automated-parameter-blocking"><a href="#Automated-parameter-blocking" class="headerlink" title="Automated parameter blocking"></a>Automated parameter blocking</h4><ul>
+<li>Using autoBlock = TRUE compiles and runs MCMCs, progressively exploring different sampler assignments, so it takes some time and generates some output. It is most useful for determining effective blocking strategies that can be re-used for later runs</li>
+</ul>
+<h4 id="Customizing-the-MCMC-configuration"><a href="#Customizing-the-MCMC-configuration" class="headerlink" title="Customizing the MCMC configuration"></a>Customizing the MCMC configuration</h4><h3 id="Convergence-diagnosetic"><a href="#Convergence-diagnosetic" class="headerlink" title="Convergence diagnosetic"></a>Convergence diagnosetic</h3><h4 id="Cannot-prove-convergence"><a href="#Cannot-prove-convergence" class="headerlink" title="Cannot prove convergence"></a>Cannot prove convergence</h4><p>At best, you fail to prove a failure to converge</p>
+<h4 id="What-should-we-do"><a href="#What-should-we-do" class="headerlink" title="What should we do"></a>What should we do</h4><ul>
+<li>Run chains longer than you think you need to</li>
+<li>Compute several Markov chains initialized with significantly different initial states</li>
+<li>Look at your Markov chains yourself<ul>
+<li>Trace plots</li>
+<li>Marginal joint densities</li>
 </ul>
 </li>
 </ul>
-<a id="more"></a>
-<h4 id="Categorization-of-spatio-temporal-data"><a href="#Categorization-of-spatio-temporal-data" class="headerlink" title="Categorization of spatio-temporal data"></a>Categorization of spatio-temporal data</h4><p>Data types:</p>
-<ul>
-<li>Event data: crime data </li>
-<li>Trajectory data: gps, taxi</li>
-<li>Point reference data</li>
-<li>Raster data: air quality pm 2..5</li>
-<li>Video: can be thought as raster data</li>
+<h4 id="What-warning-signs-should-I-be-looking-for"><a href="#What-warning-signs-should-I-be-looking-for" class="headerlink" title="What warning signs should I be looking for"></a>What warning signs should I be looking for</h4><ul>
+<li>Poor mixing</li>
+<li>Low/high acceptance rates</li>
+<li>Strongly correlated parameters</li>
 </ul>
-<p>Data representations: (different deep learning models require different data representations as input)</p>
-<ul>
-<li>Sequence </li>
-<li>Graph</li>
-<li>Matrix: facilitate the utilization of CNN model</li>
-<li>Tensor</li>
-</ul>
-<h4 id="Preliminary-of-Deep-learning-models"><a href="#Preliminary-of-Deep-learning-models" class="headerlink" title="Preliminary of Deep learning models"></a>Preliminary of Deep learning models</h4><ul>
-<li><p>RBM: restricted boltzmamnn machines.</p>
-<p><img src="https://i.imgur.com/TjeVOvz.png" alt="image-20200920110332022"></p>
-</li>
-</ul>
-<ul>
-<li><p>CNN: convolutional neural networks</p>
-<p><img src="https://i.imgur.com/rJHUeiB.png" alt="image-20200920110553106"></p>
-</li>
-<li><p>GraphCNN: generalize CNN to graph structured data.</p>
-</li>
-<li><p>RNN and LSTM:</p>
-<p>RNN is designed to recognize the sequential characteristics and use patterns to predict the next likely scenario. They are widely used in the applications of speech recognition and natural language processing.</p>
-</li>
-<li><p>Seq2Seq:</p>
-<p><img src="https://i.imgur.com/PMlEuVu.png" alt="image-20200920123831792"></p>
-</li>
-<li><p>Autoencoder and stacked AE:</p>
-<p><img src="https://i.imgur.com/B4o0zgl.png" alt="image-20200920123924475"></p>
-</li>
-</ul>
-<p><img src="https://i.imgur.com/oeu7v9E.png" alt="image-20200920124022208"></p>
-<h4 id="Framework"><a href="#Framework" class="headerlink" title="Framework"></a>Framework</h4><p><img src="https://i.imgur.com/vIZEQJb.png" alt="image-20200920124313551"></p>
-<ul>
-<li>Raw ST data will first be represented as a particular data format to fit the deep learning model.</li>
-<li>RNN and LSTM models are good at handling sequence data with short-term or long-term temporal correlation, while CNN models are effective to capture the spatial correlation in the image like matrices.</li>
-</ul>
-<h4 id="ST-data-preprocessing"><a href="#ST-data-preprocessing" class="headerlink" title="ST data preprocessing"></a>ST data preprocessing</h4><ul>
-<li>Usually one type of ST data instance corresponds to one typical data representations.</li>
-<li>Trajectory and time series data can naturally be represented as sequence data.</li>
-<li>Spatial map can be represented as a 2D matrix.</li>
-<li>ST raster can be represented as a 2D matrix or 3D tensor</li>
-<li>Trajectory data can also be represented as a matrix to apply CNN. For example, a city is first partitioned into grid cell regions. Then the ST field can be modeled as a matrix with each cell region representing an entry. If a trajectory paths over the cell region, the corresponding entry value is set to 1; otherwise, set to 0.</li>
-<li>Spatial map is sometimes represented as a graph</li>
-</ul>
+<h4 id="Getting-more-quantitative"><a href="#Getting-more-quantitative" class="headerlink" title="Getting more quantitative"></a>Getting more quantitative</h4><p><img src="https://i.imgur.com/gVBkaSH.png" alt="image-20201019134146834"></p>
 
       
     </div>
@@ -460,8 +400,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/09/13/短途旅行/" rel="next" title="短途旅行">
-                <i class="fa fa-chevron-left"></i> 短途旅行
+              <a href="/2020/09/27/Echo state network-Conflict-ykh_Win10/" rel="next" title>
+                <i class="fa fa-chevron-left"></i> 
               </a>
             
           </div>
@@ -469,10 +409,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/09/16/deep learning theory/" rel="prev" title="Deep learning theory">
-                Deep learning theory <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -617,7 +553,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Comparison-of-Deep-Neural-Networks-and-Deep-Hierarchical-Models-for-Spatio-Temporal-Data"><span class="nav-number">1.</span> <span class="nav-text">Comparison of Deep Neural Networks and Deep Hierarchical Models for Spatio-Temporal Data</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Spatio-temporal-data-mining-is-becoming-growingly-important"><span class="nav-number">1.1.</span> <span class="nav-text">Spatio-temporal data mining is becoming growingly important</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Why-traditional-data-mining-skills-perform-poorly"><span class="nav-number">1.2.</span> <span class="nav-text">Why traditional data mining skills perform poorly</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Categorization-of-spatio-temporal-data"><span class="nav-number">1.3.</span> <span class="nav-text">Categorization of spatio-temporal data</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Preliminary-of-Deep-learning-models"><span class="nav-number">1.4.</span> <span class="nav-text">Preliminary of Deep learning models</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Framework"><span class="nav-number">1.5.</span> <span class="nav-text">Framework</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ST-data-preprocessing"><span class="nav-number">1.6.</span> <span class="nav-text">ST data preprocessing</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Posterior-simulation"><span class="nav-number">1.</span> <span class="nav-text">Posterior simulation</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Direct-approximation"><span class="nav-number">1.1.</span> <span class="nav-text">Direct approximation</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Rejection-sampling"><span class="nav-number">1.2.</span> <span class="nav-text">Rejection sampling</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Gibbs-sampling"><span class="nav-number">1.3.</span> <span class="nav-text">Gibbs sampling</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Metropolis-and-Metropolis-Hasting-algorithms"><span class="nav-number">1.4.</span> <span class="nav-text">Metropolis and Metropolis-Hasting algorithms</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Combining-Gibbs-and-metropolis"><span class="nav-number">1.5.</span> <span class="nav-text">Combining Gibbs and metropolis</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Nimble-building-and-compiling-the-mcmc"><span class="nav-number">2.</span> <span class="nav-text">Nimble building and compiling the mcmc</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Default-assignment-of-sampler-algorithms"><span class="nav-number">2.1.</span> <span class="nav-text">Default assignment of sampler algorithms</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Automated-parameter-blocking"><span class="nav-number">2.2.</span> <span class="nav-text">Automated parameter blocking</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Customizing-the-MCMC-configuration"><span class="nav-number">2.3.</span> <span class="nav-text">Customizing the MCMC configuration</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Convergence-diagnosetic"><span class="nav-number">3.</span> <span class="nav-text">Convergence diagnosetic</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Cannot-prove-convergence"><span class="nav-number">3.1.</span> <span class="nav-text">Cannot prove convergence</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#What-should-we-do"><span class="nav-number">3.2.</span> <span class="nav-text">What should we do</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#What-warning-signs-should-I-be-looking-for"><span class="nav-number">3.3.</span> <span class="nav-text">What warning signs should I be looking for</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Getting-more-quantitative"><span class="nav-number">3.4.</span> <span class="nav-text">Getting more quantitative</span></a></li></ol></li></ol></div>
             
 
           </div>
