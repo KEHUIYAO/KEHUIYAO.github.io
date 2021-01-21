@@ -248,6 +248,156 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/13/excel2latex/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kehui Yao">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kehui's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2019/04/13/excel2latex/" itemprop="url">
+                  Latex Tips
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-13T23:50:58-05:00">
+                2019-04-13
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Post modified</span>
+              
+              <time title="Post modified" itemprop="dateModified" datetime="2020-07-22T13:06:19-05:00">
+                2020-07-22
+              </time>
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Covert-tables-to-latex-code"><a href="#Covert-tables-to-latex-code" class="headerlink" title="Covert tables to latex code"></a>Covert tables to latex code</h2><p>Making tables in latex can be tedious. This section will show you how to use some tools to automatically generate the latex codes based on the .xlsx or .csv format files. First I will introduce an excel add-in called excel2latex, then I will show a python script which does the same job and it’s more flexible when encountering special characters which you don’t want to escape when you output to your latex code.</p>
+<h3 id="Excel2latex-add-in"><a href="#Excel2latex-add-in" class="headerlink" title="Excel2latex add-in"></a>Excel2latex add-in</h3><p><a href="https://github.com/krlmlr/Ex­cel2LaTeX" target="_blank" rel="noopener">Re­pos­i­tory</a></p>
+<p><a href="https://www.ctan.org/tex-archive/support/excel2latex" target="_blank" rel="noopener">Doc­u­men­ta­tion</a></p>
+<p>When I use this add-in, it is very nice if I want to convert some complex structured-tables into latex. For example, I could use merge cells, change font colors, change font size, set borders color in excel, and convert it to latex code, which is very convenient. However, I do not know how to let the program do not modify some special characters I write in latex formula environment like \$\alpha_0\$, so I found another converting tool which could handle this situation well.</p>
+<h3 id="Tably"><a href="#Tably" class="headerlink" title="Tably"></a>Tably</h3><p><a href="https://github.com/narimiran/tably" target="_blank" rel="noopener">Repository</a></p>
+<p><a href="https://github.com/narimiran/tably/blob/master/README.md" target="_blank" rel="noopener">Documentation</a></p>
+<p>It has many good features:</p>
+<ul>
+<li>easy to use - just provide a .csv file</li>
+<li>optionally escapes commonly used special LaTeX characters, such as <code>$</code>, <code>&amp;</code>, <code>%</code>, etc.(You can turn on ‘do not escape’ option)</li>
+<li>user-defined separators - comma, tab, semicolon, etc.</li>
+<li>units for each column can be specified</li>
+<li>possible to define table caption and label</li>
+<li>columns’ alignments can be customized</li>
+<li>can be used on multiple .csv files at the same time</li>
+<li>table can be added to the existing .tex file</li>
+<li>can generate only the fragment inside a tabular environment for inserting into another tex file</li>
+<li>when working with multiple .csv files, can optionally save each table in a different file</li>
+</ul>
+<h2 id="Latex-insert-figure-side-by-side"><a href="#Latex-insert-figure-side-by-side" class="headerlink" title="Latex insert figure side by side"></a>Latex insert figure side by side</h2><p>I want to place 2 images (.png file) side by side in LaTeX.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/21/Boosting/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -640,7 +790,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">32</span>
+                <span class="site-state-item-count">33</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -722,7 +872,7 @@
         <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2020</span>
+  <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
