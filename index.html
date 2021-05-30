@@ -248,282 +248,6 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/01/21/python_workflow/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Kehui Yao">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Kehui's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2021/01/21/python_workflow/" itemprop="url">
-                  Untitled
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-01-21T14:45:02-06:00">
-                2021-01-21
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Post modified</span>
-              
-              <time title="Post modified" itemprop="dateModified" datetime="2021-01-21T14:52:27-06:00">
-                2021-01-21
-              </time>
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="My-Python-workflow"><a href="#My-Python-workflow" class="headerlink" title="My Python workflow"></a>My Python workflow</h1><p>lalala</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/09/16/deep learning theory/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Kehui Yao">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Kehui's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2020/09/16/deep learning theory/" itemprop="url">
-                  Deep learning theory
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-09-16T00:00:00-05:00">
-                2020-09-16
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Post modified</span>
-              
-              <time title="Post modified" itemprop="dateModified" datetime="2020-11-07T20:24:28-06:00">
-                2020-11-07
-              </time>
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h3 id="Numerical-computation"><a href="#Numerical-computation" class="headerlink" title="Numerical computation"></a>Numerical computation</h3><h4 id="Directional-derivative"><a href="#Directional-derivative" class="headerlink" title="Directional derivative"></a>Directional derivative</h4><ul>
-<li>The directional derivative in direction $\mu$ (a unit vector) is the slope of he function f in direction u. Formally, it is the derivative of the function $f(x+\alpha\mu)$ with respect to $\alpha$, evaluated at $\alpha = 0$, this is an numerically correct expression, you can verify it by writing the derivative of the function of $\alpha$.</li>
-<li>Using the chain rule, we can see <img src="https://i.imgur.com/ubBUSYs.png" alt="image-20200915105658574"></li>
-</ul>
-<ul>
-<li><p>To minimize f, we would like to find the direction in which f decreases the fastest. We can do this by <img src="https://i.imgur.com/eAeLPxX.png" alt="image-20200915105722737"></p>
-<p>Where $\theta$ is the angle between $\mu$ and the gradient, substituting in <img src="https://i.imgur.com/9Ab1jtL.png" alt="image-20200915105830687"> and ignoring factors that do not depend on $\mu$, this simplifies to <img src="https://i.imgur.com/r5qxRdb.png" alt="image-20200915105937469"> This is minimized when $\mu$ points in the opposite direction as the gradient.</p>
-</li>
-<li><p>This is known as the method of steepest descend , or gradient descent.</p>
-</li>
-<li><p>Steepest descent proposes a new point <img src="https://i.imgur.com/hvl7wqt.png" alt="image-20200915112118999"></p>
-</li>
-</ul>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2020/09/16/deep learning theory/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/09/22/日记/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -563,7 +287,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-09-22T00:00:00-05:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-09-22T00:00:00+08:00">
                 2020-09-22
               </time>
             
@@ -579,7 +303,7 @@
               
                 <span class="post-meta-item-text">Post modified</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2020-11-06T01:09:17-06:00">
+              <time title="Post modified" itemprop="dateModified" datetime="2020-11-06T15:09:17+08:00">
                 2020-11-06
               </time>
             
@@ -617,749 +341,6 @@
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2020/09/22/日记/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/10/16/MCMC/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Kehui Yao">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Kehui's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2020/10/16/MCMC/" itemprop="url">
-                  MCMC
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-10-16T00:00:00-05:00">
-                2020-10-16
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Post modified</span>
-              
-              <time title="Post modified" itemprop="dateModified" datetime="2020-11-01T01:17:49-05:00">
-                2020-11-01
-              </time>
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h3 id="Posterior-simulation"><a href="#Posterior-simulation" class="headerlink" title="Posterior simulation"></a>Posterior simulation</h3><h4 id="Direct-approximation"><a href="#Direct-approximation" class="headerlink" title="Direct approximation"></a>Direct approximation</h4><ul>
-<li>Draw a set of candidate $\theta$ and evaluate $p(\theta)$.</li>
-<li>Draw a set of points from $U(0,1)$ and use inverse cdf method to draw $\theta$, and these samples serve as posterior samples of $\theta$.</li>
-</ul>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2020/10/16/MCMC/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/09/12/线性代数/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Kehui Yao">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Kehui's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2020/09/12/线性代数/" itemprop="url">
-                  线性代数
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-09-12T00:00:00-05:00">
-                2020-09-12
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Post modified</span>
-              
-              <time title="Post modified" itemprop="dateModified" datetime="2020-09-22T23:28:13-05:00">
-                2020-09-22
-              </time>
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h3 id="线性代数的几何解释"><a href="#线性代数的几何解释" class="headerlink" title="线性代数的几何解释"></a>线性代数的几何解释</h3><p>本文素材来自于up主3blue1brown的线性代数视频教程，从几何的角度解释了线性代数，比较有意思。</p>
-<h4 id="向量的本质"><a href="#向量的本质" class="headerlink" title="向量的本质"></a>向量的本质</h4><p>scalar之所以叫scalar是因为它可以scale向量？</p>
-<h4 id="线性组合，张成的空间和基"><a href="#线性组合，张成的空间和基" class="headerlink" title="线性组合，张成的空间和基"></a>线性组合，张成的空间和基</h4><h4 id="矩阵和线性变换"><a href="#矩阵和线性变换" class="headerlink" title="矩阵和线性变换"></a>矩阵和线性变换</h4><ul>
-<li>把矩阵在几何上就是一种对空间的线性变换。</li>
-<li>A 2x2 matrix, can be thought as a linear transformation on 2d space, each column represents the  coordinate of the transformed basis vector.</li>
-<li>For example, matrix [0,-1;1,0] is 90 degree rotation counterclockwise transformation, since it makes the original x basis vector (1,0) to be (0,1) and original y basis vector (0,1) to be (-1,0).</li>
-<li>If two column vectors in a 2x2 matrix are linearly dependent, it means the linear transformation squishes all of 2-D space onto the line where those two vectors sit.</li>
-</ul>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2020/09/12/线性代数/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/09/13/短途旅行/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Kehui Yao">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Kehui's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2020/09/13/短途旅行/" itemprop="url">
-                  短途旅行
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-09-13T00:00:00-05:00">
-                2020-09-13
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Post modified</span>
-              
-              <time title="Post modified" itemprop="dateModified" datetime="2020-09-22T17:36:15-05:00">
-                2020-09-22
-              </time>
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>这次旅行定在了刚开学的第一个周末，本来是可以放在暑假的，但由于我有一个qualify exam卡着，8月份出去估计也没心情尽情地玩，于是干脆就放到考完qualfiy之后。旅行计划都交给了老王，老王素来稳妥，很早就把计划贴到了博客上供我们参阅。准备计划的工作交给了老蒋，老蒋作为安排届的master，给了列了一个长长的清单，我一考完试，就有条不紊地按照清单上的任务一样样执行，到了出发前夕，竟是做完了。</p>
-<p>我很喜欢这种被安排好了的旅行，也许和小时候总是和爸爸妈妈出门旅行有关，啥事也不用操心。不过来美国三年也旅行了几次，去佛罗里达那次印象深刻，我和老刘用一个晚上定完了机票酒店，租车和行程，后续还有诸多变数，还是有点小累。去纽约那次找高中同学可谓体验极好，纽约地头蛇给我在他家安排了一张气垫床，一劳永逸地解决了我的住宿问题，于是我在纽约停留了7天之多，每天只看一两个景点，也硬是把纽约逛的太差不差了。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2020/09/13/短途旅行/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/09/16/Statistical methods for epidemiology/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Kehui Yao">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Kehui's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2020/09/16/Statistical methods for epidemiology/" itemprop="url">
-                  Statistical methods for epidemiology
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-09-16T00:00:00-05:00">
-                2020-09-16
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Post modified</span>
-              
-              <time title="Post modified" itemprop="dateModified" datetime="2020-09-22T17:34:30-05:00">
-                2020-09-22
-              </time>
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h3 id="Type-of-study"><a href="#Type-of-study" class="headerlink" title="Type of study"></a>Type of study</h3><h4 id="What-is-epidemiology"><a href="#What-is-epidemiology" class="headerlink" title="What is epidemiology"></a>What is epidemiology</h4><ul>
-<li>Epidemiology is a study of identifying the association between exposures (cause, risk factors) and disease outcome in speciﬁc human population, and the application of this study to control health problems.</li>
-</ul>
-<h4 id="Type-of-research-studies"><a href="#Type-of-research-studies" class="headerlink" title="Type of research studies"></a>Type of research studies</h4><ul>
-<li><p>Sample survey</p>
-<ul>
-<li>Health interview surveys</li>
-</ul>
-</li>
-<li><p>Epidemiological studies</p>
-<ul>
-<li><p>Observational, not experimental</p>
-</li>
-<li><p>Case-control studies: association between current disease and past exposure</p>
-<ul>
-<li>A group of subjects who had lung cancer and a group of people who did not have lung cancer patients were included in the study, and they were <strong>interviewed</strong> about their smoking habits <strong>in the past</strong>.</li>
-</ul>
-</li>
-<li><p>Prospective cohort studies: association between current exposure and subsequent development of disease.</p>
-<ul>
-<li>Invite a group of subjects to complete a short questionnaire about their smoking habits, then all of these respondents were then followed up.</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li><p>Clinical trials</p>
-<ul>
-<li>experimental</li>
-</ul>
-</li>
-</ul>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2020/09/16/Statistical methods for epidemiology/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/09/16/spatial temporal machine learning/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Kehui Yao">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Kehui's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2020/09/16/spatial temporal machine learning/" itemprop="url">
-                  Spatial temporal machine learning
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-09-16T00:00:00-05:00">
-                2020-09-16
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Post modified</span>
-              
-              <time title="Post modified" itemprop="dateModified" datetime="2020-09-20T13:07:59-05:00">
-                2020-09-20
-              </time>
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h3 id="Comparison-of-Deep-Neural-Networks-and-Deep-Hierarchical-Models-for-Spatio-Temporal-Data"><a href="#Comparison-of-Deep-Neural-Networks-and-Deep-Hierarchical-Models-for-Spatio-Temporal-Data" class="headerlink" title="Comparison of Deep Neural Networks and Deep Hierarchical Models for Spatio-Temporal Data"></a>Comparison of Deep Neural Networks and Deep Hierarchical Models for Spatio-Temporal Data</h3><p>Paper written by Senzhang Wang, Jiannong Cao, Fellow, IEEE, Philip S. Yu, Fellow, IEEE</p>
-<h4 id="Spatio-temporal-data-mining-is-becoming-growingly-important"><a href="#Spatio-temporal-data-mining-is-becoming-growingly-important" class="headerlink" title="Spatio-temporal data mining is becoming growingly important"></a>Spatio-temporal data mining is becoming growingly important</h4><p>It has broad applications in various domains including </p>
-<ul>
-<li>environment and climate (wind prediction and precipitation forecasting)</li>
-<li>public safety (crime prediction)</li>
-<li>intelligent transportation (traffic flow prediction)</li>
-<li>human mobility</li>
-</ul>
-<h4 id="Why-traditional-data-mining-skills-perform-poorly"><a href="#Why-traditional-data-mining-skills-perform-poorly" class="headerlink" title="Why traditional data mining skills perform poorly"></a>Why traditional data mining skills perform poorly</h4><ul>
-<li><p>ST data are in continuous space</p>
-</li>
-<li><p>Has both spatial and temporal properties</p>
-</li>
-<li><p>Not independently generated</p>
-</li>
-<li><p>Traditional methods rely heavily on feature engineering. Hard to process natural ST data in their raw form.</p>
-</li>
-<li><p>Compared with traditional methods, the advantages of deep leaning models for STDM are as follows:</p>
-<ul>
-<li><p>Automatic feature representation learning</p>
-<ul>
-<li>Do not require hand-crafted features</li>
-<li>The spatial proximity and the long-term temporal correlations are complex and hard to be captured.</li>
-<li>With CNN and RNN, these can be automatically learned from the raw data directly.</li>
-</ul>
-</li>
-<li><p>Powerful function approximation ability</p>
-</li>
-</ul>
-</li>
-</ul>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2020/09/16/spatial temporal machine learning/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -1441,7 +422,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-07-20T00:29:15-05:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-07-20T00:29:15+08:00">
                 2020-07-20
               </time>
             
@@ -1457,8 +438,8 @@
               
                 <span class="post-meta-item-text">Post modified</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2020-09-03T16:33:08-05:00">
-                2020-09-03
+              <time title="Post modified" itemprop="dateModified" datetime="2020-09-04T05:33:08+08:00">
+                2020-09-04
               </time>
             
           </span>
@@ -1540,7 +521,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/28/design and experiments tips/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/22/mactip/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Kehui Yao">
@@ -1562,8 +543,8 @@
             
               
                 
-                <a class="post-title-link" href="/2020/07/28/design and experiments tips/" itemprop="url">
-                  Design and experiments
+                <a class="post-title-link" href="/2020/07/22/mactip/" itemprop="url">
+                  Mac优秀软件以及快捷键分享
                 </a>
               
             
@@ -1579,8 +560,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-07-28T00:29:15-05:00">
-                2020-07-28
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-07-22T00:00:00+08:00">
+                2020-07-22
               </time>
             
 
@@ -1595,8 +576,8 @@
               
                 <span class="post-meta-item-text">Post modified</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2020-08-22T11:26:12-05:00">
-                2020-08-22
+              <time title="Post modified" itemprop="dateModified" datetime="2020-07-24T22:29:54+08:00">
+                2020-07-24
               </time>
             
           </span>
@@ -1628,14 +609,565 @@
 
       
         
-          <h4 id="Model-diagnose"><a href="#Model-diagnose" class="headerlink" title="Model diagnose"></a>Model diagnose</h4><p><img src="https://i.imgur.com/bfmVvtT.png" alt="image-20200808144119933"></p>
-<p><img src="https://i.imgur.com/LzpID36.png" alt="image-20200808144131770"></p>
-<h4 id="Design-with-both-nested-and-factorial-factors"><a href="#Design-with-both-nested-and-factorial-factors" class="headerlink" title="Design with both nested and factorial factors"></a>Design with both nested and factorial factors</h4><p><img src="https://i.imgur.com/Rv2nBWM.png" alt="image-20200729191811153"></p>
-<p><img src="https://i.imgur.com/EgVSsGJ.png" alt="image-20200729191830357"></p>
-<p><img src="https://i.imgur.com/Bx5Wu7t.png" alt="image-20200729192330853"></p>
+          <h3 id="软件类"><a href="#软件类" class="headerlink" title="软件类"></a>软件类</h3><p>上淘宝购买叶子登录器：<a href="https://item.taobao.com/item.htm?spm=a1z09.2.0.0.344d2e8dYhbcqt&amp;id=586441192815&amp;_u=22c1nhn75862，通过这个登录器可以内购商家下载的所有软件。（如pdf" target="_blank" rel="noopener">https://item.taobao.com/item.htm?spm=a1z09.2.0.0.344d2e8dYhbcqt&amp;id=586441192815&amp;_u=22c1nhn75862，通过这个登录器可以内购商家下载的所有软件。（如pdf</a> expert等神器）。</p>
+<p>如果想花钱支持一些软件可以分开购买。</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2020/07/28/design and experiments tips/#more" rel="contents">
+            <a class="btn" href="/2020/07/22/mactip/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/16/bytedance_interview/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kehui Yao">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kehui's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2019/03/16/bytedance_interview/" itemprop="url">
+                  字节跳动春招算法四道编程题
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-16T22:25:12+08:00">
+                2019-03-16
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Post modified</span>
+              
+              <time title="Post modified" itemprop="dateModified" datetime="2020-07-23T02:09:46+08:00">
+                2020-07-23
+              </time>
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="P1"><a href="#P1" class="headerlink" title="P1"></a>P1</h2><h3 id="Problem-description"><a href="#Problem-description" class="headerlink" title="Problem description:"></a>Problem description:</h3><p>总共有1024元，买一件价格为N元的商品，N为1到1024间的整数。<br>找零都以硬币形式给出，可能值为1元，4元，16元，64元。问最少找零硬币数。</p>
+<h3 id="Soution"><a href="#Soution" class="headerlink" title="Soution:"></a>Soution:</h3><p>典型的递归问题。</p>
+<blockquote>
+<p>python code:</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">how_many_coins</span><span class="params">(x)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> x==<span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">    <span class="keyword">if</span> x&gt;=<span class="number">64</span>:</span><br><span class="line">        <span class="keyword">return</span> how_many_coins(x<span class="number">-64</span>)+<span class="number">1</span></span><br><span class="line">    <span class="keyword">if</span> x&gt;=<span class="number">16</span>:</span><br><span class="line">        <span class="keyword">return</span> how_many_coins(x<span class="number">-16</span>)+<span class="number">1</span></span><br><span class="line">    <span class="keyword">if</span> x&gt;=<span class="number">4</span>:</span><br><span class="line">        <span class="keyword">return</span> how_many_coins(x<span class="number">-4</span>)+<span class="number">1</span></span><br><span class="line">    <span class="keyword">if</span> x&gt;=<span class="number">1</span>:</span><br><span class="line">        <span class="keyword">return</span> how_many_coins(x<span class="number">-1</span>)+<span class="number">1</span></span><br><span class="line">how_many_coins(<span class="number">65</span>)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>output:</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/03/16/bytedance_interview/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/26/leetcode-stack/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kehui Yao">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kehui's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2019/03/26/leetcode-stack/" itemprop="url">
+                  Leetcode stack problem
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-26T12:21:12+08:00">
+                2019-03-26
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Post modified</span>
+              
+              <time title="Post modified" itemprop="dateModified" datetime="2020-07-23T02:07:55+08:00">
+                2020-07-23
+              </time>
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="单调栈"><a href="#单调栈" class="headerlink" title="单调栈"></a>单调栈</h2><p>Find the first element on the left which is larger than itself.</p>
+<p>The most straight forward idea is to compare the current element with the left element in the list one by one. But soon we found that it is not the efficient solution. For example, you have a list [1,4,2,3,5]. When you compare the element 5 with 3, you found 5 &gt; 3, then you proceed to the next element 2. But when you set the position of 3, you have already do the comparison 3 &gt; 2. So we do not need to do the comparison 5 &gt; 2, which could save the computation time if the list is much larger. </p>
+<p>So, we apply the trick of the decreasing stack. The idea is to keep a temporary list and the elements in this list are in decreasing order. At the beginning, the decreasing stack is empty. Then, we loop through the list, and for each element, we compare the element with the top element in the decreasing stack. If larger, then pop the top element out, and do it again until the decreasing stack is empty or it encouter the top elment which is larger than itself. If empty, it means no other element is larger than it, otherwise, output the element which is larger than it. Finally, push it into the decreasing stack.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 单调递减栈实现返回列表中左边第一个比自身大的元素的值</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">decreasing_stack</span><span class="params">(nums)</span>:</span></span><br><span class="line">    index=[<span class="number">-1</span>]</span><br><span class="line">    stack=[nums[<span class="number">0</span>]]</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,len(nums)):</span><br><span class="line">        <span class="keyword">while</span> stack <span class="keyword">and</span> nums[i]&gt;=stack[<span class="number">-1</span>] :</span><br><span class="line">            stack.pop()</span><br><span class="line">        <span class="keyword">if</span> stack:</span><br><span class="line">            index.append(stack[<span class="number">-1</span>])</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            index.append(<span class="number">-1</span>)</span><br><span class="line">        stack.append(nums[i])</span><br><span class="line">    <span class="keyword">return</span> index</span><br><span class="line">a=[<span class="number">4</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">5</span>]</span><br><span class="line">decreasing_stack(a)</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/03/26/leetcode-stack/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/29/leetcode-dp/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kehui Yao">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kehui's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2019/03/29/leetcode-dp/" itemprop="url">
+                  Leetcode dynamic programming
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-29T17:37:19+08:00">
+                2019-03-29
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Post modified</span>
+              
+              <time title="Post modified" itemprop="dateModified" datetime="2020-07-23T02:07:26+08:00">
+                2020-07-23
+              </time>
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="53-Maximum-Subarray"><a href="#53-Maximum-Subarray" class="headerlink" title="53.  Maximum Subarray"></a>53.  Maximum Subarray</h2><p>dp[i] means if the the maximum subarray that contains the ith element.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">maximum_subarray</span><span class="params">(x)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> len(x)==<span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line">    dp=[float(<span class="string">'-inf'</span>)]*len(x)</span><br><span class="line">    res=x[<span class="number">0</span>]</span><br><span class="line">    dp[<span class="number">0</span>]=x[<span class="number">0</span>]</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,len(x)):</span><br><span class="line">        dp[i]=max(x[i],dp[i<span class="number">-1</span>]+x[i])</span><br><span class="line">        </span><br><span class="line">    <span class="keyword">return</span> max(dp)</span><br><span class="line"></span><br><span class="line">a=[<span class="number">-2</span>,<span class="number">1</span>,<span class="number">-3</span>,<span class="number">4</span>,<span class="number">-1</span>,<span class="number">2</span>,<span class="number">1</span>,<span class="number">-5</span>,<span class="number">4</span>]</span><br><span class="line">print(maximum_subarray(a))</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">maximum_subarray</span><span class="params">(x)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> len(x)==<span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line">    dp=[float(<span class="string">'-inf'</span>)]*len(x)</span><br><span class="line">    res=x[<span class="number">0</span>]</span><br><span class="line">    dp[<span class="number">0</span>]=x[<span class="number">0</span>]</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,len(x)):</span><br><span class="line">        dp[i]=max(x[i],dp[i<span class="number">-1</span>]+x[i])</span><br><span class="line">        res=max(res,dp[i])</span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line"></span><br><span class="line">a=[<span class="number">-2</span>,<span class="number">1</span>,<span class="number">-3</span>,<span class="number">4</span>,<span class="number">-1</span>,<span class="number">2</span>,<span class="number">1</span>,<span class="number">-5</span>,<span class="number">4</span>]</span><br><span class="line">maximum_subarray(a)</span><br></pre></td></tr></table></figure>
+<pre><code>6
+</code></pre>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/03/29/leetcode-dp/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/27/leetcode-backtracking/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kehui Yao">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kehui's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2019/03/27/leetcode-backtracking/" itemprop="url">
+                  Leetcode backtracking problem
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-27T14:58:16+08:00">
+                2019-03-27
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Post modified</span>
+              
+              <time title="Post modified" itemprop="dateModified" datetime="2020-07-23T02:06:42+08:00">
+                2020-07-23
+              </time>
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="46-Permutations"><a href="#46-Permutations" class="headerlink" title="46. Permutations"></a>46. Permutations</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">permutate</span><span class="params">(x)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> len(x)==<span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> []</span><br><span class="line">    <span class="keyword">if</span> len(x)==<span class="number">1</span>:</span><br><span class="line">        <span class="keyword">return</span> [x]</span><br><span class="line">    res=[]</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(len(x)):</span><br><span class="line">        x[<span class="number">0</span>],x[i]=x[i],x[<span class="number">0</span>]</span><br><span class="line"></span><br><span class="line">        temp=permutate(x[<span class="number">1</span>:])</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> temp:</span><br><span class="line"></span><br><span class="line">            res.append([x[<span class="number">0</span>]]+j)</span><br><span class="line">        x[<span class="number">0</span>],x[i]=x[i],x[<span class="number">0</span>]</span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line">a=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line">permutate(a)</span><br></pre></td></tr></table></figure>
+<pre><code>[[1, 2, 3], [1, 3, 2], [2, 1, 3], [2, 3, 1], [3, 2, 1], [3, 1, 2]]
+</code></pre>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/03/27/leetcode-backtracking/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -1672,10 +1204,6 @@
   </section>
 
   
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
-  </nav>
-
 
           
           </div>
@@ -1716,7 +1244,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">33</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -1727,7 +1255,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
